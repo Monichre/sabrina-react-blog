@@ -82,16 +82,10 @@ export default class Blog extends Component {
 								<div className="featured_post">
 									<img className="featured_post_img" src={post.metadata.photo.url} />
 									<div className="featured_post_content">
-										<div className="side-caption">
-											<span className="white-text ">The Height</span>
-											<br/>
-											of Fashion<br/>
-											NYC
-										</div>
-										<main>
+										<section>
 											<div className="title"> {post.title}</div>
 											<div className="caption">{post.metadata.category.title.split()[0]}</div>
-										</main>
+										</section>
 									</div>
 								</div>
 						)}

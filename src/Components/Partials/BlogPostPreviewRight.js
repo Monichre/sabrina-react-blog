@@ -11,7 +11,7 @@ import Header from '../Partials/Header'
 // Dispatcher
 import AppDispatcher from '../../Dispatcher/AppDispatcher'
 
-export default class BlostPostPreviewRight extends Component {
+export default class BlogPostPreviewRight extends Component {
 	render(){
 		return(
 			<section className="flat-row flat-our">
@@ -29,7 +29,7 @@ export default class BlostPostPreviewRight extends Component {
                                 </div>
                                 <div className="entry-post">
                                     <div className="read-more">
-                                        <a href="#">{this.props.readMore}</a>
+                                        {this.props.readMore}
                                     </div>
                                 </div>
                                 <p className="content-story" dangerouslySetInnerHTML={{ __html: this.props.content, class:"content-story"}} />

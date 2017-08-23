@@ -258,7 +258,7 @@
 
 .title-section .title {
     font-weight: 500;
-    line-height: 30px;
+    line-height: 40px;
     position: relative;
     display: inline-block;
 }
@@ -278,7 +278,7 @@
     height: 6px;
     background-color: #ba2424;
     top: 50%;
-    left: -20px;
+    left: -40px;
     margin-top: -5px;
 }
 
@@ -2216,7 +2216,8 @@ input[type="color"],
 -------------------------------------------------------------- */
 .page-title {
 	padding: 83px 0 80px 0;
-	margin-top: 150px;
+	background-color: rgb(245, 245, 245);
+	margin-top: 0px;
 }
 
 .page-title .page-title-heading {
@@ -2268,15 +2269,17 @@ input[type="color"],
 	height: 600px;
 	position: relative;
 }
+.owl-item.active {
+	height: inherit;
+}
 #featured_posts .featured_post {
 
 }
 .featured_post {
 	position: relative;
+	height: 100%;
 }
-.featured_post main {
 
-}
 #featured_posts .featured_post .featured_post_img {
 	height: 100%;
 	object-fit: cover;
@@ -2284,36 +2287,43 @@ input[type="color"],
 }
 .featured_post_content {
 	position: absolute;
-	top: 10%;
-	left: 10%;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
 	z-index: 100;
-	/*width: 75%;*/
 	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding-left: 80px;
+
+}
+.featured_post section {
+	border-left: 20px solid #ba2424;
+	padding-left: 40px;
 
 }
 .featured_post_content .title {
+
 	font-family: "Poppins", sans-serif;
-    font-size: 60px;
+    font-size: 40px;
 	text-align: left;
     color: #fff;
     transition: none;
     line-height: 40px;
-    border-width: 0px;
-    margin: 30px 0px 0px;
-    padding: 0px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 8px;
 }
 .featured_post_content .caption  {
 	font-family: "Poppins", sans-serif;
-	font-size: 50px;
+	font-size: 20px;
 	text-align: left;
 	color: #fff;
 	transition: none;
 	line-height: 66px;
 	border-width: 0px;
-	margin: 30px 0px 0px;
+	/*margin: 30px 0px 0px;*/
 	padding: 0px;
 	font-weight: 400;
 	text-transform: uppercase;
@@ -2333,7 +2343,7 @@ input[type="color"],
 	padding-top: 20px;
     padding-right: 40px;
 	margin-right: 40px;
-    font-weight: 700;
+    font-weight: 500;
     /*transform: rotate(90deg) !important;
     -moz-transform: rotate(-90deg);
     -ms-transform: rotate(-90deg);
@@ -3971,6 +3981,19 @@ p.entry-content {
   -moz-transition: all 0.3s;
   transition: all 0.3s;
 }
+
+video {
+	width: 100%;
+}
+#video_post h3:after {
+	content: ' ';
+    display: block;
+    width: 15px;
+    height: 1px;
+    background-color: #ba2424;
+    margin: 15px 0;
+}
+
 
 /* Contact // About Page */
 

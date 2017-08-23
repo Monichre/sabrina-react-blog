@@ -18,7 +18,7 @@ export default class HealthPosts extends Component {
         let articles_html = articles.map((article) => {
             let date_obj = new Date(article.created)
             let created = (date_obj.getMonth() + 1) + '/' + date_obj.getDate() + '/' + date_obj.getFullYear()
-            let readMore = <Link to={'/blog/' + article.slug} onClick={this.scrollTop}>Read More</Link>
+            let readMore = <Link to={ '/' + data.page.slug + '/' + article.slug } onClick={ this.scrollTop }>Read More</Link>
 
             if (articles.indexOf(article) % 2 === 0) {
                 return (<BlogPostPreviewRight key={'key-' + article.slug} date={created} image={article.metadata

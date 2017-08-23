@@ -6,10 +6,10 @@ export default class Loading extends Component {
   render(){
     return (
 		<div id='loading'>
-			<div class="loading-container">
-	  	  	<div class="dot"></div>
-	  	  	<div class="dot"></div>
-	  	  	<div class="dot"></div>
+			<div className="loading-container">
+	  	  	<div className="dot"></div>
+	  	  	<div className="dot"></div>
+	  	  	<div className="dot"></div>
 	  	  </div>
 		</div>
     )

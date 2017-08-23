@@ -1,6 +1,6 @@
 // Nav.js
 import React, {Component} from 'react'
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 // import Modal from './Modal'
 
@@ -51,7 +51,9 @@ class Modal extends Component {
             transition: 'opacity' + .15 + 's linear'
         }
 
-        let modal_style = this.props.showModal ? show : hide
+        let modal_style = this.props.showModal
+            ? show
+            : hide
 
         return (
             <div style={modal_style} id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -68,7 +70,10 @@ class Modal extends Component {
                                     <div className="col-md-12">
                                         <div className="footer-form">
                                             <div className="section-headline">
-                                                <h3>Are You A Tall <span className="red">Fashionista</span> Or <span className="red">Fashion Fanatic?</span>
+                                                <h3>Are You A Tall
+                                                    <span className="red">Fashionista</span>
+                                                    Or
+                                                    <span className="red">Fashion Fanatic?</span>
                                                 </h3>
                                             </div>
                                             <p>Join the mailing list and be the first to know about product picks, style inspiration, and money saving tips.
@@ -87,16 +92,16 @@ class Modal extends Component {
                                     <div className="col-xs-12">
                                         <div className="footer-social-block">
                                             <a href="#">
-                                                <i className="fa fa-facebook-square w-inline-block social-wrap"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i className="fa fa-youtube-square w-inline-block social-wrap"></i>
-                                            </a>
-                                            <a href="#">
                                                 <i className="fa fa-instagram w-inline-block social-wrap"></i>
                                             </a>
                                             <a href="#">
-                                                <i className="fa fa-pinterest-square w-inline-block social-wrap"></i>
+                                                <i className="fa fa-youtube w-inline-block social-wrap"></i>
+                                            </a>
+                                            <a href="#">
+                                                <i className="fa fa-facebook w-inline-block social-wrap"></i>
+                                            </a>
+                                            <a href="#">
+                                                <i className="fa fa-pinterest w-inline-block social-wrap"></i>
                                             </a>
                                         </div>
                                     </div>
@@ -131,9 +136,7 @@ export default class Nav extends Component {
         }
     }
 
-    handleClick() {
-
-    }
+    handleClick() {}
 
     render() {
 
@@ -191,16 +194,16 @@ export default class Nav extends Component {
                 </header>
                 <div className="flat-vertical social-links">
                     <a href="#">
-                        <i className="fa fa-pinterest-p"></i>
+                        <i className="fa fa-instagram"></i>
                     </a>
                     <a href="#">
-                        <i className="fa fa-instagram"></i>
+                        <i className="fa fa-youtube"></i>
                     </a>
                     <a href="#">
                         <i className="fa fa-facebook"></i>
                     </a>
                     <a href="#">
-                        <i className="fa fa-twitter"></i>
+                        <i className="fa fa-pinterest"></i>
                     </a>
 
                     <span>FOLLOW ME</span>

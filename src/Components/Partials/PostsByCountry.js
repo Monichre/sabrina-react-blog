@@ -25,9 +25,12 @@ export default class PostsByCountry extends Component {
 					caption={article.title} />
 			)
         })
+		const styles = {
+			textAlign: 'center'
+		}
 
         return (
-            <div>
+            <div style={styles}>
 				{articles_html}
             </div>
         )

@@ -27,14 +27,13 @@ export default class Footer extends Component {
 
     return (
       <footer>
+		  <br />
+		  <br />
         <div>
 				<div className="container-fluid">
 		              <div className="widget-row row">
 		                  <div className="col-xs-12">
 		                      <header className="instagram-header">
-
-		                          <h4>Instagram</h4>
-		                          <hr />
 		                      </header>
 		                      <div className="widget">
 		                          <script src="http://lightwidget.com/widgets/lightwidget.js"></script>
@@ -80,11 +79,10 @@ export default class Footer extends Component {
 		                  <div className="row">
 		                      <div className="col-xs-12">
 		                          <div className="footer-social-block">
-
-		                              <a href="#"><i className="fa fa-lg fa-facebook-square w-inline-block social-wrap"></i></a>
-		                              <a href="#"><i className="fa fa-lg fa-youtube-square w-inline-block social-wrap"></i></a>
-		                              <a href="#"><i className="fa fa-lg fa-instagram w-inline-block social-wrap"></i></a>
-		                              <a href="#"><i className="fa fa-lg fa-pinterest-square w-inline-block social-wrap"></i></a>
+									  <a href="#"><i className="fa fa-lg fa-instagram w-inline-block social-wrap"></i></a>
+									  <a href="#"><i className="fa fa-lg fa-youtube w-inline-block social-wrap"></i></a>
+		                              <a href="#"><i className="fa fa-lg fa-facebook w-inline-block social-wrap"></i></a>
+		                              <a href="#"><i className="fa fa-lg fa-pinterest w-inline-block social-wrap"></i></a>
 		                          </div>
 		                      </div>
 		                      <div className="col-sm-3">

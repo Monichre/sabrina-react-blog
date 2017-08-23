@@ -11,12 +11,7 @@ import AppDispatcher from '../../Dispatcher/AppDispatcher'
 const mapConfig =  require('../Map/Map').mapConfig
 var config = require('../../config').config
 
-const mapLinks = <Helmet>
-	                <script src="https://www.amcharts.com/lib/3/ammap.js"></script>
-				    <script src="https://www.amcharts.com/lib/3/maps/js/worldLow.js"></script>
-				    <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
-				    <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
-	            </Helmet>
+
 // Dispatcher
 
 
@@ -82,10 +77,9 @@ export default class Travel extends Component {
                 </div>
             </div>
         </div>
-		  <div className="travel-images-menu container">
+		  <div className="travel-images-menu">
 		        <PostsByCountry data = {data} />
 		  </div>
-
       </div>
     )
   }

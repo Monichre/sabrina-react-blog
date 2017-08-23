@@ -6,15 +6,12 @@ import _ from 'lodash'
 // AppStore
 import AppStore from '../Stores/AppStore'
 var config = require('../config').config
-console.log(config)
 
 export function getStore(callback) {
 
     let pages = {}
 
     Cosmic.getObjects(config, function(err, response) {
-		console.log(err)
-		console.log(response)
 
         let objects = response.objects
 
@@ -27,7 +24,7 @@ export function getStore(callback) {
             key: 'menu-title'
         })
 
-        console.log(menu_title)
+
         globals.text.menu_title = menu_title.value
 
         let footer_text = _.find(metafields, {
@@ -58,7 +55,7 @@ export function getStore(callback) {
 
         // Nav
         const nav_items = response.object['nav'].metafields
-        console.log(nav_items);
+
         globals.nav_items = nav_items
 
         AppStore.data.globals = globals
@@ -75,26 +72,22 @@ export function getStore(callback) {
         AppStore.data.articles = articles
 
         let POSTS = {}
-        console.log(articles)
 
         articles.forEach(function(article) {
             if (article.metadata != null && article.metadata.category != null) {
-				var new_key = article.metadata.category.slug
-				// for (key in POSTS){
-				// 	if (POSTS)
-				// }
-				if (POSTS.hasOwnProperty(new_key)) {
+                var new_key = article.metadata.category.slug
+                // for (key in POSTS){
+                // 	if (POSTS)
+                // }
+                if (POSTS.hasOwnProperty(new_key)) {
 
-					POSTS[article.metadata.category.slug].push(article)
-				}
-				else {
-					POSTS[article.metadata.category.slug] = []
-					POSTS[article.metadata.category.slug].push(article)
-				}
+                    POSTS[article.metadata.category.slug].push(article)
+                } else {
+                    POSTS[article.metadata.category.slug] = []
+                    POSTS[article.metadata.category.slug].push(article)
+                }
             } else {}
         });
-		console.log(POSTS)
-		console.log(Object.keys(POSTS))
 
         AppStore.data.posts = POSTS
         // Emit change
@@ -120,26 +113,20 @@ export function getPageData(page_slug, post_slug) {
     const page = _.find(pages, {
         slug: page_slug
     })
-	console.log(page)
-    // const metafields = page.metafields
-    // if (metafields) {
-	//
-	//
-    // }
-    if (page_slug === 'fashion-style') {
-		console.log(data)
-        const articles = data.posts.fashionposts
+
+
+	let article
+	const articles = data.articles
+    if (post_slug) {
+		console.log(post_slug)
+		article = _.find(articles, {
+			slug: post_slug
+		})
+		page.title = article.title
+		AppStore.data.article = article
     }
 
-    if (post_slug) {
-        if (page_slug === 'home') {
-            const articles = data.articles
-            const article = _.find(articles, {
-                slug: post_slug
-            })
-            page.title = article.title
-        }
-    }
+	console.log(AppStore.data)
     AppStore.data.page = page
     AppStore.emitChange()
 }

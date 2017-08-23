@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import _ from 'lodash'
 import { Link } from 'react-router-dom'
+import BlogSingle from './BlogSingle'
 import BlogPostPreview_Left from './BlogPostPreviewLeft'
 import BlogPostPreview_Right from './BlogPostPreviewRight'
 import AffiliatePost from './AffiliatePost'
@@ -40,8 +41,8 @@ export default class BlogList extends Component {
     let articles_html = articles.map(( article ) => {
       let date_obj = new Date(article.created)
       let created = (date_obj.getMonth()+1) + '/' + date_obj.getDate() + '/' + date_obj.getFullYear()
-	  let readMore = <Link to={ '/blog/' + article.slug } onClick={ this.scrollTop }>Read More</Link>
-	  console.log(article.metadata.category.slug)
+	  let readMore = <Link to={ '/' + data.page.slug + '/' + article.slug } onClick={ this.scrollTop }>Read More</Link>
+
 
   		if (article.metadata.category.slug === 'affiliateposts'){
 			let affiliate_images = _.filter(article.metafields, (meta) => meta.key === 'photo')
