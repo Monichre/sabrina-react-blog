@@ -28,6 +28,17 @@ export default class HealthAndWellness extends Component {
 		const data = this.props.data
         return (
             <div>
+				<div className="page-title">
+	              <div className="container">
+	                  <div className="row">
+	                      <div className="col-md-12">
+	                          <div className="title-section">
+	                              <h1 className="title">Health & Wellness</h1>
+	                          </div>
+	                      </div>
+	                  </div>
+	              </div>
+	          </div>
                 <HealthPosts data = {this.props.data} />
             </div>
         )

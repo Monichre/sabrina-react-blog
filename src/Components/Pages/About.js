@@ -46,18 +46,19 @@ export default class About extends Component {
                                 <div className="col-sm-12 contact-top">
                                     <address>
                                         <div className="section-headline">
-                                            <h3>Contact Me<span className="red">.</span>
+                                            <h3>Contact Me
                                             </h3>
                                         </div>
-                                        <br />
-                                            Theresa on the Town
+										<span>
+											Theresa on the Town
                                             <br />
                                                 NYC
-                                            </address>
-                                        </div>
-
-                                    </div>
-                                    <div className="col-sm-12">
+										</span>
+                                    </address>
+                                </div>
+								<br /><br />
+							</div>
+                            <div className="col-sm-12">
                                         <form name="ajax-form" id="ajax-form" action="mail-it.php" method="post">
                                             <div className="col-sm-6" data-scroll-reveal="enter bottom move 100px over 0.6s after 0.2s">
                                                 <label for="name"></label>
@@ -81,11 +82,26 @@ export default class About extends Component {
 
                                         </form>
                                     </div>
-                                </div>
-
-                            </div>
-                        </section>
+                        </div>
                     </div>
-				)
-			}
-		}
+                </section>
+				<div id="form-second-half">
+					<div className="col-md-12">
+		                <div className="title-section">
+		                    <div className="top-section">Find Out</div>
+		                    <h1 className="title">About Me</h1>
+		                </div>
+						<div class="blockquote-testimo">
+	                        <p>About Me Content from page</p>
+	                    </div>
+						<div className="title-testimonial">
+	                        <h6 className="title">Sabrina Smith</h6>
+	                        <p>Owner</p>
+	                    </div>
+		            </div>
+				</div>
+
+			</div>
+		)
+	}
+}

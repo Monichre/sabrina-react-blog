@@ -28,13 +28,27 @@ export default class FashionAndStyle extends Component {
 
     render() {
         return (
-            <div className="container">
-                <div className="clearfix" style={{
-                    marginBottom: '100px'
-                }}></div>
+			<div>
+				<div className="page-title">
+	              <div className="container">
+	                  <div className="row">
+	                      <div className="col-md-12">
+	                          <div className="title-section">
+	                              <h1 className="title">Fashion & Style</h1>
+	                          </div>
+	                      </div>
+	                  </div>
+	              </div>
+	          </div>
+			  <div className="container">
+                  <div className="clearfix" style={{
+                      marginBottom: '100px'
+                  }}></div>
 
-			<FashionPosts data = {this.props.data} />
-            </div>
+  				<FashionPosts data = {this.props.data} />
+              </div>
+			</div>
+
         )
     }
 }

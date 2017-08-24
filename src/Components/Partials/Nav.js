@@ -67,13 +67,13 @@ class Modal extends Component {
                         <footer id="main-footer">
                             <div className="container-fluid footer-bottom">
                                 <div className="row">
-                                    <div className="col-md-12">
+                                    <div className="col-md-8 col-md-offset-2">
                                         <div className="footer-form">
                                             <div className="section-headline">
                                                 <h3>Are You A Tall
-                                                    <span className="red">Fashionista</span>
+                                                    <span className="red"> Fashionista </span>
                                                     Or
-                                                    <span className="red">Fashion Fanatic?</span>
+                                                    <span className="red"> Fashion Fanatic?</span>
                                                 </h3>
                                             </div>
                                             <p>Join the mailing list and be the first to know about product picks, style inspiration, and money saving tips.
@@ -193,19 +193,18 @@ export default class Nav extends Component {
 
                 </header>
                 <div className="flat-vertical social-links">
-                    <a href="#">
-                        <i className="fa fa-instagram"></i>
+					<a href="#">
+                        <i className="fa fa-pinterest"></i>
                     </a>
-                    <a href="#">
+					<a href="#">
+                        <i className="fa fa-facebook"></i>
+                    </a>
+					<a href="#">
                         <i className="fa fa-youtube"></i>
                     </a>
                     <a href="#">
-                        <i className="fa fa-facebook"></i>
+                        <i className="fa fa-instagram"></i>
                     </a>
-                    <a href="#">
-                        <i className="fa fa-pinterest"></i>
-                    </a>
-
                     <span>FOLLOW ME</span>
                 </div>
                 <div className="flat-vertical reservation">

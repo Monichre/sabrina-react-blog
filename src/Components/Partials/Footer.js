@@ -1,5 +1,6 @@
 // Footer.js
 import React, { Component } from 'react'
+import IFrame from 'react-iframe'
 
 export default class Footer extends Component {
 
@@ -32,14 +33,13 @@ export default class Footer extends Component {
         <div>
 				<div className="container-fluid">
 		              <div className="widget-row row">
-		                  <div className="col-xs-12">
-		                      <header className="instagram-header">
-		                      </header>
-		                      <div className="widget">
-		                          <script src="http://lightwidget.com/widgets/lightwidget.js"></script>
-		                          <iframe src="http://lightwidget.com/widgets/52a12044a9aa5f2f84d7cd0c15214cb1.html" scrolling="no" allowTransparency="true" className="lightwidget-widget" style={style}></iframe>
-		                      </div>
-		                  </div>
+		                  <div className="iframe-widget">
+							  <IFrame
+								  style={style}
+								  className="lightwidget-widget"
+								  url="http://lightwidget.com/widgets/52a12044a9aa5f2f84d7cd0c15214cb1.html"/>
+							  <script src="http://lightwidget.com/widgets/lightwidget.js"></script>
+						  </div>
 		              </div>
 		          </div>
 		          <footer className="footer">

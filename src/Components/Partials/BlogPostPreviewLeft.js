@@ -18,7 +18,7 @@ export default class BlogPostPreviewLeft extends Component {
                     <div className="row">
                         <div className="col-md-6">
                             <div className="flat-divider d96px"></div>
-                            <div className="wrap-content-story">
+                            <div className="wrap-content-story-left">
                                 <div className="title-section style2 ">
                                     <h1 className="title">{this.props.title}</h1>
                                 </div>
