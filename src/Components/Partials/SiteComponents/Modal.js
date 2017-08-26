@@ -3,7 +3,9 @@ import React, {Component} from 'react'
 export default class Modal extends Component {
 
     render() {
-
+		const button_style = {
+			borderRadius: '5px'
+		}
         return (
             <div className="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div className="modal-dialog" role="document">
@@ -30,7 +32,7 @@ export default class Modal extends Component {
 
                                             <form id="" name="subscribe-form" method="post">
                                                 <input id="" type="text" placeholder="Email" name="email" required="required" className="subscribe-style" />
-                                                    <button type="button" data-value="subscribe" data-wait="Please wait..." className="w-button subscribe-button">subscribe</button>
+                                                    <button type="button" data-value="subscribe" data-wait="Please wait..." className="w-button subscribe-button" style={button_style}>subscribe</button>
                                                 </form>
                                             </div>
                                         </div>
@@ -41,13 +43,13 @@ export default class Modal extends Component {
                                             <div className="col-xs-12">
                                                 <div className="footer-social-block">
                                                     <a href="#">
-                                                        <i className="fa fa-facebook-square w-inline-block social-wrap"></i>Facebok</a>
+                                                        <i className="fa fa-lg fa-facebook-square w-inline-block social-wrap"></i>Facebok</a>
                                                     <a href="#">
-                                                        <i className="fa fa-youtube-square w-inline-block social-wrap"></i>Twitter</a>
+                                                        <i className="fa fa-lg fa-youtube-square w-inline-block social-wrap"></i>Twitter</a>
                                                     <a href="#">
-                                                        <i className="fa fa-instagram w-inline-block social-wrap"></i>Instagram</a>
+                                                        <i className="fa fa-lg fa-instagram w-inline-block social-wrap"></i>Instagram</a>
                                                     <a href="#">
-                                                        <i className="fa fa-pinterest-square w-inline-block social-wrap"></i>Pinterest</a>
+                                                        <i className="fa fa-lg fa-pinterest-square w-inline-block social-wrap"></i>Pinterest</a>
                                                 </div>
                                             </div>
 

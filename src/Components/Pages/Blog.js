@@ -5,7 +5,7 @@ import config from '../../config'
 import PropTypes from 'prop-types';
 
 // Components
-import Header from '../Partials/Header'
+import Header from '../Partials/SiteComponents/Header'
 import BlogList from '../Partials/BlogList'
 import BlogSingle from '../Partials/BlogSingle'
 import OwlCarousel from 'react-owl-carousel2';
@@ -43,7 +43,8 @@ export default class Blog extends Component {
         const pages = data.pages
         const options = {
             items: 1,
-            nav: false,
+            nav: true,
+			navText : ["<i class='fa fa-lg fa-chevron-left'></i>","<i class='fa fa-lg fa-chevron-right'></i>"],
 			dots: false,
 			margin: 10,
             autoplay: true

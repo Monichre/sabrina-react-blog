@@ -4,7 +4,7 @@ import _ from 'lodash'
 import config from '../../config'
 
 // Components
-import Header from '../Partials/Header'
+import Header from '../Partials/SiteComponents/Header'
 
 
 

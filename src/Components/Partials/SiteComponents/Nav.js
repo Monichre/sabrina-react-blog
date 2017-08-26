@@ -1,6 +1,7 @@
 // Nav.js
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
+import Search from './Search'
 
 // import Modal from './Modal'
 
@@ -140,6 +141,19 @@ export default class Nav extends Component {
 
     render() {
 
+		const search_button_styles = {
+
+		}
+		const SearchButton = () => {
+			return (
+				<div className="search-wrap">
+					<button id="btn-search" className="btn btn--search">
+						<i className="fa fa-search"></i>
+					</button>
+				</div>
+			)
+		}
+
         const data = this.props.data
         const nav_items = data.globals.nav_items
 
@@ -185,6 +199,7 @@ export default class Nav extends Component {
                                 <ul className="menu">
                                     {menu_items}
                                 </ul>
+
                             </nav>
 
                         </div>

@@ -10,9 +10,9 @@ import AppDispatcher from './Dispatcher/AppDispatcher'
 import AppStore from './Stores/AppStore'
 
 
-import Nav from './Components/Partials/Nav'
-import Loading from './Components/Partials/Loading'
-import Footer from './Components/Partials/Footer'
+import Nav from './Components/Partials/SiteComponents/Nav'
+import Loading from './Components/Partials/SiteComponents/Loading'
+import Footer from './Components/Partials/SiteComponents/Footer'
 import Blog from './Components/Pages/Blog'
 import Default from './Components/Pages/Default'
 import About from './Components/Pages/About'

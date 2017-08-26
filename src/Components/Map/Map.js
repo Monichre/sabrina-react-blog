@@ -11,9 +11,9 @@ export const mapConfig = {
             { "id": "US", "color": "rgb(51, 174, 170)" },
             { "id": "FR", "color": "rgb(51, 174, 170)" }
         ],
-        "zoomLevel": 1,
-        "zoomLongitude": -20.1341,
-        "zoomLatitude": 49.1712
+        "zoomLevel": 1
+        // "zoomLongitude": -20.1341,
+        // "zoomLatitude": 49.1712
     },
 
     "areasSettings": {

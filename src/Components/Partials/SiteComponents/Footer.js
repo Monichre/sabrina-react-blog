@@ -55,24 +55,20 @@ export default class Footer extends Component {
 		              <div className="container-fluid footer-bottom">
 		                  <div className="row">
 
-
-		                      <div className="col-md-4 col-md-offset-4">
-		                          <div className="footer-form">
-		                              <div className="section-headline">
-		                                  <h3>Are You A Tall <span className="red">Fashionista</span> Or <span className="red">Fashion Fanatic?</span></h3>
-		                              </div>
-		                              <p>Join the mailing list and be the first to know about product picks, style inspiration, and money saving tips. </p>
-
-		                              <form id="" name="subscribe-form" method="post">
-
+	                          <div className="footer-form">
+								   <div className="col-md-6">
+									   <div className="section-headline">
+ 		                                  <h3>Are You A Tall <span className="red">Fashionista</span> Or <span className="red">Fashion Fanatic?</span></h3>
+ 		                              </div>
+ 		                              <p>Join the mailing list and be the first to know about product picks, style inspiration, and money saving tips. </p>
+								   </div>
+	 							  <div className="col-md-6">
+									  <form id="" name="subscribe-form" method="post">
 		                                      <input id="" type="text" placeholder="Email" name="email" required="required" className="subscribe-style" />
-
-
-		                                      <button type="button" data-value="subscribe" data-wait="Please wait..." className="w-button subscribe-button">subscribe</button>
-
+		                                      <button id="footerButton" type="button" data-value="subscribe" data-wait="Please wait..." className="w-button subscribe-button">subscribe</button>
 		                              </form>
-		                          </div>
-		                      </div>
+	 							  </div>
+	                          </div>
 
 		                  </div>
 		                  <hr />

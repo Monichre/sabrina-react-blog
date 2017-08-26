@@ -284,7 +284,11 @@
          -o-transition: all 0.3s ease-in-out;
             transition: all 0.3s ease-in-out;
 }
-
+.owl-theme .owl-controls .owl-nav div.owl-next, .owl-theme .owl-controls .owl-nav div.owl-prev {
+	background-color: #fff;
+	padding: 10px;
+	border-radius: 50%;
+}
 .owl-theme .owl-controls .owl-nav div.owl-prev:before {
    /*content: "\f104";*/
 }

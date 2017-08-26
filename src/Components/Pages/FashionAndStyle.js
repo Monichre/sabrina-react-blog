@@ -40,13 +40,7 @@ export default class FashionAndStyle extends Component {
 	                  </div>
 	              </div>
 	          </div>
-			  <div className="container">
-                  <div className="clearfix" style={{
-                      marginBottom: '100px'
-                  }}></div>
-
   				<FashionPosts data = {this.props.data} />
-              </div>
 			</div>
 
         )

@@ -7,10 +7,20 @@ import { Link } from 'react-router-dom'
 
 export default class AffiliatePost extends Component {
 
+
     render() {
+			let affiliate_style
+			if (this.props.image_bg){
+				affiliate_style = {
+					background: 'url(' + this.props.image_bg + ') #f5f5f5 no-repeat'
+				}
+			} else {
+				affiliate_style = { background: '#f5f5f5'}
+			}
+
         return (
             <div className="affiliate-preview">
-                <section className="flat-row flat-imagebox index-1">
+                <section className="flat-row flat-imagebox affiliate-row" style={affiliate_style}>
 
                     <div className="row">
                         <div className="col-md-12">
