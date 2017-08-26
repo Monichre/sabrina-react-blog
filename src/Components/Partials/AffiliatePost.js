@@ -26,7 +26,7 @@ export default class AffiliatePost extends Component {
                         <div className="col-md-12">
                             <div className="title-section stile2 ">
                                 <div className="top-section text-left">
-                                    <p>Featured Affiliate</p>
+                                    <p className="sub-header">Featured Affiliate</p>
                                 </div>
                                 <h1 className="title text-left">{this.props.title}</h1>
                             </div>

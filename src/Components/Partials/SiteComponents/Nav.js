@@ -2,6 +2,7 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import Search from './Search'
+import '../../css/search.css'
 
 // import Modal from './Modal'
 
@@ -122,7 +123,8 @@ export default class Nav extends Component {
         super(props)
 
         this.state = {
-            showModal: false
+            showModal: false,
+			searchOpen: false
         }
     }
 
@@ -137,7 +139,14 @@ export default class Nav extends Component {
         }
     }
 
-    handleClick() {}
+    searchClick(e){
+		e.preventDefault()
+		if (this.state.searchOpen) {
+            this.setState({searchOpen: false})
+        } else {
+            this.setState({searchOpen: true})
+        }
+	}
 
     render() {
 
@@ -153,10 +162,8 @@ export default class Nav extends Component {
 				</div>
 			)
 		}
-
         const data = this.props.data
         const nav_items = data.globals.nav_items
-
         const title_font = {
             fontSize: '30px',
             color: '#333'
@@ -165,11 +172,13 @@ export default class Nav extends Component {
         if (!nav_items) {
             return <div></div>
         }
-
+		const search_trigger = <li>
+			<a className="search-trigger" href="#" onClick={this.searchClick.bind(this)}><i className="fa fa-search"></i></a>
+		</li>
         const menu_items = nav_items.map((nav_item) => {
             if (nav_item.value === 'Theresa on the Town') {
                 return (
-                    <li key={'key-' + nav_item.value}>
+                    <li key={'key-' + nav_item.value} className="site-title">
                         <Link style={title_font} onClick={this.handleClick} to={'/' + nav_item.value}>{nav_item.title}</Link>
                     </li>
                 )
@@ -180,12 +189,17 @@ export default class Nav extends Component {
                     </li>
                 )
             }
-
         })
+		menu_items.push(search_trigger)
         const modalToggle = this.state.showModal
-
+		let navClassForSearch
+		if (this.state.searchOpen){
+			navClassForSearch = "search-visible"
+		} else {
+			navClassForSearch = ""
+		}
         return (
-            <div>
+            <div id="Nav" className={navClassForSearch}>
                 <Modal showModal={this.state.showModal}/>
 
                 <header id="header" className="header clearfix">
@@ -199,14 +213,21 @@ export default class Nav extends Component {
                                 <ul className="menu">
                                     {menu_items}
                                 </ul>
-
                             </nav>
-
                         </div>
-
                     </div>
-
                 </header>
+				<div className="search-wrap">
+					<form role="search" method="get" className="search-form" action="#">
+						<label>
+							<span className="hide-content">Search for:</span>
+							<input type="search" className="search-field" placeholder="Type Your Keywords" value="" name="s" title="Search for:" autocomplete="off" />
+						</label>
+						<input type="submit" className="search-submit" value="Submit"/>
+					</form>
+
+					<a href="#" id="close-search" className="close-btn"><i className="fa fa-times" aria-hidden="true"></i></a>
+				</div>
                 <div className="flat-vertical social-links">
 					<a href="#">
                         <i className="fa fa-pinterest"></i>

@@ -100,6 +100,55 @@
                 });
             }
     };
+	//  var ssSearch = function() {
+	 //
+    //  	var searchWrap = $('.search-wrap');
+ //  	   var searchField = searchWrap.find('.search-field');
+ //  	   var closeSearch = $('#close-search');
+ //  	   var searchTrigger = $('.search-trigger');
+ //  	   var body = $('body');
+	 //
+ //  	   searchTrigger.on('click', function(e){
+	// 	   console.log("tryna search");
+	 //
+ //  	      e.preventDefault();
+ //  	      e.stopPropagation();
+ //  	      var $this = $(this);
+	 //
+ //  	      body.addClass('search-visible');
+ //  	      setTimeout(function(){
+ //  	         $('.search-wrap').find('.search-field').focus();
+ //  	      }, 100);
+	 //
+ //  	   });
+
+
+  	   closeSearch.on('click', function(){
+  	      var $this = $(this);
+
+  	      if(body.hasClass('search-visible')){
+  	         body.removeClass('search-visible');
+  	         setTimeout(function(){
+  	            $('.search-wrap').find('.search-field').blur();
+  	         }, 100);
+  	      }
+  	   });
+
+  	   searchWrap.on('click',  function(e){
+  	   	if( !$(e.target).is('.search-field') ) {
+  	   		closeSearch.trigger('click');
+  	   	}
+  	   });
+
+  	   searchField.on('click', function(e){
+  	      e.stopPropagation();
+  	   });
+
+  	   searchField.attr({placeholder: 'Type Your Keywords', autocomplete: 'off'});
+
+     };
+
+
 
 
     var headerFixed = function() {
@@ -468,7 +517,7 @@
         counter();
         responsiveMenu();
 
-
+		// ssSearch();
         goTop();
         date_time();
         videoPopup();
@@ -477,7 +526,7 @@
         tabs();
         ajaxContactForm();
         portfolioIsotope();
-        
+
         flatAccordion();
    	});
 

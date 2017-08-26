@@ -1565,13 +1565,32 @@ b, strong {
 .entry-page p {
 	margin-bottom: 25px;
 }
+/*font-family: 'Merriweather', serif;*/
+/*font-family: 'Open Sans', sans-serif;*/
+/*font-family: 'Arsenal', sans-serif;*/
+h1 { font: 36px/42px "Merriweather", sans-serif;}
+h2 { font: 24px/32px "Merriweather", sans-serif;}
+h3 { font: 18px/30px "Merriweather", sans-serif;}
+h4 { font: 16px/30px "Merriweather", sans-serif;}
+h5 { font: 14px/30px "Merriweather", sans-serif;}
+h6 { font: 13px/19px "Merriweather", sans-serif;}
+.site-title, .site-title a {
+	font-family: 'Merriweather', serif!important;
+}
+.header-wrap .clearfix {
+	position: relative!important;
+}
+.featured_post_content .title, .featured_post_content .caption {
+	/*font-family: 'Merriweather', serif;*/
+}
+.sub-header {
+	font-family: 'Merriweather', serif;
+	font-weight: 600;
+}
 
-h1 { font: 36px/42px "Poppins", sans-serif;}
-h2 { font: 24px/32px "Poppins", sans-serif;}
-h3 { font: 18px/30px "Poppins", sans-serif;}
-h4 { font: 16px/30px "Poppins", sans-serif;}
-h5 { font: 14px/30px "Poppins", sans-serif;}
-h6 { font: 13px/19px "Poppins", sans-serif;}
+p {
+	font-family: 'Open Sans', sans-serif;
+}
 
 h1,h2,h3,h5,h6 {
 	font-weight: 600;
@@ -2312,18 +2331,18 @@ input[type="color"],
 }
 .featured_post_content .title {
 
-	font-family: "Poppins", sans-serif;
-    font-size: 40px;
+	font-family: 'Merriweather', serif;
+    font-size: 35px;
 	text-align: left;
     color: #fff;
     transition: none;
-    line-height: 40px;
-    font-weight: 700;
+    line-height: 30px;
+    /*font-weight: 700;*/
     text-transform: uppercase;
     letter-spacing: 8px;
 }
 .featured_post_content .caption  {
-	font-family: "Poppins", sans-serif;
+	font-family: 'Merriweather', serif;
 	font-size: 20px;
 	text-align: left;
 	color: #fff;
@@ -2333,13 +2352,12 @@ input[type="color"],
 	/*margin: 30px 0px 0px;*/
 	padding: 0px;
 	font-weight: 400;
-	text-transform: uppercase;
-	letter-spacing: 8px;
+	/*text-transform: uppercase;*/
+	letter-spacing: 4px;
+	font-style: italic;
 }
 .featured_post_content .side-caption {
-		/*position: absolute;
-		top: 0;
-		left: 0;*/
+
 		z-index: 100;
 	font-family: "Poppins", sans-serif;
     font-size: 18px;
@@ -2351,16 +2369,6 @@ input[type="color"],
     padding-right: 40px;
 	margin-right: 40px;
     font-weight: 500;
-    /*transform: rotate(90deg) !important;
-    -moz-transform: rotate(-90deg);
-    -ms-transform: rotate(-90deg);
-    -o-transform: rotate(-90deg);
-    -webkit-transform: rotate(-90deg);
-    transform-origin: 0% 50%;
-    -webkit-transform-origin: 0% 50%;
-    -o-transform-origin: 0% 50%;
-    -ms-transform-origin: 0% 50%;
-    -moz-transform-origin: 0% 50%;*/
     border-right: 20px solid #ba2424;
 }
 
