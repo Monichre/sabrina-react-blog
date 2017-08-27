@@ -13,7 +13,7 @@ export default class BlogPostPreviewLeft extends Component {
     render() {
         return (
 
-            <section className="flat-row flat-our">
+            <section className="flat-row flat-our blog-post-preview">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-6">
@@ -24,13 +24,10 @@ export default class BlogPostPreviewLeft extends Component {
                                 </div>
                                 <div className="entry-post">
 									<p className="date-event date-style-2"> <span>{this.props.date}</span></p>
-                                    <div className="read-more">
-                                        <a href="#">{this.props.readMore}</a>
-                                    </div>
+									<br />
                                 </div>
-
-								<p className="content-story" dangerouslySetInnerHTML={{ __html: this.props.content}} />
-
+								<div className="content-story" dangerouslySetInnerHTML={{ __html: this.props.content}} />
+								<div className="read-more">{this.props.readMore}</div>
                             </div>
                         </div>
                         <div className="col-md-6">

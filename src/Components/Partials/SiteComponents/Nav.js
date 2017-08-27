@@ -138,6 +138,10 @@ export default class Nav extends Component {
             this.setState({showModal: true})
         }
     }
+	handleCloseClick(e){
+		e.preventDefault()
+		this.setState({searchOpen: false})
+	}
 
     searchClick(e){
 		e.preventDefault()
@@ -226,7 +230,7 @@ export default class Nav extends Component {
 						<input type="submit" className="search-submit" value="Submit"/>
 					</form>
 
-					<a href="#" id="close-search" className="close-btn"><i className="fa fa-times" aria-hidden="true"></i></a>
+					<a href="#" id="close-search" className="close-btn" onClick={this.handleCloseClick.bind(this)}><i className="fa fa-times" aria-hidden="true"></i></a>
 				</div>
                 <div className="flat-vertical social-links">
 					<a href="#">

@@ -36,16 +36,16 @@ export default class AffiliatePost extends Component {
 					<div className="container">
 						<div className="row">
 	                        <div className="flat-divider d10px"></div>
-							{this.props.images.map(image =>
+							{this.props.affiliateItems.map(item =>
 								<div className="item">
 		                            <div className="imagebox effect1">
 		                                <div className="box-wrap">
 		                                    <div className="box-image">
-		                                        <a href="#"><img src={image.url} alt="img"/></a>
+		                                        <a href="#"><img src={item.object.metadata.photo.url} alt="img"/></a>
 		                                    </div>
 		                                    <div className="box-content">
-		                                        <h5>Description</h5>
-		                                        <p>Goes here</p>
+		                                        <h5>{item.object.title}</h5>
+												<p className="content-story" dangerouslySetInnerHTML={{ __html: item.object.content}} />
 		                                    </div>
 		                                </div>
 		                            </div>

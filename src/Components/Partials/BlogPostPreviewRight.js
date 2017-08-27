@@ -14,7 +14,7 @@ import AppDispatcher from '../../Dispatcher/AppDispatcher'
 export default class BlogPostPreviewRight extends Component {
 	render(){
 		return(
-			<section className="flat-row flat-our">
+			<section className="flat-row flat-our blog-post-preview">
                 <div className="container">
                     <div className="row">
 						<div className="col-md-6">
@@ -25,15 +25,13 @@ export default class BlogPostPreviewRight extends Component {
                             <div className="wrap-content-story">
                                 <div className="title-section style2 ">
                                     <h1 className="title">{this.props.title}</h1>
-									<p className="date-event date-style-2"> <span>{this.props.date}</span></p>
                                 </div>
                                 <div className="entry-post">
-                                    <div className="read-more">
-                                        {this.props.readMore}
-                                    </div>
+									<p className="date-event date-style-2"> <span>{this.props.date}</span></p>
+									<br />
                                 </div>
-                                <p className="content-story" dangerouslySetInnerHTML={{ __html: this.props.content, class:"content-story"}} />
-
+								<div className="content-story" dangerouslySetInnerHTML={{ __html: this.props.content}} />
+								<div className="read-more">{this.props.readMore}</div>
                             </div>
                         </div>
 

@@ -37,21 +37,24 @@ export default class BlogList extends Component {
     }
 
     articles = _.take(articles, item_num)
+	const months= ["January", "February", "March", "April", "May", "June",
+		"July", "August", "September", "October", "November", "December"]
+	const  days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
     let articles_html = articles.map(( article ) => {
-      let date_obj = new Date(article.created)
-      let created = (date_obj.getMonth()+1) + '/' + date_obj.getDate() + '/' + date_obj.getFullYear()
-	  let readMore = <Link to={ '/' + data.page.slug + '/' + article.slug } onClick={ this.scrollTop }>Read More</Link>
+	let date_obj = new Date(article.created)
+	let created = months[(date_obj.getMonth()+1)] + '/' + date_obj.getDate() + '/' + date_obj.getFullYear()
+	let readMore = <Link to={ '/' + data.page.slug + '/' + article.slug } onClick={ this.scrollTop }>Read More</Link>
 
 
   		if (article.metadata.category.slug === 'affiliateposts'){
-			let affiliate_images = _.filter(article.metafields, (meta) => meta.key === 'photo')
-			console.log(affiliate_images)
+			let affiliate_items = _.filter(article.metafields, (meta) => meta.key === 'affiliate_item')
+			console.log(affiliate_items)
 			return(
 				<AffiliatePost
 					key={ 'key-' + article.slug }
 					date={created}
-					images={affiliate_images}
+					affiliateItems={affiliate_items}
 					readMore = {readMore}
 					title={article.title}
 					content={article.content}

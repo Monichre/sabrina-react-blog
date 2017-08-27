@@ -39,7 +39,7 @@
     clear: both;
     display: block;
     position: relative;
-    padding: 50px 0;
+    /*padding: 50px 0;*/
 }
 
 .flat-row.flat-our {
@@ -271,7 +271,7 @@
 	padding: 20px;
 }
 
-.title-section .title:before {
+.page-title .title-section .title:before, .affiliate-row .title-section .title:before {
     position: absolute;
     content: "";
     width: 30px;
@@ -281,7 +281,16 @@
     left: -40px;
     margin-top: -5px;
 }
-
+.blog-post-preview .title-section .title:before {
+	position: absolute;
+    content: "";
+    width: 30px;
+    height: 6px;
+    background-color: #ba2424;
+    bottom: -15px;
+    left: -40px;
+    margin-top: -5px;
+}
 /*style2*/
 .title-section.style2 {
     text-align: left;
@@ -826,7 +835,14 @@
     letter-spacing: -0.05px;
     margin-right: -1px;
 }
-
+.read-more, .read-more a {
+	text-transform: uppercase;
+    color: #ba2424;
+    font-weight: 500;
+    font-size: 12px;
+    position: relative;
+    letter-spacing: 0.6px;
+}
 .blog-shortcode article.post .content-post .entry-post .read-more a, .entry-post .read-more a {
     text-transform: uppercase;
     color: #ba2424;
@@ -834,7 +850,7 @@
     font-size: 12px;
     position: relative;
     letter-spacing: 0.6px;
-    margin-left: -2px;
+
 }
 
 .blog-shortcode article.post .content-post .entry-post p {
@@ -852,11 +868,12 @@
     right: -43px;
 }
 
-.blog-shortcode article.post .content-post .entry-post .read-more a:after, .entry-post .read-more a:after {
+/*.blog-shortcode article.post .content-post .entry-post .read-more a:after, .entry-post .read-more a:after {
     content: "";
     width: 0;
+
     height: 0;
-}
+}*/
 
 /*Flat testimonial
 -----------------------------------------------------------*/
@@ -1030,7 +1047,7 @@
     position: relative;
 }
 
-.read-more a:before,
+/*.read-more a:before,
 .read-more a:after {
     font-family: 'FontAwesome';
     content: "\f105";
@@ -1038,7 +1055,7 @@
     top: -2px;
     right: -13px;
     color: #333333;
-}
+}*/
 
 .read-more a:before {
     right: -9px;
@@ -1119,7 +1136,7 @@ button:before {
 	padding-right: 40px;
 }
 
-.wrap-content-story .content-story {
+.content-story {
     margin-bottom: 32px;
 }
 
@@ -2204,6 +2221,7 @@ input[type="color"],
 }
 .flat-row.affiliate-row {
 	padding-top: 3px;
+	padding-bottom: 50px;
 }
 
 .flat-row.affiliate-row .title-section.style2 {
@@ -3674,7 +3692,6 @@ p.entry-content {
 .date-style-2 {
 	text-align: left;
 	font-size: 15px;
-    font-weight: 700;
 	color: #565656
 }
 .date-style-2 span {
@@ -4159,4 +4176,21 @@ video {
 	height: 100px;
 	width: 150px;
 	object-fit: cover;
+}
+.blog-post-preview .read-more, .read-more a {
+	text-transform: uppercase;
+    color: #ba2424;
+    font-weight: 500;
+    font-size: 12px;
+    position: relative;
+    letter-spacing: 0.6px;
+}
+.blog-post-preview .read-more a:before {
+	position: absolute;
+	content: "";
+	width: 30px;
+	height: 1px;
+	background-color: #ba2424;
+	top: 8px;
+	right: -43px;
 }

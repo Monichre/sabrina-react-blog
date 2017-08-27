@@ -4,11 +4,11 @@
     clear: both;
     display: block;
     position: relative;
-    padding: 100px 0;
+    /*padding: 100px 0;*/
 }
 
 .flat-row.flat-our {
-    padding-bottom: 92px;
+    /*padding-bottom: 92px;*/
 }
 
 .flat-row.menu-1 {
@@ -224,17 +224,6 @@
     line-height: 30px;
     position: relative;
     display: inline-block;
-}
-
-.title-section .title:before {
-    position: absolute;
-    content: "";
-    width: 30px;
-    height: 6px;
-    background-color: #ba2424;
-    top: 50%;
-    left: -20px;
-    margin-top: -5px;
 }
 
 /*style2*/
@@ -807,11 +796,11 @@
     right: -43px;
 }
 
-.blog-shortcode article.post .content-post .entry-post .read-more a:after, .entry-post .read-more a:after {
+/*.blog-shortcode article.post .content-post .entry-post .read-more a:after, .entry-post .read-more a:after {
     content: "";
     width: 0;
     height: 0;
-}
+}*/
 
 /*Flat testimonial
 -----------------------------------------------------------*/
@@ -985,7 +974,7 @@
     position: relative;
 }
 
-.read-more a:before,
+/*.read-more a:before,
 .read-more a:after {
     font-family: 'FontAwesome';
     content: "\f105";
@@ -993,7 +982,7 @@
     top: -2px;
     right: -13px;
     color: #333333;
-}
+}*/
 
 .read-more a:before {
     right: -9px;
