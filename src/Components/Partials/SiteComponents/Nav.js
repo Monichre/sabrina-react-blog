@@ -138,8 +138,8 @@ export default class Nav extends Component {
             this.setState({showModal: true})
         }
     }
-	handleCloseClick(e){
-		e.preventDefault()
+	handleCloseClick(closeTheSearch){
+		console.log(closeTheSearch)
 		this.setState({searchOpen: false})
 	}
 
@@ -183,7 +183,7 @@ export default class Nav extends Component {
             if (nav_item.value === 'Theresa on the Town') {
                 return (
                     <li key={'key-' + nav_item.value} className="site-title">
-                        <Link style={title_font} onClick={this.handleClick} to={'/' + nav_item.value}>{nav_item.title}</Link>
+                        <Link style={title_font} onClick={this.handleClick} to={'/'}>{nav_item.title}</Link>
                     </li>
                 )
             } else {
@@ -221,17 +221,9 @@ export default class Nav extends Component {
                         </div>
                     </div>
                 </header>
-				<div className="search-wrap">
-					<form role="search" method="get" className="search-form" action="#">
-						<label>
-							<span className="hide-content">Search for:</span>
-							<input type="search" className="search-field" placeholder="Type Your Keywords" value="" name="s" title="Search for:" autocomplete="off" />
-						</label>
-						<input type="submit" className="search-submit" value="Submit"/>
-					</form>
 
-					<a href="#" id="close-search" className="close-btn" onClick={this.handleCloseClick.bind(this)}><i className="fa fa-times" aria-hidden="true"></i></a>
-				</div>
+				<Search onCloseSearchClick={this.handleCloseClick.bind(this)} />
+
                 <div className="flat-vertical social-links">
 					<a href="#">
                         <i className="fa fa-pinterest"></i>

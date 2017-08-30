@@ -2,67 +2,84 @@
 import React, { Component } from 'react'
 import _ from 'lodash'
 import { Link } from 'react-router-dom'
-// import './search.css'
-// import './search-ui.js'
+import FuzzySearch from 'fuzzy-search'
+import AppStore from '../../../Stores/AppStore'
 
-const openCtrl = document.getElementById('btn-search')
-const closeCtrl = document.getElementById('btn-search-close')
-const searchContainer = document.querySelector('.search')
-// const inputSearch = searchContainer.querySelector('.search__input')
+const searchItemToAppend = (props) => {
+	return (
+		<div className='search-result animated slideInUp'>
+			<img className='search-result-thumbnail' src={props.image.url}/>
+			<h5><Link to={props.link_url}>{props.title}</Link></h5>
+		</div>
+	)
+}
+
 
 export default class Search extends Component {
 	constructor(props){
 		super(props)
 
 		this.state = {
+			closeTheSearch: false,
+			searchTerm: '',
+			searchSuccess: false,
+			searchResults: []
+		}
+		this.handleSearchInput = this.handleSearchInput.bind(this)
+		this.handleSearchSubmit = this.handleSearchSubmit.bind(this)
+	}
+	handleSearchInput(event){
+		let search_term = event.target.value
+		this.setState({searchTerm: search_term})
+	}
+	closeClick(e){
+		e.preventDefault()
+		this.setState({closeTheSearch: true})
+		this.props.onCloseSearchClick(this.state.closeTheSearch)
+	}
+	handleSearchSubmit(event){
+		event.preventDefault()
+		const articles = AppStore.data.articles
+		const searcher = new FuzzySearch(articles, ['title', 'slug', 'content'], {
+			caseSensitive: false,
+			sort: true
+		})
+		const results = searcher.search(this.state.searchTerm)
+		console.log(this.state.searchTerm)
+		console.log(results)
 
+		if (results.length > 0){
+			this.setState({
+				searchResults: results,
+				searchSuccess: true
+			})
 		}
 	}
-	animateSearch(){
-		this.initEvents()
+	appendSearchItems(searchItem){
+		console.log(searchItem)
+		let media
+		return (
+			<searchItemToAppend image={searchItem.metadata.photo ? searchItem.metadata.photo : searchItem.metadata.affiliate_item.metadata.photo} />
+		)
 	}
-	initEvents() {
 
-		openCtrl.addEventListener('click', this.openSearch())
-		closeCtrl.addEventListener('click', this.closeSearch())
-		document.addEventListener('keyup', function(ev) {
-			if( ev.keyCode == 27 ) {
-				this.closeSearch();
-			}
-		})
-	}
-	openSearch() {
-		searchContainer.classList.add('search--open')
-		// inputSearch.focus()
-	}
-	closeSearch() {
-		searchContainer.classList.remove('search--open')
-		// inputSearch.blur()
-		// inputSearch.value = ''
-	}
 	render() {
-		
+
+	
 
 		return (
-			<div className="search">
-				<button id="btn-search-close" className="btn btn--search-close" aria-label="Close search form"><svg className="icon icon--cross"><use xlinkHref="#icon-cross"></use></svg></button>
-				<form className="search__form" action="">
-					<input className="search__input" name="search" type="search" placeholder="drones" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
-					<span className="search__info">Hit enter to search or ESC to close</span>
+			<div className="search-wrap">
+				<form role="search" className="search-form" onSubmit={this.handleSearchSubmit}>
+					<label>
+						<span className="hide-content">Search for:</span>
+						<input type="search" className="search-field" placeholder="Type Your Keywords" value={this.state.searchTerm.value} onChange={this.handleSearchInput} name="searchTerm" title="Search for:" autocomplete="off" />
+					</label>
+					<input type="submit" className="search-submit" value="Submit"/>
 				</form>
-				<div className="search__related">
-					<div className="search__suggestion">
-						<h3>May We Suggest?</h3>
-						<p>#drone #funny #catgif #broken #lost #hilarious #good #red #blue #nono #why #yes #yesyes #aliens #green</p>
-					</div>
-					<div className="search__suggestion">
-						<h3>Is It This?</h3>
-						<p>#good #red #hilarious #blue #nono #why #yes #yesyes #aliens #green #drone #funny #catgif #broken #lost</p>
-					</div>
-					<div className="search__suggestion">
-						<h3>Needle, Where Art Thou?</h3>
-						<p>#broken #lost #good #red #funny #hilarious #catgif #blue #nono #why #yes #yesyes #aliens #green #drone</p>
-					</div>
+				<a href="#" id="close-search" className="close-btn" onClick={this.closeClick.bind(this)}><i className="fa fa-times" aria-hidden="true"></i></a>
+
+				<div id="search-results">
+					{this.state.searchResults.map(this.appendSearchItems)}
 				</div>
 			</div>
 		)
