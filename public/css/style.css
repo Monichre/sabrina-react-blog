@@ -4136,20 +4136,11 @@ video {
 }
 .owl-prev {
 	position: absolute;
-
-
 	left: 20px;
-
-
-
 }
 .owl-next {
 	position: absolute;
-
-
 	right: 20px;
-
-
 }
 
 .show_modal {
@@ -4208,3 +4199,24 @@ video {
 	top: 8px;
 	right: -43px;
 }
+
+
+
+/* SEARCH SECTION 
+.search-wrap .search-form {
+    position: relative;
+}
+.search-result-thumbnail {
+    height: 100px;
+    width: 100px;
+    display: inline;
+}
+.search-result-item-title {
+    color: #fff;
+    text-align: left;
+    padding: 10px;
+}
+.search-result {
+	border-bottom: 1px solid #eee;
+} */
+

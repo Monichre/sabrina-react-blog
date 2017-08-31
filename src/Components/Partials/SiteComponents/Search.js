@@ -4,15 +4,24 @@ import _ from 'lodash'
 import { Link } from 'react-router-dom'
 import FuzzySearch from 'fuzzy-search'
 import AppStore from '../../../Stores/AppStore'
+import '../../css/search.css'
 
 const searchItemToAppend = (props) => {
 	return (
 		<div className='search-result animated slideInUp'>
-			<img className='search-result-thumbnail' src={props.image.url}/>
-			<h5><Link to={props.link_url}>{props.title}</Link></h5>
+			<img className='search-result-thumbnail' src={props.result.image.url}/>
+			<h5><Link to={props.result.link_url}>{props.result.title}</Link></h5>
 		</div>
 	)
 }
+const SearchResultsList = (props) => (
+	<div className='search-result'>
+		<h5 className="search-result-item-title">
+			<img className='search-result-thumbnail' src={props.result.metadata.photo ? props.result.metadata.photo.url :''}/>
+			<Link to={'/' + AppStore.data.page.slug + '/' + props.result.slug}>{props.result.title}</Link> 
+		</h5>
+	</div>
+)
 
 
 export default class Search extends Component {
@@ -49,9 +58,10 @@ export default class Search extends Component {
 		console.log(results)
 
 		if (results.length > 0){
-			this.setState({
-				searchResults: results,
-				searchSuccess: true
+			this.setState({searchSuccess: true})
+			let _this = this
+			results.forEach(function(result){
+				_this.state.searchResults.push(result)
 			})
 		}
 	}
@@ -65,10 +75,12 @@ export default class Search extends Component {
 
 	render() {
 
-	
-
+		let search_active
+		if (this.state.searchSuccess){
+			search_active = "search-active"
+		}
 		return (
-			<div className="search-wrap">
+			<div className={this.state.searchSuccess ? "search-wrap search-active" : "search-wrap"}>
 				<form role="search" className="search-form" onSubmit={this.handleSearchSubmit}>
 					<label>
 						<span className="hide-content">Search for:</span>
@@ -78,8 +90,12 @@ export default class Search extends Component {
 				</form>
 				<a href="#" id="close-search" className="close-btn" onClick={this.closeClick.bind(this)}><i className="fa fa-times" aria-hidden="true"></i></a>
 
-				<div id="search-results">
-					{this.state.searchResults.map(this.appendSearchItems)}
+				<div id="search-results" className={search_active}>
+					<div className="search-menu">
+						{this.state.searchResults.map(result =>
+							<SearchResultsList result={result} />
+						)}
+					</div>
 				</div>
 			</div>
 		)
