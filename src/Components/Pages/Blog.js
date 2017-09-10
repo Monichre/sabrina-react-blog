@@ -46,16 +46,17 @@ export default class Blog extends Component {
             nav: true,
 			navText : ["<i class='fa fa-lg fa-chevron-left'></i>","<i class='fa fa-lg fa-chevron-right'></i>"],
 			dots: false,
-			margin: 10,
+            margin: 10,
+            lazyLoad: true,
             autoplay: true
         }
 
         const events = {
             onDragged: function(event) {
-                console.log(event)
+                
             },
             onChanged: function(event) {
-                console.log(event)
+                
             }
         }
 

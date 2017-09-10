@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import _ from 'lodash'
 import {Link} from 'react-router'
 import AppDispatcher from '../../Dispatcher/AppDispatcher'
+import Axios from 'axios'
 // import NodeMailer from 'nodemailer'
 var config = require('../../config').config
 
@@ -25,6 +26,7 @@ class Form extends Component {
 	handleSubmit(event){
 		event.preventDefault()
 		console.log(this.state)
+		this.sendTheEmail()
 	}
 	handleNameChange(event) {
 		let name = event.target.value
@@ -43,33 +45,13 @@ class Form extends Component {
 		this.setState({message: message})
 	}
 	sendTheEmail(){
-		// create reusable transporter object using the default SMTP transport
-		// let transporter = NodeMailer.createTransport({
-		//     host: 'smtp.gmail.com',
-		//     port: 465,
-		//     secure: true, // secure:true for port 465, secure:false for port 587
-		//     auth: {
-		//         user: 'liamhellis@gmail.com',
-		//         pass: '102IndiaStreet'
-		//     }
-		// });
-		//
-		// // setup email data with unicode symbols
-		// const mailOptions = {
-		// 		from: this.state.name,
-		// 	    to: 'liamhellis@gmail.com', // list of receivers
-		// 	    subject: 'Hello from Theresa on the Town ✔', // Subject line
-		// 	    text: this.state.message, // plain text body
-		// 	    html: `<b>${this.state.message}</b>`
-		// }
-		//
-		// // send mail with defined transport object
-		// transporter.sendMail(mailOptions, (error, info) => {
-		//     if (error) {
-		//         return console.log(error);
-		//     }
-		//     console.log('Message %s sent: %s', info.messageId, info.response);
-		// });
+		Axios.post('/send-mail')
+		.then(function(res) {
+			console.log(res)
+		})
+		.catch(function (error) {
+			console.log(error)
+		})
 	}
 	render(){
 		return (
@@ -165,7 +147,7 @@ export default class About extends Component {
 		                    <div className="top-section">Find Out</div>
 		                    <h1 className="title">About Me</h1>
 		                </div>
-						<div class="blockquote-testimo">
+						<div className="blockquote-testimo">
 	                        <p>About Me Content from page</p>
 	                    </div>
 						<div className="title-testimonial">

@@ -6,24 +6,17 @@ import FuzzySearch from 'fuzzy-search'
 import AppStore from '../../../Stores/AppStore'
 import '../../css/search.css'
 
-const searchItemToAppend = (props) => {
-	return (
-		<div className='search-result animated slideInUp'>
-			<img className='search-result-thumbnail' src={props.result.image.url}/>
-			<h5><Link to={props.result.link_url}>{props.result.title}</Link></h5>
-		</div>
-	)
-}
+
 const SearchResultsList = (props) => (
 	<div className='search-result'>
 		<h5 className="search-result-item-title">
-			<img className='search-result-thumbnail' src={props.result.metadata.photo ? props.result.metadata.photo.url :''}/>
-			<Link to={'/' + AppStore.data.page.slug + '/' + props.result.slug}>{props.result.title}</Link> 
+			<div className="search-result-thumbnail">
+				<img src={props.result.metadata.photo ? props.result.metadata.photo.url :''}/>
+			</div>
+			<Link to={'/' + AppStore.data.page.slug + '/' + props.result.slug} onClick={props.onClick.bind(this)}>{props.result.title}</Link> 
 		</h5>
 	</div>
 )
-
-
 export default class Search extends Component {
 	constructor(props){
 		super(props)
@@ -72,12 +65,19 @@ export default class Search extends Component {
 			<searchItemToAppend image={searchItem.metadata.photo ? searchItem.metadata.photo : searchItem.metadata.affiliate_item.metadata.photo} />
 		)
 	}
+	handleSearchItemClick(){
+		document.getElementById('Nav').classList.remove('search-visible')
+		console.log("heading to search item url")
+		// this.setState({closeTheSearch: true})
+	}
 
 	render() {
 
 		let search_active
 		if (this.state.searchSuccess){
 			search_active = "search-active"
+		}else {
+			search_active = ''
 		}
 		return (
 			<div className={this.state.searchSuccess ? "search-wrap search-active" : "search-wrap"}>
@@ -93,7 +93,7 @@ export default class Search extends Component {
 				<div id="search-results" className={search_active}>
 					<div className="search-menu">
 						{this.state.searchResults.map(result =>
-							<SearchResultsList result={result} />
+							<SearchResultsList result={result} onClick={this.handleSearchItemClick.bind(this)} />
 						)}
 					</div>
 				</div>
