@@ -45,23 +45,30 @@ app.get('*', (req, res) => {
 });
 
 app.post('/send-mail', (req, res) => {
-    console.log(req)
-
-    console.log(req)
+   
+    const data = req.body
+    console.log(data)
+    console.log(res)
 
     const email_info = {
-        from:'Theresa on the town',
-        to: 'liamhellis@gmail.com', // list of receivers
-        subject: 'Hello from Theresa on the Town ✔', // Subject line
-        text: 'Is it working?', // plain text body
-        html: `<b>Is it working?</b>`
+        from: `${data.name}, ${data.email_address}`,
+        to: 'liamhellis@gmail.com', 
+        subject: 'Hello from Theresa on the Town ✔', 
+        text: data.message,
+        html: `<b>${data.message}</b>`
     }
+    let res_status
     transporter.sendMail(email_info, (error, info) => {
         if (error) {
-            return console.log(error)
+            res_status = false
+            console.log(error)
+            return res_status
+        } else {
+            res_status = true
+            console.log('Message %s sent: %s', info.messageId, info.response)
         }
-        console.log('Message %s sent: %s', info.messageId, info.response)
     })
+    res.json({success: res_status})
 
 })
 

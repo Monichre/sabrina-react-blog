@@ -1,10 +1,13 @@
 import React, {Component} from 'react'
+import ReactDOM from 'react-dom'
 import _ from 'lodash'
 import {Link} from 'react-router'
 import AppDispatcher from '../../Dispatcher/AppDispatcher'
 import Axios from 'axios'
-// import NodeMailer from 'nodemailer'
-var config = require('../../config').config
+import {Helmet} from "react-helmet";
+import EmailStatus from '../Partials/SiteComponents/EmailStatus'
+
+// var config = require('../../config').config
 
 
 class Form extends Component {
@@ -14,7 +17,8 @@ class Form extends Component {
 		this.state = {
 			name: '',
 			email:'',
-			message:''
+			message:'',
+			email_sent: false
 		}
 
 		this.handleNameChange = this.handleNameChange.bind(this);
@@ -45,17 +49,46 @@ class Form extends Component {
 		this.setState({message: message})
 	}
 	sendTheEmail(){
-		Axios.post('/send-mail')
+		let _this = this
+		Axios.post('/send-mail', {
+			name: this.state.name,
+			email_address: this.state.email,
+			message: this.state.message
+		})
 		.then(function(res) {
 			console.log(res)
+			if (res.status === 200) {
+				_this.setState({email_sent: true})
+			}
 		})
 		.catch(function (error) {
 			console.log(error)
 		})
 	}
+	componentDidMount() {
+		// var intervalId = setInterval(this.timer, 1000)
+		// this.setState({intervalId: intervalId})
+	}
+	componentWillUnmount() {
+		// use intervalId from the state to clear the interval
+		// clearInterval(this.state.intervalId);
+	 }
+	 
+	timer() {
+		// this.setState({ currentCount: this.state.currentCount -1 })
+	}
 	render(){
+		
+		let EMAIL_MODAL
+		if (this.state.email_sent) {
+			EMAIL_MODAL = <EmailStatus />
+		}
 		return (
-			<form name="react-form" id="react-form" onSubmit={this.handleSubmit}>
+			<div>
+				 
+				{EMAIL_MODAL}
+
+				<form name="react-form" id="react-form" onSubmit={this.handleSubmit}>
 				<div className="col-sm-6" data-scroll-reveal="enter bottom move 100px over 0.6s after 0.2s">
 					<label for="name"></label>
 					<input name="name" id="name" type="text" placeholder="Name: *" value={this.state.name.value} onChange={this.handleNameChange}/>
@@ -77,6 +110,7 @@ class Form extends Component {
 				</div>
 
 			</form>
+			</div>
 		)
 	}
 }
