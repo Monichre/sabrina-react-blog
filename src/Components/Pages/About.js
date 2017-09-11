@@ -29,23 +29,19 @@ class Form extends Component {
 
 	handleSubmit(event){
 		event.preventDefault()
-		console.log(this.state)
 		this.sendTheEmail()
 	}
 	handleNameChange(event) {
 		let name = event.target.value
-		console.log(name)
 		this.setState({name: name})
 
 	}
 	handleEmailChange(event) {
 		let email = event.target.value
-		console.log(email)
 		this.setState({email: email})
 	}
 	handleMessageChange(event) {
 		let message = event.target.value
-		console.log(message)
 		this.setState({message: message})
 	}
 	sendTheEmail(){

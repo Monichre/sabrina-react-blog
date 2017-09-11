@@ -47,9 +47,6 @@ export default class Search extends Component {
 			sort: true
 		})
 		const results = searcher.search(this.state.searchTerm)
-		console.log(this.state.searchTerm)
-		console.log(results)
-
 		if (results.length > 0){
 			this.setState({searchSuccess: true})
 			let _this = this
@@ -59,7 +56,6 @@ export default class Search extends Component {
 		}
 	}
 	appendSearchItems(searchItem){
-		console.log(searchItem)
 		let media
 		return (
 			<searchItemToAppend image={searchItem.metadata.photo ? searchItem.metadata.photo : searchItem.metadata.affiliate_item.metadata.photo} />
@@ -67,8 +63,6 @@ export default class Search extends Component {
 	}
 	handleSearchItemClick(){
 		document.getElementById('Nav').classList.remove('search-visible')
-		console.log("heading to search item url")
-		// this.setState({closeTheSearch: true})
 	}
 
 	render() {

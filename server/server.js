@@ -47,9 +47,6 @@ app.get('*', (req, res) => {
 app.post('/send-mail', (req, res) => {
    
     const data = req.body
-    console.log(data)
-    console.log(res)
-
     const email_info = {
         from: `${data.name}, ${data.email_address}`,
         to: 'liamhellis@gmail.com', 

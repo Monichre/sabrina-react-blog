@@ -48,13 +48,11 @@ export default class BlogList extends Component {
 			let readMore = <Link to={'/' + data.page.slug + '/' + article.slug} onClick={this.scrollTop}>Read More</Link>
 
 			if (article.metadata.category.slug === "videoposts") {
-				console.log(article)
 				return (
 					<VideoPost video={article.metadata.video.url} content={article.content} title={article.title} />
 				)
 			} else if (article.metadata.category.slug === 'affiliateposts') {
 				let affiliate_items = _.filter(article.metafields, (meta) => meta.key === 'affiliate_item')
-				console.log(affiliate_items)
 				return (
 					<AffiliatePost
 						key={'key-' + article.slug}
