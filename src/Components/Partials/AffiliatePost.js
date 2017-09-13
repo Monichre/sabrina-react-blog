@@ -9,6 +9,9 @@ export default class AffiliatePost extends Component {
 
 
     render() {
+			const header_style = {
+				padding: '12px 0'
+			}
 			let affiliate_style
 			if (this.props.image_bg){
 				affiliate_style = {
@@ -24,10 +27,7 @@ export default class AffiliatePost extends Component {
 
                     <div className="row">
                         <div className="col-md-12">
-                            <div className="title-section stile2 ">
-                                <div className="top-section text-left">
-                                    <p className="sub-header">Featured Affiliate</p>
-                                </div>
+                            <div className="title-section stile2 affiliate-header" style={header_style}>
                                 <h1 className="title text-left">{this.props.title}</h1>
                             </div>
                         </div>
@@ -35,7 +35,6 @@ export default class AffiliatePost extends Component {
                     </div>
 					<div className="container">
 						<div className="row">
-	                        <div className="flat-divider d10px"></div>
 							{this.props.affiliateItems.map(item =>
 								<div className="item">
 		                            <div className="imagebox effect1">

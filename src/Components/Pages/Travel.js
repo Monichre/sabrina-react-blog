@@ -64,6 +64,18 @@ export default class Travel extends Component {
                 </div>
             </div>
         </div>
+        <br />
+        <div className="page-title" style={travel_style}>
+            <div className="container">
+                <div className="row">
+                    <div className="col-md-12">
+                        <div className="title-section">
+                            <h1 className="title">Recent Posts</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 		  <TravelPosts data = {data} />
 		  <div className="page-title" style={travel_style}>
             <div className="container">

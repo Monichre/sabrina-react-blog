@@ -281,6 +281,9 @@
 .video-section-header {
     font-weight: 500;
 }
+video {
+    width: 100%!important;
+}
 
 .page-title .title-section .title:before, .affiliate-row .title-section .title:before, .video-section-header:before {
     position: absolute;
@@ -2270,7 +2273,7 @@ input[type="color"],
 /* Page title
 -------------------------------------------------------------- */
 .page-title {
-	padding: 83px 0 80px 0;
+	padding: 63px 0 60px 0;
 	background-color: rgb(245, 245, 245);
 	margin-top: 0px;
 }
@@ -2285,6 +2288,16 @@ input[type="color"],
 .page-title .page-title-heading h1.title {
 	font-weight: 500;
 	color: #ffffff;
+}
+#travel .page-title .title-section h1.title:after {
+    position: absolute;
+    content: "";
+    width: 30px;
+    height: 6px;
+    background-color: #ba2424;
+    top: 50%;
+    right: -40px;
+    margin-top: -4px;
 }
 
 .page-title .breadcrumbs ul li {
@@ -2371,7 +2384,7 @@ input[type="color"],
     line-height: 30px;
     /*font-weight: 700;*/
     text-transform: uppercase;
-    letter-spacing: 8px;
+    
 }
 .featured_post_content .caption  {
 	font-family: 'Merriweather', serif;
@@ -2385,7 +2398,7 @@ input[type="color"],
 	padding: 0px;
 	font-weight: 400;
 	/*text-transform: uppercase;*/
-	letter-spacing: 4px;
+	
 	font-style: italic;
 }
 .featured_post_content .side-caption {
@@ -3138,8 +3151,15 @@ input[type="color"],
 
 .iframe-widget {
 	position: relative;
-	height: 400px;
+	height: 500px;
 }
+iframe html > body {
+    margin: 0!important;
+}
+iframe > * > * {
+    margin: 0!important;
+}
+    
 
 .footer-form {
     color: #fff;
@@ -4200,23 +4220,9 @@ video {
 	right: -43px;
 }
 
+.category-blog-post-previews .blog-post-preview:nth-of-type(1) {
+    padding-top: 50px!important;
+}
 
 
-/* SEARCH SECTION 
-.search-wrap .search-form {
-    position: relative;
-}
-.search-result-thumbnail {
-    height: 100px;
-    width: 100px;
-    display: inline;
-}
-.search-result-item-title {
-    color: #fff;
-    text-align: left;
-    padding: 10px;
-}
-.search-result {
-	border-bottom: 1px solid #eee;
-} */
 

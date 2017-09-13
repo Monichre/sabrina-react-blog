@@ -1,6 +1,7 @@
 #loading {
     margin: 0;
     background-color: coral;
+    position: relative;
     background: -webkit-linear-gradient(45deg, #FF8E8E, #F5A94C, #E0C15B);
     background: linear-gradient(45deg, #FF8E8E, #F5A94C, #E0C15B);
 }
