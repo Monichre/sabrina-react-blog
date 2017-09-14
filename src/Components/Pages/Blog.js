@@ -5,7 +5,6 @@ import config from '../../config'
 import PropTypes from 'prop-types';
 
 // Components
-import Header from '../Partials/SiteComponents/Header'
 import BlogList from '../Partials/BlogList'
 import BlogSingle from '../Partials/BlogSingle'
 import OwlCarousel from 'react-owl-carousel2';

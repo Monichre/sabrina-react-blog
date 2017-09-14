@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import config from '../../config'
 
 // Components
-import Header from '../Partials/SiteComponents/Header'
+
 
 // Dispatcher
 import AppDispatcher from '../../Dispatcher/AppDispatcher'
