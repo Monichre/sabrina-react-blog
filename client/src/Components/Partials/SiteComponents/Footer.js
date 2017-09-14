@@ -37,8 +37,8 @@ export default class Footer extends Component {
 							  <IFrame
 								  style={style}
 								  className="lightwidget-widget"
-								  url="https://lightwidget.com/widgets/52a12044a9aa5f2f84d7cd0c15214cb1.html"/>
-							  <script src="https://lightwidget.com/widgets/lightwidget.js"></script>
+								  url="http://lightwidget.com/widgets/52a12044a9aa5f2f84d7cd0c15214cb1.html"/>
+							  <script src="http://lightwidget.com/widgets/lightwidget.js"></script>
 						  </div>
 		              </div>
 		          </div>

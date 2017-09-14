@@ -15,6 +15,7 @@ export default class EmailStatus extends Component {
         this.state = {
             success: false
         }
+        // this.closeEmailClick = 
     }
     componentDidMount() {
         var xmlns = "http://www.w3.org/2000/svg",
@@ -164,11 +165,22 @@ export default class EmailStatus extends Component {
 
 
     }
+    closeEmailClick(){
+        // this.props.closeEmail = this.props.closeEmail.bind(this)
+    }
     render() {
-
+        const header_style = {
+            marginTop: '50px',
+            color: '#fff',
+            textAlign: 'center'
+        }
+        const icon_style = {
+            cursor: 'pointer'
+        }
         return (
             <div id="EmailStatus">
                 <div className="email_container">
+                    <h1 id="email-header" style={header_style}>Thank You! Email Sent Successfully! <span href="#" id="close-search" className="close-btn" onClick={this.props.closeEmail.bind(this)}><i className="fa fa-times" aria-hidden="true" style={icon_style}></i></span></h1>
                     <svg xmlns="http://www.w3.org/2000/svg">
                         <defs>
                             <mask id="ringMask">
@@ -177,9 +189,7 @@ export default class EmailStatus extends Component {
                                     M339,458c0,0-24,0-28.5,0c-8.6,0-14.4-4.8-20.1-13c-9.2-13.1-32-49.7-32-49.7s-11.8-16.2,0-23.8c9.2-5.9,14.8-3.6,20,5
                         c3.5,5.8,8.5,12.3,8.5,12.3s0-50.2,0-54.8c0-4.5-0.9-15.9,17.5-15.9c14.6,0,14.5,13.4,14.5,15.1s0,1.4,0,6.5c3-3.6,21.8-5.8,24,5.8
                         c3.7-5,20-4.3,20.7,10.1c6.7-5,13.3,0,13.3,6.5c0,6.5,0,39.3,0,44c0,4.7,0.5,16.8-5.2,32.3C367.9,446.9,359.3,458,339,458"/>
-
                         </mask>
-
                             <mask id="messageMask">
 
                                 <path className="messageOutline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="			M364.9,307.6H240.5v-77.7h124.4V307.6z" />

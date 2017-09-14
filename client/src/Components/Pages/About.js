@@ -18,7 +18,8 @@ class Form extends Component {
 			name: '',
 			email:'',
 			message:'',
-			email_sent: false
+			email_sent: false,
+			displayEmailModal: false
 		}
 
 		this.handleNameChange = this.handleNameChange.bind(this);
@@ -61,23 +62,15 @@ class Form extends Component {
 			console.log(error)
 		})
 	}
-	componentDidMount() {
-		// var intervalId = setInterval(this.timer, 1000)
-		// this.setState({intervalId: intervalId})
-	}
-	componentWillUnmount() {
-		// use intervalId from the state to clear the interval
-		// clearInterval(this.state.intervalId);
-	 }
-	 
-	timer() {
-		// this.setState({ currentCount: this.state.currentCount -1 })
+	handleEmailCloseClick(){
+		this.setState({email_sent: false})
 	}
 	render(){
 		
 		let EMAIL_MODAL
 		if (this.state.email_sent) {
-			EMAIL_MODAL = <EmailStatus />
+			EMAIL_MODAL = <EmailStatus closeEmail={this.handleEmailCloseClick.bind(this)}/>
+			
 		}
 		return (
 			<div>
