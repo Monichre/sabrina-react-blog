@@ -38,10 +38,13 @@ app.use(function(req, res, next) {
     next()
 })
 
-app.get('*', (req, res) => {
-    res.json({
-        success: true
-    })
+// Priority serve any static files.
+app.use(express.static(path.resolve(__dirname, '../client/build')));
+
+
+// All remaining requests return the React app, so it can handle routing.
+app.get('*', function(request, response) {
+  response.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
 });
 
 app.post('/send-mail', (req, res) => {
