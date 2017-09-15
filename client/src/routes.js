@@ -60,9 +60,6 @@ let routes_with_sub = [
         component: About
     }
 ]
-// const RouteWithSubRoutes = (route) => (
-//   <Route path={route.path} render={() => ( <route.component key={i} data={AppStore.data} routes={route.routes}/> )}/>
-// )
 
 export default(
 
@@ -75,11 +72,4 @@ export default(
 			))}
 	</div>
 )
-        // <Route exact path="/" render={() => <Blog data={AppStore.data}/>}/>
-        // <Route path="/fashion-style" render={(path) => <FashionAndStyle data={AppStore.data} routes={path + '/:slug'}/>}/>
-        // <Route path="/health-wellness" render={() => <HealthAndWellness data={AppStore.data}/>}/>
-        // <Route path="/travel" render={() => <Travel data={AppStore.data}/>}/>
-        // <Route path="/about" render={() => <About data={AppStore.data}/>}/>
-        // <Route path="/contact" render={() => <About data={AppStore.data}/>}/>
-        // //
-        // <Route path="/blog/:slug" render={() => <BlogSingle data={AppStore.data}/>}/>
+   

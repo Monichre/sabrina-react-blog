@@ -13,7 +13,7 @@ const bodyParser = require('body-parser')
 const config =  {
 
   email_info : {
-    host: 'smtp.bluehost.com',
+    host: 'box1052.bluehost.com',
 	  port: 465,
 	  secure: true,  // secure:true for port 465, secure:false for port 587
 	  auth: {

@@ -1,10 +1,8 @@
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
-import _ from 'lodash'
 import {Link} from 'react-router'
 import AppDispatcher from '../../Dispatcher/AppDispatcher'
 import Axios from 'axios'
-import {Helmet} from "react-helmet";
 import EmailStatus from '../Partials/SiteComponents/EmailStatus'
 
 // var config = require('../../config').config
@@ -53,13 +51,11 @@ class Form extends Component {
 			message: this.state.message
 		})
 		.then(function(res) {
-			console.log(res)
 			if (res.status === 200) {
 				_this.setState({email_sent: true})
 			}
 		})
 		.catch(function (error) {
-			console.log(error)
 		})
 	}
 	handleEmailCloseClick(){
@@ -112,8 +108,6 @@ export default class About extends Component {
 
     componentDidMount() {
         const data = this.props.data
-		console.log(data)
-		// document.title = config.site.title + ' | ' + data.page.title
 
     }
 

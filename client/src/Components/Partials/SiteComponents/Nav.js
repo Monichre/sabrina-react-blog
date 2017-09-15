@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 import Axios from 'axios'
 import Search from './Search'
 import '../../css/search.css'
+import SubscriptionStatus from './SubscriptionStatus'
 
 
 class Modal extends Component {
@@ -16,18 +17,10 @@ class Modal extends Component {
             email_sent: false
         }
         this.handleSubscriptionEmail = this.handleSubscriptionEmail.bind(this)
-        // this.handleSubmit = this.handleSubmit.bind(this)
     }
-    handleModalClose(e) {
-        e.preventDefault()
 
-        if (this.state.showModal) {
-            this.setState({showModal: false})
-        } else {
-            this.setState({showModal: true})
-        }
-    }
-    handleSubmit(){
+    handleSubmit(event){
+        event.preventDefault()
         this.sendTheEmail()
     }
     handleSubscriptionEmail(event) {
@@ -53,7 +46,21 @@ class Modal extends Component {
             console.log(error)
         })
     }
+
     render() {
+        let EMAIL_MODAL
+        let hidden
+        let footer_style
+		if (this.state.email_sent) {
+			EMAIL_MODAL = <SubscriptionStatus/>
+            hidden = {
+                display: 'none'
+            }
+            footer_style = {
+                height: '400px'
+            }
+			
+		}
 
         const hide = {
             position: 'fixed',
@@ -91,13 +98,15 @@ class Modal extends Component {
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <button type="button" className="close" onClick={this.handleModalClose.bind(this)}>
+                            <button type="button" className="close" onClick={this.props.closeModal.bind(this)}>
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <footer id="main-footer">
+                        
+                        <footer id="main-footer" style={footer_style}>
                             <div className="container-fluid footer-bottom">
-                                <div className="row">
+                                {EMAIL_MODAL}
+                                <div className="row" style={hidden}>
                                     <div className="col-md-8 col-md-offset-2">
                                         <div className="footer-form">
                                             <div className="section-headline">
@@ -110,7 +119,7 @@ class Modal extends Component {
                                             <p>Join the mailing list and be the first to know about product picks, style inspiration, and money saving tips.
                                             </p>
 
-                                            <form id="" name="subscribe-form" method="post" onSubmit={this.handleSubmit.bind(this)}>
+                                            <form id="" name="subscribe-form" onSubmit={this.handleSubmit.bind(this)}>
                                                 <input id="" type="text" placeholder="Email" name="email" required="required" className="subscribe-style" value={this.state.subscriptionEmail.value} onChange={this.handleSubscriptionEmail}/>
                                                 <button type="submit" data-value="subscribe" data-wait="Please wait..." className="w-button subscribe-button">subscribe</button>
                                             </form>
@@ -118,8 +127,8 @@ class Modal extends Component {
                                     </div>
 
                                 </div>
-                                <hr/>
-                                <div className="row">
+                                <hr style={hidden}/>
+                                <div className="row" style={hidden}>
                                     <div className="col-xs-12">
                                         <div className="footer-social-block">
                                             <a href="#">
@@ -233,7 +242,7 @@ export default class Nav extends Component {
 		}
         return (
             <div id="Nav" className={navClassForSearch}>
-                <Modal showModal={this.state.showModal}/>
+                <Modal showModal={this.state.showModal} closeModal={this.modalTriggerClick.bind(this)}/>
 
                 <header id="header" className="header clearfix">
                     <div className="header-wrap clearfix">

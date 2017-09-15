@@ -1,22 +1,18 @@
 import React, { Component } from 'react'
 import './EmailStatus.css'
 import {Link} from 'react-router-dom'
-
-
 import { TweenMax, Power1, Power2, Power3, TimelineMax, DrawSVGPlugin, Elastic, Linear } from "gsap"
-
 
 const Anticipate = window.Anticipate={p1:function(){return 1.70158},p2:function(){return 1.525*Anticipate.p1()},easeOut:function(a){return 1>(a*=2)?.5*a*a*((Anticipate.p2()+1)*a-Anticipate.p2()):.5*(2-Math.pow(2,-10*(a-1)))},easeIn:function(a){return 1>(a*=2)?.5*(Math.pow(2,10*(a-1))-.001):.5*((a-=2)*a*((Anticipate.p2()+1)*a+Anticipate.p2())+2)},easeInOut:function(a){return 1>(a*=2)?.5*a*a*((Anticipate.p2()+1)*a-Anticipate.p2()):.5*((a-=2)*a*((Anticipate.p2()+1)*a+Anticipate.p2())+2)}};
 
 
-export default class EmailStatus extends Component {
+export default class SubscriptionStatus extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
             success: false
         }
-        // this.closeEmailClick = 
     }
     componentDidMount() {
         var xmlns = "http://www.w3.org/2000/svg",
@@ -166,56 +162,48 @@ export default class EmailStatus extends Component {
 
 
     }
-    closeEmailClick(){
-        // this.props.closeEmail = this.props.closeEmail.bind(this)
-    }
+  
     render() {
         const header_style = {
             marginTop: '50px',
             color: '#fff',
-            textAlign: 'center'
+            textAlign: 'center',
+            fontSize: '30px',
+            fontWeight: 400
         }
         const icon_style = {
-            cursor: 'pointer'
+            cursor: 'pointer',
+            color: '#fff'
         }
         return (
-            <div id="EmailStatus">
+            <div id="SubscriptionStatus">
                 <div className="email_container">
-                    <h1 id="email-header" style={header_style}>Thank You! Email Sent Successfully! 
-                        <span id="close-search" className="close-btn" onClick={this.props.closeEmail.bind(this)}>
-                            <Link to='/'>
-                                <i className="fa fa-times" aria-hidden="true" style={icon_style}></i>
-                            </Link>
-                        </span></h1>
+                    <h1 id="email-header" style={header_style}>You're all signed up! </h1>
                     <svg xmlns="http://www.w3.org/2000/svg">
                         <defs>
                             <mask id="ringMask">
                                 <rect width="1200" height="600" fill="#FFF" />
-                                <path className="smallHand" stroke="none" fill="#000" stroke-width="8" stroke-linejoin="round" stroke-miterlimit="10" d="
+                                <path className="smallHand" stroke="none" fill="#000" strokeWidth="8" strokeLinejoin="round" strokeMiterlimit="10" d="
                                     M339,458c0,0-24,0-28.5,0c-8.6,0-14.4-4.8-20.1-13c-9.2-13.1-32-49.7-32-49.7s-11.8-16.2,0-23.8c9.2-5.9,14.8-3.6,20,5
                         c3.5,5.8,8.5,12.3,8.5,12.3s0-50.2,0-54.8c0-4.5-0.9-15.9,17.5-15.9c14.6,0,14.5,13.4,14.5,15.1s0,1.4,0,6.5c3-3.6,21.8-5.8,24,5.8
                         c3.7-5,20-4.3,20.7,10.1c6.7-5,13.3,0,13.3,6.5c0,6.5,0,39.3,0,44c0,4.7,0.5,16.8-5.2,32.3C367.9,446.9,359.3,458,339,458"/>
                         </mask>
                             <mask id="messageMask">
 
-                                <path className="messageOutline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="			M364.9,307.6H240.5v-77.7h124.4V307.6z" />
+                                <path className="messageOutline" fill="#FFFFFF" stroke="#FFFFFF" strokeWidth="8" stroke-linecap="round" strokeLinejoin="round" strokeMiterlimit="10" d="			M364.9,307.6H240.5v-77.7h124.4V307.6z" />
                             </mask>
                             <mask id="circleMask">
                                 <rect width="600" height="600" fill="#FFFFFF" />
-                                <circle id="hideRing" fill="#000" stroke="#000" stroke-width="8" stroke-linejoin="round" stroke-miterlimit="10" cx="303" cy="300" r="0" />
-                                <circle id="showRing" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="8" stroke-linejoin="round" stroke-miterlimit="10" cx="303" cy="300" r="0" />
+                                <circle id="hideRing" fill="#000" stroke="#000" strokeWidth="8" strokeLinejoin="round" strokeMiterlimit="10" cx="303" cy="300" r="0" />
+                                <circle id="showRing" fill="#FFFFFF" stroke="#FFFFFF" strokeWidth="8" strokeLinejoin="round" strokeMiterlimit="10" cx="303" cy="300" r="0" />
                             </mask>
                         </defs>
-                        <g id="emailLinesGroup" stroke-linecap="round" stroke-linejoin="round" stroke-width="6"  >
-                            <line x1="260" x2="260" y1="10" y2="150" />
-                            <line x1="310" x2="310" y1="90" y2="180" />
-                            <line x1="360" x2="360" y1="70" y2="120" />
-                        </g>
+                     
                         <g id="messageGroup" mask="url(#ringMask)">
                             <g id="emailGroup" mask="url(#circleMask)">
-                                <path className="messageOutline" id="messageOutline" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="			M364.9,307.6H240.5v-77.7h124.4V307.6z" />
+                                <path className="messageOutline" id="messageOutline" fill="none" stroke="#FFFFFF" strokeWidth="8" stroke-linecap="round" strokeLinejoin="round" strokeMiterlimit="10" d="			M364.9,307.6H240.5v-77.7h124.4V307.6z" />
                                 <g id="maskedMessageFlap" mask="url(#messageMask)">
-                                    <path id="messageFlap" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="			M242.1,234.1l61.4,61.4l59.8-61.4" />
+                                    <path id="messageFlap" fill="none" stroke="#FFFFFF" strokeWidth="8" stroke-linecap="round" strokeLinejoin="round" strokeMiterlimit="10" d="			M242.1,234.1l61.4,61.4l59.8-61.4" />
                                 </g>
                             </g>
                             <g id="planeGroup">
@@ -224,19 +212,19 @@ export default class EmailStatus extends Component {
                             </g>
                         </g>
                         <g id="handGroup">
-                            <path id="bigHand" fill="none" stroke="none" stroke-width="8" stroke-linejoin="round" stroke-miterlimit="10" d="M339,458
+                            <path id="bigHand" fill="none" stroke="none" strokeWidth="8" strokeLinejoin="round" strokeMiterlimit="10" d="M339,458
                                 c0,0-24,0-28.5,0c-8.6,0-14.4-4.8-20.1-13c-9.2-13.1-32-52.6-32-52.6s-11.8-16.2,0-23.8c9.2-5.9,14.8-3.6,20,5
                         c3.5,5.8,8.5,15.1,8.5,15.1s0-79.1,0-83.6c0-4.5-0.9-15.9,17.5-15.9c14.6,0,14.5,13.4,14.5,15.1c0,1.7,0,30.3,0,35.3
                         c3-3.6,21.8-5.8,24,5.8c3.7-5,20-4.3,20.7,10.1c6.7-5,13.3,0,13.3,6.5c0,6.5,0,39.3,0,44c0,4.7,0.5,16.8-5.2,32.3
                         C367.9,446.9,359.3,458,339,458"/>
-                        <path className="smallHand" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linejoin="round" stroke-miterlimit="10" d="
+                        <path className="smallHand" fill="none" stroke="#FFFFFF" strokeWidth="8" strokeLinejoin="round" strokeMiterlimit="10" d="
                                 M339,458c0,0-24,0-28.5,0c-8.6,0-14.4-4.8-20.1-13c-9.2-13.1-32-49.7-32-49.7s-11.8-16.2,0-23.8c9.2-5.9,14.8-3.6,20,5
                         c3.5,5.8,8.5,12.3,8.5,12.3s0-50.2,0-54.8c0-4.5-0.9-15.9,17.5-15.9c14.6,0,14.5,13.4,14.5,15.1s0,1.4,0,6.5c3-3.6,21.8-5.8,24,5.8
                         c3.7-5,20-4.3,20.7,10.1c6.7-5,13.3,0,13.3,6.5c0,6.5,0,39.3,0,44c0,4.7,0.5,16.8-5.2,32.3C367.9,446.9,359.3,458,339,458"/>
                         </g>
 
                         <g mask="url(#ringMask)">
-                            <g id="ringGroup" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linejoin="round" stroke-miterlimit="10">
+                            <g id="ringGroup" fill="none" stroke="#FFFFFF" strokeWidth="8" strokeLinejoin="round" strokeMiterlimit="10">
 
                                 <circle className="ring" cx="303" cy="300" r="0" />
 
