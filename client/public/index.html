@@ -90,13 +90,167 @@
 			background: linear-gradient(45deg, #FF8E8E, #F5A94C, #E0C15B);
 		}
 
-		.loading-container {
+		#loading section {
+			height: 350px;
+			width: 94%;
+			/* box-shadow: 0px 0px 146px 21px rgba(0, 0, 0, 0.75); */
+			/* background-color: #000; */
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center center;
+			position: relative;
+			overflow: hidden;
+			width: 100%;
+			margin: 0 auto 0px;
+		}
+
+		#loading section a {
+			font-family: "Merriweather";
+			text-align: center;
+			text-decoration: none;
+			font-size: 2em;
+			/* color: #ba2424; */
+			font-weight: 400;
+			color: #fff;
+		}
+
+		#loading section a:after,
+		#loading section a:before {
+			content: '';
+		}
+
+		#loading section.p16 a {
+			width: 632px;
+			height: 124px;
+			line-height: 124px;
 			position: absolute;
 			top: 50%;
 			left: 50%;
-			-webkit-transform: translate(-50%, -50%);
-			transform: translate(-50%, -50%);
+			margin-left: -316px;
+			margin-top: -62px;
+			z-index: 10;
+			overflow: hidden;
 		}
+
+		#loading section.p16 a:before,
+		#loading section.p16 a:after {
+			position: absolute;
+			left: 0;
+			display: block;
+			height: 150px;
+			background-size: contain;
+			opacity: 1;
+			-webkit-transition: all 0.4s cubic-bezier(0.17, 0.67, 0.64, 1.55);
+			-moz-transition: all 0.4s cubic-bezier(0.17, 0.67, 0.64, 1.55);
+			transition: all 0.4s cubic-bezier(0.17, 0.67, 0.64, 1.55);
+			opacity: 0;
+			top: 50px;
+		}
+
+		#loading section.p16 a:before {
+			background-image: url(https://caraujo_pens.surge.sh/images/ko4m3Fj.png);
+			width: 1772px;
+			z-index: -1;
+			-webkit-animation: chicaum 60s infinite linear;
+			-moz-animation: chicaum 60s infinite linear;
+			animation: chicaum 60s infinite linear;
+			opacity: 1;
+			top: 0;
+		}
+
+		#loading section.p16 a:after {
+			background-image: url(https://caraujo_pens.surge.sh/images/5asE7dv.png);
+			width: 1682px;
+			z-index: 1;
+			-webkit-animation: chicadois 30s infinite linear;
+			-moz-animation: chicadois 30s infinite linear;
+			animation: chicadois 30s infinite linear;
+			opacity: 1;
+			top: 0;
+		}
+
+		#loading section.p16 a:hover:before,
+		#loading section.p16 a:hover:after {
+			opacity: 1;
+			top: 0;
+		}
+
+		#loading section.p16 a:hover:before {
+			transition-delay: .2s;
+		}
+
+		.loading-container {
+			/* position: absolute;
+			top: 50%;
+			left: 50%;
+			-webkit-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%); */
+		}
+
+@-webkit-keyframes chicaum {
+  from {
+    -webkit-transform: translate(0px);
+  }
+  to {
+    -webkit-transform: translate(-886px);
+  }
+}
+@-moz-keyframes chicaum {
+  from {
+    -moz-transform: translate(0px);
+  }
+  to {
+    -moz-transform: translate(-886px);
+  }
+}
+@keyframes chicaum {
+  from {
+    -webkit-transform: translate(0px);
+    -moz-transform: translate(0px);
+    -ms-transform: translate(0px);
+    -o-transform: translate(0px);
+    transform: translate(0px);
+  }
+  to {
+    -webkit-transform: translate(-886px);
+    -moz-transform: translate(-886px);
+    -ms-transform: translate(-886px);
+    -o-transform: translate(-886px);
+    transform: translate(-886px);
+  }
+}
+@-webkit-keyframes chicadois {
+  from {
+    -webkit-transform: translate(0px);
+  }
+  to {
+    -webkit-transform: translate(-841px);
+  }
+}
+@-moz-keyframes chicadois {
+  from {
+    -moz-transform: translate(0px);
+  }
+  to {
+    -moz-transform: translate(-841px);
+  }
+}
+@keyframes chicadois {
+  from {
+    -webkit-transform: translate(0px);
+    -moz-transform: translate(0px);
+    -ms-transform: translate(0px);
+    -o-transform: translate(0px);
+    transform: translate(0px);
+  }
+  to {
+    -webkit-transform: translate(-841px);
+    -moz-transform: translate(-841px);
+    -ms-transform: translate(-841px);
+    -o-transform: translate(-841px);
+    transform: translate(-841px);
+  }
+}
 
 		.dot {
 			width: 10px;
@@ -145,11 +299,15 @@
 	</style>
 
 	<div id='loading'>
-		<h1 style="text-align:center; color: #fff; margin: 20px auto;">Theresa on the Town</h1>
+
 		<div class="loading-container">
+
+			<section class="p16">
+				<a href="">Theresa on the Town</a>
+			</section>
+			<!-- <div class="dot"></div>
 			<div class="dot"></div>
-			<div class="dot"></div>
-			<div class="dot"></div>
+			<div class="dot"></div> -->
 		</div>
 	</div>
 
@@ -161,7 +319,7 @@
 	<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
 
 
-<!-- 
+	<!-- 
 	<script type="text/javascript" src="js/jquery.easing.js"></script>
 	<script type="text/javascript" src="js/imagesloaded.min.js"></script>
 	<script type="text/javascript" src="js/jquery.isotope.min.js"></script>

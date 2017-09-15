@@ -38,7 +38,7 @@ class App extends Component {
 
 		setTimeout(function(){
 			document.getElementById('loading').style.display = 'none'
-		}, 1000)
+		}, 3000)
 		
 	}
 
