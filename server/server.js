@@ -13,11 +13,11 @@ const bodyParser = require('body-parser')
 const config =  {
 
   email_info : {
-    host: 'box#.bluehost.com',
+    host: 'smtp.bluehost.com',
 	  port: 465,
 	  secure: true,  // secure:true for port 465, secure:false for port 587
 	  auth: {
-	      user: 'sabrina@theresaonthetown.com,
+	      user: 'sabrina@theresaonthetown.com',
 	      pass: 'Happysabby1984@'
 	  }
   }
@@ -78,6 +78,31 @@ app.post('/send-mail', (req, res) => {
     res.json({success: res_status})
 
 })
+
+app.post('/subscribe', (req, res) => {
+    
+     const data = req.body
+     const email_info = {
+         from: `${data.email_address}`,
+         to: 'sabrina@theresaonthetown.com', 
+         subject: 'New Subscription to your Newsletter ✔', 
+         text: `${data.email_address}`,
+         html: `<b>${data.email_address}</b>`
+     }
+     let res_status
+     transporter.sendMail(email_info, (error, info) => {
+         if (error) {
+             res_status = false
+             console.log(error)
+             return res_status
+         } else {
+             res_status = true
+             console.log('Message %s sent: %s', info.messageId, info.response)
+         }
+     })
+     res.json({success: res_status})
+ 
+ })
 
 app.listen(app.get('port'), function() {
     console.log('server running on: ' + app.get('port'))

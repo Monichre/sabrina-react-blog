@@ -1,19 +1,22 @@
 // Nav.js
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
+import Axios from 'axios'
 import Search from './Search'
 import '../../css/search.css'
 
-// import Modal from './Modal'
 
 class Modal extends Component {
 
     constructor(props) {
         super(props)
-
         this.state = {
-            showModal: props.showModal
+            subscriptionEmail: '',
+            showModal: props.showModal,
+            email_sent: false
         }
+        this.handleSubscriptionEmail = this.handleSubscriptionEmail.bind(this)
+        // this.handleSubmit = this.handleSubmit.bind(this)
     }
     handleModalClose(e) {
         e.preventDefault()
@@ -23,6 +26,32 @@ class Modal extends Component {
         } else {
             this.setState({showModal: true})
         }
+    }
+    handleSubmit(){
+        this.sendTheEmail()
+    }
+    handleSubscriptionEmail(event) {
+        console.log(event.target.value)
+        this.setState({subscriptionEmail: event.target.value})
+    }
+    sendTheEmail(){
+        console.log('I should be sending the goddamn email')
+        let _this = this
+        Axios.post('/subscribe', {
+            email_address: this.state.subscriptionEmail
+        })
+        .then(function(res) {
+            console.log(res)
+            if (res.status === 200) {
+                _this.setState({
+                    email_sent: true,
+                    showModal: false
+                })
+            }
+        })
+        .catch(function (error) {
+            console.log(error)
+        })
     }
     render() {
 
@@ -81,9 +110,9 @@ class Modal extends Component {
                                             <p>Join the mailing list and be the first to know about product picks, style inspiration, and money saving tips.
                                             </p>
 
-                                            <form id="" name="subscribe-form" method="post">
-                                                <input id="" type="text" placeholder="Email" name="email" required="required" className="subscribe-style"/>
-                                                <button type="button" data-value="subscribe" data-wait="Please wait..." className="w-button subscribe-button">Subscribe</button>
+                                            <form id="" name="subscribe-form" method="post" onSubmit={this.handleSubmit.bind(this)}>
+                                                <input id="" type="text" placeholder="Email" name="email" required="required" className="subscribe-style" value={this.state.subscriptionEmail.value} onChange={this.handleSubscriptionEmail}/>
+                                                <button type="submit" data-value="subscribe" data-wait="Please wait..." className="w-button subscribe-button">subscribe</button>
                                             </form>
                                         </div>
                                     </div>
