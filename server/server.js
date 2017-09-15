@@ -3,15 +3,22 @@ const NodeMailer = require('nodemailer')
 const path = require('path')
 const bodyParser = require('body-parser')
 
+// var host;
+// if (NODE_ENV === 'production') {
+//     host = 'theresaonthetown.com'
+// } else {
+//     host = 
+// }
+
 const config =  {
 
   email_info : {
-    host: 'smtp.gmail.com',
+    host: 'box#.bluehost.com',
 	  port: 465,
 	  secure: true,  // secure:true for port 465, secure:false for port 587
 	  auth: {
-	      user: 'liamhellis@gmail.com',
-	      pass: '102IndiaStreet'
+	      user: 'sabrina@theresaonthetown.com,
+	      pass: 'Happysabby1984@'
 	  }
   }
 }
@@ -52,8 +59,8 @@ app.post('/send-mail', (req, res) => {
     const data = req.body
     const email_info = {
         from: `${data.name}, ${data.email_address}`,
-        to: 'liamhellis@gmail.com', 
-        subject: 'Hello from Theresa on the Town ✔', 
+        to: 'sabrina@theresaonthetown.com', 
+        subject: 'New Message from your Website ✔', 
         text: data.message,
         html: `<b>${data.message}</b>`
     }
