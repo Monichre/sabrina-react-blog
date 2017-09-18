@@ -28,7 +28,7 @@ export default class FashionAndStyle extends Component {
 
     render() {
         return (
-			<div>
+			<div id="Fashion">
 				<div className="page-title">
 	              <div className="container">
 	                  <div className="row">

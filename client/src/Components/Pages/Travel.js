@@ -40,7 +40,10 @@ export default class Travel extends Component {
 	const travel_style = {
 		backgroundColor: '#f5f5f5',
 		marginTop: 0
-	}
+    }
+    const map_style = {
+        paddingTop: '50px'
+    }
 
     return (
       <div id="travel">
@@ -57,7 +60,7 @@ export default class Travel extends Component {
         </div>
 		<div className="row">
             <div className="col-xs-12">
-                <div className="map-container padding-top-60px">
+                <div className="map-container" style={map_style}>
 					<div id="chartdiv">
 						<AmCharts.React {...mapConfig} />
 					</div>

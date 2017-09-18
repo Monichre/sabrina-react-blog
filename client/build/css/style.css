@@ -1606,7 +1606,8 @@ h4 { font: 16px/30px "Merriweather", sans-serif;}
 h5 { font: 14px/30px "Merriweather", sans-serif;}
 h6 { font: 13px/19px "Merriweather", sans-serif;}
 .site-title, .site-title a {
-	font-family: 'Merriweather', serif!important;
+    font-family: 'Merriweather', serif!important;
+    letter-spacing: 0!important;
 }
 .header-wrap .clearfix {
 	position: relative!important;
@@ -2085,6 +2086,7 @@ input[type="color"],
 
 #mainnav > ul > li {
    display: inline-block;
+   padding: 10px;
 }
 
 #mainnav > ul > li > a {
@@ -2094,7 +2096,7 @@ input[type="color"],
 
     font-size: 14px;
 	line-height: 75px;
-	padding: 10px 15px 0;
+	/* padding: 10px 15px 0; */
 	color: #565656;
     text-decoration: none;
 
@@ -2119,7 +2121,10 @@ input[type="color"],
 #mainnav > ul > li.logo img {
 	margin-top: -20px
 }
-
+#mainnav ul.menu {
+    display: flex;
+    justify-content: space-between;
+}
 /* submenu */
 #mainnav ul.submenu {
 	text-align: left;
@@ -2289,7 +2294,7 @@ input[type="color"],
 	font-weight: 500;
 	color: #ffffff;
 }
-#travel .page-title .title-section h1.title:after {
+#travel .page-title .title-section h1.title:after, #Fashion .page-title .title-section h1.title:after, #Health .page-title .title-section h1.title:after {
     position: absolute;
     content: "";
     width: 30px;

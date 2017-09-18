@@ -57,11 +57,11 @@
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 	<link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
-	    rel="stylesheet" type="text/css">
+	  rel="stylesheet" type="text/css">
 
 	<!-- JQuery, only needed for Owl Carousel -->
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-	    crossorigin="anonymous"></script>
+	  crossorigin="anonymous"></script>
 
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -79,235 +79,128 @@
 	<style>
 		#loading {
 			margin: 0;
-			background-color: coral;
+			background-color: #fff;
 			position: absolute;
 			top: 0;
 			width: 100%;
 			z-index: 2000;
 			height: 100%;
 			left: 0;
-			background: -webkit-linear-gradient(45deg, #FF8E8E, #F5A94C, #E0C15B);
-			background: linear-gradient(45deg, #FF8E8E, #F5A94C, #E0C15B);
 		}
 
-		#loading section {
-			height: 350px;
-			width: 94%;
-			/* box-shadow: 0px 0px 146px 21px rgba(0, 0, 0, 0.75); */
-			/* background-color: #000; */
-			background-repeat: no-repeat;
-			background-size: cover;
-			background-position: center center;
-			position: relative;
-			overflow: hidden;
-			width: 100%;
-			margin: 0 auto 0px;
-		}
+	
 
-		#loading section a {
+		#loading h2 {
 			font-family: "Merriweather";
 			text-align: center;
 			text-decoration: none;
 			font-size: 2em;
+			margin-top: 100px;
 			/* color: #ba2424; */
 			font-weight: 400;
-			color: #fff;
+			color: #333;
 		}
 
-		#loading section a:after,
-		#loading section a:before {
-			content: '';
-		}
+	
 
-		#loading section.p16 a {
-			width: 632px;
-			height: 124px;
-			line-height: 124px;
+		#loadingFlip {
+			color: #999;
+			text-transform: uppercase;
+			font-size: 36px;
+			font-weight: bold;
+			padding-top: 200px;
 			position: absolute;
-			top: 50%;
-			left: 50%;
-			margin-left: -316px;
-			margin-top: -62px;
-			z-index: 10;
+			width: 100%;
+			bottom: 45%;
+			display: block;
+			text-align: center;
+		}
+
+		#flip {
+			height: 50px;
+			margin-top: 10px;
+			padding-top: 2px;
 			overflow: hidden;
 		}
-
-		#loading section.p16 a:before,
-		#loading section.p16 a:after {
-			position: absolute;
-			left: 0;
-			display: block;
-			height: 150px;
-			background-size: contain;
-			opacity: 1;
-			-webkit-transition: all 0.4s cubic-bezier(0.17, 0.67, 0.64, 1.55);
-			-moz-transition: all 0.4s cubic-bezier(0.17, 0.67, 0.64, 1.55);
-			transition: all 0.4s cubic-bezier(0.17, 0.67, 0.64, 1.55);
-			opacity: 0;
-			top: 50px;
+		#flip div {
+			
+		}
+		#flip > div > div {
+			color: #fff;
+			padding: 4px 12px;
+			margin-top: 5px;
+			margin-bottom: 5px;
+			height: 45px;
+			margin-bottom: 5px;
+			display: inline-block;
 		}
 
-		#loading section.p16 a:before {
-			background-image: url(https://caraujo_pens.surge.sh/images/ko4m3Fj.png);
-			width: 1772px;
-			z-index: -1;
-			-webkit-animation: chicaum 60s infinite linear;
-			-moz-animation: chicaum 60s infinite linear;
-			animation: chicaum 60s infinite linear;
-			opacity: 1;
-			top: 0;
+		#flip div:first-child {
+			animation: show 5s linear infinite;
 		}
 
-		#loading section.p16 a:after {
-			background-image: url(https://caraujo_pens.surge.sh/images/5asE7dv.png);
-			width: 1682px;
-			z-index: 1;
-			-webkit-animation: chicadois 30s infinite linear;
-			-moz-animation: chicadois 30s infinite linear;
-			animation: chicadois 30s infinite linear;
-			opacity: 1;
-			top: 0;
+		#flip div div {
+			background: #42c58a;
 		}
 
-		#loading section.p16 a:hover:before,
-		#loading section.p16 a:hover:after {
-			opacity: 1;
-			top: 0;
+		#flip div:first-child div {
+			background: #4ec7f3;
 		}
 
-		#loading section.p16 a:hover:before {
-			transition-delay: .2s;
+		#flip div:last-child div {
+			background: #DC143C;
 		}
 
-		.loading-container {
-			/* position: absolute;
-			top: 50%;
-			left: 50%;
-			-webkit-transform: translate(-50%, -50%);
-			transform: translate(-50%, -50%); */
-		}
-
-@-webkit-keyframes chicaum {
-  from {
-    -webkit-transform: translate(0px);
-  }
-  to {
-    -webkit-transform: translate(-886px);
-  }
-}
-@-moz-keyframes chicaum {
-  from {
-    -moz-transform: translate(0px);
-  }
-  to {
-    -moz-transform: translate(-886px);
-  }
-}
-@keyframes chicaum {
-  from {
-    -webkit-transform: translate(0px);
-    -moz-transform: translate(0px);
-    -ms-transform: translate(0px);
-    -o-transform: translate(0px);
-    transform: translate(0px);
-  }
-  to {
-    -webkit-transform: translate(-886px);
-    -moz-transform: translate(-886px);
-    -ms-transform: translate(-886px);
-    -o-transform: translate(-886px);
-    transform: translate(-886px);
-  }
-}
-@-webkit-keyframes chicadois {
-  from {
-    -webkit-transform: translate(0px);
-  }
-  to {
-    -webkit-transform: translate(-841px);
-  }
-}
-@-moz-keyframes chicadois {
-  from {
-    -moz-transform: translate(0px);
-  }
-  to {
-    -moz-transform: translate(-841px);
-  }
-}
-@keyframes chicadois {
-  from {
-    -webkit-transform: translate(0px);
-    -moz-transform: translate(0px);
-    -ms-transform: translate(0px);
-    -o-transform: translate(0px);
-    transform: translate(0px);
-  }
-  to {
-    -webkit-transform: translate(-841px);
-    -moz-transform: translate(-841px);
-    -ms-transform: translate(-841px);
-    -o-transform: translate(-841px);
-    transform: translate(-841px);
-  }
-}
-
-		.dot {
-			width: 10px;
-			height: 10px;
-			border: 2px solid white;
-			border-radius: 50%;
-			float: left;
-			margin: 0 5px;
-			-webkit-transform: scale(0);
-			transform: scale(0);
-			-webkit-animation: fx 1000ms ease infinite 0ms;
-			animation: fx 1000ms ease infinite 0ms;
-		}
-
-		.dot:nth-child(2) {
-			-webkit-animation: fx 1000ms ease infinite 300ms;
-			animation: fx 1000ms ease infinite 300ms;
-		}
-
-		.dot:nth-child(3) {
-			-webkit-animation: fx 1000ms ease infinite 600ms;
-			animation: fx 1000ms ease infinite 600ms;
-		}
-
-		@-webkit-keyframes fx {
-			50% {
-				-webkit-transform: scale(1);
-				transform: scale(1);
-				opacity: 1;
+		@keyframes show {
+			0% {
+				margin-top: -270px;
+			}
+			5% {
+				margin-top: -180px;
+			}
+			33% {
+				margin-top: -180px;
+			}
+			38% {
+				margin-top: -90px;
+			}
+			66% {
+				margin-top: -90px;
+			}
+			71% {
+				margin-top: 0px;
+			}
+			99.99% {
+				margin-top: 0px;
 			}
 			100% {
-				opacity: 0;
+				margin-top: -270px;
 			}
 		}
 
-		@keyframes fx {
-			50% {
-				-webkit-transform: scale(1);
-				transform: scale(1);
-				opacity: 1;
-			}
-			100% {
-				opacity: 0;
-			}
-		}
 	</style>
 
 	<div id='loading'>
 
 		<div class="loading-container">
-
-			<section class="p16">
-				<a href="">Theresa on the Town</a>
-			</section>
-			<!-- <div class="dot"></div>
-			<div class="dot"></div>
-			<div class="dot"></div> -->
+			<h2>Theresa on the Town</h2>
+			<div id='loadingFlip'>
+				The Latest in
+				<br />
+				<div id='flip'>
+					<div>
+						<div>Fashion</div>
+					</div>
+					<div>
+						<div>lifeStyle</div>
+					</div>
+					<div>
+						<div>Travel</div>
+					</div>
+				</div>
+				<br />
+				...loading...
+			</div>
 		</div>
 	</div>
 
@@ -319,26 +212,6 @@
 	<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
 
 
-	<!-- 
-	<script type="text/javascript" src="js/jquery.easing.js"></script>
-	<script type="text/javascript" src="js/imagesloaded.min.js"></script>
-	<script type="text/javascript" src="js/jquery.isotope.min.js"></script>
-
-	<script type="text/javascript" src="js/jquery.magnific-popup.min.js"></script>
-	<script type="text/javascript" src="js/jquery.cookie.js"></script>
-	<script type="text/javascript" src="js/parallax.js"></script>
-	
-	<script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
-	<script type="text/javascript" src="js/jquery-validate.js"></script>
-	<script type="text/javascript" src="js/jquery.fancybox.js"></script>
-	<script type="text/javascript" src="js/main.js"></script> -->
-
-
-
-	<!-- Revolution Slider -->
-	<!-- <script type="text/javascript" src="js/jquery.themepunch.tools.min.js"></script>
-	<script type="text/javascript" src="js/jquery.themepunch.revolution.min.js"></script>
-	<script type="text/javascript" src="js/slider.js"></script> -->
 </body>
 
 </html>

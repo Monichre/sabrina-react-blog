@@ -20,7 +20,7 @@ import NoMatch from './Components/Pages/NoMatch'
 import Travel from './Components/Pages/Travel'
 import FashionAndStyle from './Components/Pages/FashionAndStyle'
 import HealthAndWellness from './Components/Pages/HealthAndWellness'
-import Loading from './Components/Partials/SiteComponents/Loading'
+
 
 class App extends Component {
 
