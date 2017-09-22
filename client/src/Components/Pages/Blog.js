@@ -7,7 +7,8 @@ import PropTypes from 'prop-types';
 // Components
 import BlogList from '../Partials/BlogList'
 import BlogSingle from '../Partials/BlogSingle'
-import OwlCarousel from 'react-owl-carousel2';
+import OwlCarousel from 'react-owl-carousel2'
+import VideoPosts from '../Partials/VideoPosts'
 import AppDispatcher from '../../Dispatcher/AppDispatcher'
 
 
@@ -37,6 +38,7 @@ export default class Blog extends Component {
     render() {
 
         const data = this.props.data
+        const articles = data.articles
         const featured_posts = data.posts.featured
         const globals = data.globals
         const pages = data.pages
@@ -61,6 +63,10 @@ export default class Blog extends Component {
 
         let main_content
 		main_content = <BlogList getMoreArticles={this.getMoreArticles} data={data} />
+        const videos = _.filter(articles, function(o) { return o.metadata.category.slug === "videoposts" })
+        console.log(videos)
+        const video_posts = <VideoPosts videos={videos} />
+        
 
         // if (!this.props.params.slug) {
 		//
@@ -93,6 +99,7 @@ export default class Blog extends Component {
 					</OwlCarousel>
 
                 {main_content}
+                {video_posts}
             </div>
 		)
 	}

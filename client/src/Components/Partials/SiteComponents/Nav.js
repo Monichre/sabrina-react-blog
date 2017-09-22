@@ -262,7 +262,7 @@ export default class Nav extends Component {
 
 				<Search onCloseSearchClick={this.handleCloseClick.bind(this)} />
 
-                <div className="flat-vertical social-links">
+                <div className="flat-vertical social-links side_nav">
 					<a href="#">
                         <i className="fa fa-pinterest"></i>
                     </a>
@@ -277,7 +277,7 @@ export default class Nav extends Component {
                     </a>
                     <span>FOLLOW ME</span>
                 </div>
-                <div className="flat-vertical reservation">
+                <div className="flat-vertical reservation side_nav">
                     <a href="#" onClick={this.modalTriggerClick.bind(this)}>
                         <span>SIGN UP</span>
                     </a>
