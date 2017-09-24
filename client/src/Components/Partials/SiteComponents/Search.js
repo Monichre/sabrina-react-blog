@@ -4,7 +4,7 @@ import _ from 'lodash'
 import { Link } from 'react-router-dom'
 import FuzzySearch from 'fuzzy-search'
 import AppStore from '../../../Stores/AppStore'
-import '../../css/search.css'
+import '../../css/Nav.css'
 
 
 const SearchResultsList = (props) => (

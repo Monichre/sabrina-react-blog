@@ -23,9 +23,7 @@ import ReactPlayer from 'react-player'
 export default class VideoPostRight extends Component {
 
 	render() {
-		const video_style = {
-			width: '95%'
-		}
+	
 		const title_style = {
 			textAlign: 'left'
 		}
@@ -39,7 +37,7 @@ export default class VideoPostRight extends Component {
 							<div className="imgbox style3">
 								<div className="">
 									<a href="#" className="">
-										<ReactPlayer url={this.props.video} style={video_style} width='95%' loop={true} controls={true}/>
+										<ReactPlayer url={this.props.video} loop={true} controls={true}/>
 									</a>
 								</div>
 

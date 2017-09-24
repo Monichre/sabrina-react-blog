@@ -3,7 +3,9 @@ import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import Axios from 'axios'
 import Search from './Search'
-import '../../css/search.css'
+import MobileMenu from './MobileMenu'
+
+import '../../css/Nav.css'
 import SubscriptionStatus from './SubscriptionStatus'
 
 
@@ -129,20 +131,13 @@ class Modal extends Component {
                                 </div>
                                 <hr style={hidden}/>
                                 <div className="row" style={hidden}>
+                                    
                                     <div className="col-xs-12">
                                         <div className="footer-social-block">
-                                            <a href="#">
-                                                <i className="fa fa-instagram w-inline-block social-wrap"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i className="fa fa-youtube w-inline-block social-wrap"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i className="fa fa-facebook w-inline-block social-wrap"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i className="fa fa-pinterest w-inline-block social-wrap"></i>
-                                            </a>
+                                            <a href="https://www.instagram.com/theresaonthetown/"><i className="fa fa-lg fa-instagram w-inline-block social-wrap"></i></a>
+                                            <a href="https://www.youtube.com/channel/UCvZKd-eUuq8A66J-uLr4CZQ"><i className="fa fa-lg fa-youtube w-inline-block social-wrap"></i></a>
+                                            <a href="https://www.facebook.com/theresaonthetown/"><i className="fa fa-lg fa-facebook w-inline-block social-wrap"></i></a>
+                                            <a href="https://www.pinterest.com/theresaonthetwn/"><i className="fa fa-lg fa-pinterest w-inline-block social-wrap"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -162,7 +157,7 @@ export default class Nav extends Component {
 
         this.state = {
             showModal: false,
-			searchOpen: false
+            searchOpen: false
         }
     }
 
@@ -188,7 +183,7 @@ export default class Nav extends Component {
         } else {
             this.setState({searchOpen: true})
         }
-	}
+    }
 
     render() {
 
@@ -243,14 +238,12 @@ export default class Nav extends Component {
         return (
             <div id="Nav" className={navClassForSearch}>
                 <Modal showModal={this.state.showModal} closeModal={this.modalTriggerClick.bind(this)}/>
-
+                
                 <header id="header" className="header clearfix">
                     <div className="header-wrap clearfix">
                         <div className="container">
                             <div className="logo-mobi"></div>
-                            <div className="btn-menu">
-                                <span></span>
-                            </div>
+                            <MobileMenu />
                             <nav id="mainnav" className="mainnav">
                                 <ul className="menu">
                                     {menu_items}

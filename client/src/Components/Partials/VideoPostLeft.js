@@ -2,29 +2,11 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import ReactPlayer from 'react-player'
 
-/* <div className="video-section-title" style={video_style}>
-	             <div className="container">
-	                 <div className="row">
-	                     <div className="col-md-12">
-	                         <div className="video-post-content-section">
-	                             <h1 className="video-section-header" style={title_style}>Recent Video</h1>
-								 <section>
-								 	<h3>{this.props.title}</h3>
-								 	<p className="content-story" dangerouslySetInnerHTML={{ __html: this.props.content, class:"content-story"}} />
-								 </section>
-	                         </div>
-	                     </div>
-	                 </div>
-	             </div>
-	         </div>
-			 <br /> */
 
 export default class VideoPostLeft extends Component {
 
 	render() {
-		const video_style = {
-			width: '95%'
-		}
+		
 		const title_style = {
 			textAlign: 'left'
 		}
@@ -52,7 +34,7 @@ export default class VideoPostLeft extends Component {
 							<div className="imgbox style3">
 								<div className="">
 									<a href="#" >
-										<ReactPlayer url={this.props.video} style={video_style} width='95%' loop={true} controls={true} />
+										<ReactPlayer url={this.props.video} loop={true} controls={true} />
 									</a>
 								</div>
 							</div>

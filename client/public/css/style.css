@@ -285,6 +285,9 @@
 video {
     width: 100%!important;
 }
+.imgbox.style3 div a div {
+    width: 100%!important;
+}
 
 .page-title .title-section .title:before, .affiliate-row .title-section .title:before, .video-section-header:before {
     position: absolute;
@@ -4254,6 +4257,26 @@ video {
     }
     .title-section .title {
         font-size: 18px;
+    }
+    #featured_posts {
+        height: 350px;
+        position: relative;
+    }
+    .featured_post section {
+        border-left: 10px solid #ba2424;
+        padding-left: 20px;
+    }
+    .featured_post_content .title {
+        font-family: 'Merriweather', serif;
+        font-size: 30px;
+        text-align: left;
+        color: #fff;
+        transition: none;
+        line-height: 35px;
+        
+    }
+    .imgbox.style3 div a div {
+        width: 100%!important;
     }
 }
 
