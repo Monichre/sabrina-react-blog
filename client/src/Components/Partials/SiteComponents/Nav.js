@@ -242,7 +242,7 @@ export default class Nav extends Component {
                 <header id="header" className="header clearfix">
                     <div className="header-wrap clearfix">
                         <div className="container">
-                            <div className="logo-mobi"></div>
+                            <div className="logo-mobi">Theresa on the Town</div>
                             <MobileMenu />
                             <nav id="mainnav" className="mainnav">
                                 <ul className="menu">

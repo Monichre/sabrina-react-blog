@@ -80,14 +80,16 @@ export default class Blog extends Component {
         //     const articles_object = _.indexBy(articles, 'slug')
         //     const article = articles_object[slug]
         //     main_content = <BlogSingle article={article}/>
-		// }
+        // }
+        
 
         return (
                 <div>
 					<OwlCarousel id="featured_posts" ref="owl" options={options} events={events}>
 						{featured_posts.map(post =>
 								<div className="featured_post">
-									<img className="featured_post_img" src={post.metadata.photo.url} />
+                                    <img className="featured_post_img" src={post.metadata.photo.url} rel="preload" />
+									
 									<div className="featured_post_content">
 										<section>
 											<div className="title"> {post.title}</div>

@@ -23,23 +23,24 @@ export default class BlogPostPreviewLeft extends Component {
                                     <h1 className="title">{this.props.title}</h1>
                                 </div>
                                 <div className="entry-post">
-									<p className="date-event date-style-2"> <span>{this.props.date}</span></p>
+                                    <div className="col-md-6 show_on_mobile">
+                                        <img src={this.props.image}alt="images" className="object-fit" />
+                                    </div>
+                                    <p className="date-event date-style-2"> <span>{this.props.date}</span></p>
 									<br />
                                 </div>
 								<div className="content-story" dangerouslySetInnerHTML={{ __html: this.props.content}} />
 								<div className="read-more">{this.props.readMore}</div>
                             </div>
                         </div>
-                        <div className="col-md-6">
+                        <div className="col-md-6 hide_on_mobile">
                             <img src={this.props.image}alt="images" className="object-fit" />
-
-                            </div>
-
                         </div>
 
                     </div>
 
-                </section>
-			);
+                </div>
+            </section>
+			)
 		}
 	}
