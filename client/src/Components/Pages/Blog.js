@@ -39,8 +39,7 @@ export default class Blog extends Component {
 
         const data = this.props.data
         const articles = data.articles
-        const featured_posts = data.posts.featured
-        const globals = data.globals
+        const featured_posts = articles.featured
         const pages = data.pages
         const options = {
             items: 1,
@@ -63,37 +62,21 @@ export default class Blog extends Component {
 
         let main_content
 		main_content = <BlogList getMoreArticles={this.getMoreArticles} data={data} />
-        const videos = _.filter(articles, function(o) { return o.metadata.category.slug === "videoposts" })
-        console.log(videos)
-        const video_posts = <VideoPosts videos={videos} />
-        
 
-        // if (!this.props.params.slug) {
-		//
-        //     main_content = <BlogList getMoreArticles={this.getMoreArticles} data={data} />
-		//
-        // } else {
-		// 	const articles = data.articles
-		//
-        //     // Get current page slug
-        //     const slug = this.props.params.slug
-        //     const articles_object = _.indexBy(articles, 'slug')
-        //     const article = articles_object[slug]
-        //     main_content = <BlogSingle article={article}/>
-        // }
-        
+        const video_posts = <VideoPosts videos={data.video_entries} />
+
 
         return (
                 <div>
 					<OwlCarousel id="featured_posts" ref="owl" options={options} events={events}>
 						{featured_posts.map(post =>
 								<div className="featured_post">
-                                    <img className="featured_post_img" src={post.metadata.photo.url} rel="preload" />
+                                    <img className="featured_post_img" src={post.fields.photos[0].fields.file.url} rel="preload" />
 									
 									<div className="featured_post_content">
 										<section>
 											<div className="title"> {post.title}</div>
-											<div className="caption">{post.metadata.category.title.split()[0]}</div>
+											<div className="caption">{post.fields.category[0].fields.title.split(' ')[0]}</div>
 										</section>
 									</div>
 								</div>

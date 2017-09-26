@@ -1,6 +1,7 @@
 // actions.js
 
 import Cosmic from 'cosmicjs'
+import * as Contentful from 'contentful'
 import _ from 'lodash'
 
 // AppStore
@@ -10,96 +11,48 @@ var config = require('../config').config
 export function getStore(callback) {
 
     let pages = {}
-
-    Cosmic.getObjects(config, function(err, response) {
-
-        let objects = response.objects
-
-        /* Globals
-        ======================== */
-        let globals = AppStore.data.globals
-        globals.text = response.object['text']
-        let metafields = globals.text.metafields
-        let menu_title = _.find(metafields, {
-            key: 'menu-title'
-        })
-
-
-        globals.text.menu_title = menu_title.value
-
-        let footer_text = _.find(metafields, {
-            key: 'footer-text'
-        })
-        globals.text.footer_text = footer_text.value
-
-        let site_title = _.find(metafields, {
-            key: 'site-title'
-        })
-        globals.text.site_title = site_title.value
-
-        // Social
-        globals.social = response.object['social']
-        metafields = globals.social.metafields
-        let twitter = _.find(metafields, {
-            key: 'twitter'
-        })
-        globals.social.twitter = twitter.value
-        let facebook = _.find(metafields, {
-            key: 'facebook'
-        })
-        globals.social.facebook = facebook.value
-        let github = _.find(metafields, {
-            key: 'github'
-        })
-        globals.social.github = github.value
-
-        // Nav
-        const nav_items = response.object['nav'].metafields
-
-        globals.nav_items = nav_items
-
-        AppStore.data.globals = globals
-
-        /* Pages
-        ======================== */
-        let pages = objects.type.page
-        AppStore.data.pages = pages
-
-        /* Articles
-        ======================== */
-        let articles = objects.type['post']
-        articles = _.sortBy(articles, 'order')
-        AppStore.data.articles = articles
-
-        let POSTS = {}
-
-        articles.forEach(function(article) {
-            if (article.metadata != null && article.metadata.category != null) {
-                var new_key = article.metadata.category.slug
-                // for (key in POSTS){
-                // 	if (POSTS)
-                // }
-                if (POSTS.hasOwnProperty(new_key)) {
-
-                    POSTS[article.metadata.category.slug].push(article)
-                } else {
-                    POSTS[article.metadata.category.slug] = []
-                    POSTS[article.metadata.category.slug].push(article)
-                }
-            } else {}
-        });
-
-        AppStore.data.posts = POSTS
-        // Emit change
-        AppStore.data.ready = true
-        AppStore.emitChange()
-
-        // Trigger callback (from server)
-        if (callback) {
-            callback(false, AppStore)
-        }
-
+    const cms_client = Contentful.createClient({
+        space: config.auth.space,
+        accessToken: config.auth.accessToken
     })
+
+    cms_client.getEntries()
+        .then((response) => {
+            console.log(response)
+            let response_items = response.items
+
+            let pages = _.filter(response_items, (item) => item.sys.contentType.sys.id === 'page')
+            let video_entries = _.filter(response_items, (item) => item.sys.contentType.sys.id === 'videoPost')
+            let affiliate_entries = _.filter(response_items, (item) => item.sys.contentType.sys.id === 'affiliatePost')
+            let articles =  _.filter(response_items, (item) => item.sys.contentType.sys.id === 'blogPost')
+
+            console.log(pages)
+            
+            articles.featured = _.sortBy(articles, (article) => article.sys.createdAt).slice(0, 3)
+            articles.fashion = _.filter(articles, (article) => article.fields.category[0].fields.title === 'Fashion Posts')
+            articles.travel = _.filter(articles, (article) => article.fields.category[0].fields.title === 'Travel Posts')
+            articles.health = _.filter(articles, (article) => article.fields.category[0].fields.title === 'Health Posts')
+       
+
+            AppStore.data.articles = articles
+            AppStore.data.video_entries = video_entries
+            AppStore.data.affiliate_entries = affiliate_entries
+            console.log(AppStore.data.video_entries)
+            console.log(AppStore.data.affiliate_entries)
+
+
+            AppStore.data.ready = true
+            AppStore.emitChange()
+            
+            // Trigger callback (from server)
+            if (callback) {
+                callback(false, AppStore)
+            }
+        })
+
+    
+
+  
 }
 
 export function getPageData(page_slug, post_slug) {
