@@ -58,6 +58,24 @@ let routes_with_sub = [
         path: '/contact',
 		exact: true,
         component: About
+	},
+	{
+		path: '/fashion',
+		component: FashionAndStyle
+	},
+	{
+        path: '/health',
+		exact: true,
+        component: HealthAndWellness
+	},
+	{
+		path: '/fashion/:slug',
+		component: BlogSingle
+	},
+	{
+        path: '/health/:slug',
+		exact: true,
+        component: BlogSingle
     }
 ]
 

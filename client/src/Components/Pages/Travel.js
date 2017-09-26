@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import _ from 'lodash'
-import {Helmet} from "react-helmet";
+
 
 // Components
 import TravelPosts from '../Partials/TravelPosts'
@@ -37,6 +36,7 @@ export default class Travel extends Component {
   render(){
 
     const data = this.props.data
+    const polaroids = data.polaroids
 	const travel_style = {
 		backgroundColor: '#f5f5f5',
 		marginTop: 0
@@ -93,7 +93,7 @@ export default class Travel extends Component {
             </div>
         </div>
 		  <div className="travel-images-menu">
-		        <PostsByCountry data = {data} />
+		        <PostsByCountry data = {polaroids} />
 		  </div>
       </div>
     )

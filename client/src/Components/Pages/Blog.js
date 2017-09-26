@@ -75,7 +75,7 @@ export default class Blog extends Component {
 									
 									<div className="featured_post_content">
 										<section>
-											<div className="title"> {post.title}</div>
+											<div className="title"> {post.fields.title}</div>
 											<div className="caption">{post.fields.category[0].fields.title.split(' ')[0]}</div>
 										</section>
 									</div>

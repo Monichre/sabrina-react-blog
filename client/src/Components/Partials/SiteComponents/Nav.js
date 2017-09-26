@@ -186,55 +186,47 @@ export default class Nav extends Component {
     }
 
     render() {
-
-		const search_button_styles = {
-
-		}
-		const SearchButton = () => {
-			return (
-				<div className="search-wrap">
-					<button id="btn-search" className="btn btn--search">
-						<i className="fa fa-search"></i>
-					</button>
-				</div>
-			)
-		}
         const data = this.props.data
-        const nav_items = data.globals.nav_items
-        const title_font = {
-            fontSize: '30px',
-            color: '#333'
-        }
+        const nav_items = data.nav_items
+        // .sort(function(a, b) {
+        //     return b.length - a.length
+        //   })
 
-        if (!nav_items) {
-            return <div></div>
+        const search_menu_item_style = {
+            position: 'absolute',
+            right: '150px'
         }
-		const search_trigger = <li>
-			<a className="search-trigger" href="#" onClick={this.searchClick.bind(this)}><i className="fa fa-search"></i></a>
-		</li>
+        const SiteTitle = (
+            <li className="site-title">
+                <Link 
+                    onClick={this.handleClick} 
+                    to={'/'}>Theresa on the Town</Link>
+            </li>
+        )
+        const search_trigger = <li style={search_menu_item_style}><a className="search-trigger" href="#" onClick={this.searchClick.bind(this)}><i className="fa fa-search"></i></a></li>
+
         const menu_items = nav_items.map((nav_item) => {
-            if (nav_item.value === 'Theresa on the Town') {
+            let this_route = nav_item.split(' ')[0].toLowerCase()
                 return (
-                    <li key={'key-' + nav_item.value} className="site-title">
-                        <Link style={title_font} onClick={this.handleClick} to={'/'}>{nav_item.title}</Link>
-                    </li>
-                )
-            } else {
-                return (
-                    <li key={'key-' + nav_item.value}>
-                        <Link onClick={this.handleClick} to={'/' + nav_item.value}>{nav_item.title}</Link>
-                    </li>
-                )
-            }
-        })
-		menu_items.push(search_trigger)
+                    <li key={'key-' + nav_item}>
+                        <Link onClick={this.handleClick} to={'/' + this_route}>{nav_item}</Link>
+                    </li>)
+            })
+        
+        menu_items.push(search_trigger)
+        let i = menu_items.length/2
+        menu_items.splice(i, 0, SiteTitle)
+
+
         const modalToggle = this.state.showModal
 		let navClassForSearch
 		if (this.state.searchOpen){
 			navClassForSearch = "search-visible"
 		} else {
 			navClassForSearch = ""
-		}
+        }
+        
+
         return (
             <div id="Nav" className={navClassForSearch}>
                 <Modal showModal={this.state.showModal} closeModal={this.modalTriggerClick.bind(this)}/>

@@ -42,52 +42,37 @@ export default class BlogList extends Component {
 		const months = ["January", "February", "March", "April", "May", "June",
 			"July", "August", "September", "October", "November", "December"]
 		const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+
+		const hasPhoto = article => article.fields.photos
+
 		
 		let articles_html = articles.map((article) => {
-			let date_obj = new Date(article.created)
+			let date_obj = new Date(article.sys.createdAt)
 			let created = months[(date_obj.getMonth() + 1)] + ' ' + date_obj.getDate() + ', ' + date_obj.getFullYear()
-			let readMore = <Link to={'/' + data.page.slug + '/' + article.slug} onClick={this.scrollTop}>Read More</Link>
+			let category = article.fields.category[0].fields.title.split(' ')[0].toLowerCase()
+			let readMore = <Link to={'/' + category + '/' + article.fields.title} onClick={this.scrollTop}>Read More</Link>
+			console.log(readMore)
 
-			if (article.metadata.category.slug === "videoposts" && articles.indexOf(article) % 2 > 0) {
-				return (
-					<VideoPostLeft video={article.metadata.video.url} content={article.content} title={article.title} readMore={readMore} key={'key-' + article.slug} date={created}/>
-				)
-			} else if (article.metadata.category.slug === "videoposts" && articles.indexOf(article) % 2 === 0) {
-				return (
-					<VideoPostRight video={article.metadata.video.url} content={article.content} title={article.title} readMore={readMore} key={'key-' + article.slug} date={created}/>
-				)
-			} else if (article.metadata.category.slug === 'affiliateposts') {
-				let affiliate_items = _.filter(article.metafields, (meta) => meta.key === 'affiliate_item')
-				return (
-					<AffiliatePost
-						key={'key-' + article.slug}
-						date={created}
-						affiliateItems={affiliate_items}
-						readMore={readMore}
-						title={article.title}
-						content={article.content}
-					/>
-				)
-			} else if (articles.indexOf(article) % 2 === 0) {
+		 	if (articles.indexOf(article) % 2 === 0) {
 				return (
 					<BlogPostPreview_Right
-						key={'key-' + article.slug}
+						key={'key-' + article.sys.id}
 						date={created}
-						image={article.metafield.photo ? article.metafield.photo.url : null}
+						image={hasPhoto(article) ? article.fields.photos[0].fields.file.url : null}
 						readMore={readMore}
-						title={article.title}
-						content={article.content}
+						title={article.fields.title}
+						content={article.fields.content}
 					/>
 				)
 			} else {
 				return (
 					<BlogPostPreview_Left
-						key={'key-' + article.slug}
+						key={'key-' + article.sys.id}
 						date={created}
-						image={article.metafield.photo ? article.metafield.photo.url : null}
+						image={hasPhoto(article) ? article.fields.photos[0].fields.file.url : null}
 						readMore={readMore}
-						title={article.title}
-						content={article.content}
+						title={article.fields.title}
+						content={article.fields.content}
 					/>
 				)
 			}

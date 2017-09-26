@@ -1,28 +1,21 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router'
-
 import Polaroid from './Polaroid'
 
 export default class PostsByCountry extends Component {
 
-    scrollTop() {
-
-    }
 
     render() {
 
-        let data = this.props.data
-		console.log(data)
-        let articles = data.posts.postsbycountry
-		console.log(articles);
-
-        let articles_html = articles.map((article) => {
-			console.log(article)
+        const hasPhoto = polaroid => polaroid.fields.photo
+        let polaroids = this.props.data
+        let polaroids_html = polaroids.map((polaroid) => {
+			
             return (
 				<Polaroid
-					key={'key-' + article.slug}
-					image={article.metadata ? article.metadata.photo.url : null}
-					caption={article.title} />
+					key={'key-' + polaroid.sys.id}
+					image={hasPhoto(polaroid) ? polaroid.fields.photo.fields.file.url : null}
+                    title={polaroid.fields.title}
+					caption={polaroid.fields.description} />
 			)
         })
 		const styles = {
@@ -31,7 +24,7 @@ export default class PostsByCountry extends Component {
 
         return (
             <div style={styles}>
-				{articles_html}
+				{polaroids_html}
             </div>
         )
     }

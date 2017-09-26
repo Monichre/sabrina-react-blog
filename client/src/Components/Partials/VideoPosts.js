@@ -34,8 +34,8 @@ export default class VideoPosts extends Component {
                                 <div className="col-md-6">
                                     <div className="imgbox style3">
                                         <div className="">
-                                            <a href="#" className="popup-video">
-                                                <ReactPlayer url={video.metadata.video.url}  width='95%' loop={true} controls={true}/>
+                                            <a className="popup-video">
+                                                <ReactPlayer url={video.fields.videos[0].fields.file.url}  width='95%' loop={true} controls={false}/>
                                             </a>
                                              
                                         </div>

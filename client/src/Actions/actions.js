@@ -22,29 +22,30 @@ export function getStore(callback) {
             let response_items = response.items
 
             let pages = _.filter(response_items, (item) => item.sys.contentType.sys.id === 'page')
+            let polaroids = _.filter(response_items, (item) => item.sys.contentType.sys.id === 'polaroid')
             let video_entries = _.filter(response_items, (item) => item.sys.contentType.sys.id === 'videoPost')
             let affiliate_entries = _.filter(response_items, (item) => item.sys.contentType.sys.id === 'affiliatePost')
             let articles =  _.filter(response_items, (item) => item.sys.contentType.sys.id === 'blogPost')
+            let nav_items = _.map(pages, (page) => page.fields.title)
 
-            console.log(pages)
+            console.log(polaroids)
             
             articles.featured = _.sortBy(articles, (article) => article.sys.createdAt).slice(0, 3)
             articles.fashion = _.filter(articles, (article) => article.fields.category[0].fields.title === 'Fashion Posts')
             articles.travel = _.filter(articles, (article) => article.fields.category[0].fields.title === 'Travel Posts')
             articles.health = _.filter(articles, (article) => article.fields.category[0].fields.title === 'Health Posts')
        
-
+            AppStore.data.polaroids = polaroids
             AppStore.data.articles = articles
+            AppStore.data.nav_items = nav_items
             AppStore.data.video_entries = video_entries
             AppStore.data.affiliate_entries = affiliate_entries
-            console.log(AppStore.data.video_entries)
-            console.log(AppStore.data.affiliate_entries)
-
-
+            
+            
             AppStore.data.ready = true
             AppStore.emitChange()
             
-            // Trigger callback (from server)
+            
             if (callback) {
                 callback(false, AppStore)
             }

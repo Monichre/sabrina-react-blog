@@ -1,7 +1,6 @@
 // Work.js
 import React, {Component} from 'react'
-import _ from 'lodash'
-import config from '../../config'
+
 
 // Components
 import HealthPosts from '../Partials/HealthPosts'
@@ -16,7 +15,7 @@ export default class HealthAndWellness extends Component {
     }
 
     componentDidMount() {
-        const data = this.props.data
+        
     }
 
     getPageData() {
