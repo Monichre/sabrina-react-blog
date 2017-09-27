@@ -152,6 +152,14 @@ li.mobile_menu_item:nth-child(1) {
     font-size: 17px;
     color: #000000;
 }
+#mainnav > ul > li:last-child > a {
+    padding: 0!important;
+}
+.site-title a {
+    font-family: "Poppins", sans-serif;
+    font-color: #333!important;
+    font-size: 30px!important;
+}
 .search-wrap {
     display: -ms-flexbox;
     display: flex;

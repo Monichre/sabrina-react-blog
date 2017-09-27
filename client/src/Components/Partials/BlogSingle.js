@@ -20,11 +20,19 @@ export default class BlogSingle extends Component {
 
     render() {
         const data = this.props.data
-        const article = data.article
-		let date_obj = new Date(article.created)
-        let created = (date_obj.getMonth()+1) + '/' + date_obj.getDate() + '/' + date_obj.getFullYear()
+		const article = data.article
+		const hasPhoto = article => article.fields.photos
+
+		const months = ["January", "February", "March", "April", "May", "June",
+		"July", "August", "September", "October", "November", "December"]
+		const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+		let date_obj = new Date(article.sys.createdAt)
+		let created = months[(date_obj.getMonth() + 1)] + ' ' + date_obj.getDate() + ', ' + date_obj.getFullYear()
+		let category = article.fields.category[0].fields.title.split(' ')[0].toLowerCase()
+		let readMore = <Link to={'/' + category + '/' + article.fields.title} onClick={this.scrollTop}>Read More</Link>
+
 		let image
-		let image_div = article.metafield.photo ? article.metafield.photo.url : null
+		let image_div = hasPhoto(article) ? article.fields.photos[0].fields.file.url : null
 		if (image_div != null) {
 			image = <img src={image_div} alt="image" />
 		}
@@ -51,7 +59,7 @@ export default class BlogSingle extends Component {
                                     <article className="post">
                                         <div className="header-post">
                                             <h2 className="title-post">
-                                                {article.title}
+                                                {article.fields.title}
                                             </h2>
 											<p className="date-event date-style-2"> <span>{created}</span></p>
                                         </div>
@@ -63,7 +71,7 @@ export default class BlogSingle extends Component {
                                             <div className="content-post">
                                                 <h5></h5>
                                                 <p dangerouslySetInnerHTML={{
-													__html: article.content
+													__html: article.fields.content
 												}}></p>
 
                                             </div>
@@ -85,16 +93,17 @@ export default class BlogSingle extends Component {
 
 		                                        <div className="social-links">
 		                                            <span>Share :</span>
-		                                            <a href="#">
+								
+													<a href="https://www.instagram.com/theresaonthetown/">
 		                                                <i className="fa fa-lg fa-instagram"></i>
 		                                            </a>
-		                                            <a href="#">
+		                                            <a href="https://www.youtube.com/channel/UCvZKd-eUuq8A66J-uLr4CZQ">
 		                                                <i className="fa fa-lg fa-youtube"></i>
 		                                            </a>
-		                                            <a href="#">
+		                                            <a href="https://www.facebook.com/theresaonthetown/">
 		                                                <i className="fa fa-lg fa-facebook"></i>
 		                                            </a>
-		                                            <a href="#">
+		                                            <a href="https://www.pinterest.com/theresaonthetwn/">
 		                                                <i className="fa fa-lg fa-pinterest"></i>
 		                                            </a>
 		                                        </div>
@@ -112,13 +121,13 @@ export default class BlogSingle extends Component {
 												<h3 className="widget-title">Categories</h3>
 												<ul>
 													<li>
-														<a href="#">Health & Wellness (9)</a>
+														<a href="/health">Health & Wellness ({data.articles.health.length})</a>
 													</li>
 													<li>
-														<a href="#">Travel (9)</a>
+														<a href="/travel">Travel ({data.articles.travel.length})</a>
 													</li>
 													<li>
-														<a href="#">Fashion & Style (9)</a>
+														<a href="/fashion">Fashion & Style ({data.articles.fashion.length})</a>
 													</li>
 
 												</ul>
@@ -130,11 +139,11 @@ export default class BlogSingle extends Component {
 													{this.props.data.articles.splice(0,3).map((article, i) =>
 														<li>
 															<div className="thumb">
-																<img src={article.metafield.photo.url } alt="image"/>
+																<img src={article.fields.photos[0].fields.file.url } alt="image"/>
 															</div>
 															<div className="text">
 																<h4>
-																	<Link to={ '/' + data.page.slug + '/' + article.slug }>{article.title}</Link>
+																	{readMore}
 																</h4>
 															</div>
 														</li>
@@ -144,53 +153,38 @@ export default class BlogSingle extends Component {
 											<br />
 											<br />
 											<div className="widget widget_latest_tweets">
-													<h3 className="widget-title">Latest Instagram Posts</h3>
+													<h3 className="widget-title">Latest Affiliate Items</h3>
 													<ul>
-														<li>
-															<p>Portfolio Page Creation:
-															</p>
-															<p>
-																<a href="#">https://t.co/TN773odoa</a>@YouTube</p>
-															<p>5 days ago</p>
-														</li>
-
-														<li>
-															<p>Portfolio Page Creation:</p>
-															<p>@YouTube</p>
-															<p>5 days ago</p>
-														</li>
-														<li>
-															<p>Portfolio Page Creation:</p>
-															<p></p>
-															<p>5 days ago</p>
-														</li>
+														{data.affiliate_entries.map((entry) => {
+															return (
+																<li>
+																	<p>Portfolio Page Creation:</p>
+																	<p><a href="#">https://t.co/TN773odoa</a>@Amazon</p>
+																	<p>5 days ago</p>
+																</li>
+															)
+														})}
+														
 													</ul>
 												</div>
-											<div className="widget widget_tag">
-													<h3 className="widget-title">Popular Tags</h3>
-													<div className="tag-list">
-														<a className="active" href="#">example,
-														</a>
-														<a href="#">Gallery,
-														</a>
-														<a href="#">Image,
-														</a>
-														<a href="#">quote,
-														</a>
-														<a href="#">tag,
-														</a>
-														<a href="#">Video,</a>
-														<a href="#">PSD Teplates,</a>
-														<a href="#">Business,
-														</a>
-														<a href="#">Portfolio,
-														</a>
-														<a href="#">Construction,
-														</a>
-														<a href="#">One Page,
-														</a>
-													</div>
+												<div className="widget widget_latest_tweets">
+													<h3 className="widget-title">Latest Video Posts</h3>
+													<ul>
+														{data.video_entries.map((entry) => {
+															return (
+																<li>
+																	<div className="thumb">
+																		<img src={entry.fields.videos[0].fields.file.url } alt="image"/>
+																	</div>
+																	<p><a href="#">https://t.co/TN773odoa</a>@YouTube</p>
+																	<p>5 days ago</p>
+																</li>
+															)
+														})}
+														
+													</ul>
 												</div>
+											
 										</div>
 									</div>
 								</div>

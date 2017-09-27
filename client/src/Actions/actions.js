@@ -27,8 +27,11 @@ export function getStore(callback) {
             let affiliate_entries = _.filter(response_items, (item) => item.sys.contentType.sys.id === 'affiliatePost')
             let articles =  _.filter(response_items, (item) => item.sys.contentType.sys.id === 'blogPost')
             let nav_items = _.map(pages, (page) => page.fields.title)
+                nav_items = nav_items.sort().reverse()
 
-            console.log(polaroids)
+  
+            console.log(pages)
+            console.log(nav_items)
             
             articles.featured = _.sortBy(articles, (article) => article.sys.createdAt).slice(0, 3)
             articles.fashion = _.filter(articles, (article) => article.fields.category[0].fields.title === 'Fashion Posts')
@@ -58,25 +61,25 @@ export function getStore(callback) {
 
 export function getPageData(page_slug, post_slug) {
 
-    if (!page_slug || page_slug === 'blog')
+    if (!page_slug || page_slug === 'blog'){
+
+    }
         page_slug = 'home'
 
     // Get page info
     const data = AppStore.data
     const pages = data.pages
-    const page = _.find(pages, {
-        slug: page_slug
-    })
+    console.log(page_slug)
+    const page = _.find(pages, (page) => page.fields.title.toLowerCase === page_slug)
 
 
 	let article
 	const articles = data.articles
     if (post_slug) {
 		console.log(post_slug)
-		article = _.find(articles, {
-			slug: post_slug
-		})
-		page.title = article.title
+        article = _.find(articles, (article) => article.fields.title === post_slug)
+        
+		
 		AppStore.data.article = article
     }
 

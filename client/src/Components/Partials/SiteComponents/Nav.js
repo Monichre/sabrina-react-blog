@@ -188,13 +188,11 @@ export default class Nav extends Component {
     render() {
         const data = this.props.data
         const nav_items = data.nav_items
-        // .sort(function(a, b) {
-        //     return b.length - a.length
-        //   })
+        
 
         const search_menu_item_style = {
             position: 'absolute',
-            right: '150px'
+            right: '7px'
         }
         const SiteTitle = (
             <li className="site-title">
@@ -246,18 +244,19 @@ export default class Nav extends Component {
                 </header>
 
 				<Search onCloseSearchClick={this.handleCloseClick.bind(this)} />
-
+                
+                                         
                 <div className="flat-vertical social-links side_nav">
-					<a href="#">
+					<a href="https://www.pinterest.com/theresaonthetwn/">
                         <i className="fa fa-pinterest"></i>
                     </a>
-					<a href="#">
+					<a href="https://www.facebook.com/theresaonthetown/">
                         <i className="fa fa-facebook"></i>
                     </a>
-					<a href="#">
+					<a href="https://www.youtube.com/channel/UCvZKd-eUuq8A66J-uLr4CZQ">
                         <i className="fa fa-youtube"></i>
                     </a>
-                    <a href="#">
+                    <a href="https://www.instagram.com/theresaonthetown/">
                         <i className="fa fa-instagram"></i>
                     </a>
                     <span>FOLLOW ME</span>
