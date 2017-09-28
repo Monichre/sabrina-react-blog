@@ -1,6 +1,9 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
+import { Switch, Link, Route, Redirect } from 'react-router-dom'
+import ReactPlayer from 'react-player'
+
 import AppDispatcher from '../../Dispatcher/AppDispatcher'
+import AppStore from '../../Stores/AppStore'
 
 export default class BlogSingle extends Component {
 
@@ -16,19 +19,46 @@ export default class BlogSingle extends Component {
             post_slug: this.props.match.params.slug
         })
     }
-    componentDidMount() {}
+
+	componentWillUnmount() {
+		AppStore.removeChangeListener(this._onChange)
+	}
+
+	_onChange() {
+		// this.getPageData()
+		console.log(this.props.match)
+        console.log(this.props.match.params)
+	}
+	componentDidMount() {
+		AppStore.addChangeListener(this._onChange.bind(this))
+		
+	}
+
+	handleLinkClick(){
+		let data = this.props.data
+		let article = data.article
+		let category = article.fields.category ? article.fields.category[0].fields.title.split(' ')[0].toLowerCase() : null
+		let old_path = `/${category}/${article.fields.title}`
+		const SubRoutes = () => (
+			<Switch>
+				<Redirect from={old_path} to='/new-path'/>
+				
+			</Switch>
+		)
+	}
 
     render() {
+		
         const data = this.props.data
 		const article = data.article
-		const hasPhoto = article => article.fields.photos
+		const hasPhoto = article => article.fields.photos || Object.values(article.fields).includes('photos')
 
 		const months = ["January", "February", "March", "April", "May", "June",
 		"July", "August", "September", "October", "November", "December"]
 		const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 		let date_obj = new Date(article.sys.createdAt)
 		let created = months[(date_obj.getMonth() + 1)] + ' ' + date_obj.getDate() + ', ' + date_obj.getFullYear()
-		let category = article.fields.category[0].fields.title.split(' ')[0].toLowerCase()
+		let category = article.fields.category ? article.fields.category[0].fields.title.split(' ')[0].toLowerCase() : null
 		let readMore = <Link to={'/' + category + '/' + article.fields.title} onClick={this.scrollTop}>Read More</Link>
 
 		let image
@@ -36,6 +66,15 @@ export default class BlogSingle extends Component {
 		if (image_div != null) {
 			image = <img src={image_div} alt="image" />
 		}
+		let all_affiliate_items = []
+
+		if (data.affiliate_entries) {
+			// let getItem = entry => entry.
+			data.affiliate_entries.forEach(entry => entry.fields.affiliateItems.forEach(item => all_affiliate_items.push(item)))
+		}
+
+		console.log(all_affiliate_items)
+
         return (
             <div>
 
@@ -69,7 +108,7 @@ export default class BlogSingle extends Component {
                                             </div>
 
                                             <div className="content-post">
-                                                <h5></h5>
+                                                
                                                 <p dangerouslySetInnerHTML={{
 													__html: article.fields.content
 												}}></p>
@@ -136,17 +175,23 @@ export default class BlogSingle extends Component {
 											<div className="widget widget_recent_entries clearfix">
 												<h3 className="widget-title">Recent Post</h3>
 												<ul className="recent-post clearfix">
-													{this.props.data.articles.splice(0,3).map((article, i) =>
-														<li>
-															<div className="thumb">
-																<img src={article.fields.photos[0].fields.file.url } alt="image"/>
-															</div>
-															<div className="text">
-																<h4>
-																	{readMore}
-																</h4>
-															</div>
-														</li>
+													{this.props.data.articles.splice(0,3).map((article, i) => {
+														let category = article.fields.category ? article.fields.category[0].fields.title.split(' ')[0].toLowerCase() : null
+														let readMore = <Link to={'/' + category + '/' + article.fields.title} onClick={this.scrollTop}>Read More</Link>
+														return (
+															<li>
+																<div className="thumb">
+																	<img src={article.fields.photos ? article.fields.photos[0].fields.file.url: null} alt="image"/>
+																</div>
+																<div className="text">
+																	<h4>
+																	<Link to={'/' + category + '/' + article.fields.title} onClick={this.handleLinkClick.bind(category, article.fields.title)}>Check it out</Link>
+																	</h4>
+																</div>
+															</li>
+															)
+														}
+											
 													)}
 												</ul>
 											</div>
@@ -155,12 +200,14 @@ export default class BlogSingle extends Component {
 											<div className="widget widget_latest_tweets">
 													<h3 className="widget-title">Latest Affiliate Items</h3>
 													<ul>
-														{data.affiliate_entries.map((entry) => {
+														{all_affiliate_items.map((entry) => {
 															return (
 																<li>
-																	<p>Portfolio Page Creation:</p>
-																	<p><a href="#">https://t.co/TN773odoa</a>@Amazon</p>
-																	<p>5 days ago</p>
+																	<div className="thumb">
+																		<img src={entry.fields.photos[0].fields.file.url } alt="image"/>
+																	</div>
+																	<p>{entry.fields.title}</p>
+																	<p><a href={entry.fields.link}>Shop Now</a></p>
 																</li>
 															)
 														})}
@@ -171,13 +218,19 @@ export default class BlogSingle extends Component {
 													<h3 className="widget-title">Latest Video Posts</h3>
 													<ul>
 														{data.video_entries.map((entry) => {
+															let months = ["January", "February", "March", "April", "May", "June",
+																"July", "August", "September", "October", "November", "December"]
+															let days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+															let date_obj = new Date(entry.sys.createdAt)
+															let created = months[(date_obj.getMonth() + 1)] + ' ' + date_obj.getDate() + ', ' + date_obj.getFullYear()
+															
+															let readMore = <Link to={'/fashion/' + entry.fields.title} onClick={this.scrollTop}>Check it out</Link>
 															return (
 																<li>
 																	<div className="thumb">
-																		<img src={entry.fields.videos[0].fields.file.url } alt="image"/>
+																		<ReactPlayer url={entry.fields.videos[0].fields.file.url } height='100px' width='150px'/>
 																	</div>
-																	<p><a href="#">https://t.co/TN773odoa</a>@YouTube</p>
-																	<p>5 days ago</p>
+																	<p>{readMore}</p>
 																</li>
 															)
 														})}

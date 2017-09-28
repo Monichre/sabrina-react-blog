@@ -1,6 +1,6 @@
 // Work.js
 import React, {Component} from 'react'
-import _ from 'lodash'
+
 
 
 // Components
@@ -8,7 +8,7 @@ import FashionPosts from '../Partials/FashionPosts'
 
 // Dispatcher
 import AppDispatcher from '../../Dispatcher/AppDispatcher'
-var config = require('../../config').config
+
 
 export default class FashionAndStyle extends Component {
 

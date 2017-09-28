@@ -22,8 +22,8 @@ export default class Travel extends Component {
 
   componentDidMount(){
     const data = this.props.data
-	console.log(data)
-    // document.title = config.site.title + ' | ' + data.page.title
+	
+    
   }
 
   getPageData(){

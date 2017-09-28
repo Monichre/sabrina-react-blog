@@ -172,7 +172,8 @@ export default class Nav extends Component {
         }
     }
 	handleCloseClick(closeTheSearch){
-		console.log(closeTheSearch)
+        console.log(closeTheSearch)
+        document.getElementById('search-results').classList.remove('search-active')
 		this.setState({searchOpen: false})
 	}
 

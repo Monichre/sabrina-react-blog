@@ -12,6 +12,10 @@ export default class AffiliatePost extends Component {
 			const header_style = {
 				padding: '12px 0'
 			}
+			const content_style = {
+				background: '#fff',
+				padding: '30px'
+			}
 			let affiliate_style
 			if (this.props.image_bg){
 				affiliate_style = {
@@ -28,29 +32,33 @@ export default class AffiliatePost extends Component {
                     <div className="row">
                         <div className="col-md-12">
                             <div className="title-section stile2 affiliate-header" style={header_style}>
-                                <h1 className="title text-left">{this.props.title}</h1>
+                                <h1 className="title text-left">{this.props.article.fields.title}</h1>
                             </div>
                         </div>
 
                     </div>
 					<div className="container">
 						<div className="row">
-							{this.props.affiliateItems.map(item =>
+							{this.props.article.fields.affiliateItems.map(item =>
 								<div className="item">
 		                            <div className="imagebox effect1">
 		                                <div className="box-wrap">
 		                                    <div className="box-image">
-		                                        <a href="#"><img className="affiliate-object-fit" src={item.object.metadata.photo.url} alt="img"/></a>
+		                                        <a href="#"><img className="affiliate-object-fit" src={item.fields.photos[0].fields.file.url} alt="img"/></a>
 		                                    </div>
 		                                    <div className="box-content">
-		                                        <h5>{item.object.title}</h5>
-												<p className="content-story" dangerouslySetInnerHTML={{ __html: item.object.content}} />
+		                                        <h5>{item.fields.title}</h5>
+												<p className="content-story" dangerouslySetInnerHTML={{ __html: item.fields.description}} />
 		                                    </div>
 		                                </div>
 		                            </div>
 		                        </div>
 							)}
+							<div className="col-md-4 col-md-offset-2">
+								<div style={content_style} dangerouslySetInnerHTML={{ __html: this.props.article.fields.content}} />
+                        	</div>
 	                    </div>
+						
 					</div>
                 </section>
             </div>

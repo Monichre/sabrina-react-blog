@@ -48,7 +48,7 @@
 
 	<link href="https://fonts.googleapis.com/css?family=Arsenal|Merriweather|Open+Sans" rel="stylesheet preload">
 
-	
+
 	<!-- Animation Style -->
 	<link rel="stylesheet preload" type="text/css" href="css/animate.css">
 	<!-- Custom Fonts -->
@@ -57,7 +57,7 @@
 
 	<!-- JQuery, only needed for Owl Carousel -->
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-	  crossorigin="anonymous" rel="preload"></script>
+	    crossorigin="anonymous" rel="preload"></script>
 
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -75,129 +75,67 @@
 	<style>
 		#loading {
 			margin: 0;
-			background-color: #fff;
+			background-color: #212121;
 			position: absolute;
 			top: 0;
 			width: 100%;
 			z-index: 2000;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
 			height: 100%;
 			left: 0;
 		}
 
-	
-
-		#loading h2 {
-			font-family: "Merriweather";
-			text-align: center;
-			text-decoration: none;
-			font-size: 2em;
-			margin-top: 100px;
-			/* color: #ba2424; */
-			font-weight: 400;
-			color: #333;
+		.loader,
+		.loader:after {
+			border-radius: 50%;
+			width: 10em;
+			height: 10em;
 		}
 
-	
-
-		#loadingFlip {
-			color: #999;
-			text-transform: uppercase;
-			font-size: 36px;
-			font-weight: bold;
-			padding-top: 200px;
-			position: absolute;
-			width: 100%;
-			bottom: 45%;
-			display: block;
-			text-align: center;
+		.loader {
+			margin: 60px auto;
+			font-size: 10px;
+			position: relative;
+			text-indent: -9999em;
+			border-top: 1.1em solid rgba(255, 255, 255, 0.2);
+			border-right: 1.1em solid rgba(255, 255, 255, 0.2);
+			border-bottom: 1.1em solid rgba(255, 255, 255, 0.2);
+			border-left: 1.1em solid #ffffff;
+			-webkit-transform: translateZ(0);
+			-ms-transform: translateZ(0);
+			transform: translateZ(0);
+			-webkit-animation: load8 1.1s infinite linear;
+			animation: load8 1.1s infinite linear;
 		}
 
-		#flip {
-			height: 50px;
-			margin-top: 10px;
-			padding-top: 2px;
-			overflow: hidden;
-		}
-		#flip div {
-			
-		}
-		#flip > div > div {
-			color: #fff;
-			padding: 4px 12px;
-			margin-top: 5px;
-			margin-bottom: 5px;
-			height: 45px;
-			margin-bottom: 5px;
-			display: inline-block;
-		}
-
-		#flip div:first-child {
-			animation: show 5s linear infinite;
-		}
-
-		#flip div div {
-			background: #42c58a;
-		}
-
-		#flip div:first-child div {
-			background: #4ec7f3;
-		}
-
-		#flip div:last-child div {
-			background: #DC143C;
-		}
-
-		@keyframes show {
+		@-webkit-keyframes load8 {
 			0% {
-				margin-top: -270px;
-			}
-			5% {
-				margin-top: -180px;
-			}
-			33% {
-				margin-top: -180px;
-			}
-			38% {
-				margin-top: -90px;
-			}
-			66% {
-				margin-top: -90px;
-			}
-			71% {
-				margin-top: 0px;
-			}
-			99.99% {
-				margin-top: 0px;
+				-webkit-transform: rotate(0deg);
+				transform: rotate(0deg);
 			}
 			100% {
-				margin-top: -270px;
+				-webkit-transform: rotate(360deg);
+				transform: rotate(360deg);
 			}
 		}
 
+		@keyframes load8 {
+			0% {
+				-webkit-transform: rotate(0deg);
+				transform: rotate(0deg);
+			}
+			100% {
+				-webkit-transform: rotate(360deg);
+				transform: rotate(360deg);
+			}
+		}
 	</style>
 
 	<div id='loading'>
 
-		<div class="loading-container">
-			<h2>Theresa on the Town</h2>
-			<div id='loadingFlip'>
-				The Latest in
-				<br />
-				<div id='flip'>
-					<div>
-						<div>Fashion</div>
-					</div>
-					<div>
-						<div>lifeStyle</div>
-					</div>
-					<div>
-						<div>Travel</div>
-					</div>
-				</div>
-				<br />
-				...loading...
-			</div>
-		</div>
+		<div class="loader">Loading...</div>
 	</div>
 
 	<div id="root"></div>

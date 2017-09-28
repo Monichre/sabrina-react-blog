@@ -10,7 +10,7 @@ var config = require('../config').config
 
 export function getStore(callback) {
 
-    let pages = {}
+    
     const cms_client = Contentful.createClient({
         space: config.auth.space,
         accessToken: config.auth.accessToken
@@ -30,8 +30,7 @@ export function getStore(callback) {
                 nav_items = nav_items.sort().reverse()
 
   
-            console.log(pages)
-            console.log(nav_items)
+            
             
             articles.featured = _.sortBy(articles, (article) => article.sys.createdAt).slice(0, 3)
             articles.fashion = _.filter(articles, (article) => article.fields.category[0].fields.title === 'Fashion Posts')
@@ -43,6 +42,11 @@ export function getStore(callback) {
             AppStore.data.nav_items = nav_items
             AppStore.data.video_entries = video_entries
             AppStore.data.affiliate_entries = affiliate_entries
+            AppStore.data.pages = pages
+
+            console.log(affiliate_entries)
+            console.log(pages)
+            
             
             
             AppStore.data.ready = true
@@ -62,24 +66,30 @@ export function getStore(callback) {
 export function getPageData(page_slug, post_slug) {
 
     if (!page_slug || page_slug === 'blog'){
-
-    }
         page_slug = 'home'
+    }
+        
 
     // Get page info
     const data = AppStore.data
     const pages = data.pages
-    console.log(page_slug)
-    const page = _.find(pages, (page) => page.fields.title.toLowerCase === page_slug)
+    const page = _.find(pages, (page) => page.fields.title.toLowerCase() === page_slug)
 
 
 	let article
-	const articles = data.articles
+    const articles = data.articles
+    if (data.video_entries){
+        data.video_entries.forEach(entry => articles.push(entry))
+    }
+    if (data.affiliate_entries){
+        data.affiliate_entries.forEach(entry => articles.push(entry))
+    }
+    console.log(page_slug)
+    console.log(articles)
+    
     if (post_slug) {
-		console.log(post_slug)
-        article = _.find(articles, (article) => article.fields.title === post_slug)
-        
 		
+        article = _.find(articles, (article) => article.fields.title === post_slug)
 		AppStore.data.article = article
     }
 

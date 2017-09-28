@@ -11,9 +11,9 @@ const SearchResultsList = (props) => (
 	<div className='search-result'>
 		<h5 className="search-result-item-title">
 			<div className="search-result-thumbnail">
-				<img src={props.result.metadata.photo ? props.result.metadata.photo.url :''}/>
+				<img src={props.result.fields.photos ? props.result.fields.photos[0].fields.file.url : null} />
 			</div>
-			<Link to={'/' + AppStore.data.page.slug + '/' + props.result.slug} onClick={props.onClick.bind(this)}>{props.result.title}</Link> 
+			<Link to={'/' + props.result.fields.category[0].fields.title.split(' ')[0].toLowerCase() + '/' + props.result.fields.title} onClick={props.onClick.bind(this)}>{props.result.fields.title}</Link> 
 		</h5>
 	</div>
 )
@@ -42,11 +42,14 @@ export default class Search extends Component {
 	handleSearchSubmit(event){
 		event.preventDefault()
 		const articles = AppStore.data.articles
-		const searcher = new FuzzySearch(articles, ['title', 'slug', 'content'], {
+		console.log(articles);
+		const searcher = new FuzzySearch(articles, ['fields.title'], {
 			caseSensitive: false,
 			sort: true
 		})
+		console.log(this.state.searchTerm)
 		const results = searcher.search(this.state.searchTerm)
+		console.log(results)
 		if (results.length > 0){
 			this.setState({searchSuccess: true})
 			let _this = this
@@ -58,7 +61,7 @@ export default class Search extends Component {
 	appendSearchItems(searchItem){
 		let media
 		return (
-			<searchItemToAppend image={searchItem.metadata.photo ? searchItem.metadata.photo : searchItem.metadata.affiliate_item.metadata.photo} />
+			<searchItemToAppend image={searchItem.fields.photos ? searchItem.fields.photos[0].fields.files.url : null} />
 		)
 	}
 	handleSearchItemClick(){

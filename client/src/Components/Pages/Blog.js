@@ -6,7 +6,8 @@ import PropTypes from 'prop-types';
 
 // Components
 import BlogList from '../Partials/BlogList'
-import BlogSingle from '../Partials/BlogSingle'
+import AffiliatePost from '../Partials/AffiliatePost'
+
 import OwlCarousel from 'react-owl-carousel2'
 import VideoPosts from '../Partials/VideoPosts'
 import AppDispatcher from '../../Dispatcher/AppDispatcher'
@@ -65,6 +66,17 @@ export default class Blog extends Component {
 
         const video_posts = <VideoPosts videos={data.video_entries} />
 
+        
+        let affiliate_entries_html
+        if(data.affiliate_entries) {
+            data.affiliate_entries
+            affiliate_entries_html = data.affiliate_entries.map((entry) => {
+                return (
+                    <AffiliatePost article={entry}/>
+                )
+            })
+        }
+
 
         return (
                 <div>
@@ -85,6 +97,7 @@ export default class Blog extends Component {
 
                 {main_content}
                 {video_posts}
+                {affiliate_entries_html}
             </div>
 		)
 	}

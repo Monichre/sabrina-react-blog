@@ -1,11 +1,9 @@
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
-import {Link} from 'react-router'
+
 import AppDispatcher from '../../Dispatcher/AppDispatcher'
 import Axios from 'axios'
 import EmailStatus from '../Partials/SiteComponents/EmailStatus'
-
-// var config = require('../../config').config
 
 
 class Form extends Component {
@@ -119,7 +117,7 @@ export default class About extends Component {
 
     render() {
 		const data = this.props.data
-		const image_bg = data.page.metafield.photo.url
+		const image_bg = data.page.fields.backgroundPhoto.fields.file.url
 		const about_styles = {
 			position: 'relative',
 			height: '100vh',
