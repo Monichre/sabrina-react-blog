@@ -2645,16 +2645,7 @@ input[type="color"],
     font-weight: 300;
     position: relative;
 }
-.main-content.blog-single .post .content-post p:before {
-    position: absolute;
-    content: "";
-    width: 30px;
-    height: 6px;
-    background-color: #ba2424;
-    bottom: 50%;
-    left: 0;
-    margin-top: -5px;
-}
+
 
 .main-content.blog-single .post .direction {
 	border-top: 1px solid #e5e5e5;
