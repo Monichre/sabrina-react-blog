@@ -11,10 +11,6 @@ import VideoPostRight from './VideoPostRight'
 
 export default class BlogList extends Component {
 
-	scrollTop() {
-
-	}
-
 	render() {
 
 		let data = this.props.data
@@ -51,8 +47,7 @@ export default class BlogList extends Component {
 			let created = months[(date_obj.getMonth() + 1)] + ' ' + date_obj.getDate() + ', ' + date_obj.getFullYear()
 			let category = article.fields.category[0].fields.title.split(' ')[0].toLowerCase()
 			let readMore = <Link to={'/' + category + '/' + article.fields.title} onClick={this.scrollTop}>Read More</Link>
-			console.log(readMore)
-
+			
 		 	if (articles.indexOf(article) % 2 === 0) {
 				return (
 					<BlogPostPreview_Right

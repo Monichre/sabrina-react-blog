@@ -886,12 +886,34 @@ video {
     right: -43px;
 }
 
-/*.blog-shortcode article.post .content-post .entry-post .read-more a:after, .entry-post .read-more a:after {
-    content: "";
-    width: 0;
+ul.recent-list li {
+    margin-top: 10px;
+    border-bottom: 1px solid #ededed;
+    padding-bottom:15px;
+}
+ul.recent-list li a {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: #333333;
+    letter-spacing: -0.05px;
+    position: relative;
+    padding-left: 10px;
+}
+ul.recent-list li .text {
+    margin-top: 10px;
+}
+ul.recent-list li a, ul.recent-list li .text a {
+    position: relative;
+    padding-left: 10px;
+}
+ul.recent-list li a:after, ul.recent-list li .text a:after {
+    position: absolute;
+    font-family: 'FontAwesome';
+    content: "\f0da";
+    left: 0;
+}
 
-    height: 0;
-}*/
 
 /*Flat testimonial
 -----------------------------------------------------------*/

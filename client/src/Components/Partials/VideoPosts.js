@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import ReactPlayer from 'react-player'
+import { Link } from 'react-router-dom'
 
 export default class VideoPosts extends Component {
     constructor(props){
@@ -40,9 +41,11 @@ export default class VideoPosts extends Component {
                                              
                                         </div>
                                         <div className="align" style={content_style}>
-                                            <h3>{video.title}</h3>
-                                            
-                                            <div className="content-story" dangerouslySetInnerHTML={{ __html: video.content }} />
+                                            <h3>{video.fields.title}</h3>
+                                            <div className="" dangerouslySetInnerHTML={{ __html: video.fields.subHeader }} />
+                                            <p>
+                                                <Link to={'/videos/' +  video.fields.title}>Read More</Link>
+                                            </p>
                                         </div>
                                     </div>
                                 </div>

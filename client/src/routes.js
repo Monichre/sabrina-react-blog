@@ -73,6 +73,10 @@ let routes_with_sub = [
 		component: BlogSingle
 	},
 	{
+		path: '/videos/:slug',
+		component: BlogSingle
+	},
+	{
         path: '/health/:slug',
 		exact: true,
         component: BlogSingle

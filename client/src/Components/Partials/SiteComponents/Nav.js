@@ -206,11 +206,18 @@ export default class Nav extends Component {
 
         const menu_items = nav_items.map((nav_item) => {
             let this_route = nav_item.split(' ')[0].toLowerCase()
+            if (nav_item === 'Home') {
+                return (
+                    <li key={'key-' + nav_item}>
+                        <Link onClick={this.handleClick} to='/'>{nav_item}</Link>
+                    </li>)
+            } else {
                 return (
                     <li key={'key-' + nav_item}>
                         <Link onClick={this.handleClick} to={'/' + this_route}>{nav_item}</Link>
                     </li>)
-            })
+            }
+        })
         
         menu_items.push(search_trigger)
         let i = menu_items.length/2
