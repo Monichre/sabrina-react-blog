@@ -26,6 +26,7 @@ export function getStore(callback) {
             let video_entries = _.filter(response_items, (item) => item.sys.contentType.sys.id === 'videoPost')
             let affiliate_entries = _.filter(response_items, (item) => item.sys.contentType.sys.id === 'affiliatePost')
             let articles =  _.filter(response_items, (item) => item.sys.contentType.sys.id === 'blogPost')
+            articles = _.sortBy(articles, (article) => article.sys.createdAt)
             let nav_items = _.map(pages, (page) => page.fields.title)
                 nav_items = nav_items.sort().reverse()
 
