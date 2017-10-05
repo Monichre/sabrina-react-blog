@@ -203,19 +203,23 @@ export default class Nav extends Component {
             </li>
         )
         const search_trigger = <li style={search_menu_item_style}><a className="search-trigger" href="#" onClick={this.searchClick.bind(this)}><i className="fa fa-search"></i></a></li>
-
-        const menu_items = nav_items.map((nav_item) => {
+        const menu_items = []
+        nav_items.forEach((nav_item) => {
+            console.log(nav_item)
             let this_route = nav_item.split(' ')[0].toLowerCase()
+
             if (nav_item === 'Home') {
-                return (
-                    <li key={'key-' + nav_item}>
-                        <Link onClick={this.handleClick} to='/'>{nav_item}</Link>
-                    </li>)
-            } else {
-                return (
-                    <li key={'key-' + nav_item}>
-                        <Link onClick={this.handleClick} to={'/' + this_route}>{nav_item}</Link>
-                    </li>)
+                menu_items[0] = <li key={'key-' + nav_item}><Link onClick={this.handleClick} to='/'>{nav_item}</Link></li>
+            } else if (nav_item === 'Fashion & Style') {
+                menu_items[1] = <li key={'key-' + nav_item}><Link onClick={this.handleClick} to={'/' + this_route}>{nav_item}</Link></li>
+            } else if (nav_item === 'Travel') {
+                menu_items[2] = <li key={'key-' + nav_item}><Link onClick={this.handleClick} to={'/' + this_route}>{nav_item}</Link></li>
+            } else if (nav_item === 'Health & Wellness') {
+                menu_items[3] = <li key={'key-' + nav_item}><Link onClick={this.handleClick} to={'/' + this_route}>{nav_item}</Link></li>
+            } else if (nav_item === 'Contact') {
+                menu_items[4] = <li key={'key-' + nav_item}><Link onClick={this.handleClick} to={'/' + this_route}>{nav_item}</Link></li>
+            } else if (nav_item === 'About') {
+                menu_items[5] = <li key={'key-' + nav_item}><Link onClick={this.handleClick} to={'/' + this_route}>{nav_item}</Link></li>
             }
         })
         

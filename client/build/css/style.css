@@ -886,12 +886,34 @@ video {
     right: -43px;
 }
 
-/*.blog-shortcode article.post .content-post .entry-post .read-more a:after, .entry-post .read-more a:after {
-    content: "";
-    width: 0;
+ul.recent-list li {
+    margin-top: 10px;
+    border-bottom: 1px solid #ededed;
+    padding-bottom:15px;
+}
+ul.recent-list li a {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: #333333;
+    letter-spacing: -0.05px;
+    position: relative;
+    padding-left: 10px;
+}
+ul.recent-list li .text {
+    margin-top: 10px;
+}
+ul.recent-list li a, ul.recent-list li .text a {
+    position: relative;
+    padding-left: 10px;
+}
+ul.recent-list li a:after, ul.recent-list li .text a:after {
+    position: absolute;
+    font-family: 'FontAwesome';
+    content: "\f0da";
+    left: 0;
+}
 
-    height: 0;
-}*/
 
 /*Flat testimonial
 -----------------------------------------------------------*/
@@ -2362,7 +2384,8 @@ input[type="color"],
 }
 .featured_post {
 	position: relative;
-	height: 100%;
+    height: 100%;
+    padding-bottom: 50px;
 }
 
 #featured_posts .featured_post .featured_post_img {
@@ -2635,8 +2658,16 @@ input[type="color"],
 }
 
 .main-content.blog-single .post .content-post p {
-	margin-bottom: 22px;
+    margin: 30px auto;
+    font-size: 18px;
+    text-align: justify;
+    /* text-indent: 50px; */
+    line-height: 35px;
+    /* font-family: "Poppins"; */
+    font-weight: 300;
+    position: relative;
 }
+
 
 .main-content.blog-single .post .direction {
 	border-top: 1px solid #e5e5e5;
@@ -3164,8 +3195,8 @@ input[type="color"],
 }
 
 .iframe-widget {
-	position: relative;
-	height: 500px;
+    position: relative;
+    height: 400px;
 }
 iframe html > body {
     margin: 0!important;
@@ -3897,11 +3928,14 @@ p.entry-content {
   background-color: #fff;
   padding: 1em;
   box-shadow: 0 0.25em 1em rgba(0, 0, 0, 0.2);
+  position: relative;
 }
+/* .polaroid-title {
+    position: absolute;
+} */
 
 .caption {
-  font-size: 2em;
-    color: #333;
+ 
   text-align: center;
   padding: 30px;
 
@@ -3909,6 +3943,14 @@ p.entry-content {
   -moz-transition: all 0.3s;
   transition: all 0.3s;
 }
+.caption p {
+    font: 13px/25px "Poppins", sans-serif;
+    font-weight: 400;
+    
+    color: #565656;
+}
+
+
 
 #travel .item {
   display: inline-block;
@@ -4195,7 +4237,10 @@ video {
 
 /*Blog Post Single*/
 .blog-post-single-image-container img {
-	height: 500px;
+    height: 500px;
+    object-fit: cover;
+    object-position: top;
+    width: 100%;
 }
 .main-content.blog-single .post .direction {
     border-top: 1px solid #e5e5e5;
@@ -4207,6 +4252,12 @@ video {
 }
 .main-content.blog-single .post .direction .social-links {
     float: right;
+}
+.text h4 {
+    margin-top: 5px;
+    font-family: 'Open Sans', sans-serif;
+    letter-spacing: -0.05px; 
+    font-size: 15px;
 }
 .text h4 a {
 	color: inherit;

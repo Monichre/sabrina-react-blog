@@ -4,7 +4,8 @@ import ReactDOM from 'react-dom'
 import AppDispatcher from '../../Dispatcher/AppDispatcher'
 import Axios from 'axios'
 import EmailStatus from '../Partials/SiteComponents/EmailStatus'
-
+import ReactMarkdown from 'react-markdown'
+{/* <div className="top-section">Find Out</div> */}
 
 class Form extends Component {
 	constructor(props) {
@@ -159,16 +160,13 @@ export default class About extends Component {
 				<div id="form-second-half">
 					<div className="col-md-12">
 		                <div className="title-section">
-		                    <div className="top-section">Find Out</div>
+		                    
 		                    <h1 className="title">About Me</h1>
 		                </div>
 						<div className="blockquote-testimo">
-	                        <p>About Me Content from page</p>
+	                        <ReactMarkdown source={data.page.fields.content} />
 	                    </div>
-						<div className="title-testimonial">
-	                        <h6 className="title">Sabrina Smith</h6>
-	                        <p>Owner</p>
-	                    </div>
+					
 		            </div>
 				</div>
 

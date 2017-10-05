@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import { Switch, Link, Route, Redirect } from 'react-router-dom'
 import ReactPlayer from 'react-player'
+import ReactMarkdown from 'react-markdown'
 
 
 import AppDispatcher from '../../Dispatcher/AppDispatcher'
@@ -60,11 +61,7 @@ const ARTICLE_POST_SINGLE = (props) => (
 			</div>
 
 			<div className="content-post">
-				
-				<p dangerouslySetInnerHTML={{
-					__html: props.article.fields.content
-				}}></p>
-
+				<ReactMarkdown source={props.article.fields.content} />
 			</div>
 			<div className="direction clearfix">
 				<ul className="tags">

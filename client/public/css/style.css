@@ -3195,8 +3195,8 @@ input[type="color"],
 }
 
 .iframe-widget {
-	position: relative;
-	height: 500px;
+    position: relative;
+    height: 400px;
 }
 iframe html > body {
     margin: 0!important;
