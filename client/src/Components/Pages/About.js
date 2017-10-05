@@ -1,11 +1,12 @@
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
+import {Helmet} from 'react-helmet'
 
 import AppDispatcher from '../../Dispatcher/AppDispatcher'
 import Axios from 'axios'
 import EmailStatus from '../Partials/SiteComponents/EmailStatus'
 import ReactMarkdown from 'react-markdown'
-{/* <div className="top-section">Find Out</div> */}
+
 
 class Form extends Component {
 	constructor(props) {
@@ -130,6 +131,11 @@ export default class About extends Component {
 
         return (
             <div id="about" style={about_styles}>
+                     <Helmet>
+                            <title>Theresa on the Town | {data.page.fields.title}</title>
+							<meta name="description" content={data.page.fields.metaDescription}/>
+							<meta name="keywords" content={data.page.fields.metaTags}/>
+                        </Helmet>
                 <section className="col-md-6" id="form-half">
                     <div className="container-fluid">
                         <div className="row"></div>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import _ from 'lodash'
-import { Link } from 'react-router-dom'
+import ReactMarkdown from 'react-markdown'
 
 
 
@@ -28,14 +28,12 @@ export default class AffiliatePost extends Component {
         return (
             <div className="affiliate-preview">
                 <section className="flat-row flat-imagebox affiliate-row" style={affiliate_style}>
-
                     <div className="row">
                         <div className="col-md-12">
                             <div className="title-section stile2 affiliate-header" style={header_style}>
                                 <h1 className="title text-left">{this.props.article.fields.title}</h1>
                             </div>
                         </div>
-
                     </div>
 					<div className="container">
 						<div className="row">
@@ -54,11 +52,12 @@ export default class AffiliatePost extends Component {
 		                            </div>
 		                        </div>
 							)}
-							<div className="col-md-4 col-md-offset-2">
-								<div style={content_style} dangerouslySetInnerHTML={{ __html: this.props.article.fields.content}} />
+							<div className="col-md-4 col-md-offset-2">	
+								<div style={content_style}>
+									<ReactMarkdown source={this.props.article.fields.content} />
+								</div>
                         	</div>
-	                    </div>
-						
+	                    </div>				
 					</div>
                 </section>
             </div>

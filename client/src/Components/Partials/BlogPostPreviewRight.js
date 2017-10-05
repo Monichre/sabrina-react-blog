@@ -1,15 +1,8 @@
 // Work.js
 import React, {Component} from 'react'
-import _ from 'lodash'
-import config from '../../config'
-
-// Components
-
-
-
-
-// Dispatcher
 import AppDispatcher from '../../Dispatcher/AppDispatcher'
+import ReactMarkdown from 'react-markdown'
+import TRIM from '../../utils'
 
 export default class BlogPostPreviewRight extends Component {
 	render(){
@@ -33,16 +26,15 @@ export default class BlogPostPreviewRight extends Component {
                                     <p className="date-event date-style-2"> <span>{this.props.date}</span></p>
 									<br />
                                 </div>
-								<div className="content-story" dangerouslySetInnerHTML={{ __html: this.props.content}} />
+								<div className="content-story">
+                                    <ReactMarkdown source={TRIM(this.props.content)} />
+                                </div>
 								<div className="read-more">{this.props.readMore}</div>
                             </div>
                         </div>
-
-                        </div>
-
                     </div>
-
-                </section>
+                </div>
+            </section>
 		)
 	}
 }

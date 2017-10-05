@@ -2,7 +2,9 @@
 import React, {Component} from 'react'
 import _ from 'lodash'
 import config from '../../config'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
+import {Helmet} from 'react-helmet'
+
 
 // Components
 import BlogList from '../Partials/BlogList'
@@ -20,13 +22,9 @@ export default class Blog extends Component {
 
     componentWillMount() {
         this.getPageData()
-
     }
 
-    componentDidMount() {
-        // const data = this.props.data
-        // document.title = config.site.title + ' | ' + data.page.title
-    }
+    componentDidMount() {}
 
     getPageData() {
         AppDispatcher.dispatch({action: 'get-page-data', page_slug: 'blog'})
@@ -80,6 +78,11 @@ export default class Blog extends Component {
 
         return (
                 <div>
+                     <Helmet>
+                            <title>Theresa on the Town | {data.page.fields.title}</title>
+                            <meta name="description" content={data.page.fields.metaDescription}/>
+                            <meta name="keywords" content={data.page.fields.metaTags}/>
+                        </Helmet>
 					<OwlCarousel id="featured_posts" ref="owl" options={options} events={events}>
 						{featured_posts.map(post =>
 								<div className="featured_post">

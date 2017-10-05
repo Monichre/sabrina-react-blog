@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Helmet } from 'react-helmet'
 
 
 // Components
@@ -47,6 +48,11 @@ export default class Travel extends Component {
 
     return (
       <div id="travel">
+          <Helmet>
+                <title>Theresa on the Town | {data.page.fields.title}</title>
+                <meta name="description" content={data.page.fields.metaDescription}/>
+                <meta name="keywords" content={data.page.fields.metaTags}/>
+            </Helmet>
 		  <div className="page-title" style={travel_style}>
             <div className="container">
                 <div className="row">

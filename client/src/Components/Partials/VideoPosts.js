@@ -9,7 +9,8 @@ export default class VideoPosts extends Component {
     }
     render(){
         const style = {
-            marginTop: '50px'
+            marginTop: '50px',
+            paddingBottom: '25px'
         }
         const content_style = {
             marginTop: '10px'

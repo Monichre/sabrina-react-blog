@@ -1,7 +1,7 @@
 // Work.js
 import React, {Component} from 'react'
-import _ from 'lodash'
-import config from '../../config'
+import ReactMarkdown from 'react-markdown'
+import TRIM from '../../utils'
 
 // Components
 
@@ -29,7 +29,9 @@ export default class BlogPostPreviewLeft extends Component {
                                     <p className="date-event date-style-2"> <span>{this.props.date}</span></p>
 									<br />
                                 </div>
-								<div className="content-story" dangerouslySetInnerHTML={{ __html: this.props.content}} />
+								<div className="content-story">
+                                    <ReactMarkdown source={TRIM(this.props.content)} />
+                                </div>
 								<div className="read-more">{this.props.readMore}</div>
                             </div>
                         </div>

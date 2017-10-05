@@ -1,6 +1,5 @@
-// Work.js
-import React, {Component} from 'react'
-
+import React, { Component } from 'react'
+import { Helmet } from 'react-helmet'
 
 
 // Components
@@ -12,37 +11,36 @@ import AppDispatcher from '../../Dispatcher/AppDispatcher'
 
 export default class FashionAndStyle extends Component {
 
-    componentWillMount() {
-        this.getPageData()
-    }
+	componentWillMount() {
+		this.getPageData()
+	}
+	getPageData() {
+		AppDispatcher.dispatch({ action: 'get-page-data', page_slug: 'Fashion & Style' })
+	}
 
-    componentDidMount() {
-        const data = this.props.data
-		// document.title = config.site.title + ' | ' + data.page.title
-
-    }
-
-    getPageData() {
-        AppDispatcher.dispatch({action: 'get-page-data', page_slug: 'fashion-style'})
-    }
-
-    render() {
-        return (
+	render() {
+		const data = this.props.data
+		return (
 			<div id="Fashion">
+				<Helmet>
+					<title>Theresa on the Town | {data.page.fields.title}</title>
+					<meta name="description" content={data.page.fields.metaDescription}/>
+					<meta name="keywords" content={data.page.fields.metaTags}/>
+                </Helmet>
 				<div className="page-title">
-	              <div className="container">
-	                  <div className="row">
-	                      <div className="col-md-12">
-	                          <div className="title-section">
-	                              <h1 className="title">Fashion & Style</h1>
-	                          </div>
-	                      </div>
-	                  </div>
-	              </div>
-	          </div>
-  				<FashionPosts data = {this.props.data} />
+					<div className="container">
+						<div className="row">
+							<div className="col-md-12">
+								<div className="title-section">
+									<h1 className="title">Fashion & Style</h1>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<FashionPosts data={this.props.data} />
 			</div>
 
-        )
+					)
     }
 }

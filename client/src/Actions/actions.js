@@ -67,14 +67,17 @@ export function getStore(callback) {
 export function getPageData(page_slug, post_slug) {
 
     if (!page_slug || page_slug === 'blog'){
-        page_slug = 'home'
+        page_slug = 'Home'
     }
         
 
     // Get page info
     const data = AppStore.data
     const pages = data.pages
-    const page = _.find(pages, (page) => page.fields.title.toLowerCase() === page_slug)
+    const page = _.find(pages, (page) => page.fields.title === page_slug)
+    console.log(pages)
+    console.log(page_slug)
+    console.log(page)
 
 
 	let article
@@ -85,7 +88,7 @@ export function getPageData(page_slug, post_slug) {
     if (data.affiliate_entries){
         data.affiliate_entries.forEach(entry => articles.push(entry))
     }
-    console.log(page_slug)
+    
     console.log(articles)
     
     if (post_slug) {
