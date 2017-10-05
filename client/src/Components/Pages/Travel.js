@@ -30,7 +30,7 @@ export default class Travel extends Component {
   getPageData(){
     AppDispatcher.dispatch({
       action: 'get-page-data',
-      page_slug: 'travel'
+      page_slug: 'Travel'
     })
   }
 

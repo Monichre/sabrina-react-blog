@@ -306,13 +306,13 @@ video {
     height: 6px;
     background-color: #ba2424;
     bottom: -15px;
-    left: -40px;
+    /* left: -40px; */
     margin-top: -5px;
 }
 /*style2*/
 .title-section.style2 {
     text-align: left;
-    margin-left: 19px;
+    
     margin-bottom: 36px;
 }
 

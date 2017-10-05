@@ -17,7 +17,7 @@ export default class BlogPostPreviewLeft extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-6">
-                            <div className="flat-divider d96px"></div>
+                            <div className="flat-divider d47px"></div>
                             <div className="wrap-content-story-left">
                                 <div className="title-section style2 ">
                                     <h1 className="title">{this.props.title}</h1>
@@ -34,6 +34,7 @@ export default class BlogPostPreviewLeft extends Component {
                                 </div>
 								<div className="read-more">{this.props.readMore}</div>
                             </div>
+                            <div className="flat-divider d47px"></div>
                         </div>
                         <div className="col-md-6 hide_on_mobile">
                             <img src={this.props.image}alt="images" className="object-fit" />
