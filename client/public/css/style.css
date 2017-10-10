@@ -2073,7 +2073,7 @@ input[type="color"],
 .flat-vertical.reservation a {
 	color: inherit;
 }
-.flat-vertical.reservation a:after {
+.flat-vertical.reservation a span:after {
 	content: '';
     height: 1px;
     width: 40px;
@@ -2085,7 +2085,7 @@ input[type="color"],
 .flat-vertical.reservation span {
 	color: #333;
 }
-.flat-vertical.reservation a:before {
+.flat-vertical.reservation a span:before {
 	content: '';
     height: 1px;
     width: 40px;
