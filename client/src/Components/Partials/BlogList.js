@@ -6,8 +6,7 @@ import BlogSingle from './BlogSingle'
 import BlogPostPreview_Left from './BlogPostPreviewLeft'
 import BlogPostPreview_Right from './BlogPostPreviewRight'
 import AffiliatePost from './AffiliatePost'
-import VideoPostLeft from './VideoPostLeft'
-import VideoPostRight from './VideoPostRight'
+
 
 export default class BlogList extends Component {
 

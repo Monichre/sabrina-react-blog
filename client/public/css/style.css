@@ -243,6 +243,7 @@
 --------------------------------------------------------*/
 .title-section {
     text-align: center;
+    padding-right: 20px;
 }
 
 .title-section .top-section {
@@ -258,10 +259,11 @@
 
 
 .title-section .title {
-    font-weight: 500;
+    font-weight: 600;
     line-height: 40px;
     position: relative;
     display: inline-block;
+    text-transform: uppercase;
 }
 #affiliate-preview .title-section .title {
 	display: block;
@@ -1627,10 +1629,8 @@ b, strong {
 .entry-page p {
 	margin-bottom: 25px;
 }
-/*font-family: 'Merriweather', serif;*/
-/*font-family: 'Open Sans', sans-serif;*/
-/*font-family: 'Arsenal', sans-serif;*/
-h1 { font: 36px/42px "Merriweather", sans-serif;}
+
+h1 { font: 28px "Merriweather", sans-serif;}
 h2 { font: 24px/32px "Merriweather", sans-serif;}
 h3 { font: 18px/30px "Merriweather", sans-serif;}
 h4 { font: 16px/30px "Merriweather", sans-serif;}
@@ -1639,13 +1639,15 @@ h6 { font: 13px/19px "Merriweather", sans-serif;}
 .site-title, .site-title a {
     font-family: 'Merriweather', serif!important;
     letter-spacing: 0!important;
+    text-transform: uppercase;
 }
 .header-wrap .clearfix {
 	position: relative!important;
 }
-.featured_post_content .title, .featured_post_content .caption {
-	/*font-family: 'Merriweather', serif;*/
+.header-wrap .container {
+    padding-right: 0px!important;
 }
+
 .sub-header {
 	font-family: 'Merriweather', serif;
 	font-weight: 600;
@@ -2304,7 +2306,9 @@ input[type="color"],
 	margin: 5px 0 0 10px;
 }
 
-
+.affiliate-preview > .item > .box-content > p.content-story, .polaroid .caption p, .post > .content-post p {
+    font-size: 14px;
+}
 
 /* Page title
 -------------------------------------------------------------- */
@@ -2325,7 +2329,7 @@ input[type="color"],
 	font-weight: 500;
 	color: #ffffff;
 }
-#travel .page-title .title-section h1.title:after, #Fashion .page-title .title-section h1.title:after, #Health .page-title .title-section h1.title:after {
+#travel .page-title .title-section h1.title:after, #Fashion .page-title .title-section h1.title:after, #Health .page-title .title-section h1.title:after, #VideoPosts .page-title .title-section h1.title:after {
     position: absolute;
     content: "";
     width: 30px;
@@ -2662,7 +2666,7 @@ input[type="color"],
     font-size: 18px;
     text-align: justify;
     /* text-indent: 50px; */
-    line-height: 35px;
+    line-height: 25px;
     /* font-family: "Poppins"; */
     font-weight: 300;
     position: relative;
@@ -4354,16 +4358,7 @@ video {
     .imgbox.style3 div a div {
         width: 100%!important;
     }
-    /* .page-title .title-section .title:before, .affiliate-row .title-section .title:before, .video-section-header:before {
-        position: absolute;
-        content: "";
-        width: 15px;
-        height: 3px;
-        background-color: #ba2424;
-        top: 25%;
-        left: -20px;
-        margin-top: -5px;
-    } */
+
     .blog-post-preview .title-section .title:before {
         position: absolute;
         content: "";
@@ -4377,3 +4372,8 @@ video {
 }
 
 
+/* GENERAL STYLES FOR MULTI-COMPONENT ELEMENTS */
+
+.box-content p.content-story, .polaroid .caption p, .post > .content-post p, .affiliate-preview p {
+    font-size: 14px!important;
+}
