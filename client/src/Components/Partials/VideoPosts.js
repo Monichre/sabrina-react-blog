@@ -28,7 +28,8 @@ export default class VideoPosts extends Component {
                         <div className="row">
                             <div className="col-md-12">
                                 <div className="title-section">
-                                    <h1 className="title">Latest in Video</h1>
+                                    <h1 className="title">{this.props.header}</h1>
+                                    <h4>{this.props.subHeader}</h4>
                                 </div>
                             </div>
                         </div>

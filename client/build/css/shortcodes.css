@@ -229,7 +229,7 @@
 /*style2*/
 .title-section.style2 {
     text-align: left;
-    margin-left: 19px;
+    
     margin-bottom: 36px;
 }
 
@@ -1100,10 +1100,7 @@ ul.flat-socials li a {
     transition: transform 0.6s;
 }
 
-.effect1:hover .box-content {
-    padding-left: 30px;
-    padding-right: 30px;
-}
+
 
 .effect1:hover .box-image img,
 .flat-hover-scale:hover img {

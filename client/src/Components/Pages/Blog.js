@@ -27,7 +27,7 @@ export default class Blog extends Component {
     componentDidMount() {}
 
     getPageData() {
-        AppDispatcher.dispatch({action: 'get-page-data', page_slug: 'blog'})
+        AppDispatcher.dispatch({action: 'get-page-data', page_slug: 'Home'})
     }
 
     getMoreArticles() {
@@ -37,9 +37,15 @@ export default class Blog extends Component {
     render() {
 
         const data = this.props.data
+        console.log(data)
         const articles = data.articles
         const featured_posts = articles.featured
         const pages = data.pages
+        const page = data.page
+		const videoSectionHeader = data.page.fields.pageSectionHeaders[0].fields.headerTitle
+        const subHeader = data.page.fields.pageSectionHeaders[0].fields.subHeader
+        
+		
         const options = {
             items: 1,
             nav: true,
@@ -62,7 +68,7 @@ export default class Blog extends Component {
         let main_content
 		main_content = <BlogList getMoreArticles={this.getMoreArticles} data={data} />
 
-        const video_posts = <VideoPosts videos={data.video_entries} />
+        const video_posts = <VideoPosts videos={data.video_entries} header={videoSectionHeader} subHeader={subHeader}/>
 
         
         let affiliate_entries_html
