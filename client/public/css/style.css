@@ -4219,6 +4219,9 @@ video {
 	position: absolute;
 	right: 20px;
 }
+.fa-chevron-left, .fa-chevron-right {
+    color: #fff!important;
+}
 
 .show_modal {
 	display: block;
