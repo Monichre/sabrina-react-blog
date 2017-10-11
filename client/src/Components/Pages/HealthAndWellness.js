@@ -1,9 +1,5 @@
-// Work.js
 import React, {Component} from 'react'
 import { Helmet } from 'react-helmet'
-
-
-// Components
 import HealthPosts from '../Partials/HealthPosts'
 
 // Dispatcher
@@ -26,7 +22,7 @@ export default class HealthAndWellness extends Component {
 
     render() {
         const data = this.props.data
-        console.log(data)
+
         return (
             <div id="Health">
                 <Helmet>
@@ -39,7 +35,7 @@ export default class HealthAndWellness extends Component {
 	                  <div className="row">
 	                      <div className="col-md-12">
 	                          <div className="title-section">
-	                              <h1 className="title">Health & Wellness</h1>
+                                <h1 className="title">{data.page.fields.title}</h1>
 	                          </div>
 	                      </div>
 	                  </div>

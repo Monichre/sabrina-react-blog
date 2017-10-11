@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import { Switch, Link, Route, Redirect } from 'react-router-dom'
 import ReactPlayer from 'react-player'
 import ReactMarkdown from 'react-markdown'
+import _ from 'lodash'
 
 
 import AppDispatcher from '../../Dispatcher/AppDispatcher'
@@ -26,7 +27,7 @@ const VIDEO_POST_SINGLE = (props) => (
 			<div className="direction clearfix">
 				<ul className="tags">
 					<li>Tags:</li>
-					<li><a href="#">Video</a></li>
+					<a href="#">{props.tags}</a>
 				</ul>
 				<div className="social-links">
 					<span>Share :</span>
@@ -65,10 +66,9 @@ const ARTICLE_POST_SINGLE = (props) => (
 			</div>
 			<div className="direction clearfix">
 				<ul className="tags">
-					<li>Tags:
-					</li>
+					<li>Tags:</li>
 					<li>
-						<a href="#">{props.category}</a>
+						<a href="#">{props.tags}</a>
 					</li>
 		
 
@@ -99,8 +99,6 @@ const ARTICLE_POST_SINGLE = (props) => (
 export default class BlogSingle extends Component {
 
     componentWillMount() {
-        console.log(this.props)
-        console.log(this.props.match.params)
         this.getPageData()
     }
     getPageData() {
@@ -116,9 +114,7 @@ export default class BlogSingle extends Component {
 	}
 
 	_onChange() {
-		// this.getPageData()
-		console.log(this.props)
-        console.log(this.props.match.params)
+	
 	}
 	componentDidMount() {
 		AppStore.addChangeListener(this._onChange.bind(this))
@@ -130,6 +126,7 @@ export default class BlogSingle extends Component {
 		let article = data.article
 		let category = article.fields.category ? article.fields.category[0].fields.title.split(' ')[0].toLowerCase() : null
 		let old_path = `/${category}/${article.fields.title}`
+
 		const SubRoutes = () => (
 			<Switch>
 				<Redirect from={old_path} to='/new-path'/>
@@ -142,10 +139,22 @@ export default class BlogSingle extends Component {
 		
         const data = this.props.data
 		const article = data.article
+		console.log(article)
+		let headers = data.section_headers
+		let blog_header
+		const includesPageTag = (header) => Object.keys(header.fields).includes('page')
+
+		headers.forEach(function(header) {
+			if (includesPageTag(header) && header.fields.page.fields.name === 'Blog') {
+				blog_header = header
+			}
+			
+		})
+		
 		const the_other_articles = data.articles.filter(other_article => other_article != article)
 		let all_affiliate_items = []
+
 		if (data.affiliate_entries) {
-			// let getItem = entry => entry.
 			data.affiliate_entries.forEach(entry => entry.fields.affiliateItems.forEach(item => all_affiliate_items.push(item)))
 		}
 
@@ -165,25 +174,34 @@ export default class BlogSingle extends Component {
 		}
 		let blog_post_single
 		let path = this.props.match.path.split('/')
-		if (path.includes('videos')){
-			blog_post_single = <VIDEO_POST_SINGLE video={article} />
+		let tags = []
+		const hasTags = (article) => Object.keys(article.fields).includes('tag')
+
+		if (hasTags(article)){
+			tags = article.fields.tag.map((tag) => tag.fields.name)
+		} else {
+			tags = category
+		}
+
+		if (path.includes('videos')) {
+			
+			blog_post_single = <VIDEO_POST_SINGLE video={article} tags={tags}/>
 		}
 		else {
-			blog_post_single = <ARTICLE_POST_SINGLE article={article} image={image} created={created} category={category}/>
+			
+			blog_post_single = <ARTICLE_POST_SINGLE article={article} image={image} created={created} tags={tags}/>
 		}
-		
-
-		
 
         return (
-            <div>
+            <div id="Blog">
 
                 <div className="page-title parallax flat_strech parallax1">
                     <div className="container">
                         <div className="row">
                             <div className="col-md-12">
                                 <div className="title-section">
-                                    <h1 className="title">Blog</h1>
+									<h1 className="title">{blog_header.fields.headerTitle}</h1>
+									 <h5 className="title_section_subHeader">{blog_header.fields.subHeader}</h5>
                                 </div>
                             </div>
                         </div>

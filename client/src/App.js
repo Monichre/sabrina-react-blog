@@ -13,7 +13,6 @@ import AppStore from './Stores/AppStore'
 import Nav from './Components/Partials/SiteComponents/Nav'
 import Footer from './Components/Partials/SiteComponents/Footer'
 import Blog from './Components/Pages/Blog'
-import Default from './Components/Pages/Default'
 import About from './Components/Pages/About'
 import NoMatch from './Components/Pages/NoMatch'
 

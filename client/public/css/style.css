@@ -2,13 +2,13 @@
 
 @import url("font-awesome.css");
 @import url("ionicons.css");
-@import url("flexslider.css");
+
 @import url("owl.carousel.css");
 @import url("shortcodes.css");
 @import url("responsive.css");
 @import url("revolution-slider.css");
 @import url("jquery.fancybox.css");
-@import url("magnific-popup.css");
+
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Raleway:400,500|Montserrat:400,500");
 @import url("https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i");
 
@@ -2329,7 +2329,7 @@ input[type="color"],
 	font-weight: 500;
 	color: #ffffff;
 }
-#travel .page-title .title-section h1.title:after, #Fashion .page-title .title-section h1.title:after, #Health .page-title .title-section h1.title:after, #VideoPosts .page-title .title-section h1.title:after {
+#Blog .page-title .title-section h1.title:after, #travel .page-title .title-section h1.title:after, #Fashion .page-title .title-section h1.title:after, #Health .page-title .title-section h1.title:after, #VideoPosts .page-title .title-section h1.title:after {
     position: absolute;
     content: "";
     width: 30px;
@@ -2551,7 +2551,7 @@ input[type="color"],
 }
 
 .main-content.blog-single article.post {
-	line-height: 23px;
+	/* line-height: 23px; */
 }
 
 .main-content.blog-single .post .content-post {
@@ -2666,7 +2666,7 @@ input[type="color"],
     font-size: 18px;
     text-align: justify;
     /* text-indent: 50px; */
-    line-height: 25px;
+    /* line-height: 25px; */
     /* font-family: "Poppins"; */
     font-weight: 300;
     position: relative;

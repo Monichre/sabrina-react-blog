@@ -20,6 +20,7 @@ export default class FashionAndStyle extends Component {
 
 	render() {
 		const data = this.props.data
+		const pageTitle = data.page.fields.title
 		return (
 			<div id="Fashion">
 				<Helmet>
@@ -32,7 +33,7 @@ export default class FashionAndStyle extends Component {
 						<div className="row">
 							<div className="col-md-12">
 								<div className="title-section">
-									<h1 className="title">Fashion & Style</h1>
+									<h1 className="title">{pageTitle}</h1>
 								</div>
 							</div>
 						</div>

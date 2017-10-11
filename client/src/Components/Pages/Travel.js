@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
 
+import _ from 'lodash'
+
 
 // Components
 import TravelPosts from '../Partials/TravelPosts'
@@ -38,6 +40,16 @@ export default class Travel extends Component {
 
     const data = this.props.data
     const polaroids = data.polaroids
+    let headers = data.section_headers
+    let polaroid_header
+    const includesPageTag = (header) => Object.keys(header.fields).includes('page')
+    
+    headers.forEach(function(header) {
+        if (includesPageTag(header) && header.fields.page.fields.name === 'Polaroid') {
+            polaroid_header = header
+        }
+        
+    })
 	const travel_style = {
 		backgroundColor: '#f5f5f5',
 		marginTop: 0
@@ -58,7 +70,7 @@ export default class Travel extends Component {
                 <div className="row">
                     <div className="col-md-12">
                         <div className="title-section">
-                            <h1 className="title">Travel</h1>
+                            <h1 className="title">{data.page.fields.title}</h1>
                         </div>
                     </div>
                 </div>
@@ -91,8 +103,8 @@ export default class Travel extends Component {
                 <div className="row">
                     <div className="col-md-12">
                         <div className="title-section">
-                            <h1 className="title">Postcard Life</h1>
-							<h5>Follow my travels</h5>
+                        <h1 className="title">{polaroid_header.fields.headerTitle}</h1>
+                        <h5 className="title_section_subHeader">{polaroid_header.fields.subHeader}</h5>
                         </div>
                     </div>
                 </div>

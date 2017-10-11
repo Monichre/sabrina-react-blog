@@ -9,7 +9,6 @@ import AppStore from './Stores/AppStore'
 // Pages
 import App from './App'
 import Blog from './Components/Pages/Blog'
-import Default from './Components/Pages/Default'
 import About from './Components/Pages/About'
 import NoMatch from './Components/Pages/NoMatch'
 import Travel from './Components/Pages/Travel'
