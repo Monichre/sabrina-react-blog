@@ -19,14 +19,15 @@ export default class FashionAndStyle extends Component {
 	}
 
 	render() {
-		const data = this.props.data
-		const pageTitle = data.page.fields.title
+		const data = this.props.data.fashion
+		const page = this.props.data.page
+		const pageTitle = page.fields.title
 		return (
 			<div id="Fashion">
 				<Helmet>
-					<title>Theresa on the Town | {data.page.fields.title}</title>
-					<meta name="description" content={data.page.fields.metaDescription}/>
-					<meta name="keywords" content={data.page.fields.metaTags}/>
+					<title>Theresa on the Town | {page.fields.title}</title>
+					<meta name="description" content={page.fields.metaDescription}/>
+					<meta name="keywords" content={page.fields.metaTags}/>
                 </Helmet>
 				<div className="page-title">
 					<div className="container">

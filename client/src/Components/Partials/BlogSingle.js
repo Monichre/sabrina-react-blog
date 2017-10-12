@@ -60,6 +60,7 @@ const ARTICLE_POST_SINGLE = (props) => (
 			<div className="blog-post-single-image-container">
 				{props.image}
 			</div>
+			<h5 className="sub_title">{props.article.fields.subHeader}</h5>
 
 			<div className="content-post">
 				<ReactMarkdown source={props.article.fields.content} />
@@ -176,6 +177,7 @@ export default class BlogSingle extends Component {
 		let path = this.props.match.path.split('/')
 		let tags = []
 		const hasTags = (article) => Object.keys(article.fields).includes('tag')
+		const subTitle = Object.keys(article.fields).includes('subHeader') ? article.fields.subHeader : null
 
 		if (hasTags(article)){
 			tags = article.fields.tag.map((tag) => tag.fields.name)
@@ -225,13 +227,13 @@ export default class BlogSingle extends Component {
 												<h3 className="widget-title">Categories</h3>
 												<ul>
 													<li>
-														<a href="/health">Health & Wellness ({data.articles.health.length})</a>
+														<a href="/health">Health & Wellness ({data.health.length})</a>
 													</li>
 													<li>
-														<a href="/travel">Travel ({data.articles.travel.length})</a>
+														<a href="/travel">Travel ({data.travel.length})</a>
 													</li>
 													<li>
-														<a href="/fashion">Fashion & Style ({data.articles.fashion.length})</a>
+														<a href="/fashion">Fashion & Style ({data.fashion.length})</a>
 													</li>
 
 												</ul>

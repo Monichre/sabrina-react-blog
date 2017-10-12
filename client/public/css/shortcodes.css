@@ -230,7 +230,7 @@
 .title-section.style2 {
     text-align: left;
     
-    margin-bottom: 36px;
+    /* margin-bottom: 36px; */
 }
 
 .title-section.switch-color .title:before {

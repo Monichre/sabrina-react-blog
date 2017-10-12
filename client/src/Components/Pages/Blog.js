@@ -39,7 +39,7 @@ export default class Blog extends Component {
         const data = this.props.data
         console.log(data)
         const articles = data.articles
-        const featured_posts = articles.featured
+        const featured_posts = data.featured
         const pages = data.pages
         const page = data.page
 		const videoSectionHeader = data.page.fields.pageSectionHeaders[0].fields.headerTitle

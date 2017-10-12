@@ -38,12 +38,15 @@ export default class Travel extends Component {
 
   render(){
 
-    const data = this.props.data
-    const polaroids = data.polaroids
+    const data = this.props.data.health
+    const polaroids = this.props.data.polaroids
+    const page = this.props.data.page
+    const pageTitle = page.fields.title
+
     let headers = data.section_headers
     let polaroid_header
-    const includesPageTag = (header) => Object.keys(header.fields).includes('page')
-    
+
+    const includesPageTag = (header) => Object.keys(header.fields).includes('page')    
     headers.forEach(function(header) {
         if (includesPageTag(header) && header.fields.page.fields.name === 'Polaroid') {
             polaroid_header = header
@@ -61,16 +64,16 @@ export default class Travel extends Component {
     return (
       <div id="travel">
           <Helmet>
-                <title>Theresa on the Town | {data.page.fields.title}</title>
-                <meta name="description" content={data.page.fields.metaDescription}/>
-                <meta name="keywords" content={data.page.fields.metaTags}/>
+                <title>Theresa on the Town | {page.fields.title}</title>
+                <meta name="description" content={page.fields.metaDescription}/>
+                <meta name="keywords" content={page.fields.metaTags}/>
             </Helmet>
 		  <div className="page-title" style={travel_style}>
             <div className="container">
                 <div className="row">
                     <div className="col-md-12">
                         <div className="title-section">
-                            <h1 className="title">{data.page.fields.title}</h1>
+                            <h1 className="title">{page.fields.title}</h1>
                         </div>
                     </div>
                 </div>

@@ -21,27 +21,29 @@ export default class HealthAndWellness extends Component {
 
 
     render() {
-        const data = this.props.data
+        const data = this.props.data.health
+        const page = this.props.data.page
+		const pageTitle = page.fields.title
 
         return (
             <div id="Health">
                 <Helmet>
-					<title>Theresa on the Town | {data.page.fields.title}</title>
-					<meta name="description" content={data.page.fields.metaDescription}/>
-					<meta name="keywords" content={data.page.fields.metaTags}/>
+					<title>Theresa on the Town | {page.fields.title}</title>
+					<meta name="description" content={page.fields.metaDescription}/>
+					<meta name="keywords" content={page.fields.metaTags}/>
                 </Helmet>
 				<div className="page-title">
 	              <div className="container">
 	                  <div className="row">
 	                      <div className="col-md-12">
 	                          <div className="title-section">
-                                <h1 className="title">{data.page.fields.title}</h1>
+                                <h1 className="title">{page.fields.title}</h1>
 	                          </div>
 	                      </div>
 	                  </div>
 	              </div>
 	          </div>
-                <HealthPosts data = {this.props.data} />
+                <HealthPosts data = {data} />
             </div>
         )
     }

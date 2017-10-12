@@ -31,10 +31,10 @@ export function getStore(callback) {
             nav_items = nav_items.sort().reverse()
 
   
-            articles.featured = _.sortBy(articles, (article) => article.sys.createdAt).slice(0, 3)
-            articles.fashion = _.filter(articles, (article) => article.fields.category[0].fields.title === 'Fashion Posts')
-            articles.travel = _.filter(articles, (article) => article.fields.category[0].fields.title === 'Travel Posts')
-            articles.health = _.filter(articles, (article) => article.fields.category[0].fields.title === 'Health Posts')
+            AppStore.data.featured = _.sortBy(articles, (article) => article.sys.createdAt).slice(0, 3)
+            AppStore.data.fashion = _.filter(articles, (article) => article.fields.category[0].fields.title === 'Fashion Posts')
+            AppStore.data.travel = _.filter(articles, (article) => article.fields.category[0].fields.title === 'Travel Posts')
+            AppStore.data.health = _.filter(articles, (article) => article.fields.category[0].fields.title === 'Health Posts')
        
             AppStore.data.polaroids = polaroids
             AppStore.data.section_headers = section_headers

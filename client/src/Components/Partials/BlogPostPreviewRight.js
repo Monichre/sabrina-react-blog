@@ -6,6 +6,12 @@ import TRIM from '../../utils'
 
 export default class BlogPostPreviewRight extends Component {
 	render(){
+        let subTitle
+        if (this.props.subTitle) {
+            subTitle = <h5 className="sub_title">{this.props.subTitle}</h5>
+        } else {
+            subTitle = ''
+        }
 		return(
 			<section className="flat-row flat-our blog-post-preview">
                 <div className="container">
@@ -18,13 +24,13 @@ export default class BlogPostPreviewRight extends Component {
                             <div className="wrap-content-story">
                                 <div className="title-section style2 ">
                                     <h1 className="title">{this.props.title}</h1>
+                                   {subTitle}
                                 </div>
                                 <div className="entry-post">
                                     <div className="col-md-6 show_on_mobile">
                                         <img src={this.props.image}alt="images" className="object-fit" />
                                     </div>
                                     <p className="date-event date-style-2"> <span>{this.props.date}</span></p>
-									<br />
                                 </div>
 								<div className="content-story">
                                     <ReactMarkdown source={TRIM(this.props.content)} />

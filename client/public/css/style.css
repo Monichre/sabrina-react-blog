@@ -315,7 +315,7 @@ video {
 .title-section.style2 {
     text-align: left;
     
-    margin-bottom: 36px;
+    /* margin-bottom: 36px; */
 }
 
 .title-section.switch-color .title:before {
@@ -344,6 +344,13 @@ video {
     text-align: left;
     padding-left: 17px;
     padding-right: 6px;
+}
+.title-section .sub_title {
+    margin: 30px auto 10px;
+}
+.post .sub_title {
+    
+    margin: 30px auto 10px;
 }
 
 .title-section.style4 p {
@@ -1185,6 +1192,7 @@ button:before {
 
 .content-story {
     margin-bottom: 32px;
+    font-size: 14px;
 }
 
 /*Flat socials
@@ -3775,57 +3783,13 @@ p.entry-content {
 	color: #565656
 }
 .date-style-2 span {
-	position: relative;
-	color: #999999;
-}
-/*.date-style-2 span:before {
-	content: '';
-	height: 1px;
-	width: 30px;
-	background: #565656;
-	right: -48px;
-	top: 36%;
-	position: absolute;
-}*/
-/*.right .date-style-2 {
-	text-align: left;
-}
-.right .date-style-2 span:before {
-	content: '';
-	height: 1px;
-	width: 40px;
-	background: #b5b5b5;
-	left: 120%;
-	top: 36%;
-	position: absolute;
-}*/
-
-/* shop
-------------------------------------------------------- */
-.flat-row.shop-1 {
-	padding-top: 116px;
-	border-bottom: 1px solid #e5e5e5;
-	padding-bottom: 79px;
-}
-
-.flat-row.shop-1 .title-section {
-	margin-left: 16px;
-	margin-bottom: 51px;
-}
-
-.flat-row.shop-1 .title-section .title:before {
-	margin-top: -4px;
-}
-
-.flat-shop-ordering select {
-    width: 151px;
-    height: 45px;
+    position: relative;
+    color: #999999;
     font-size: 13px;
-    position: absolute;
-    right: 26px;
-    top: -13px;
-    padding-left: 20px;
+    font-weight: 600;
 }
+
+
 
 /* pagination*/
 .navigation {
@@ -3931,9 +3895,7 @@ p.entry-content {
   box-shadow: 0 0.25em 1em rgba(0, 0, 0, 0.2);
   position: relative;
 }
-/* .polaroid-title {
-    position: absolute;
-} */
+
 
 .caption {
  
