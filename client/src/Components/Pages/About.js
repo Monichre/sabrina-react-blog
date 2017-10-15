@@ -112,7 +112,7 @@ export default class About extends Component {
     }
 
     getPageData() {
-        AppDispatcher.dispatch({action: 'get-page-data', page_slug: 'about'})
+        AppDispatcher.dispatch({action: 'get-page-data', page_slug: 'About'})
     }
 
 

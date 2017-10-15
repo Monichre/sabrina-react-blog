@@ -10,9 +10,9 @@ export default class TravelPosts extends Component {
 
 	render() {
 
-		let data = this.props.data
-		console.log(data)
-		const articles = data.articles.travel
+		let articles = this.props.data
+		
+		
 
 		let load_more
 		let show_more_text = 'Show More Articles'
@@ -34,7 +34,8 @@ export default class TravelPosts extends Component {
 			let created = months[(date_obj.getMonth() + 1)] + ' ' + date_obj.getDate() + ', ' + date_obj.getFullYear()
 			let category = article.fields.category[0].fields.title.split(' ')[0].toLowerCase()
 			let readMore = <Link to={'/' + category + '/' + article.fields.title} onClick={this.scrollTop}>Read More</Link>
-			console.log(readMore)
+			const subTitle = Object.keys(article.fields).includes('subHeader') ? article.fields.subHeader : null
+			
 
 			if (articles.indexOf(article) % 2 === 0) {
 				return (
@@ -45,6 +46,7 @@ export default class TravelPosts extends Component {
 						readMore={readMore}
 						title={article.fields.title}
 						content={article.fields.content}
+						subTitle={subTitle}
 					/>
 				)
 			} else {
@@ -56,6 +58,7 @@ export default class TravelPosts extends Component {
 						readMore={readMore}
 						title={article.fields.title}
 						content={article.fields.content}
+						subTitle={subTitle}
 					/>
 				)
 			}

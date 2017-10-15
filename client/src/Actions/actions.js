@@ -1,6 +1,3 @@
-// actions.js
-
-import Cosmic from 'cosmicjs'
 import * as Contentful from 'contentful'
 import _ from 'lodash'
 import AppStore from '../Stores/AppStore'

@@ -38,12 +38,13 @@ export default class Travel extends Component {
 
   render(){
 
-    const data = this.props.data.health
+    const data = this.props.data.travel
     const polaroids = this.props.data.polaroids
     const page = this.props.data.page
     const pageTitle = page.fields.title
 
-    let headers = data.section_headers
+    const headers = this.props.data.section_headers
+    console.log(data)
     let polaroid_header
 
     const includesPageTag = (header) => Object.keys(header.fields).includes('page')    

@@ -40,7 +40,7 @@ export default class FashionAndStyle extends Component {
 						</div>
 					</div>
 				</div>
-				<FashionPosts data={this.props.data} />
+				<FashionPosts data={data} />
 			</div>
 
 					)
