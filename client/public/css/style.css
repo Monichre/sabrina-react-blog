@@ -1004,12 +1004,16 @@ ul.recent-list li a:after, ul.recent-list li .text a:after {
 }
 
 .social-links a {
-    padding-left: 10px;
-    padding-right: 10px;
+ 
 }
 
 .social-links a i {
     font-size: 15px;
+}
+.social-share-link {
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 /*Flat about*/

