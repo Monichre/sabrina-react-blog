@@ -112,14 +112,10 @@ class Modal extends Component {
                                     <div className="col-md-8 col-md-offset-2">
                                         <div className="footer-form">
                                             <div className="section-headline">
-                                                <h3>Are You A Tall
-                                                    <span className="red"> Fashionista </span>
-                                                    Or
-                                                    <span className="red"> Fashion Fanatic?</span>
+                                                <h3>{this.props.popUpText.fields.header}
                                                 </h3>
                                             </div>
-                                            <p>Join the mailing list and be the first to know about product picks, style inspiration, and money saving tips.
-                                            </p>
+                                            <p>{this.props.popUpText.fields.subHeader}</p>
 
                                             <form id="" name="subscribe-form" onSubmit={this.handleSubmit.bind(this)}>
                                                 <input id="" type="text" placeholder="Email" name="email" required="required" className="subscribe-style" value={this.state.subscriptionEmail.value} onChange={this.handleSubscriptionEmail}/>
@@ -189,6 +185,7 @@ export default class Nav extends Component {
     render() {
         const data = this.props.data
         const nav_items = data.nav_items
+        const popUpText = data.popUpCTA
         
 
         const search_menu_item_style = {
@@ -239,7 +236,7 @@ export default class Nav extends Component {
 
         return (
             <div id="Nav" className={navClassForSearch}>
-                <Modal showModal={this.state.showModal} closeModal={this.modalTriggerClick.bind(this)}/>
+                <Modal showModal={this.state.showModal} closeModal={this.modalTriggerClick.bind(this)} popUpText={popUpText}/>
                 
                 <header id="header" className="header clearfix">
                     <div className="header-wrap clearfix">

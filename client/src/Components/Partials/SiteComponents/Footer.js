@@ -2,24 +2,17 @@
 import React, { Component } from 'react'
 import IFrame from 'react-iframe'
 
+
+// <p>Join the mailing list and be the first to know about product picks, style inspiration, and money saving tips. </p>
+
 export default class Footer extends Component {
 
   render(){
 
-    const data = this.props.data
-    let footer_text
-    if(data.globals.text){
-      footer_text = data.globals.text.footer_text
-    }
+	const data = this.props.data
+	const footerText = data.footerCTA
+	console.log(footerText)
 
-    let twitter
-    let facebook
-    let github
-    if(data.globals.social){
-      twitter = data.globals.social.twitter
-      facebook = data.globals.social.facebook
-      github = data.globals.social.github
-    }
 	const style = {
 		width: '100%',
 		border: 0,
@@ -55,10 +48,10 @@ export default class Footer extends Component {
 
 	                          <div className="footer-form">
 								   <div className="col-md-6">
-									   <div className="section-headline">
- 		                                  <h3>Are You A Tall <span className="red">Fashionista</span> Or <span className="red">Fashion Fanatic?</span></h3>
- 		                              </div>
- 		                              <p>Join the mailing list and be the first to know about product picks, style inspiration, and money saving tips. </p>
+									<div className="section-headline">
+										<h3>{footerText.fields.header}</h3>
+									</div>
+									  <p>{footerText.fields.subHeader}</p>
 								   </div>
 	 							  <div className="col-md-6">
 									  <form id="" name="subscribe-form" method="post">

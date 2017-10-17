@@ -84,9 +84,12 @@ const ARTICLE_POST_SINGLE = (props) => (
 					<a href="https://www.youtube.com/channel/UCvZKd-eUuq8A66J-uLr4CZQ">
 						<i className="fa fa-lg fa-youtube"></i>
 					</a>
-					<a href="https://www.facebook.com/theresaonthetown/">
-						<i className="fa fa-lg fa-facebook"></i>
-					</a>
+					<span class="fb-share-button" data-href="https://www.theresaonthetown.com" data-layout="button_count" data-size="small" data-mobile-iframe="true">
+						<a className="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.theresaonthetown.com%2F&amp;src=sdkpreparse">
+							<i className="fa fa-lg fa-facebook"></i>
+						</a>
+					</span>
+					
 					<a href="https://www.pinterest.com/theresaonthetwn/">
 						<i className="fa fa-lg fa-pinterest"></i>
 					</a>

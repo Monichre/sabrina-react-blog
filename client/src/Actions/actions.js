@@ -23,11 +23,13 @@ export function getStore(callback) {
             let video_entries = _.filter(response_items, (item) => item.sys.contentType.sys.id === 'videoPost')
             let affiliate_entries = _.filter(response_items, (item) => item.sys.contentType.sys.id === 'affiliatePost')
             let initial_articles =  _.filter(response_items, (item) => item.sys.contentType.sys.id === 'blogPost')
-
-            console.log(initial_articles)
+            let CTAs = _.filter(response_items, (item) => item.sys.contentType.sys.id === 'cta')
+     
+            let footerCTA = _.find(CTAs, (item) => item.fields.section === 'Footer')
+            let popUpCTA = _.find(CTAs, (item) => item.fields.section === 'Pop Up')
 
             let articles = initial_articles.sort(function(a,b){
-                return a.sys.createdAt - b.sys.createdAt
+                return Date.UTC(new Date(a.sys.createdAt)) - Date.UTC(new Date(b.sys.createdAt))
             })
             
             
@@ -41,6 +43,10 @@ export function getStore(callback) {
             AppStore.data.fashion = _.filter(articles, (article) => article.fields.category[0].fields.title === 'Fashion Posts')
             AppStore.data.travel = _.filter(articles, (article) => article.fields.category[0].fields.title === 'Travel Posts')
             AppStore.data.health = _.filter(articles, (article) => article.fields.category[0].fields.title === 'Health Posts')
+
+            AppStore.data.footerCTA = footerCTA
+            console.log(footerCTA)
+            AppStore.data.popUpCTA = popUpCTA
        
             AppStore.data.polaroids = polaroids
             AppStore.data.section_headers = section_headers
