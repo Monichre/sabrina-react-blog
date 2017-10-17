@@ -22,13 +22,22 @@ export function getStore(callback) {
             let polaroids = _.filter(response_items, (item) => item.sys.contentType.sys.id === 'polaroid')
             let video_entries = _.filter(response_items, (item) => item.sys.contentType.sys.id === 'videoPost')
             let affiliate_entries = _.filter(response_items, (item) => item.sys.contentType.sys.id === 'affiliatePost')
-            let articles =  _.filter(response_items, (item) => item.sys.contentType.sys.id === 'blogPost')
-            articles = _.sortBy(articles, (article) => article.sys.createdAt)
+            let initial_articles =  _.filter(response_items, (item) => item.sys.contentType.sys.id === 'blogPost')
+
+            console.log(initial_articles)
+
+            let articles = initial_articles.sort(function(a,b){
+                return a.sys.createdAt - b.sys.createdAt
+            })
+            
+            
+            console.log(articles)
+
             let nav_items = _.map(pages, (page) => page.fields.title)
             nav_items = nav_items.sort().reverse()
 
   
-            AppStore.data.featured = _.sortBy(articles, (article) => article.sys.createdAt).slice(0, 3)
+            AppStore.data.featured = articles.slice(0, 3)
             AppStore.data.fashion = _.filter(articles, (article) => article.fields.category[0].fields.title === 'Fashion Posts')
             AppStore.data.travel = _.filter(articles, (article) => article.fields.category[0].fields.title === 'Travel Posts')
             AppStore.data.health = _.filter(articles, (article) => article.fields.category[0].fields.title === 'Health Posts')

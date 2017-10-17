@@ -14,7 +14,7 @@ export default class BlogList extends Component {
 
 		let data = this.props.data
 		let item_num = data.item_num
-		let articles = data.articles
+		let articles = data.articles.slice(3, data.articles.length -1)
 
 		let load_more
 		let show_more_text = 'More Posts'
