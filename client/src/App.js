@@ -20,6 +20,8 @@ import Travel from './Components/Pages/Travel'
 import FashionAndStyle from './Components/Pages/FashionAndStyle'
 import HealthAndWellness from './Components/Pages/HealthAndWellness'
 
+import './App.css'
+
 
 class App extends Component {
 
