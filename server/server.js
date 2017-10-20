@@ -109,6 +109,19 @@ app.post('/subscribe', (req, res) => {
      const data = req.body
 
      console.log(data)
+
+
+    // $.post('https://api.shortpixel.com/v2/reducer_dev.php',JSON.stringify({
+    //     "key": "<<YOUR_KEY_HERE>>",
+    //     "plugin_version": "JS123",
+    //     "lossy": 1,
+    //     "resize": 0,
+    //     "cmyk2rgb": 1,
+    //     "refresh": 0,
+    //     "urllist": ["https://www.your.domain/first/image.jpg", "https://www.your.domain/second/image.jpg"]
+    // }), function (data) {
+    //     alert('success');
+    // });
  
  })
 
