@@ -104,6 +104,14 @@ app.post('/subscribe', (req, res) => {
  
  })
 
+ app.post('/webhook/contentful-images', (req, res) => {
+    
+     const data = req.body
+
+     console.log(data)
+ 
+ })
+
 app.listen(app.get('port'), function() {
     console.log('server running on: ' + app.get('port'))
 })

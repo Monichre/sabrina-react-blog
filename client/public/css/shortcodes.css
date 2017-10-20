@@ -736,13 +736,13 @@
     overflow: hidden;
 }
 
-/*.blog-shortcode article.post:first-child .content-post {
-    /*width: 47%;
-    float: right;*/
+.blog-shortcode article.post:first-child .content-post {
+    width: 47%;
+    float: right;
     overflow: visible;
     padding-left: 30px;
     padding-right: 0px;
-}*/
+
 
 .blog-shortcode article.post .content-post.bgffff {
     background-color: #ffffff;
