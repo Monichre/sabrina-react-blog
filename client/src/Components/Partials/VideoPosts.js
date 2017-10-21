@@ -8,9 +8,13 @@ export default class VideoPosts extends Component {
         
 
     }
+    componentDidMount(){
+        
+        document.querySelector('.popup-video video').setAttribute('muted', true)
+    }
     handleMute(e){
         let video_player = e.target
-        video_player.mute = false
+        video_player.setAttribute('muted', false)
     }
     render(){
         const style = {
@@ -43,7 +47,7 @@ export default class VideoPosts extends Component {
                                     <div className="imgbox style3">
                                         <div className="">
                                             <a className="popup-video">
-                                                <ReactPlayer onClick={this.handleMute.bind(this)} url={video.fields.videos[0].fields.file.url}  width='95%' playing={true} mute={true} loop={true} controls={false}/>
+                                                <ReactPlayer onClick={this.handleMute.bind(this)} url={video.fields.videos[0].fields.file.url}  width='95%' playing={true} muted loop={true} controls={false}/>
                                             </a>
                                              
                                         </div>

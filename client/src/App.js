@@ -14,7 +14,7 @@ import Nav from './Components/Partials/SiteComponents/Nav'
 import Footer from './Components/Partials/SiteComponents/Footer'
 import Blog from './Components/Pages/Blog'
 import About from './Components/Pages/About'
-import NoMatch from './Components/Pages/NoMatch'
+
 
 import Travel from './Components/Pages/Travel'
 import FashionAndStyle from './Components/Pages/FashionAndStyle'

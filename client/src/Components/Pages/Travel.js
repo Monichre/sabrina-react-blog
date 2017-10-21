@@ -1,21 +1,10 @@
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
-
-import _ from 'lodash'
-
-
-// Components
 import TravelPosts from '../Partials/TravelPosts'
 import PostsByCountry from '../Partials/PostsByCountry'
 import AmCharts from '@amcharts/amcharts3-react'
 import AppDispatcher from '../../Dispatcher/AppDispatcher'
-
 const mapConfig =  require('../Map/Map').mapConfig
-var config = require('../../config').config
-
-
-// Dispatcher
-
 
 export default class Travel extends Component {
 
@@ -42,9 +31,7 @@ export default class Travel extends Component {
     const polaroids = this.props.data.polaroids
     const page = this.props.data.page
     const pageTitle = page.fields.title
-
     const headers = this.props.data.section_headers
-    console.log(data)
     let polaroid_header
 
     const includesPageTag = (header) => Object.keys(header.fields).includes('page')    

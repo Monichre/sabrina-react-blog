@@ -1,7 +1,5 @@
 import React, {Component} from 'react'
-import ReactDOM from 'react-dom'
 import {Helmet} from 'react-helmet'
-
 import AppDispatcher from '../../Dispatcher/AppDispatcher'
 import Axios from 'axios'
 import EmailStatus from '../Partials/SiteComponents/EmailStatus'

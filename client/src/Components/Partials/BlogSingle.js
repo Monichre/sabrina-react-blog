@@ -11,6 +11,20 @@ import AppStore from '../../Stores/AppStore'
 {/* <div className="g-ytsubscribe social-share-link" data-channelid="UCvZKd-eUuq8A66J-uLr4CZQ" data-layout="default" data-count="default">
 					<i className="fa fa-lg fa-youtube"></i>
 				</div> */}
+				// <script src="https://apis.google.com/js/platform.js"></script>
+
+{/* <script>
+  function onYtEvent(payload) {
+    if (payload.eventType == 'subscribe') {
+      // Add code to handle subscribe event.
+    } else if (payload.eventType == 'unsubscribe') {
+      // Add code to handle unsubscribe event.
+    }
+    if (window.console) { // for debugging only
+      window.console.log('YT event: ', payload);
+    }
+  }
+</script> */}
 
 
 const VIDEO_POST_SINGLE = (props) => (
@@ -37,12 +51,12 @@ const VIDEO_POST_SINGLE = (props) => (
 			<div className="social-links">
 				<span>Share :</span>
 
-				<a className="social-share-link" href="https://www.instagram.com/theresaonthetown/">
+				<a className="social-share-link" href="https://www.instagram.com/theresaonthetown/?ref=badge">
 					<i className="fa fa-lg fa-instagram"></i>
 				</a>
-				<a className="social-share-link" href="https://www.youtube.com/channel/UCvZKd-eUuq8A66J-uLr4CZQ">
-					<div className="g-ytsubscribe" data-channelid="UCvZKd-eUuq8A66J-uLr4CZQ" data-layout="default" data-count="default"></div>
-				</a>
+				<script rel="preload" src="https://apis.google.com/js/platform.js"></script>
+				<a className="g-ytsubscribe" data-channelid="UCvZKd-eUuq8A66J-uLr4CZQ" data-layout="default" data-theme="dark" data-count="default" data-onytevent="onYtEvent"></a>
+
 				<span className="social-share-link" data-href="https://www.theresaonthetown.com" data-layout="button_count" data-size="small" data-mobile-iframe="true">
 					<a className="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.theresaonthetown.com%2F&amp;src=sdkpreparse">
 						<i className="fa fa-lg fa-facebook"></i>
@@ -84,19 +98,19 @@ const ARTICLE_POST_SINGLE = (props) => (
 			<div className="social-links">
 				<span>Share :</span>
 
-				<a className="social-share-link" href="https://www.instagram.com/theresaonthetown/">
+				<a className="social-share-link" href="https://www.instagram.com/theresaonthetown/?ref=badge">
 					<i className="fa fa-lg fa-instagram"></i>
 				</a>
+				<script rel="preload" src="https://apis.google.com/js/platform.js"></script>
+				<a className="g-ytsubscribe" data-channelid="UCvZKd-eUuq8A66J-uLr4CZQ" data-layout="default" data-theme="dark" data-count="default" data-onytevent="onYtEvent"><i className="fa fa-lg fa-youtube"></i></a>
 				
-				<div className="g-ytsubscribe social-share-link" data-channelid="UCvZKd-eUuq8A66J-uLr4CZQ" data-layout="default" data-count="default" data-onytevent="onYtEvent"><i className="fa fa-lg fa-youtube"></i></div>
-				
-				<span className="social-share-link" data-href="https://www.theresaonthetown.com" data-layout="button_count" data-size="small" data-mobile-iframe="true">
+				<span data-href="https://www.theresaonthetown.com" data-layout="button_count" data-size="small" data-mobile-iframe="true">
 					<a className="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.theresaonthetown.com%2F&amp;src=sdkpreparse">
 						<i className="fa fa-lg fa-facebook"></i>
 					</a>
 				</span>
 
-				<a className="social-share-link" data-pin-do="buttonFollow" href="https://www.pinterest.com/theresaonthetwn"><i className="fa fa-lg fa-pinterest"></i></a>
+				<a href="https://www.pinterest.com/theresaonthetwn"><i className="fa fa-lg fa-pinterest"></i></a>
 			</div>
 		</div>
 	</article>
@@ -204,7 +218,7 @@ export default class BlogSingle extends Component {
 		return (
 			<div id="Blog">
 
-				<div className="page-title parallax flat_strech parallax1">
+				<div className="page-title parallax parallax1">
 					<div className="container">
 						<div className="row">
 							<div className="col-md-12">
@@ -220,19 +234,21 @@ export default class BlogSingle extends Component {
 				<div className="main-content blog-single">
 					<div className="container">
 						<div className="row">
-							<div className="col-md-8">
+							<div className="col-xs-12">
 								<div className="content-wrap">
 									{blog_post_single}
 								</div>
 							</div>
-							<div className="col-md-3 col-md-offset-1">
+						</div>
+						<div className="row">
+						<div className="col-md-12">
 								<div className="sidebars">
 									<div className="sidebars-wrap">
 										<div className="sidebar">
 
 											<div className="widget widget_categories">
 												<h3 className="widget-title">Categories</h3>
-												<ul>
+												<ul className="inline-list list-inline">
 													<li>
 														<a href="/health">Health & Wellness ({data.health.length})</a>
 													</li>
@@ -247,8 +263,8 @@ export default class BlogSingle extends Component {
 											</div>
 
 											<div className="widget widget_recent_entries clearfix">
-												<h3 className="widget-title">Recent Post</h3>
-												<ul className="recent-list clearfix">
+												<h3 className="widget-title">Keep Reading</h3>
+												<ul className="recent-list clearfix inline-list list-inline">
 													{the_other_articles.splice(0, 3).map((article, i) => {
 														let category = article.fields.category ? article.fields.category[0].fields.title.split(' ')[0].toLowerCase() : null
 														let readMore = <Link to={'/' + category + '/' + article.fields.title} onClick={this.scrollTop}>Read More</Link>
@@ -273,7 +289,7 @@ export default class BlogSingle extends Component {
 											<br />
 											<div className="widget widget_latest_tweets">
 												<h3 className="widget-title">Latest Affiliate Items</h3>
-												<ul className="recent-list">
+												<ul className="recent-list inline-list list-inline">
 													{all_affiliate_items.map((entry) => {
 														return (
 															<li>
@@ -290,7 +306,7 @@ export default class BlogSingle extends Component {
 											</div>
 											<div className="widget widget_latest_tweets">
 												<h3 className="widget-title">Latest Video Posts</h3>
-												<ul className="recent-list">
+												<ul className="recent-list inline-list list-inline">
 													{data.video_entries.map((entry) => {
 														let months = ["January", "February", "March", "April", "May", "June",
 															"July", "August", "September", "October", "November", "December"]
@@ -316,6 +332,7 @@ export default class BlogSingle extends Component {
 									</div>
 								</div>
 							</div>
+
 						</div>
 					</div>
 				</div>

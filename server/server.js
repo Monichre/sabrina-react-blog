@@ -68,7 +68,6 @@ app.post('/send-mail', (req, res) => {
     transporter.sendMail(email_info, (error, info) => {
         if (error) {
             res_status = false
-            console.log(error)
             return res_status
         } else {
             res_status = true
@@ -106,7 +105,7 @@ app.post('/subscribe', (req, res) => {
 
  app.post('/webhook/contentful-images', (req, res) => {
     
-     const data = req.body
+     const data = req
 
      console.log(data)
 

@@ -1,16 +1,8 @@
-// routes.js
 import React from 'react'
-import {BrowserRouter, Route} from 'react-router-dom'
-
-// Store
-import AppDispatcher from './Dispatcher/AppDispatcher'
+import {Route} from 'react-router-dom'
 import AppStore from './Stores/AppStore'
-
-// Pages
-import App from './App'
 import Blog from './Components/Pages/Blog'
 import About from './Components/Pages/About'
-import NoMatch from './Components/Pages/NoMatch'
 import Travel from './Components/Pages/Travel'
 import FashionAndStyle from './Components/Pages/FashionAndStyle'
 import HealthAndWellness from './Components/Pages/HealthAndWellness'

@@ -1,8 +1,5 @@
 // Blog.js
 import React, {Component} from 'react'
-import _ from 'lodash'
-import config from '../../config'
-import PropTypes from 'prop-types'
 import {Helmet} from 'react-helmet'
 
 
@@ -37,15 +34,9 @@ export default class Blog extends Component {
     render() {
 
         const data = this.props.data
-        console.log(data)
-        const articles = data.articles
         const featured_posts = data.featured
-        const pages = data.pages
-        const page = data.page
 		const videoSectionHeader = data.page.fields.pageSectionHeaders[0].fields.headerTitle
         const subHeader = data.page.fields.pageSectionHeaders[0].fields.subHeader
-        
-		
         const options = {
             items: 1,
             nav: true,
@@ -67,10 +58,7 @@ export default class Blog extends Component {
 
         let main_content
 		main_content = <BlogList getMoreArticles={this.getMoreArticles} data={data} />
-
         const video_posts = <VideoPosts videos={data.video_entries} header={videoSectionHeader} subHeader={subHeader}/>
-
-        
         let affiliate_entries_html
         if(data.affiliate_entries) {
             data.affiliate_entries
@@ -92,7 +80,7 @@ export default class Blog extends Component {
 					<OwlCarousel id="featured_posts" ref="owl" options={options} events={events}>
 						{featured_posts.map(post =>
 								<div className="featured_post">
-                                    <img className="featured_post_img" src={post.fields.photos[0].fields.file.url} rel="preload" />
+                                    <img className="featured_post_img" src={post.fields.photos[0].fields.file.url} rel="preload" alt="featured post photo" />
 									
 									<div className="featured_post_content">
 										<section>

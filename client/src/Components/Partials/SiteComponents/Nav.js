@@ -26,17 +26,15 @@ class Modal extends Component {
         this.sendTheEmail()
     }
     handleSubscriptionEmail(event) {
-        console.log(event.target.value)
         this.setState({subscriptionEmail: event.target.value})
     }
     sendTheEmail(){
-        console.log('I should be sending the goddamn email')
         let _this = this
         Axios.post('/subscribe', {
             email_address: this.state.subscriptionEmail
         })
         .then(function(res) {
-            console.log(res)
+            
             if (res.status === 200) {
                 _this.setState({
                     email_sent: true,
@@ -45,7 +43,7 @@ class Modal extends Component {
             }
         })
         .catch(function (error) {
-            console.log(error)
+            alert(error)
         })
     }
 
@@ -158,7 +156,7 @@ export default class Nav extends Component {
     }
 
     modalTriggerClick(e) {
-        console.log(e)
+        
         e.preventDefault()
 
         if (this.state.showModal) {
@@ -168,7 +166,7 @@ export default class Nav extends Component {
         }
     }
 	handleCloseClick(closeTheSearch){
-        console.log(closeTheSearch)
+        
         document.getElementById('search-results').classList.remove('search-active')
 		this.setState({searchOpen: false})
 	}
@@ -202,7 +200,6 @@ export default class Nav extends Component {
         const search_trigger = <li style={search_menu_item_style}><a className="search-trigger" href="#" onClick={this.searchClick.bind(this)}><i className="fa fa-search"></i></a></li>
         const menu_items = []
         nav_items.forEach((nav_item) => {
-            console.log(nav_item)
             let this_route = nav_item.split(' ')[0].toLowerCase()
 
             if (nav_item === 'Home') {
