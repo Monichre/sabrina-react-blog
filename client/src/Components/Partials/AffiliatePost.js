@@ -42,7 +42,7 @@ export default class AffiliatePost extends Component {
 		                            <div className="imagebox effect1">
 		                                <div className="box-wrap">
 		                                    <div className="box-image">
-		                                        <a href="#"><img className="affiliate-object-fit" src={item.fields.photos[0].fields.file.url} alt="img"/></a>
+		                                        <a href={item.fields.link}><img className="affiliate-object-fit" src={item.fields.photos[0].fields.file.url} alt="img"/></a>
 		                                    </div>
 		                                    <div className="box-content">
 		                                        <h5>{item.fields.title}</h5>

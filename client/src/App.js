@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import registerServiceWorker from './registerServiceWorker'
 import routes from './routes'
+// import axios from 'axios'
 
 // Dispatcher
 import AppDispatcher from './Dispatcher/AppDispatcher'
@@ -56,6 +57,23 @@ class App extends Component {
 	componentWillMount() {
 		
 		this.getStore()
+		// axios.get('https://api.instagram.com/oembed?url=http://www.instagr.am/theresaonthetown/',
+		// {
+		// 	headers: {
+		// 		"Access-Control-Allow-Origin": "*",
+		// 		'Access-Control-Allow-Methods': 'GET',
+		// 		'Access-Control-Allow-Headers': 'Content-Type, Content-Range, Content-Disposition, Content-Description',
+		// 		'Content-Type': 'jsonp'
+		// 	}
+		// })
+		// .then((result) => {
+		// 	console.log(result)
+		// }).catch((error) => {
+		// 	if(error){
+		// 		console.log(error)
+		// 	}
+		// })
+
 	}
 
 	_onChange() {

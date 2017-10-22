@@ -2303,7 +2303,11 @@ input[type="color"],
 	font-weight: 600;
 	line-height: 34px;
 	text-transform: uppercase;
-	margin-bottom: 4px;
+    margin-bottom: 4px;
+    text-align: center;
+}
+.post .header-post .date-event.date-style-2 {
+    text-align: center;
 }
 
 .post .header-post p.time-post a {
@@ -2869,10 +2873,12 @@ input[type="color"],
 .widget.widget_categories .widget-title {
 	margin-bottom: 22px;
 }
-
+.widget.widget_categories ul {
+    border-bottom: 1px solid #ededed;
+}
 .widget.widget_categories ul li {
     list-style: none;
-    border-bottom: 1px solid #ededed;
+    
     padding: 16px 0 9px 15px;
    	position: relative;
 }

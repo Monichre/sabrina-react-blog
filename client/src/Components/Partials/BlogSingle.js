@@ -247,8 +247,9 @@ export default class BlogSingle extends Component {
 										<div className="sidebar">
 
 											<div className="widget widget_categories">
-												<h3 className="widget-title">Categories</h3>
+												
 												<ul className="inline-list list-inline">
+													<li><h3 className="widget-title">Categories:</h3></li>
 													<li>
 														<a href="/health">Health & Wellness ({data.health.length})</a>
 													</li>
