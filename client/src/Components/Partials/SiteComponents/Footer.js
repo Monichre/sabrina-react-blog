@@ -24,24 +24,17 @@ export default class Footer extends Component {
 		  <br />
 		  <br />
         <div>
-				
+		
+
 					
 					<div className="iframe-widget">
 						<IFrame
 							style={style}
 							className="lightwidget-widget"
-							url="http://lightwidget.com/widgets/52a12044a9aa5f2f84d7cd0c15214cb1.html"/>
+							url="http://lightwidget.com/widgets/63cb858f80325e56b899aaf55b521c74.html"/>
 						<script src="http://lightwidget.com/widgets/lightwidget.js"></script>
 					</div>
-		          <footer className="footer">
-		              <div className="footer-widgets">
-		                  <div className="container">
-		                      <div className="row">
-
-		                      </div>
-		                  </div>
-		              </div>
-		          </footer>
+		         
 		          <footer id="main-footer">
 		              <div className="container-fluid footer-bottom">
 		                  <div className="row">
