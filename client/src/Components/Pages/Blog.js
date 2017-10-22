@@ -80,7 +80,7 @@ export default class Blog extends Component {
 					<OwlCarousel id="featured_posts" ref="owl" options={options} events={events}>
 						{featured_posts.map(post =>
 								<div className="featured_post">
-                                    <img className="featured_post_img" src={post.fields.photos[0].fields.file.url} rel="preload" alt="featured post photo" />
+                                    <img className="featured_post_img" src={post.fields.photos[0].fields.file.url + '?w=1339&h=600'} rel="preload" as="image" alt="featured post photo" />
 									
 									<div className="featured_post_content">
 										<section>
