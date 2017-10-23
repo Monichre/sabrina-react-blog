@@ -39,6 +39,7 @@ export default class VideoPosts extends Component {
                         </div>
                     </div>
                 </div>
+                
                 <section className="promo-video space">
                     <div className="container">
                         <div className="row">
@@ -47,7 +48,7 @@ export default class VideoPosts extends Component {
                                     <div className="imgbox style3">
                                         <div className="">
                                             <a className="popup-video">
-                                                <ReactPlayer onClick={this.handleMute.bind(this)} url={video.fields.videos[0].fields.file.url}  width='95%' playing={true} muted loop={true} controls={false}/>
+                                                <ReactPlayer onClick={this.handleMute.bind(this)} url={video.fields.videos ? video.fields.videos[0].fields.file.url : video.fields.link}  width='95%' playing={true} muted loop={true} controls={false}/>
                                             </a>
                                              
                                         </div>
