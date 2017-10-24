@@ -1465,9 +1465,6 @@ input[type="color"],
 	max-width: 100%;
 }
 
-.btn-menu {
-   display: none;
-}
 
 #header {
 
@@ -1559,110 +1556,7 @@ input[type="color"],
 	        transition: all 0.2s ease-out;
 }
 
-#mainnav-mobi > ul > li > ul > li:first-child a {
-	border-top: none;
-}
 
-#mainnav-mobi ul.sub-menu > li > a:hover,
-#mainnav-mobi > ul > li > ul > li.active > a {
-	color: #fff;
-}
-
-
-.btn-menu {
-	display: none;
-	float: right;
-	position: relative;
-	background: transparent;
-	cursor: pointer;
-	margin: 38px 0px 38px 20px;
-	width: 26px;
-	height: 16px;
-    -webkit-transition: all ease .238s;
-       -moz-transition: all ease .238s;
-            transition: all ease .238s;
-}
-
-.btn-menu:before,
-.btn-menu:after,
-.btn-menu span {
-	background-color: #ba2424;
-    -webkit-transition: all ease .238s;
-       -moz-transition: all ease .238s;
-            transition: all ease .238s;
-}
-
-.btn-menu:before,
-.btn-menu:after {
-	content: "";
-	position: absolute;
-	top: 0;
-	height: 2px;
-	width: 100%;
-	left: 0;
-	top: 50%;
-	-webkit-transform-origin: 50% 50%;
-	    -ms-transform-origin: 50% 50%;
-	        transform-origin: 50% 50%;
-}
-
-.btn-menu span {
-	position: absolute;
-	width: 100%;
-	height: 2px;
-	left: 0;
-	top: 50%;
-	overflow: hidden;
-	text-indent: 200%;
-}
-
-.btn-menu:before {
-	-webkit-transform: translate3d(0, -7px, 0);
-	        transform: translate3d(0, -7px, 0);
-}
-
-.btn-menu:after {
-	-webkit-transform: translate3d(0, 7px, 0);
-            transform: translate3d(0, 7px, 0);
-}
-
-.btn-menu.active span {
-	opacity: 0;
-}
-
-.btn-menu.active:before {
-	-webkit-transform: rotate3d(0, 0, 1, 45deg);
-            transform: rotate3d(0, 0, 1, 45deg);
-}
-
-.btn-menu.active:after {
-	-webkit-transform: rotate3d(0, 0, 1, -45deg);
-            transform: rotate3d(0, 0, 1, -45deg);
-}
-
-.btn-submenu {
-   position: absolute;
-   right: 20px;
-   top: 0;
-   font: 20px/50px 'FontAwesome';
-   text-align: center;
-   cursor: pointer;
-   width: 70px;
-   height: 44px;
-}
-
-.btn-submenu:before {
-   content: "\f107";
-   color: #fff;
-}
-
-.btn-submenu.active:before {
-   content: "\f106";
-}
-
-.btn-menu {
-   display: none;
-}
 
 .flat-vertical {
 	display: inline-block;
@@ -3895,12 +3789,36 @@ video {
     display: block;
 }
 @media only screen and (max-width: 786px) {
-    .title-section .title {
+   
+    .title-section {
+        padding: 0;
+    }
+    .title-section.style2 {
+        text-align: center!important;
+    }
+    .title-section .title, .title-section.style2 .title {
         margin: 0 auto 20px!important;
         text-align: center;
     }
+    .title-section.style2 .sub_title {
+        margin: 0;
+        font-weight: 400;
+    }
+    p.date-event.date-style-2 {
+        text-align: center!important;
+        margin: 0 auto 10px;
+    }
+    .getMoreArticles {
+        margin-top: 10px;
+    }
     .blog-post-preview p {
         text-align: justify!important;
+        margin-top: 20px;
+        padding: 0 10px;
+    }
+   
+    .flat-divider.d47px {
+        display: none;
     }
     .show_on_mobile {
         display: block;
@@ -3911,6 +3829,7 @@ video {
        .flat-divider.d96px {
            display: none;
        }
+
 }
 
 
@@ -3952,19 +3871,39 @@ video {
         
     }
   
-    .imgbox.style3 div a div {
-        width: 100%!important;
+   
+    .blog-post-preview {
+        border-bottom: 1px solid #eee;
+    }
+    .imgbox.style3 {
+        padding: 20px 0;
+        border-bottom: 1px solid #eee;
+    }
+    .imgbox.style3 .align, .imgbox.style3 .align h3 {
+        text-align: center;
+    }
+    .popup-video div {
+        height: 100%!important;
     }
 
     .blog-post-preview .title-section .title:before {
+        /* display: none; */
         position: absolute;
         content: "";
         width: 15px;
         height: 3px;
         background-color: #ba2424;
-        bottom: 0;
-        left: -20px;
+        bottom: -5px;
+        left: 45%;
         margin-top: -5px;
+    }
+    .blog-post-preview .read-more {
+        padding-left: 10px;
+    }
+    /* FOOTER */
+    .iframe-widget {
+        position: relative;
+        height: 150px;
     }
 }
 

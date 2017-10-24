@@ -29,12 +29,13 @@ export default class BlogPostPreviewLeft extends Component {
                                 <div className="title-section style2 ">
                                     <h1 className="title">{this.props.title}</h1>
                                     {subTitle}
+                                    <p className="date-event date-style-2 show_on_mobile"> <span>{this.props.date}</span></p>
                                 </div>
                                 <div className="entry-post">
-                                    <div className="col-md-6 show_on_mobile">
+                                    <div className="show_on_mobile">
                                         <img src={this.props.image}alt="images" className="object-fit" />
                                     </div>
-                                    <p className="date-event date-style-2"> <span>{this.props.date}</span></p>
+                                    <p className="date-event date-style-2 hide_on_mobile"> <span>{this.props.date}</span></p>
                                 </div>
 								<div className="content-story">
                                 <ReactMarkdown source={TRIM(this.props.content)} disallowedTypes={['Image']} />

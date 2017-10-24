@@ -56,7 +56,7 @@ export default class VideoPosts extends Component {
                                             <h3>{video.fields.title}</h3>
                                             <div className="" dangerouslySetInnerHTML={{ __html: video.fields.subHeader }} />
                                             <p>
-                                                <Link to={'/videos/' +  video.fields.title}>Read More</Link>
+                                                <Link className="read-more" to={'/videos/' +  video.fields.title}>Read More</Link>
                                             </p>
                                         </div>
                                     </div>

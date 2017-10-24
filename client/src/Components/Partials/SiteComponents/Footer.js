@@ -59,10 +59,10 @@ export default class Footer extends Component {
 		                  <div className="row">
 		                      <div className="col-xs-12">
 		                          <div className="footer-social-block">
-									  <a href="#"><i className="fa fa-lg fa-instagram w-inline-block social-wrap"></i></a>
-									  <a href="#"><i className="fa fa-lg fa-youtube w-inline-block social-wrap"></i></a>
-		                              <a href="#"><i className="fa fa-lg fa-facebook w-inline-block social-wrap"></i></a>
-		                              <a href="#"><i className="fa fa-lg fa-pinterest w-inline-block social-wrap"></i></a>
+									  <a href="https://www.pinterest.com/theresaonthetwn/"><i className="fa fa-lg fa-instagram w-inline-block social-wrap"></i></a>
+									  <a href="https://www.facebook.com/theresaonthetown/"><i className="fa fa-lg fa-youtube w-inline-block social-wrap"></i></a>
+		                              <a href="https://www.youtube.com/channel/UCvZKd-eUuq8A66J-uLr4CZQ"><i className="fa fa-lg fa-facebook w-inline-block social-wrap"></i></a>
+		                              <a href="https://www.instagram.com/theresaonthetown/"><i className="fa fa-lg fa-pinterest w-inline-block social-wrap"></i></a>
 		                          </div>
 		                      </div>
 		                      <div className="col-sm-3">

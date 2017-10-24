@@ -25,7 +25,7 @@ export default class BlogList extends Component {
 
 		if (articles && item_num <= articles.length) {
 			load_more = (
-				<div>
+				<div className="getMoreArticles">
 					<button className="btn btn-default center-block" onClick={this.props.getMoreArticles.bind(this)}>
 						{show_more_text}
 					</button>

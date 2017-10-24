@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
-import AppStore from '../../../Stores/AppStore'
+import '../../css/Nav.css'
+
 
 export default class MobileMenu extends Component {
     constructor(props){
@@ -27,38 +27,16 @@ export default class MobileMenu extends Component {
 
     }
     render(){
-        const data = AppStore.data
-        const nav_items = data.globals.nav_items
        
-        if (!nav_items) {
-            return <div></div>
-        }
-		
-        const mobile_menu_items = nav_items.map((nav_item) => {
-            if (nav_item.value === 'Theresa on the Town') {
-                return (
-                    <span></span>
-                )
-            } else {
-                return (
-                    <li key={'key-' + nav_item.value} className="mobile_menu_item">
-                        <Link onClick={this.handleMobileLinkClick.bind(this)} to={'/' + nav_item.value}>{nav_item.title}</Link>
-                    </li>
-                )
-            }
-        })
         return (
             <div id="MobileMenuContainer">
-                <div className="btn-menu" onClick={this.showMobileMenu.bind(this)}>
-                                <span></span>
-                </div>
+                <header>
+                    <div className="btn-menu" onClick={this.showMobileMenu.bind(this)}><span></span></div>
+                    <h1>Theresa on the Town</h1>
+                </header>
                 <div id="MobileMenu">
-                    <header>
-                        <h5>Theresa on the Town</h5>
-                    </header>
-
                     <ul id="mobile_menu_items">
-                        {mobile_menu_items}
+                        {this.props.menuItems}
                     </ul>
                     <ul id="mobile_social_menu">
                         <div className="footer-social-block">
