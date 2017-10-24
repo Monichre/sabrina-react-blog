@@ -1,6 +1,7 @@
 // Blog.js
 import React, {Component} from 'react'
 import {Helmet} from 'react-helmet'
+import {Link} from 'react-router-dom'
 
 
 // Components
@@ -84,7 +85,9 @@ export default class Blog extends Component {
 									
 									<div className="featured_post_content">
 										<section>
-											<div className="title"> {post.fields.title}</div>
+											<div className="title">
+                                            <Link to={'/' + post.fields.category[0].fields.title.split(' ')[0].toLowerCase() + '/' + post.fields.title}>{post.fields.title}</Link>
+                                            </div>
 											<div className="caption">{post.fields.category[0].fields.title.split(' ')[0]}</div>
 										</section>
 									</div>

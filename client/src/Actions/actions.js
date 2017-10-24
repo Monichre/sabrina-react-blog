@@ -1,6 +1,7 @@
 import * as Contentful from 'contentful'
 import _ from 'lodash'
 import AppStore from '../Stores/AppStore'
+const moment = require('moment')
 
 var config = require('../config').config
 
@@ -28,11 +29,15 @@ export function getStore(callback) {
             let footerCTA = _.find(CTAs, (item) => item.fields.section === 'Footer')
             let popUpCTA = _.find(CTAs, (item) => item.fields.section === 'Pop Up')
 
-            let articles = initial_articles.sort(function(a,b){
-                return Date.UTC(new Date(a.sys.createdAt)) - Date.UTC(new Date(b.sys.createdAt))
-            })
-            
-            
+            // let articles = initial_articles.sort((a,b) => {
+            //     let date_a = new Date(a.sys.createdAt)
+            //     let date_b = new Date(b.sys.createdAt)
+            //     let time_a = moment(date_a).fromNow()
+            //     let time_b = moment(date_b).fromNow()
+            //     return time_b - time_a
+            // })
+
+            let articles =  _.sortBy(initial_articles, (article) => moment(article.sys.createdAt).fromNow())
             console.log(articles)
 
             let nav_items = _.map(pages, (page) => page.fields.title)

@@ -531,156 +531,14 @@ video {
     margin-bottom: 34px;
 }
 
-/*Flat make resvervation
--------------------------------------------------*/
-.reservation-page-left .reservation-page-form h1.phone {
-    text-align: center;
+.featured_post_content .title a {
+    color: #fff!important;
+    text-decoration: none;
+}
+.featured_post_content .title a:hover {
     color: #ba2424;
-    font-weight: 300;
-    margin-bottom: 36px;
 }
 
-.reservation-page-left .reservation-page-form h3 {
-    font-weight: 500;
-    text-align: center;
-    text-transform: uppercase;
-    position: relative;
-    margin-bottom: 30px;
-}
-
-.reservation-page-left .reservation-page-form h3 span {
-    background: #fff;
-    position: relative;
-    padding: 0 15px;
-}
-
-.reservation-page-left .reservation-page-form h3:before {
-    border-top: 2px solid #e5e5e5;
-    content: "";
-    left: 0;
-    position: absolute;
-    top: 18px;
-    width: 100%;
-}
-
-
-.reservation-page-left .reservation-page-form ul {
-    text-align: center;
-    margin-top: 31px;
-    margin-bottom: 10px;
-}
-
-.reservation-page-left .reservation-page-form ul li {
-    display: inline-block;
-    position: relative;
-    font-size: 12px;
-    color: #999999;
-    font-weight: 400;
-    padding: 0 6px;
-}
-
-.reservation-page-left .reservation-page-form ul li span {
-    color: #333333;
-}
-
-.reservation-page-left .reservation-page-form ul li:before {
-    position: absolute;
-    content: "";
-    width: 2px;
-    height: 13px;
-    background-color: #999999;
-    top: 6px;
-    left: 0px;
-}
-
-.reservation-page-left .reservation-page-form ul li:first-child:before {
-    width: 0;
-    height: 0;
-}
-
-.reservation-page-left .reservation-page-form .reservation-page-input-box,
-.reservation-page-textarea {
-    width: 50%;
-    float: left;
-    padding-right: 10px;
-    padding-left: 10px;
-    margin-bottom: 19px;
-}
-
-.reservation-page-textarea {
-    width: 100%;
-}
-
-.reservation-page-textarea textarea {
-    min-height: 120px;
-    font-size: 12px;
-    padding-top: 12px;
-    margin-bottom: 0;
-}
-
-.reservation-page-left .reservation-page-form #reservation-form {
-    margin-left: -10px;
-    margin-right: -10px;
-}
-
-.reservation-page-left .reservation-page-form .reservation-page-input-box label,
-.reservation-page-textarea label {
-    font-size: 12px;
-    font-weight: 600;
-    color: #333333;
-    margin-bottom: 2px;
-    width: 100%;
-}
-
-.reservation-page-left .reservation-page-form .reservation-page-input-box input[type="text"],
-.reservation-page-left .reservation-page-form .reservation-page-input-box input[type="email"] {
-    margin-bottom: 0;
-}
-
-.reservation-page-left .reservation-page-form #reservation-form .reservation-booking {
-    text-align: center;
-}
-
-#reservation-form .date_picker {
-    width: 66%;
-    position: relative;
-}
-
-#reservation-form .time_picker {
-    width: 34%;
-    margin-left: -5px;
-    position: relative;
-}
-
-#reservation-form .date_picker input,
-#reservation-form .time_picker input {
-    font-family: 'Poppins',sanserif;
-    padding-left: 35px;
-}
-
-#reservation-form .date_picker:before,
-#reservation-form .time_picker:before {
-    position: absolute;
-    top: 15px;
-    left: 16px;
-}
-
-.reservation-page-left .reservation-page-form #reservation-form .reservation-booking button {
-    background-color: #ba2424;
-    border-radius: 2px;
-    margin-top: 6px;
-    padding: 15px 29.5px 14px 29.5px;
-    min-width: 160px;
-    position: relative;
-    z-index: 1;
-}
-
-.reservation-page-left .reservation-page-form #reservation-form .reservation-booking button:hover {
-    border-color: #222;
-}
-
-/* Blog shortcode
-----------------------------------------------------------*/
 .blog-shortcode article.post {
     float: left;
 
@@ -4093,6 +3951,7 @@ video {
         line-height: 35px;
         
     }
+  
     .imgbox.style3 div a div {
         width: 100%!important;
     }

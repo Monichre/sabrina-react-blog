@@ -45,7 +45,7 @@ export default class BlogList extends Component {
 			let date_obj = new Date(article.sys.createdAt)
 			let created = months[(date_obj.getMonth() + 1)] + ' ' + date_obj.getDate() + ', ' + date_obj.getFullYear()
 			let category = article.fields.category[0].fields.title.split(' ')[0].toLowerCase()
-			let readMore = <Link to={'/' + category + '/' + article.fields.title} onClick={this.scrollTop}>Read More</Link>
+			let readMore = <Link to={'/' + category + '/' + article.fields.title}>Read More</Link>
 			const subTitle = Object.keys(article.fields).includes('subHeader') ? article.fields.subHeader : null
 			
 		 	if (articles.indexOf(article) % 2 === 0) {
