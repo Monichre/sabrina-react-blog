@@ -319,7 +319,7 @@ export default class BlogSingle extends Component {
 														return (
 															<li>
 																<div className="thumb">
-																	<ReactPlayer url={entry.fields.videos[0].fields.file.url} height='100px' width='150px' />
+																	<ReactPlayer url={entry.fields.videos ? entry.fields.videos[0].fields.file.url : entry.fields.link} height='100px' width='150px' />
 																</div>
 																<p>{readMore}</p>
 															</li>

@@ -24,6 +24,7 @@ export default class VideoPosts extends Component {
         const content_style = {
             marginTop: '10px'
         }
+        const videos = this.props.videos.slice(0, 2)
         
         return (
             <div id="VideoPosts" style={style}>
@@ -43,12 +44,12 @@ export default class VideoPosts extends Component {
                 <section className="promo-video space">
                     <div className="container">
                         <div className="row">
-                        {this.props.videos.map(video =>
+                        {videos.map(video =>
                                 <div className="col-md-6">
                                     <div className="imgbox style3">
                                         <div className="">
                                             <a className="popup-video">
-                                                <ReactPlayer onClick={this.handleMute.bind(this)} url={video.fields.videos ? video.fields.videos[0].fields.file.url : video.fields.link}  width='95%' playing={true} muted loop={true} controls={false}/>
+                                                <ReactPlayer onClick={this.handleMute.bind(this)} url={video.fields.videos ? video.fields.videos[0].fields.file.url : video.fields.link}  width='95%' playing={false} muted loop={false} controls={false}/>
                                             </a>
                                              
                                         </div>

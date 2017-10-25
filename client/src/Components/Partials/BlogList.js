@@ -14,7 +14,7 @@ export default class BlogList extends Component {
 
 		let data = this.props.data
 		let item_num = data.item_num
-		let articles = data.articles.slice(3, data.articles.length -1)
+		let articles = data.articles.slice(3, (data.articles.length - 1))
 
 		let load_more
 		let show_more_text = 'More Posts'
@@ -43,7 +43,7 @@ export default class BlogList extends Component {
 		
 		let articles_html = articles.map((article) => {
 			let date_obj = new Date(article.sys.createdAt)
-			let created = months[(date_obj.getMonth() + 1)] + ' ' + date_obj.getDate() + ', ' + date_obj.getFullYear()
+			let created = months[date_obj.getMonth()] + ' ' + date_obj.getDate() + ', ' + date_obj.getFullYear()
 			let category = article.fields.category[0].fields.title.split(' ')[0].toLowerCase()
 			let readMore = <Link to={'/' + category + '/' + article.fields.title}>Read More</Link>
 			const subTitle = Object.keys(article.fields).includes('subHeader') ? article.fields.subHeader : null

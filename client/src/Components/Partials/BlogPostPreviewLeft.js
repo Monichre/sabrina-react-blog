@@ -38,7 +38,7 @@ export default class BlogPostPreviewLeft extends Component {
                                     <p className="date-event date-style-2 hide_on_mobile"> <span>{this.props.date}</span></p>
                                 </div>
 								<div className="content-story">
-                                <ReactMarkdown source={TRIM(this.props.content)} disallowedTypes={['Image']} />
+                                <ReactMarkdown source={TRIM(this.props.content)} disallowedTypes={['Image']} escapeHtml={false}/>
                                 </div>
 								<div className="read-more">{this.props.readMore}</div>
                             </div>

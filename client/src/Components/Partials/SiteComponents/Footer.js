@@ -2,17 +2,12 @@
 import React, { Component } from 'react'
 import IFrame from 'react-iframe'
 
-
-// <p>Join the mailing list and be the first to know about product picks, style inspiration, and money saving tips. </p>
-
 export default class Footer extends Component {
 
   render(){
 
 	const data = this.props.data
 	const footerText = data.footerCTA
-	console.log(footerText)
-
 	const style = {
 		width: '100%',
 		border: 0,
@@ -25,14 +20,16 @@ export default class Footer extends Component {
 		  <br />
         <div>
 		
+		
+
 
 					
 					<div className="iframe-widget">
 						<IFrame
 							style={style}
 							className="lightwidget-widget"
-							url="http://lightwidget.com/widgets/63cb858f80325e56b899aaf55b521c74.html"/>
-						<script src="http://lightwidget.com/widgets/lightwidget.js"></script>
+							url="https://lightwidget.com/widgets/63cb858f80325e56b899aaf55b521c74.html"/>
+						<script src="https://lightwidget.com/widgets/lightwidget.js"></script>
 					</div>
 		         
 		          <footer id="main-footer">
@@ -59,10 +56,10 @@ export default class Footer extends Component {
 		                  <div className="row">
 		                      <div className="col-xs-12">
 		                          <div className="footer-social-block">
-									  <a href="https://www.pinterest.com/theresaonthetwn/"><i className="fa fa-lg fa-instagram w-inline-block social-wrap"></i></a>
-									  <a href="https://www.facebook.com/theresaonthetown/"><i className="fa fa-lg fa-youtube w-inline-block social-wrap"></i></a>
-		                              <a href="https://www.youtube.com/channel/UCvZKd-eUuq8A66J-uLr4CZQ"><i className="fa fa-lg fa-facebook w-inline-block social-wrap"></i></a>
-		                              <a href="https://www.instagram.com/theresaonthetown/"><i className="fa fa-lg fa-pinterest w-inline-block social-wrap"></i></a>
+									  <a href="https://www.instagram.com/theresaonthetown/"><i className="fa fa-lg fa-instagram w-inline-block social-wrap"></i></a>
+									  <a href="https://www.youtube.com/channel/UCvZKd-eUuq8A66J-uLr4CZQ"><i className="fa fa-lg fa-youtube w-inline-block social-wrap"></i></a>
+		                              <a href="https://www.facebook.com/theresaonthetown/"><i className="fa fa-lg fa-facebook w-inline-block social-wrap"></i></a>
+		                              <a href="https://www.pinterest.com/theresaonthetwn/"><i className="fa fa-lg fa-pinterest w-inline-block social-wrap"></i></a>
 		                          </div>
 		                      </div>
 		                      <div className="col-sm-3">

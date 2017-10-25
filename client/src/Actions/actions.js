@@ -29,22 +29,35 @@ export function getStore(callback) {
             let footerCTA = _.find(CTAs, (item) => item.fields.section === 'Footer')
             let popUpCTA = _.find(CTAs, (item) => item.fields.section === 'Pop Up')
 
-            // let articles = initial_articles.sort((a,b) => {
-            //     let date_a = new Date(a.sys.createdAt)
-            //     let date_b = new Date(b.sys.createdAt)
-            //     let time_a = moment(date_a).fromNow()
-            //     let time_b = moment(date_b).fromNow()
-            //     return time_b - time_a
+          
+            // const articles =  initial_articles.filter((article) =>  moment(article).isBefore(moment(), 'month'))
+            const articles =  initial_articles.sort((a, b) => {
+                // console.log(moment(a.sys.createdAt).fromNow())
+                // console.log(moment(b.sys.createdAt).fromNow())
+                // let time_a = moment(a.sys.createdAt).fromNow()
+                // let time_b = moment(b.sys.createdAt).fromNow()
+                return moment.utc(a.sys.createdAt).diff(moment.utc(b.sys.createdAt))
+            }).reverse()
+         
+            // yourArray.sort(function (a, b) {
+            //     if (a < b) {            // a comes first
+            //         return -1
+            //     } else if (b < a) {     // b comes first
+            //         return 1
+            //     } else {                // equal, so order is irrelevant
+            //         return 0            // note: sort is not necessarily stable in JS
+            //     }
             // })
-
-            let articles =  _.sortBy(initial_articles, (article) => moment(article.sys.createdAt).fromNow())
             console.log(articles)
+            AppStore.data.featured = articles.slice(0, 3)
+            console.log(AppStore.data.featured)
+            
 
             let nav_items = _.map(pages, (page) => page.fields.title)
             nav_items = nav_items.sort().reverse()
 
   
-            AppStore.data.featured = articles.slice(0, 3)
+            
             AppStore.data.fashion = _.filter(articles, (article) => article.fields.category[0].fields.title === 'Fashion Posts')
             AppStore.data.travel = _.filter(articles, (article) => article.fields.category[0].fields.title === 'Travel Posts')
             AppStore.data.health = _.filter(articles, (article) => article.fields.category[0].fields.title === 'Health Posts')
