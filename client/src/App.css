@@ -1,41 +1,4 @@
 
-
-/* @import url("font-awesome.css");
-@import url("ionicons.css");
-
-@import url("owl.carousel.css");
-@import url("shortcodes.css");
-@import url("responsive.css");
-@import url("revolution-slider.css");
-@import url("jquery.fancybox.css"); */
-
-
-
-
-/**
-  *	Reset
-  * Repeatable Patterns
-  * Header
-  * Page title
-  * Breadcrumbs
-  * Blog
-  * Blog Single
-  * Pagination
-  * Sidebar
-  * GoTop Button
-  * Footer
-  * Footer widget
-  * Bottom
-  * Parallax
-  * Revolution Slider
-  * Preload
-  * Switcher
-  * Boxed
-  * Site-off-canvas
-*/
-
-/* Row
--------------------------------------------------------------- */
 .flat-row {
     clear: both;
     display: block;
@@ -3743,6 +3706,23 @@ video {
 }
 .main-content.blog-single .post .direction .social-links {
     float: right;
+}
+.main-content.blog-single .post .content-post div p {
+   
+}
+
+.main-content.blog-single .post .content-post div p img {
+    max-height: 500px;
+    max-width: 600px;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+    object-position: center;
+    padding: 20px;
+}
+.main-content.blog-single .post .content-post div p span img {
+    height: auto;
+    width: auto;
 }
 .text h4 {
     margin-top: 5px;
