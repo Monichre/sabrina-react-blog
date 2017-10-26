@@ -4078,6 +4078,15 @@ video {
        .flat-divider.d96px {
            display: none;
        }
+       .main-content.blog-single .post .content-post div div {
+           position: relative!important;
+       }
+       .main-content.blog-single .post .content-post div div iframe {
+           position: relative!important;
+        height: 315px!important;
+        padding: 20px;
+        width: 100%;
+    }
 
 }
 

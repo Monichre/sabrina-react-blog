@@ -74,13 +74,16 @@ const ARTICLE_POST_SINGLE = (props) => (
 			<h2 className="title-post">
 				{props.article.fields.title}
 			</h2>
+			<h5 className="sub_title show_on_mobile">{props.article.fields.subHeader}</h5>
 			<p className="date-event date-style-2"> <span>{props.created}</span></p>
+			
+
 		</div>
 
 		<div className="blog-post-single-image-container">
 			{props.image}
 		</div>
-		<h5 className="sub_title">{props.article.fields.subHeader}</h5>
+		<h5 className="sub_title hide_on_mobile">{props.article.fields.subHeader}</h5>
 
 		<div className="content-post">
 			<ReactMarkdown source={props.article.fields.content} />
