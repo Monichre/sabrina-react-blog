@@ -30,55 +30,33 @@ export function getStore(callback) {
             let popUpCTA = _.find(CTAs, (item) => item.fields.section === 'Pop Up')
 
           
-            // const articles =  initial_articles.filter((article) =>  moment(article).isBefore(moment(), 'month'))
             const articles =  initial_articles.sort((a, b) => {
-                // console.log(moment(a.sys.createdAt).fromNow())
-                // console.log(moment(b.sys.createdAt).fromNow())
-                // let time_a = moment(a.sys.createdAt).fromNow()
-                // let time_b = moment(b.sys.createdAt).fromNow()
                 return moment.utc(a.sys.createdAt).diff(moment.utc(b.sys.createdAt))
             }).reverse()
-         
-            // yourArray.sort(function (a, b) {
-            //     if (a < b) {            // a comes first
-            //         return -1
-            //     } else if (b < a) {     // b comes first
-            //         return 1
-            //     } else {                // equal, so order is irrelevant
-            //         return 0            // note: sort is not necessarily stable in JS
-            //     }
-            // })
-            console.log(articles)
+            let sorted_videos = video_entries.sort((a, b) => {
+                return moment.utc(a.sys.createdAt).diff(moment.utc(b.sys.createdAt))
+            }).reverse()
+   
+            console.log(sorted_videos)
             AppStore.data.featured = articles.slice(0, 3)
-            console.log(AppStore.data.featured)
             
-
             let nav_items = _.map(pages, (page) => page.fields.title)
             nav_items = nav_items.sort().reverse()
 
-  
-            
             AppStore.data.fashion = _.filter(articles, (article) => article.fields.category[0].fields.title === 'Fashion Posts')
             AppStore.data.travel = _.filter(articles, (article) => article.fields.category[0].fields.title === 'Travel Posts')
             AppStore.data.health = _.filter(articles, (article) => article.fields.category[0].fields.title === 'Health Posts')
-
             AppStore.data.footerCTA = footerCTA
-            console.log(footerCTA)
             AppStore.data.popUpCTA = popUpCTA
-       
             AppStore.data.polaroids = polaroids
             AppStore.data.section_headers = section_headers
             AppStore.data.articles = articles
             AppStore.data.nav_items = nav_items
-            AppStore.data.video_entries = video_entries
+            AppStore.data.video_entries = sorted_videos
             AppStore.data.affiliate_entries = affiliate_entries
-            AppStore.data.pages = pages
-
-   
-            
+            AppStore.data.pages = pages    
             AppStore.data.ready = true
             AppStore.emitChange()
-            
             
             if (callback) {
                 callback(false, AppStore)
