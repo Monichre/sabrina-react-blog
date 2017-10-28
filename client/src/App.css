@@ -1900,9 +1900,14 @@ input[type="color"],
 }
 
 .flat-vertical.social-links a,
-.flat-vertical.social-links .share-tag
+.flat-vertical.social-links span
 .flat-vertical.reservation {
 	font-size: 12px;
+	font-weight: 700;
+}
+
+.flat-vertical.reservation span, .flat-vertical.social-links span {
+    font-size: 12px;
 	font-weight: 700;
 }
 
