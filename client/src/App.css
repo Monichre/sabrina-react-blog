@@ -4087,6 +4087,32 @@ video {
         padding: 20px;
         width: 100%;
     }
+    #about {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: space-evenly;
+    }
+    #form-half {
+        
+        position: static!important;
+        /* top: 50%;
+        left: 0;
+        width: 100%; */
+        background: rgba(255, 255, 255, 0.5);
+        -webkit-transition: all .4s;
+        -o-transition: all .4s;
+        transition: all .4s;
+    }
+    #form-half br {
+        display: none;
+    }
+    #form-second-half, #form-half {
+        padding: 0;
+        width: 100%;
+    }
+    #form-second-half {
+        position: static!important;
+    }
 
 }
 

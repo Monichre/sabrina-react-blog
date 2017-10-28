@@ -6,6 +6,8 @@
     "@amcharts/amcharts3-react": "^2.0.0",
     "axios": "^0.16.2",
     "body-parser": "^1.18.0",
+    "commonmark": "^0.28.1",
+    "commonmark-react-renderer": "^4.3.3",
     "contentful": "^4.6.2",
     "cosmicjs": "^2.39.91",
     "express": "^4.15.4",

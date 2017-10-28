@@ -9,8 +9,31 @@ export default class VideoPosts extends Component {
 
     }
     componentDidMount(){
+
+        let all_videos = document.querySelectorAll('.popup-video video')
+        let on = ['mouseenter', 'touchstart']
+        let off = ['mouseleave', 'touchend']
+
+        const addControls = (elem) => elem.setAttribute('controls', true)
+        const removeControls = (elem) => elem.removeAttribute('controls')
         
-        document.querySelector('.popup-video video').setAttribute('muted', true)
+        all_videos.forEach(video => {
+            video.setAttribute('muted', true)
+            video.addEventListener('mouseenter', (e) => {
+                
+                addControls(e.target)
+            })
+            video.addEventListener('touchstart', (e) => {
+                addControls(e.target)
+            })
+            video.addEventListener('mouseleave', (e) => {
+                
+                removeControls(e.target)
+            })
+            video.addEventListener('touchend', (e) => {
+                removeControls(e.target)
+            })
+        })
     }
     handleMute(e){
         let video_player = e.target

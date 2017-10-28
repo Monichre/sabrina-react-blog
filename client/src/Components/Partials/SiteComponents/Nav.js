@@ -198,7 +198,7 @@ export default class Nav extends Component {
             </li>
         )
         const search_trigger = <li style={search_menu_item_style}><a className="search-trigger" href="#" onClick={this.searchClick.bind(this)}><i className="fa fa-search"></i></a></li>
-        const mobile_search_trigger = <li classname="mobile_menu_item"><a className="search-trigger" href="#" onClick={this.searchClick.bind(this)}><i className="fa fa-search"></i></a></li>
+        const mobile_search_trigger = <li className="mobile_menu_item"><a className="search-trigger" href="#" onClick={this.searchClick.bind(this)}><i className="fa fa-search"></i></a></li>
         const menu_items = []
         const mobile_menu_items = []
         nav_items.forEach((nav_item) => {
@@ -208,19 +208,19 @@ export default class Nav extends Component {
                 menu_items[0] = <li key={'key-' + nav_item}><Link onClick={this.handleClick} to='/'>{nav_item}</Link></li>
             } else if (nav_item === 'Fashion & Style') {
                 menu_items[1] = <li key={'key-' + nav_item}><Link onClick={this.handleClick} to={'/' + this_route}>{nav_item}</Link></li>
-                mobile_menu_items[1] = <li className="mobile_menu_item" key={'key-' + nav_item}><Link onClick={this.handleClick} to={'/' + this_route}>{nav_item}</Link></li>
+                mobile_menu_items[1] = <li className="mobile_menu_item" key={'key-' + nav_item}><Link to={'/' + this_route}>{nav_item}</Link></li>
             } else if (nav_item === 'Travel') {
                 menu_items[2] = <li key={'key-' + nav_item}><Link onClick={this.handleClick} to={'/' + this_route}>{nav_item}</Link></li>
-                mobile_menu_items[2] = <li className="mobile_menu_item" key={'key-' + nav_item}><Link onClick={this.handleClick} to={'/' + this_route}>{nav_item}</Link></li>
+                mobile_menu_items[2] = <li className="mobile_menu_item" key={'key-' + nav_item}><Link to={'/' + this_route}>{nav_item}</Link></li>
             } else if (nav_item === 'Health & Wellness') {
                 menu_items[3] = <li key={'key-' + nav_item}><Link onClick={this.handleClick} to={'/' + this_route}>{nav_item}</Link></li>
-                mobile_menu_items[3] = <li className="mobile_menu_item" key={'key-' + nav_item}><Link onClick={this.handleClick} to={'/' + this_route}>{nav_item}</Link></li>
+                mobile_menu_items[3] = <li className="mobile_menu_item" key={'key-' + nav_item}><Link to={'/' + this_route}>{nav_item}</Link></li>
             } else if (nav_item === 'Contact') {
                 menu_items[4] = <li key={'key-' + nav_item}><Link onClick={this.handleClick} to={'/' + this_route}>{nav_item}</Link></li>
-                mobile_menu_items[4] = <li className="mobile_menu_item" key={'key-' + nav_item}><Link onClick={this.handleClick} to={'/' + this_route}>{nav_item}</Link></li>
+                mobile_menu_items[4] = <li className="mobile_menu_item" key={'key-' + nav_item}><Link to={'/' + this_route}>{nav_item}</Link></li>
             } else if (nav_item === 'About') {
                 menu_items[5] = <li key={'key-' + nav_item}><Link onClick={this.handleClick} to={'/' + this_route}>{nav_item}</Link></li>
-                mobile_menu_items[5] = <li className="mobile_menu_item" key={'key-' + nav_item}><Link onClick={this.handleClick} to={'/' + this_route}>{nav_item}</Link></li>
+                mobile_menu_items[5] = <li className="mobile_menu_item" key={'key-' + nav_item}><Link to={'/' + this_route}>{nav_item}</Link></li>
             }
         })
         

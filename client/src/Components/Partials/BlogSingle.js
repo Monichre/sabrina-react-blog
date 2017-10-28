@@ -4,70 +4,99 @@ import ReactPlayer from 'react-player'
 import ReactMarkdown from 'react-markdown'
 import _ from 'lodash'
 
-
 import AppDispatcher from '../../Dispatcher/AppDispatcher'
 import AppStore from '../../Stores/AppStore'
 
-{/* <div className="g-ytsubscribe social-share-link" data-channelid="UCvZKd-eUuq8A66J-uLr4CZQ" data-layout="default" data-count="default">
-					<i className="fa fa-lg fa-youtube"></i>
-				</div> */}
-				// <script src="https://apis.google.com/js/platform.js"></script>
+const CommonMark = require('commonmark')
+const ReactRenderer = require('commonmark-react-renderer')
+const parser = new CommonMark.Parser()
+const renderer = new ReactRenderer()
 
-{/* <script>
-  function onYtEvent(payload) {
-    if (payload.eventType == 'subscribe') {
-      // Add code to handle subscribe event.
-    } else if (payload.eventType == 'unsubscribe') {
-      // Add code to handle unsubscribe event.
-    }
-    if (window.console) { // for debugging only
-      window.console.log('YT event: ', payload);
-    }
-  }
-</script> */}
+// console.log(params)
+// let parsed_content = parser.parse(params)
+// let results = renderer.render(parsed_content)
 
 
-const VIDEO_POST_SINGLE = (props) => (
-	<article className="post">
-		<div className="header-post">
-			<h2 className="title-post">
-				{props.video.fields.title}
-			</h2>
-			<p className="date-event date-style-2"><span>{props.video.fields.subHeader}</span></p>
-		</div>
+class VIDEO_POST_SINGLE extends Component {
+	componentDidMount() {
 
-		<div className="blog-post-single-image-container">
-			<ReactPlayer url={props.video.fields.videos[0].fields.file.url} height='100%' width='100%' />
-		</div>
+		let all_videos = document.querySelectorAll('.single_post_video video')
+		let on = ['mouseenter', 'touchstart']
+		let off = ['mouseleave', 'touchend']
 
-		<div className="content-post">
-			<p dangerouslySetInnerHTML={{ __html: props.video.fields.description }}></p>
-		</div>
-		<div className="direction clearfix">
-			<ul className="tags">
-				<li>Tags:</li>
-				<a href="#">{props.tags}</a>
-			</ul>
-			<div className="social-links">
-				<span>Share :</span>
+		const addControls = (elem) => elem.setAttribute('controls', true)
+		const removeControls = (elem) => elem.removeAttribute('controls')
 
-				<a className="social-share-link" href="https://www.instagram.com/theresaonthetown/?ref=badge">
-					<i className="fa fa-lg fa-instagram"></i>
-				</a>
-				<script rel="preload" src="https://apis.google.com/js/platform.js"></script>
-				<a className="g-ytsubscribe" data-channelid="UCvZKd-eUuq8A66J-uLr4CZQ" data-layout="default" data-theme="dark" data-count="default" data-onytevent="onYtEvent"></a>
+		all_videos.forEach(video => {
+			video.setAttribute('muted', true)
+			video.addEventListener('mouseenter', (e) => {
 
-				<span className="social-share-link" data-href="https://www.theresaonthetown.com" data-layout="button_count" data-size="small" data-mobile-iframe="true">
-					<a className="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.theresaonthetown.com%2F&amp;src=sdkpreparse">
-						<i className="fa fa-lg fa-facebook"></i>
-					</a>
-				</span>
+				addControls(e.target)
+			})
+			video.addEventListener('touchstart', (e) => {
+				addControls(e.target)
+			})
+			video.addEventListener('mouseleave', (e) => {
 
-				<a className="social-share-link" data-pin-do="buttonFollow" href="https://www.pinterest.com/theresaonthetwn"><i className="fa fa-lg fa-pinterest"></i></a>
-			</div>
-		</div>
-	</article>
-)
+				removeControls(e.target)
+			})
+			video.addEventListener('touchend', (e) => {
+				removeControls(e.target)
+			})
+		})
+	}
+	handleMute(e) {
+		let video_player = e.target
+		video_player.setAttribute('muted', false)
+	}
+
+	render() {
+		return (
+			<article className="post">
+				<div className="header-post">
+					<h2 className="title-post">
+						{this.props.video.fields.title}
+					</h2>
+					<p className="date-event date-style-2"><span>{this.props.video.fields.subHeader}</span></p>
+				</div>
+
+				<div className="blog-post-single-image-container">
+					<ReactPlayer className="single_post_video" onClick={this.handleMute.bind(this)} url={this.props.video.fields.videos ? this.props.video.fields.videos[0].fields.file.url : this.props.video.fields.link} width='100%' playing={false} muted loop={false} controls={false} />
+				</div>
+
+				<div className="content-post">
+					<p dangerouslySetInnerHTML={{ __html: this.props.video.fields.description }}></p>
+				</div>
+				<div className="direction clearfix">
+					<ul className="tags">
+						<li>Tags:</li>
+						<a href="#">{this.props.tags}</a>
+					</ul>
+					<div className="social-links">
+						<span>Share :</span>
+
+						<a className="social-share-link" href="https://www.instagram.com/theresaonthetown/?ref=badge">
+							<i className="fa fa-lg fa-instagram"></i>
+						</a>
+						<script rel="preload" src="https://apis.google.com/js/platform.js"></script>
+						<a className="g-ytsubscribe" data-channelid="UCvZKd-eUuq8A66J-uLr4CZQ" data-layout="default" data-theme="dark" data-count="default" data-onytevent="onYtEvent"></a>
+
+						<span className="social-share-link" data-href="https://www.theresaonthetown.com" data-layout="button_count" data-size="small" data-mobile-iframe="true">
+							<a className="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.theresaonthetown.com%2F&amp;src=sdkpreparse">
+								<i className="fa fa-lg fa-facebook"></i>
+							</a>
+						</span>
+
+						<a className="social-share-link" data-pin-do="buttonFollow" href="https://www.pinterest.com/theresaonthetwn"><i className="fa fa-lg fa-pinterest"></i></a>
+					</div>
+				</div>
+			</article>
+		)
+	}
+}
+
+
+// transformLinkUri={props.handleVideo(props.article.fields.content)}
 const ARTICLE_POST_SINGLE = (props) => (
 	<article className="post">
 		<div className="header-post">
@@ -76,7 +105,7 @@ const ARTICLE_POST_SINGLE = (props) => (
 			</h2>
 			<h5 className="sub_title show_on_mobile">{props.article.fields.subHeader}</h5>
 			<p className="date-event date-style-2"> <span>{props.created}</span></p>
-			
+
 
 		</div>
 
@@ -86,7 +115,7 @@ const ARTICLE_POST_SINGLE = (props) => (
 		<h5 className="sub_title hide_on_mobile">{props.article.fields.subHeader}</h5>
 
 		<div className="content-post">
-			<ReactMarkdown source={props.article.fields.content} />
+			<ReactMarkdown source={props.article.fields.content} allowNode={(node) => { console.log(node); return true }} />
 		</div>
 		<div className="direction clearfix">
 			<ul className="tags">
@@ -106,7 +135,7 @@ const ARTICLE_POST_SINGLE = (props) => (
 				</a>
 				<script rel="preload" src="https://apis.google.com/js/platform.js"></script>
 				<a className="g-ytsubscribe" data-channelid="UCvZKd-eUuq8A66J-uLr4CZQ" data-layout="default" data-theme="dark" data-count="default" data-onytevent="onYtEvent"><i className="fa fa-lg fa-youtube"></i></a>
-				
+
 				<span data-href="https://www.theresaonthetown.com" data-layout="button_count" data-size="small" data-mobile-iframe="true">
 					<a className="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.theresaonthetown.com%2F&amp;src=sdkpreparse">
 						<i className="fa fa-lg fa-facebook"></i>
@@ -133,6 +162,25 @@ export default class BlogSingle extends Component {
 			post_slug: this.props.match.params.slug
 		})
 	}
+	handleEmbeddedVideo(params) {
+		return this.presentExtractedVideo(params)
+	}
+	presentExtractedVideo(node) {
+		console.log(node)
+		const renderer = new ReactRenderer()
+		let results = renderer.render(node)
+		// console.log(parsed_content)
+		console.log(results)
+		let return_content = results[0].props.children.map(child => {
+			console.log(child)
+			if (child.props && child.props.src.includes('//videos')) {
+				return (
+					<ReactPlayer url={child.props.src} height='100%' width='100%' />
+				)
+			}
+		})
+		return return_content
+	}
 
 	componentWillUnmount() {
 		AppStore.removeChangeListener(this._onChange)
@@ -146,7 +194,9 @@ export default class BlogSingle extends Component {
 
 	}
 
-	handleLinkClick() {
+	handleLinkClick(params) {
+		console.log(params)
+		// _this.props.history.push(`users/dashboard`);
 		let data = this.props.data
 		let article = data.article
 		let category = article.fields.category ? article.fields.category[0].fields.title.split(' ')[0].toLowerCase() : null
@@ -215,7 +265,7 @@ export default class BlogSingle extends Component {
 		}
 		else {
 
-			blog_post_single = <ARTICLE_POST_SINGLE article={article} image={image} created={created} tags={tags} />
+			blog_post_single = <ARTICLE_POST_SINGLE article={article} image={image} created={created} tags={tags} handleVideo={this.handleEmbeddedVideo.bind(this)} />
 		}
 
 		return (
@@ -244,13 +294,13 @@ export default class BlogSingle extends Component {
 							</div>
 						</div>
 						<div className="row">
-						<div className="col-md-12">
+							<div className="col-md-12">
 								<div className="sidebars">
 									<div className="sidebars-wrap">
 										<div className="sidebar">
 
 											<div className="widget widget_categories">
-												
+
 												<ul className="inline-list list-inline">
 													<li><h3 className="widget-title">Categories:</h3></li>
 													<li>
@@ -318,7 +368,7 @@ export default class BlogSingle extends Component {
 														let date_obj = new Date(entry.sys.createdAt)
 														let created = months[(date_obj.getMonth() + 1)] + ' ' + date_obj.getDate() + ', ' + date_obj.getFullYear()
 
-														let readMore = <Link to={'/videos/' + entry.fields.title} onClick={this.scrollTop}>Check it out</Link>
+														let readMore = <Link to={'/videos/' + entry.fields.title} onClick={this.handleLinkClick.bind('/videos/', article.fields.title)}>Check it out</Link>
 														return (
 															<li>
 																<div className="thumb">

@@ -139,9 +139,9 @@
     height: 100%;
 }
 #mobile_social_menu {
-    padding-top: 40px;
+    padding-top: 10px;
     border-top: 1px solid #fff;
-    margin-top: 20px;
+    margin-top: -10px;
 }
 
 
@@ -187,10 +187,10 @@
     font-family: "Poppins", sans-serif;
     font-size: 14px;
     text-align: center;
-    line-height: 35px;
+    /* line-height: 35px; */
     border: none;
     color: #fff;
-    padding: 10px;
+    /* padding: 10px; */
     -webkit-transform: scale(1.15) translateY(-30px);
             transform: scale(1.15) translateY(-30px);
     opacity: 0;

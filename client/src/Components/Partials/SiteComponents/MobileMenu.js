@@ -7,7 +7,8 @@ export default class MobileMenu extends Component {
         super(props)
 
         this.state = {
-            mobileMenuOpen: false
+            mobileMenuOpen: false,
+            menu:[]
         }
     }
     showMobileMenu(e){
@@ -22,9 +23,37 @@ export default class MobileMenu extends Component {
     }
     handleMobileLinkClick() {
         
-        this.setState({mobileMenuOpen: false})
-        document.getElementById('MobileMenu').classList.remove('mobile_menu_active')
+        
+        
 
+    }
+    componentDidMount() {
+        let menu = document.querySelectorAll('.mobile_menu_item')
+        let _self = this
+        menu.forEach(menuItem => {
+            console.log(menuItem)
+            menuItem.addEventListener('click', () => {
+                _self.setState({mobileMenuOpen: false})
+                document.getElementById('MobileMenu').classList.remove('mobile_menu_active')
+            })
+        })
+    }
+    componentWillMount(){
+        let menu = this.props.menuItems
+        
+        let social_menu = (<li>
+            <ul id="mobile_social_menu">
+                <div className="footer-social-block">
+                    <a href="https://www.instagram.com/theresaonthetown/"><i className="fa fa-lg fa-instagram w-inline-block social-wrap"></i></a>
+                    <a href="https://www.youtube.com/channel/UCvZKd-eUuq8A66J-uLr4CZQ"><i className="fa fa-lg fa-youtube w-inline-block social-wrap"></i></a>
+                    <a href="https://www.facebook.com/theresaonthetown/"><i className="fa fa-lg fa-facebook w-inline-block social-wrap"></i></a>
+                    <a href="https://www.pinterest.com/theresaonthetwn/"><i className="fa fa-lg fa-pinterest w-inline-block social-wrap"></i></a>
+                </div>
+            </ul>
+        </li>)
+        
+        menu.push(social_menu)
+        this.setState({menu: menu})
     }
     render(){
        
@@ -36,17 +65,9 @@ export default class MobileMenu extends Component {
                 </header>
                 <div id="MobileMenu">
                     <ul id="mobile_menu_items">
-                        {this.props.menuItems}
+                        {this.state.menu}
                     </ul>
-                    <ul id="mobile_social_menu">
-                        <div className="footer-social-block">
-                            <a href="https://www.instagram.com/theresaonthetown/"><i className="fa fa-lg fa-instagram w-inline-block social-wrap"></i></a>
-                            <a href="https://www.youtube.com/channel/UCvZKd-eUuq8A66J-uLr4CZQ"><i className="fa fa-lg fa-youtube w-inline-block social-wrap"></i></a>
-                            <a href="https://www.facebook.com/theresaonthetown/"><i className="fa fa-lg fa-facebook w-inline-block social-wrap"></i></a>
-                            <a href="https://www.pinterest.com/theresaonthetwn/"><i className="fa fa-lg fa-pinterest w-inline-block social-wrap"></i></a>
-                        </div>
-                    </ul>
-
+                    
                 </div>
             </div>
             
