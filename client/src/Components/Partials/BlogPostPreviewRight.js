@@ -17,7 +17,7 @@ export default class BlogPostPreviewRight extends Component {
                 <div className="container">
                     <div className="row">
 						<div className="col-md-6 hide_on_mobile">
-                            <img src={this.props.image}alt="images" className="object-fit" />
+                        <img src={this.props.image + '?w=555&h=500'} alt="images" className="object-fit" />
                         </div>
                         <div className="col-md-6">
                             <div className="flat-divider d47px"></div>

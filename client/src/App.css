@@ -890,10 +890,21 @@ ul.recent-list li a:after, ul.recent-list li .text a:after {
 .social-links a i {
     font-size: 15px;
 }
+.share-tag.social-share-link {
+    font-weight: 600;
+    color: #222222;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-right: 12px;
+}
 .social-share-link {
     display: inline-block;
     padding-left: 10px;
     padding-right: 10px;
+    vertical-align: middle;
+}
+.social-share-link .fa {
+    font-size: 25px!important;
 }
 
 /*Flat about*/
@@ -1889,7 +1900,7 @@ input[type="color"],
 }
 
 .flat-vertical.social-links a,
-.flat-vertical.social-links span,
+.flat-vertical.social-links .share-tag
 .flat-vertical.reservation {
 	font-size: 12px;
 	font-weight: 700;
@@ -2869,16 +2880,9 @@ input[type="color"],
 
 .widget.widget_categories ul li:first-child {
 	padding-top: 0;
-	padding-bottom: 9px;
+    padding-bottom: 9px;
+    padding-left:  0;
 }
-
-/* .widget.widget_categories ul li:after {
-	position: absolute;
-    font-family: 'FontAwesome';
-    content: "\f0da";
-    top: 16px;
-    left: 0;
-} */
 
 .widget.widget_categories ul li:first-child:after {
 	top: 0;

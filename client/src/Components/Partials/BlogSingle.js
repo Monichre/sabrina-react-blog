@@ -3,6 +3,7 @@ import { Switch, Link, Route, Redirect } from 'react-router-dom'
 import ReactPlayer from 'react-player'
 import ReactMarkdown from 'react-markdown'
 import _ from 'lodash'
+import { Helmet } from 'react-helmet'
 
 import AppDispatcher from '../../Dispatcher/AppDispatcher'
 import AppStore from '../../Stores/AppStore'
@@ -15,6 +16,13 @@ const renderer = new ReactRenderer()
 // console.log(params)
 // let parsed_content = parser.parse(params)
 // let results = renderer.render(parsed_content)
+
+const Video = (props) => {
+	<ReactPlayer 
+		className="embedded_video" 
+		url={props.video.fields.videos ? props.video.fields.videos[0].fields.file.url : props.video.fields.link} width='100%' playing={false} muted loop={false} controls={false} 
+	/>
+}
 
 
 class VIDEO_POST_SINGLE extends Component {
@@ -73,22 +81,24 @@ class VIDEO_POST_SINGLE extends Component {
 						<a href="#">{this.props.tags}</a>
 					</ul>
 					<div className="social-links">
-						<span>Share :</span>
-
-						<a className="social-share-link" href="https://www.instagram.com/theresaonthetown/?ref=badge">
-							<i className="fa fa-lg fa-instagram"></i>
-						</a>
-						<script rel="preload" src="https://apis.google.com/js/platform.js"></script>
-						<a className="g-ytsubscribe" data-channelid="UCvZKd-eUuq8A66J-uLr4CZQ" data-layout="default" data-theme="dark" data-count="default" data-onytevent="onYtEvent"></a>
-
-						<span className="social-share-link" data-href="https://www.theresaonthetown.com" data-layout="button_count" data-size="small" data-mobile-iframe="true">
+					<div className="share-tag social-share-link">Share :</div>
+						<div className="social-share-link">
+							<a href="https://www.instagram.com/theresaonthetown/?ref=badge"><i className="fa fa-lg fa-instagram"></i></a>
+						</div>
+						<div className="social-share-link">
+							<script rel="preload" src="https://apis.google.com/js/platform.js"></script>
+							<div className="g-ytsubscribe" data-channelid="UCvZKd-eUuq8A66J-uLr4CZQ" data-layout="default" data-theme="dark" data-count="default" data-onytevent="onYtEvent"></div>
+						</div>
+						<div className="social-share-link" data-href="https://www.theresaonthetown.com" data-layout="button_count" data-size="small" data-mobile-iframe="true">
 							<a className="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.theresaonthetown.com%2F&amp;src=sdkpreparse">
 								<i className="fa fa-lg fa-facebook"></i>
 							</a>
-						</span>
-
-						<a className="social-share-link" data-pin-do="buttonFollow" href="https://www.pinterest.com/theresaonthetwn"><i className="fa fa-lg fa-pinterest"></i></a>
+						</div>
+						<div className="social-share-link">
+							<a data-pin-do="buttonBookmark" href="https://www.pinterest.com/theresaonthetwn"></a>
+						</div>
 					</div>
+
 				</div>
 			</article>
 		)
@@ -115,7 +125,11 @@ const ARTICLE_POST_SINGLE = (props) => (
 		<h5 className="sub_title hide_on_mobile">{props.article.fields.subHeader}</h5>
 
 		<div className="content-post">
-			<ReactMarkdown source={props.article.fields.content} allowNode={(node) => { console.log(node); return true }} />
+			<ReactMarkdown 
+				source={props.article.fields.content} 
+				sourcePos={true}
+				childAfter={(props.src && props.src.includes('/videos')) ? <Video video={props.src} /> : null}
+				allowNode={(node) => { console.log(node); if(node.props.src && node.props.src.includes('/videos')){node.renderer= <Video video={node.props.src} />; return <Video video={node.props.src} />} return true }} />
 		</div>
 		<div className="direction clearfix">
 			<ul className="tags">
@@ -123,26 +137,25 @@ const ARTICLE_POST_SINGLE = (props) => (
 				<li>
 					<a href="#">{props.tags}</a>
 				</li>
-
-
 			</ul>
 
 			<div className="social-links">
-				<span>Share :</span>
-
-				<a className="social-share-link" href="https://www.instagram.com/theresaonthetown/?ref=badge">
-					<i className="fa fa-lg fa-instagram"></i>
-				</a>
-				<script rel="preload" src="https://apis.google.com/js/platform.js"></script>
-				<a className="g-ytsubscribe" data-channelid="UCvZKd-eUuq8A66J-uLr4CZQ" data-layout="default" data-theme="dark" data-count="default" data-onytevent="onYtEvent"><i className="fa fa-lg fa-youtube"></i></a>
-
-				<span data-href="https://www.theresaonthetown.com" data-layout="button_count" data-size="small" data-mobile-iframe="true">
+				<div className="share-tag social-share-link">Share :</div>
+				<div className="social-share-link">
+					<a href="https://www.instagram.com/theresaonthetown/?ref=badge"><i className="fa fa-lg fa-instagram"></i></a>
+				</div>
+				<div className="social-share-link">
+					<script rel="preload" src="https://apis.google.com/js/platform.js"></script>
+					<div className="g-ytsubscribe" data-channelid="UCvZKd-eUuq8A66J-uLr4CZQ" data-layout="default" data-theme="dark" data-count="default" data-onytevent="onYtEvent"></div>
+				</div>
+				<div className="social-share-link" data-href="https://www.theresaonthetown.com" data-layout="button_count" data-size="small" data-mobile-iframe="true">
 					<a className="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.theresaonthetown.com%2F&amp;src=sdkpreparse">
 						<i className="fa fa-lg fa-facebook"></i>
 					</a>
-				</span>
-
-				<a href="https://www.pinterest.com/theresaonthetwn"><i className="fa fa-lg fa-pinterest"></i></a>
+				</div>
+				<div className="social-share-link">
+					<a data-pin-do="buttonBookmark" href="https://www.pinterest.com/theresaonthetwn"></a>
+				</div>
 			</div>
 		</div>
 	</article>
@@ -243,7 +256,7 @@ export default class BlogSingle extends Component {
 		let readMore = <Link to={'/' + category + '/' + article.fields.title} onClick={this.scrollTop}>Read More</Link>
 
 		let image
-		let image_div = hasPhoto(article) ? article.fields.photos[0].fields.file.url : null
+		let image_div = hasPhoto(article) ? article.fields.photos[0].fields.file.url + '?w=1140&h=500&fit=fill' : null
 		if (image_div != null) {
 			image = <img src={image_div} alt="image" />
 		}
@@ -270,6 +283,11 @@ export default class BlogSingle extends Component {
 
 		return (
 			<div id="Blog">
+				<Helmet>
+					<script rel="preload" src="https://apis.google.com/js/platform.js"></script>
+					<script src="/pinit.js"></script>
+				</Helmet>
+
 
 				<div className="page-title parallax parallax1">
 					<div className="container">
@@ -325,7 +343,7 @@ export default class BlogSingle extends Component {
 														return (
 															<li>
 																<div className="thumb">
-																	<img src={article.fields.photos ? article.fields.photos[0].fields.file.url : null} alt="image" />
+																	<img src={article.fields.photos ? article.fields.photos[0].fields.file.url + '?fit=thumb' : null} alt="image" />
 																</div>
 																<div className="text">
 
@@ -348,7 +366,7 @@ export default class BlogSingle extends Component {
 														return (
 															<li>
 																<div className="thumb">
-																	<img src={entry.fields.photos[0].fields.file.url} alt="image" />
+																	<img src={entry.fields.photos[0].fields.file.url + '?fit=thumb'} alt="image" />
 																</div>
 																<p>{entry.fields.title}</p>
 																<p><a href={entry.fields.link}>Shop Now</a></p>
@@ -372,7 +390,7 @@ export default class BlogSingle extends Component {
 														return (
 															<li>
 																<div className="thumb">
-																	<ReactPlayer url={entry.fields.videos ? entry.fields.videos[0].fields.file.url : entry.fields.link} height='100px' width='150px' />
+																	<ReactPlayer url={entry.fields.videos ? entry.fields.videos[0].fields.file.url + '?fit=thumb' : entry.fields.link} height='100px' width='150px' />
 																</div>
 																<p>{readMore}</p>
 															</li>

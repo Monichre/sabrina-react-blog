@@ -24,6 +24,15 @@ export default class AffiliatePost extends Component {
 			} else {
 				affiliate_style = { background: '#f5f5f5'}
 			}
+			console.log(this.props.article.fields.content )
+			let content = this.props.article.fields.content > 0 ? 
+				(<div className="col-md-4 col-md-offset-2">	
+					<div style={content_style}>
+						<ReactMarkdown source={this.props.article.fields.content} />
+					</div>
+				</div>) : null
+			
+			
 
         return (
             <div className="affiliate-preview">
@@ -52,11 +61,7 @@ export default class AffiliatePost extends Component {
 		                            </div>
 		                        </div>
 							)}
-							<div className="col-md-4 col-md-offset-2">	
-								<div style={content_style}>
-									<ReactMarkdown source={this.props.article.fields.content} />
-								</div>
-                        	</div>
+							{content}
 	                    </div>				
 					</div>
                 </section>
