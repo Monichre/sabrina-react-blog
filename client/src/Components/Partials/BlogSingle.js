@@ -89,10 +89,8 @@ class VIDEO_POST_SINGLE extends Component {
 							<script rel="preload" src="https://apis.google.com/js/platform.js"></script>
 							<div className="g-ytsubscribe" data-channelid="UCvZKd-eUuq8A66J-uLr4CZQ" data-layout="default" data-theme="dark" data-count="default" data-onytevent="onYtEvent"></div>
 						</div>
-						<div className="social-share-link" data-href="https://www.theresaonthetown.com" data-layout="button_count" data-size="small" data-mobile-iframe="true">
-							<a className="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.theresaonthetown.com%2F&amp;src=sdkpreparse">
-								<i className="fa fa-lg fa-facebook"></i>
-							</a>
+						<div className="social-share-link fb-share-button" data-href="https://www.theresaonthetown.com" data-layout="button_count" data-size="large" data-mobile-iframe="true">
+							<a className="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.theresaonthetown.com%2F&amp;src=sdkpreparse"></a>
 						</div>
 						<div className="social-share-link">
 							<a data-pin-do="buttonBookmark" href="https://www.pinterest.com/theresaonthetwn"></a>
@@ -148,9 +146,10 @@ const ARTICLE_POST_SINGLE = (props) => (
 					<script rel="preload" src="https://apis.google.com/js/platform.js"></script>
 					<div className="g-ytsubscribe" data-channelid="UCvZKd-eUuq8A66J-uLr4CZQ" data-layout="default" data-theme="dark" data-count="default" data-onytevent="onYtEvent"></div>
 				</div>
-				<div className="social-share-link" data-href="https://www.theresaonthetown.com" data-layout="button_count" data-size="small" data-mobile-iframe="true">
+				
+				<div className="social-share-link fb-share-button" data-href="https://www.theresaonthetown.com" data-layout="button_count" data-size="large" data-mobile-iframe="true">
 					<a className="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.theresaonthetown.com%2F&amp;src=sdkpreparse">
-						<i className="fa fa-lg fa-facebook"></i>
+						
 					</a>
 				</div>
 				<div className="social-share-link">
@@ -251,7 +250,7 @@ export default class BlogSingle extends Component {
 			"July", "August", "September", "October", "November", "December"]
 		const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 		let date_obj = new Date(article.sys.createdAt)
-		let created = months[(date_obj.getMonth() + 1)] + ' ' + date_obj.getDate() + ', ' + date_obj.getFullYear()
+		let created = months[(date_obj.getMonth())] + ' ' + date_obj.getDate() + ', ' + date_obj.getFullYear()
 		let category = article.fields.category ? article.fields.category[0].fields.title.split(' ')[0].toLowerCase() : null
 		let readMore = <Link to={'/' + category + '/' + article.fields.title} onClick={this.scrollTop}>Read More</Link>
 
