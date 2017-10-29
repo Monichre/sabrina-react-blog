@@ -16,13 +16,16 @@ const renderer = new ReactRenderer()
 // console.log(params)
 // let parsed_content = parser.parse(params)
 // let results = renderer.render(parsed_content)
+// sourcePos={true}
+// 				childAfter={(props.src && props.src.includes('/videos')) ? <Video video={props.src} /> : null}
+// 				allowNode={(node) => { console.log(node); if(node.props.src && node.props.src.includes('/videos')){node.renderer= <Video video={node.props.src} />; return <Video video={node.props.src} />} return true }}
 
-const Video = (props) => {
-	<ReactPlayer 
-		className="embedded_video" 
-		url={props.video.fields.videos ? props.video.fields.videos[0].fields.file.url : props.video.fields.link} width='100%' playing={false} muted loop={false} controls={false} 
-	/>
-}
+// const Video = (props) => {
+// 	<ReactPlayer 
+// 		className="embedded_video" 
+// 		url={props.video.fields.videos ? props.video.fields.videos[0].fields.file.url : props.video.fields.link} width='100%' playing={false} muted loop={false} controls={false} 
+// 	/>
+// }
 
 
 class VIDEO_POST_SINGLE extends Component {
@@ -125,11 +128,7 @@ const ARTICLE_POST_SINGLE = (props) => (
 		<h5 className="sub_title hide_on_mobile">{props.article.fields.subHeader}</h5>
 
 		<div className="content-post">
-			<ReactMarkdown 
-				source={props.article.fields.content} 
-				sourcePos={true}
-				childAfter={(props.src && props.src.includes('/videos')) ? <Video video={props.src} /> : null}
-				allowNode={(node) => { console.log(node); if(node.props.src && node.props.src.includes('/videos')){node.renderer= <Video video={node.props.src} />; return <Video video={node.props.src} />} return true }} />
+			<ReactMarkdown source={props.article.fields.content} />
 		</div>
 		<div className="direction clearfix">
 			<ul className="tags">
