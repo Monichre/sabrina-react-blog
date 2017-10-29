@@ -78,7 +78,7 @@ class VIDEO_POST_SINGLE extends Component {
 				<div className="direction clearfix">
 					<ul className="tags">
 						<li>Tags:</li>
-						<a href="#">{this.props.tags}</a>
+						<a href={`/${this.props.tags}`}>{this.props.tags}</a>
 					</ul>
 					<div className="social-links">
 					<div className="share-tag social-share-link">Share :</div>
@@ -135,7 +135,7 @@ const ARTICLE_POST_SINGLE = (props) => (
 			<ul className="tags">
 				<li>Tags:</li>
 				<li>
-					<a href="#">{props.tags}</a>
+					<a href={`/${props.tags}`}>{props.tags}</a>
 				</li>
 			</ul>
 
@@ -366,7 +366,9 @@ export default class BlogSingle extends Component {
 														return (
 															<li>
 																<div className="thumb">
-																	<img src={entry.fields.photos[0].fields.file.url + '?fit=thumb'} alt="image" />
+																	<a href={entry.fields.link} target="_blank">
+																		<img src={(entry.fields.photos[0] && entry.fields.photos[0].fields !== undefined) ? entry.fields.photos[0].fields.file.url + '?fit=thumb' : null} alt="image" />
+																	</a>
 																</div>
 																<p>{entry.fields.title}</p>
 																<p><a href={entry.fields.link}>Shop Now</a></p>
