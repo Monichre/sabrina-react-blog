@@ -80,21 +80,25 @@ class VIDEO_POST_SINGLE extends Component {
 						<li>Tags:</li>
 						<a href={`/${this.props.tags}`}>{this.props.tags}</a>
 					</ul>
-					<div className="social-links">
+					div className="social-links">
 					<div className="share-tag social-share-link">Share :</div>
-						<div className="social-share-link">
-							<a href="https://www.instagram.com/theresaonthetown/?ref=badge"><i className="fa fa-lg fa-instagram"></i></a>
+		
+					<div className="social-share-link">
+						<a href="https://www.instagram.com/theresaonthetown/?ref=badge"><i className="fa fa-instagram"></i></a>
+					</div>
+					<div className="social-share-link">
+						<div className="g-ytsubscribe" data-channelid="UCvZKd-eUuq8A66J-uLr4CZQ" data-layout="default" data-theme="dark" data-count="default" data-onytevent="onYtEvent">
+							<i className="fa fa-youtube"></i>
 						</div>
-						<div className="social-share-link">
-							<script rel="preload" src="https://apis.google.com/js/platform.js"></script>
-							<div className="g-ytsubscribe" data-channelid="UCvZKd-eUuq8A66J-uLr4CZQ" data-layout="default" data-theme="dark" data-count="default" data-onytevent="onYtEvent"></div>
-						</div>
-						<div className="social-share-link fb-share-button" data-href="https://www.theresaonthetown.com" data-layout="button_count" data-size="large" data-mobile-iframe="true">
-							<a className="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.theresaonthetown.com%2F&amp;src=sdkpreparse"></a>
-						</div>
-						<div className="social-share-link">
-							<a data-pin-do="buttonBookmark" href="https://www.pinterest.com/theresaonthetwn"></a>
-						</div>
+					</div>
+					
+					<div className="social-share-link" data-href="https://www.theresaonthetown.com" data-layout="button_count" data-size="large" data-mobile-iframe="true">
+						<a className="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.theresaonthetown.com%2F&amp;src=sdkpreparse">
+							<i className="fa fa-facebook"></i>
+						</a>
+					</div>
+					<div className="social-share-link">
+						<a data-pin-do="buttonBookmark" href="https://www.pinterest.com/theresaonthetwn"><i className="fa fa-pinterest"></i></a>
 					</div>
 
 				</div>
@@ -103,8 +107,6 @@ class VIDEO_POST_SINGLE extends Component {
 	}
 }
 
-
-// transformLinkUri={props.handleVideo(props.article.fields.content)}
 const ARTICLE_POST_SINGLE = (props) => (
 	<article className="post">
 		<div className="header-post">
@@ -139,21 +141,23 @@ const ARTICLE_POST_SINGLE = (props) => (
 
 			<div className="social-links">
 				<div className="share-tag social-share-link">Share :</div>
+	
 				<div className="social-share-link">
-					<a href="https://www.instagram.com/theresaonthetown/?ref=badge"><i className="fa fa-lg fa-instagram"></i></a>
+					<a href="https://www.instagram.com/theresaonthetown/?ref=badge"><i className="fa fa-instagram"></i></a>
 				</div>
 				<div className="social-share-link">
-					<script rel="preload" src="https://apis.google.com/js/platform.js"></script>
-					<div className="g-ytsubscribe" data-channelid="UCvZKd-eUuq8A66J-uLr4CZQ" data-layout="default" data-theme="dark" data-count="default" data-onytevent="onYtEvent"></div>
+					<div className="g-ytsubscribe" data-channelid="UCvZKd-eUuq8A66J-uLr4CZQ" data-layout="default" data-theme="dark" data-count="default" data-onytevent="onYtEvent">
+						<i className="fa fa-youtube"></i>
+					</div>
 				</div>
 				
-				<div className="social-share-link fb-share-button" data-href="https://www.theresaonthetown.com" data-layout="button_count" data-size="large" data-mobile-iframe="true">
+				<div className="social-share-link" data-href="https://www.theresaonthetown.com" data-layout="button_count" data-size="large" data-mobile-iframe="true">
 					<a className="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.theresaonthetown.com%2F&amp;src=sdkpreparse">
-						
+						<i className="fa fa-facebook"></i>
 					</a>
 				</div>
 				<div className="social-share-link">
-					<a data-pin-do="buttonBookmark" href="https://www.pinterest.com/theresaonthetwn"></a>
+					<a data-pin-do="buttonBookmark" href="https://www.pinterest.com/theresaonthetwn"><i className="fa fa-pinterest"></i></a>
 				</div>
 			</div>
 		</div>
@@ -282,12 +286,7 @@ export default class BlogSingle extends Component {
 
 		return (
 			<div id="Blog">
-				<Helmet>
-					<script rel="preload" src="https://apis.google.com/js/platform.js"></script>
-					<script src="/pinit.js"></script>
-				</Helmet>
-
-
+			
 				<div className="page-title parallax parallax1">
 					<div className="container">
 						<div className="row">

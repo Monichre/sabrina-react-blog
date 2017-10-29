@@ -190,7 +190,7 @@ export default class SubscriptionStatus extends Component {
                         </mask>
                             <mask id="messageMask">
 
-                                <path className="messageOutline" fill="#FFFFFF" stroke="#FFFFFF" strokeWidth="8" stroke-linecap="round" strokeLinejoin="round" strokeMiterlimit="10" d="			M364.9,307.6H240.5v-77.7h124.4V307.6z" />
+                                <path className="messageOutline" fill="#FFFFFF" stroke="#FFFFFF" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" d="			M364.9,307.6H240.5v-77.7h124.4V307.6z" />
                             </mask>
                             <mask id="circleMask">
                                 <rect width="600" height="600" fill="#FFFFFF" />
@@ -201,9 +201,9 @@ export default class SubscriptionStatus extends Component {
                      
                         <g id="messageGroup" mask="url(#ringMask)">
                             <g id="emailGroup" mask="url(#circleMask)">
-                                <path className="messageOutline" id="messageOutline" fill="none" stroke="#FFFFFF" strokeWidth="8" stroke-linecap="round" strokeLinejoin="round" strokeMiterlimit="10" d="			M364.9,307.6H240.5v-77.7h124.4V307.6z" />
+                                <path className="messageOutline" id="messageOutline" fill="none" stroke="#FFFFFF" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" d="			M364.9,307.6H240.5v-77.7h124.4V307.6z" />
                                 <g id="maskedMessageFlap" mask="url(#messageMask)">
-                                    <path id="messageFlap" fill="none" stroke="#FFFFFF" strokeWidth="8" stroke-linecap="round" strokeLinejoin="round" strokeMiterlimit="10" d="			M242.1,234.1l61.4,61.4l59.8-61.4" />
+                                    <path id="messageFlap" fill="none" stroke="#FFFFFF" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" d="			M242.1,234.1l61.4,61.4l59.8-61.4" />
                                 </g>
                             </g>
                             <g id="planeGroup">

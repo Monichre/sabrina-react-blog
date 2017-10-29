@@ -893,7 +893,7 @@ ul.recent-list li a:after, ul.recent-list li .text a:after {
 .share-tag.social-share-link {
     font-weight: 600;
     color: #222222;
-    font-size: 14px;
+    font-size: 12px;
     text-transform: uppercase;
     margin-right: 12px;
 }
@@ -904,7 +904,7 @@ ul.recent-list li a:after, ul.recent-list li .text a:after {
     vertical-align: middle;
 }
 .social-share-link .fa {
-    font-size: 25px!important;
+    
 }
 
 /*Flat about*/
@@ -2403,7 +2403,7 @@ input[type="color"],
 }
 
 .main-content .post .content-post p {
-	margin-bottom: 24px;
+	
 }
 
 .post .content-post .meta-post {
@@ -2468,7 +2468,7 @@ input[type="color"],
 }
 
 .main-content.blog-single .post .content-post p {
-    margin: 30px auto;
+    margin: 15px auto;
     font-size: 18px;
     text-align: justify;
     /* text-indent: 50px; */

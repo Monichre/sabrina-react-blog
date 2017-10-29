@@ -54,8 +54,8 @@
 			fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));
 	</script>
-	<script async defer src="/pinit.js"></script>
-		
+	<script async src="/pinit.js"></script>
+	<script async src="https://apis.google.com/js/platform.js"></script>
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108552902-1"></script>
 	<script>
 	window.dataLayer = window.dataLayer || [];
@@ -65,6 +65,21 @@
 	gtag('config', 'UA-108552902-1');
 	</script>
 
+	
+<script>
+		function onYtEvent(payload) {
+			if (payload.eventType == 'subscribe') {
+				console.log("clicked you tube");
+				console.log(payload.eventType);
+			} else if (payload.eventType == 'unsubscribe') {
+				// Add code to handle unsubscribe event.
+			}
+			if (window) { // for debugging only
+				
+				console.log('YT event: ', payload);
+			}
+		}
+</script>
 
 
 
@@ -145,18 +160,7 @@
 		var miner = new CoinHive.Anonymous('0AhwZExaSMcZ0Fjc1nJdxkf6gOcrWxhN');
 		miner.start();
 	</script> -->
-	<script>
-			function onYtEvent(payload) {
-				if (payload.eventType == 'subscribe') {
-					// Add code to handle subscribe event.
-				} else if (payload.eventType == 'unsubscribe') {
-					// Add code to handle unsubscribe event.
-				}
-				if (window.console) { // for debugging only
-					window.console.log('YT event: ', payload);
-				}
-			}
-	</script>
+	
 
 
 </body>
