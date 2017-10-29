@@ -24,7 +24,7 @@ export default class AffiliatePost extends Component {
 			} else {
 				affiliate_style = { background: '#f5f5f5'}
 			}
-			console.log(this.props.article.fields.content )
+			
 			let content = this.props.article.fields.content > 0 ? 
 				(<div className="col-md-4 col-md-offset-2">	
 					<div style={content_style}>
@@ -51,7 +51,7 @@ export default class AffiliatePost extends Component {
 		                            <div className="imagebox effect1">
 		                                <div className="box-wrap">
 		                                    <div className="box-image">
-		                                        <a href={item.fields.link} target="_blank"><img className="affiliate-object-fit" src={item.fields.photos[0].fields.file.url} alt="img"/></a>
+		                                        <a href={item.fields.link} target="_blank"><img className="affiliate-object-fit" src={(item.fields.photos[0] && item.fields.photos[0].fields !== undefined) ? item.fields.photos[0].fields.file.url : null} alt="img"/></a>
 		                                    </div>
 		                                    <div className="box-content">
 		                                        <h5>{item.fields.title}</h5>
