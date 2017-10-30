@@ -10,7 +10,7 @@ export default class BlogPostPreviewRight extends Component {
         if (this.props.subTitle) {
             subTitle = <h5 className="sub_title">{this.props.subTitle}</h5>
         } else {
-            subTitle = ''
+            subTitle = <h5 className="sub_title"></h5>
         }
 		return(
 			<section className="flat-row flat-our blog-post-preview">
@@ -34,7 +34,7 @@ export default class BlogPostPreviewRight extends Component {
                                     <p className="date-event date-style-2 hide_on_mobile"> <span>{this.props.date}</span></p>
                                 </div>
 								<div className="content-story">
-                                <ReactMarkdown source={TRIM(this.props.content)} disallowedTypes={['Image']} />
+                                    <ReactMarkdown source={TRIM(this.props.content)} disallowedTypes={['Image']} />
                                 </div>
 								<div className="read-more">{this.props.readMore}</div>
                             </div>

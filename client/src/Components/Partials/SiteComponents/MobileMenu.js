@@ -31,7 +31,6 @@ export default class MobileMenu extends Component {
         let menu = document.querySelectorAll('.mobile_menu_item')
         let _self = this
         menu.forEach(menuItem => {
-            console.log(menuItem)
             menuItem.addEventListener('click', () => {
                 _self.setState({mobileMenuOpen: false})
                 document.getElementById('MobileMenu').classList.remove('mobile_menu_active')

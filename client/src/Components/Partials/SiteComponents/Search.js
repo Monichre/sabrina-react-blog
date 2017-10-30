@@ -85,7 +85,7 @@ export default class Search extends Component {
 					</label>
 					<input type="submit" className="search-submit" value="Submit"/>
 				</form>
-				<a href="#" id="close-search" className="close-btn" onClick={this.closeClick.bind(this)}><i className="fa fa-times" aria-hidden="true"></i></a>
+				<a href="" id="close-search" className="close-btn" onClick={this.closeClick.bind(this)}><i className="fa fa-times" aria-hidden="true"></i></a>
 
 				<div id="search-results" className={search_active}>
 					<div className="search-menu">

@@ -15,7 +15,7 @@ export default class BlogPostPreviewLeft extends Component {
         if (this.props.subTitle) {
             subTitle = <h5 className="sub_title">{this.props.subTitle}</h5>
         } else {
-            subTitle = ''
+            subTitle = <h5 className="sub_title"></h5>
         }
  
         return (
@@ -33,7 +33,7 @@ export default class BlogPostPreviewLeft extends Component {
                                 </div>
                                 <div className="entry-post">
                                     <div className="show_on_mobile">
-                                    <img src={this.props.image + '?w=555&h=500'} alt="images" className="object-fit" />
+                                    <img src={this.props.image + '?w=555&h=500'} alt={this.props.title} className="object-fit" />
                                     </div>
                                     <p className="date-event date-style-2 hide_on_mobile"> <span>{this.props.date}</span></p>
                                 </div>
@@ -45,7 +45,7 @@ export default class BlogPostPreviewLeft extends Component {
                             <div className="flat-divider d47px"></div>
                         </div>
                         <div className="col-md-6 hide_on_mobile">
-                            <img src={this.props.image + '?w=555&h=500'} alt="images" className="object-fit" />
+                            <img src={this.props.image + '?w=555&h=500'} alt={this.props.title} className="object-fit" />
                         </div>
 
                     </div>

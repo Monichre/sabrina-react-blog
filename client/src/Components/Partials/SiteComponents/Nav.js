@@ -197,8 +197,8 @@ export default class Nav extends Component {
                     to={'/'}>Theresa on the Town</Link>
             </li>
         )
-        const search_trigger = <li style={search_menu_item_style}><a className="search-trigger" href="#" onClick={this.searchClick.bind(this)}><i className="fa fa-search"></i></a></li>
-        const mobile_search_trigger = <li className="mobile_menu_item"><a className="search-trigger" href="#" onClick={this.searchClick.bind(this)}><i className="fa fa-search"></i></a></li>
+        const search_trigger = <li style={search_menu_item_style}><a className="search-trigger" href="" onClick={this.searchClick.bind(this)}><i className="fa fa-search"></i></a></li>
+        const mobile_search_trigger = <li className="mobile_menu_item"><a className="search-trigger" href="" onClick={this.searchClick.bind(this)}><i className="fa fa-search"></i></a></li>
         const menu_items = []
         const mobile_menu_items = []
         nav_items.forEach((nav_item) => {
@@ -262,22 +262,22 @@ export default class Nav extends Component {
                 
                                          
                 <div className="flat-vertical social-links side_nav">
-					<a href="https://www.pinterest.com/theresaonthetwn/">
-                        <i className="fa fa-pinterest"></i>
+                    <a data-pin-do="buttonFollow" data-pin-custom="true" href="https://www.pinterest.com/theresaonthetwn"><i className="fa fa-pinterest"></i></a>
+
+					<a className="" data-href="https://www.theresaonthetown.com" data-layout="button_count" data-size="large" data-mobile-iframe="true">
+                        <a className="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.theresaonthetown.com%2F&amp;src=sdkpreparse">
+                            <i className="fa fa-facebook"></i>
+                        </a>
                     </a>
-					<a href="https://www.facebook.com/theresaonthetown/">
-                        <i className="fa fa-facebook"></i>
-                    </a>
-					<a href="https://www.youtube.com/channel/UCvZKd-eUuq8A66J-uLr4CZQ">
+					<a className="g-ytsubscribe" data-channelid="UCvZKd-eUuq8A66J-uLr4CZQ" data-layout="default" data-theme="dark" data-count="default" data-onytevent="onYtEvent">
                         <i className="fa fa-youtube"></i>
                     </a>
-                    <a href="https://www.instagram.com/theresaonthetown/">
-                        <i className="fa fa-instagram"></i>
-                    </a>
+                    <a href="https://www.instagram.com/theresaonthetown/?ref=badge"><i className="fa fa-instagram"></i></a>
+
                     <span>FOLLOW ME</span>
                 </div>
                 <div className="flat-vertical reservation side_nav">
-                    <a href="#" onClick={this.modalTriggerClick.bind(this)}>
+                    <a href="" onClick={this.modalTriggerClick.bind(this)}>
                         <span>SIGN UP</span>
                     </a>
                 </div>
@@ -286,3 +286,7 @@ export default class Nav extends Component {
         )
     }
 }
+
+
+
+

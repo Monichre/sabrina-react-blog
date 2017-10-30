@@ -1,7 +1,7 @@
 const TRIM = (str) => {
-    if (str.length > 505) {
+    if (str.length > 205) {
         let array = str.split('')
-        str = array.splice(0, 500)
+        str = array.splice(0, 200)
         str.push('...')
         str = str.join('')
     }
