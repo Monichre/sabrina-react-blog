@@ -10,30 +10,6 @@ import Video from './Video'
 import AppDispatcher from '../../Dispatcher/AppDispatcher'
 import AppStore from '../../Stores/AppStore'
 
-const CommonMark = require('commonmark')
-const ReactRenderer = require('commonmark-react-renderer')
-const parser = new CommonMark.Parser()
-const renderer = new ReactRenderer()
-
-// console.log(params)
-// let parsed_content = parser.parse(params)
-// let results = renderer.render(parsed_content)
-// sourcePos={true}
-// 				childAfter={(props.src && props.src.includes('/videos')) ? <Video video={props.src} /> : null}
-// 				allowNode={(node) => { console.log(node); if(node.props.src && node.props.src.includes('/videos')){node.renderer= <Video video={node.props.src} />; return <Video video={node.props.src} />} return true }}
-
-// const Video = (props) => {
-// 	<ReactPlayer 
-// 		className="embedded_video" 
-// 		url={props.video.fields.videos ? props.video.fields.videos[0].fields.file.url : props.video.fields.link} width='100%' playing={false} muted loop={false} controls={false} 
-// 	/>
-// }
-{/* <Helmet>
-<body>
-	{`<script src="https://apis.google.com/js/platform.js"></script>`}
-	{`<script async defer  data-pin-custom="true" src="/pinit.js"></script>`}
-</body>
-</Helmet> */}
 
 export default class BlogSingle extends Component {
 
@@ -51,23 +27,6 @@ export default class BlogSingle extends Component {
 			post_slug: this.props.match.params.slug
 		})
 	}
-	handleEmbeddedVideo(params) {
-		return this.presentExtractedVideo(params)
-	}
-	presentExtractedVideo(node) {
-		const renderer = new ReactRenderer()
-		let results = renderer.render(node)
-		// console.log(parsed_content)
-		let return_content = results[0].props.children.map(child => {
-			if (child.props && child.props.src.includes('//videos')) {
-				return (
-					<ReactPlayer url={child.props.src} height='100%' width='100%' />
-				)
-			}
-		})
-		return return_content
-	}
-
 	componentWillUnmount() {
 		AppStore.removeChangeListener(this._onChange)
 	}
@@ -156,7 +115,7 @@ export default class BlogSingle extends Component {
 				videos = article.fields.videos
 			}
 
-			blog_post_single = <Article article={article} videos={videos} image={image} photos={photos} created={created} tags={tags} handleVideo={this.handleEmbeddedVideo.bind(this)} />
+			blog_post_single = <Article article={article} videos={videos} image={image} photos={photos} created={created} tags={tags} />
 		}
 
 		return (
