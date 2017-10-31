@@ -2,6 +2,7 @@ const express = require('express')
 const NodeMailer = require('nodemailer')
 const path = require('path')
 const bodyParser = require('body-parser')
+const shrinkRay = require('shrink-ray')
 
 const config =  {
   email_info : {
@@ -34,6 +35,11 @@ app.use(function(req, res, next) {
     res.setHeader('Cache-Control', 'no-cache')
     next()
 })
+app.use(shrinkRay({
+        brotli: {
+            quality: 11 
+        }
+    }))
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 app.get('*', function(request, response) {
   response.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
