@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Switch, Link, Route, Redirect } from 'react-router-dom'
 import ReactPlayer from 'react-player'
-import ReactMarkdown from 'react-markdown'
 import _ from 'lodash'
 import Masonry from 'react-masonry-component'
 import Article from './Article'
@@ -15,15 +14,10 @@ export default class BlogSingle extends Component {
 
 	componentWillMount() {
 		this.getPageData()
-
-		let script = document.createElement('script')
-		script.setAttribute('src', "/pinit.js")
-		document.querySelector('body').appendChild(script)
 	}
 	getPageData() {
 		AppDispatcher.dispatch({
 			action: 'get-page-data',
-			//   page_slug: this.props.data.page.slug,
 			post_slug: this.props.match.params.slug
 		})
 	}
@@ -36,9 +30,7 @@ export default class BlogSingle extends Component {
 	}
 	componentDidMount() {
 		AppStore.addChangeListener(this._onChange.bind(this))
-
 	}
-
 	handleLinkClick(params) {
 		let data = this.props.data
 		let article = data.article

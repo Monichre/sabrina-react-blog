@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 import Axios from 'axios'
 import Search from './Search'
 import MobileMenu from './MobileMenu'
-
+import { PinItButton, PinterestFollowButton } from 'react-pinterest'
 import '../../css/Nav.css'
 import SubscriptionStatus from './SubscriptionStatus'
 
