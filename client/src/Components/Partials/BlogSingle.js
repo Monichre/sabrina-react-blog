@@ -4,6 +4,8 @@ import ReactPlayer from 'react-player'
 import ReactMarkdown from 'react-markdown'
 import _ from 'lodash'
 import Masonry from 'react-masonry-component'
+import Article from './Article'
+import Video from './Video'
 
 import AppDispatcher from '../../Dispatcher/AppDispatcher'
 import AppStore from '../../Stores/AppStore'
@@ -33,183 +35,13 @@ const renderer = new ReactRenderer()
 </body>
 </Helmet> */}
 
-
-class VIDEO_POST_SINGLE extends Component {
-	componentDidMount() {
-
-		let all_videos = document.querySelectorAll('.single_post_video video')
-		let on = ['mouseenter', 'touchstart']
-		let off = ['mouseleave', 'touchend']
-
-		const addControls = (elem) => elem.setAttribute('controls', true)
-		const removeControls = (elem) => elem.removeAttribute('controls')
-
-		all_videos.forEach(video => {
-			video.setAttribute('muted', true)
-			video.addEventListener('mouseenter', (e) => {
-
-				addControls(e.target)
-			})
-			video.addEventListener('touchstart', (e) => {
-				addControls(e.target)
-			})
-			video.addEventListener('mouseleave', (e) => {
-
-				removeControls(e.target)
-			})
-			video.addEventListener('touchend', (e) => {
-				removeControls(e.target)
-			})
-		})
-	}
-	handleMute(e) {
-		let video_player = e.target
-		video_player.setAttribute('muted', false)
-	}
-
-	render() {
-		return (
-			<article className="post">
-				<div className="header-post">
-					<h2 className="title-post">
-						{this.props.video.fields.title}
-					</h2>
-					<p className="date-event date-style-2"><span>{this.props.video.fields.subHeader}</span></p>
-				</div>
-
-				<div className="blog-post-single-image-container">
-					<ReactPlayer className="single_post_video" onClick={this.handleMute.bind(this)} url={this.props.video.fields.videos ? this.props.video.fields.videos[0].fields.file.url : this.props.video.fields.link} width='100%' playing={false} muted loop={false} controls={false} />
-				</div>
-
-				<div className="content-post">
-					<p dangerouslySetInnerHTML={{ __html: this.props.video.fields.description }}></p>
-				</div>
-				<div className="direction clearfix">
-					<ul className="tags">
-						<li>Tags:</li>
-						<a href={`/${this.props.tags}`}>{this.props.tags}</a>
-					</ul>
-					<div className="social-links">
-							<div className="share-tag social-share-link">Share :</div>
-			
-							<div className="social-share-link">
-								<a href="https://www.instagram.com/theresaonthetown/?ref=badge"><i className="fa fa-instagram"></i></a>
-							</div>
-							<div className="social-share-link">
-								<div className="g-ytsubscribe" data-channelid="UCvZKd-eUuq8A66J-uLr4CZQ" data-layout="default" data-theme="dark" data-count="default" data-onytevent="onYtEvent">
-									<i className="fa fa-youtube"></i>
-								</div>
-							</div>
-						
-						<div className="social-share-link" data-href="https://www.theresaonthetown.com" data-layout="button_count" data-size="large" data-mobile-iframe="true">
-							<a className="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.theresaonthetown.com%2F&amp;src=sdkpreparse">
-								<i className="fa fa-facebook"></i>
-							</a>
-						</div>
-						<div className="social-share-link">
-							<a data-pin-do="buttonBookmark" href="https://www.pinterest.com/theresaonthetwn"><i className="fa fa-pinterest"></i></a>
-						</div>
-					</div>
-
-				</div>
-			</article>
-		)
-	}
-}
-
-const ARTICLE_POST_SINGLE = (props) => (
-	<article className="post">
-		<div className="header-post">
-			<h2 className="title-post">
-				{props.article.fields.title}
-			</h2>
-			<h5 className="sub_title show_on_mobile">{props.article.fields.subHeader}</h5>
-			<p className="date-event date-style-2"> <span>{props.created}</span></p>
-		</div>
-		<div className="blog-post-single-image-container">
-			{props.image}
-		</div>
-		<h5 className="sub_title hide_on_mobile">{props.article.fields.subHeader}</h5>
-		<div className="content-post">
-			<ReactMarkdown source={props.article.fields.content} />
-		</div>
-		<section className="flat-row products shop-1">
-					<div className="container">
-						
-						<Masonry className={"row"}>
-							{props.photos.map((photo) => {
-									return (
-										<div className="col-sm-3 col-xs-6">
-										<div className="product effect1">
-											<div className="box-wrap">
-												<div className="box-image">
-													<a href=""><img src={photo.fields.file.url + '?f=face&fit=thumb'} alt="images" /></a></div>
-												<div className="box-content">
-													<ul>
-														
-														<li>
-															<i className="fa fa-heart"></i>
-															<i className="fa fa-heart"></i>
-															<i className="fa fa-heart"></i>
-															<i className="fa fa-heart"></i>
-															<i className="fa fa-heart"></i>
-														</li>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</div>
-									)
-									
-								})}
-							</Masonry>    
-						
-					</div>
-			</section>
-		<div className="direction clearfix">
-			<ul className="tags">
-				<li>Tags:</li>
-				<li>
-					<a href={`/${props.tags}`}>{props.tags}</a>
-				</li>
-			</ul>
-
-			<div className="social-links">
-				<div className="share-tag social-share-link">Share :</div>
-	
-				<div className="social-share-link">
-					<a href="https://www.instagram.com/theresaonthetown/?ref=badge"><i className="fa fa-instagram"></i></a>
-				</div>
-				<div className="social-share-link">
-					<div className="" data-channelid="UCvZKd-eUuq8A66J-uLr4CZQ" data-onytevent="onYtEvent">
-					<i className="fa fa-youtube"></i>
-					</div>
-					
-					
-				</div>
-				<script src="https://apis.google.com/js/platform.js"></script>
-				<div className="social-share-link" data-href="https://www.theresaonthetown.com" data-layout="button_count" data-size="large" data-mobile-iframe="true">
-					<a className="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.theresaonthetown.com%2F&amp;src=sdkpreparse">
-						<i className="fa fa-facebook"></i>
-					</a>
-				</div>
-				<div className="social-share-link">
-					<a data-pin-do="buttonBookmark" data-pin-custom="true" href="https://www.pinterest.com/theresaonthetwn"><i className="fa fa-pinterest"></i></a>
-				</div>
-			</div>
-		</div>
-	</article>
-
-
-)
-
 export default class BlogSingle extends Component {
 
 	componentWillMount() {
 		this.getPageData()
-		
+
 		let script = document.createElement('script')
-		script.setAttribute('src', "https://apis.google.com/js/platform.js")
+		script.setAttribute('src', "/pinit.js")
 		document.querySelector('body').appendChild(script)
 	}
 	getPageData() {
@@ -312,15 +144,19 @@ export default class BlogSingle extends Component {
 
 		if (path.includes('videos')) {
 
-			blog_post_single = <VIDEO_POST_SINGLE video={article} tags={tags} />
+			blog_post_single = <Video video={article} tags={tags} />
 		}
 		else {
 			let photos
+			let videos
 			if (article.fields.photos.length > 0) {
 				photos = article.fields.photos
 			}
-			
-			blog_post_single = <ARTICLE_POST_SINGLE article={article} image={image} photos={photos} created={created} tags={tags} handleVideo={this.handleEmbeddedVideo.bind(this)} />
+			if (Object.keys(article.fields).includes('videos') && article.fields.videos.length > 0) {
+				videos = article.fields.videos
+			}
+
+			blog_post_single = <Article article={article} videos={videos} image={image} photos={photos} created={created} tags={tags} handleVideo={this.handleEmbeddedVideo.bind(this)} />
 		}
 
 		return (
