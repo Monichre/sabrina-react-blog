@@ -264,6 +264,7 @@ export default class Nav extends Component {
                 <div className="flat-vertical social-links side_nav">
                     <a data-pin-do="buttonFollow" data-pin-custom="true" href="https://www.pinterest.com/theresaonthetwn"><i className="fa fa-pinterest"></i></a>
                     <a data-href="https://www.theresaonthetown.com" data-layout="button_count" data-size="large" data-mobile-iframe="true" className="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.theresaonthetown.com%2F&amp;src=sdkpreparse"><i className="fa fa-facebook"></i></a>
+                    <a href="https://www.youtube.com/channel/UCvZKd-eUuq8A66J-uLr4CZQ"><i className="fa fa-youtube"></i></a>
                     <a href="https://www.instagram.com/theresaonthetown/?ref=badge"><i className="fa fa-instagram"></i></a>
                     <span>FOLLOW ME</span>
                 </div>

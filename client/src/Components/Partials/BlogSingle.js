@@ -107,7 +107,7 @@ export default class BlogSingle extends Component {
 				videos = article.fields.videos
 			}
 
-			blog_post_single = <Article article={article} videos={videos} image={image} photos={photos} created={created} tags={tags} />
+			blog_post_single = <Article article={article} image={image} photos={photos} created={created} tags={tags} />
 		}
 
 		return (

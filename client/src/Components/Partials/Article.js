@@ -16,7 +16,7 @@ const renderer = new ReactRenderer()
 export default class Article extends Component {
 	componentDidMount() {
 
-		let all_videos = document.querySelectorAll('.single_post_video video')
+		let all_videos = document.querySelectorAll('.popup-video video')
 		let on = ['mouseenter', 'touchstart']
 		let off = ['mouseleave', 'touchend']
 
@@ -47,18 +47,21 @@ export default class Article extends Component {
 	}
 
 	render() {
-        let videos
-        if(this.props.videos){
+		console.log(this.props.article)
+		const hasVideo = article => (article.fields.videos || Object.values(article.fields).includes('videos') && article.fields.videos.length > 0)
+		let videos
+		
+        if(hasVideo(this.props.article)){
             videos = (
                 <section className="promo-video space">
 					<div className="container">
 						<div className="row">
-							{videos.map(video =>
+							{this.props.article.fields.videos.map(video =>
 								<div className="col-md-6">
 									<div className="imgbox style3">
 										<div className="">
 											<a className="popup-video">
-												<ReactPlayer onClick={this.handleMute.bind(this)} url={video.fields.videos ? video.fields.videos[0].fields.file.url : video.fields.link} width='95%' playing={false} muted loop={false} controls={false} />
+												<ReactPlayer onClick={this.handleMute.bind(this)} url={video.fields.file.url} width='95%' playing={false} muted loop={false} controls={false} />
 											</a>
 										</div>
 
