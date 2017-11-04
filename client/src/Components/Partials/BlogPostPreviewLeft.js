@@ -33,7 +33,7 @@ export default class BlogPostPreviewLeft extends Component {
                                 </div>
                                 <div className="entry-post">
                                     <div className="show_on_mobile">
-                                    <img src={this.props.image + '?w=555&h=500'} alt={this.props.title} className="object-fit" />
+                                    <img src={this.props.image + '?w=555&h=500'} alt={this.props.title} className="" />
                                     </div>
                                     <p className="date-event date-style-2 hide_on_mobile"> <span>{this.props.date}</span></p>
                                 </div>

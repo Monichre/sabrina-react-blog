@@ -3981,10 +3981,12 @@ video {
 
 /*Blog Post Single*/
 .blog-post-single-image-container img {
-    height: 500px;
+    /* height: 500px;
     object-fit: cover;
     object-position: top;
-    width: 100%;
+    width: 100%; */
+    display: block;
+    margin: auto;
 }
 .main-content.blog-single .post .direction {
     border-top: 1px solid #e5e5e5;

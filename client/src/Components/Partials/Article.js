@@ -101,18 +101,7 @@ export default class Article extends Component {
 										<div className="product effect1">
 											<div className="box-wrap">
 												<div className="box-image">
-													<a href=""><img src={photo.fields.file.url + '?f=face&fit=thumb'} alt="images" /></a></div>
-												<div className="box-content">
-													<ul>
-
-														<li>
-															<i className="fa fa-heart"></i>
-															<i className="fa fa-heart"></i>
-															<i className="fa fa-heart"></i>
-															<i className="fa fa-heart"></i>
-															<i className="fa fa-heart"></i>
-														</li>
-													</ul>
+													<img src={photo.fields.file.url + '?f=face&fit=thumb'} alt="images" />
 												</div>
 											</div>
 										</div>
@@ -144,6 +133,7 @@ export default class Article extends Component {
 						</div>
 						<div className="social-share-link">
 							<a data-pin-do="buttonBookmark" data-pin-custom="true" href="https://www.pinterest.com/theresaonthetwn"><i className="fa fa-pinterest"></i></a>
+							
 						</div>
 					</div>
 				</div>

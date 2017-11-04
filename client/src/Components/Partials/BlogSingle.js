@@ -14,6 +14,8 @@ export default class BlogSingle extends Component {
 
 	componentWillMount() {
 		this.getPageData()
+		document.body.scrollTop = 0
+		document.documentElement.scrollTop = 0
 	}
 	getPageData() {
 		AppDispatcher.dispatch({
