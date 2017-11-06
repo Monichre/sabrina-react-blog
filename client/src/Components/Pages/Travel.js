@@ -32,11 +32,12 @@ export default class Travel extends Component {
     const page = this.props.data.page
     const pageTitle = page.fields.title
     const headers = this.props.data.section_headers
+    console.log(headers)
     let polaroid_header
 
-    const includesPageTag = (header) => Object.keys(header.fields).includes('page')    
+    const includesPageTag = (header) => (Object.keys(header.fields).includes('sectionReference') ||  header.fields.sectionReference)
     headers.forEach(function(header) {
-        if (includesPageTag(header) && header.fields.page.fields.name === 'Polaroid') {
+        if (includesPageTag(header) && (header.fields.sectionReference === 'Polaroid') || header.fields.sectionReference === 'polaroid') {
             polaroid_header = header
         }
         

@@ -2,7 +2,7 @@
 import React, {Component} from 'react'
 import AppDispatcher from '../../Dispatcher/AppDispatcher'
 import ReactMarkdown from 'react-markdown'
-import TRIM from '../../utils'
+import CONSTANTS from '../../constants'
 
 export default class BlogPostPreviewRight extends Component {
 	render(){
@@ -29,12 +29,12 @@ export default class BlogPostPreviewRight extends Component {
                                 </div>
                                 <div className="entry-post">
                                     <div className="show_on_mobile">
-                                    <img src={this.props.image + '?w=555&h=500'} alt="images" className="object-fit" />
+                                    <img src={this.props.image + '?w=555&h=500'} alt="images" className="" />
                                     </div>
                                     <p className="date-event date-style-2 hide_on_mobile"> <span>{this.props.date}</span></p>
                                 </div>
 								<div className="content-story">
-                                    <ReactMarkdown source={TRIM(this.props.content)} disallowedTypes={['Image']} />
+                                    <ReactMarkdown source={CONSTANTS.TRIM(this.props.content)} disallowedTypes={['Image']} />
                                 </div>
 								<div className="read-more">{this.props.readMore}</div>
                             </div>

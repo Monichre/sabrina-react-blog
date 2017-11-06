@@ -64,17 +64,8 @@ export default class Video extends Component {
                     <p dangerouslySetInnerHTML={{ __html: this.props.video.fields.description }}></p>
                 </div>
                 <div className="direction clearfix">
-                    <ul className="tags">
-                        <li>Tags:</li>
-                        <a href={`/${this.props.tags}`}>{this.props.tags}</a>
-                    </ul>
                     <div className="social-links">
                         <div className="share-tag social-share-link">Share :</div>
-
-                        <div className="social-share-link">
-                            <a href="https://www.instagram.com/theresaonthetown/?ref=badge"><i className="fa fa-instagram"></i></a>
-                        </div>
-                  
                         <div className="social-share-link" data-href="https://www.theresaonthetown.com" data-layout="button_count" data-size="large" data-mobile-iframe="true">
                             <a className="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.theresaonthetown.com%2F&amp;src=sdkpreparse">
                                 <i className="fa fa-facebook"></i>
@@ -84,7 +75,6 @@ export default class Video extends Component {
                             <a data-pin-do="buttonBookmark" href="https://www.pinterest.com/theresaonthetwn"><i className="fa fa-pinterest"></i></a>
                         </div>
                     </div>
-
                 </div>
             </article>
         )

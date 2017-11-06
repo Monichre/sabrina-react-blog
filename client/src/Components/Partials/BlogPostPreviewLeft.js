@@ -1,7 +1,7 @@
 // Work.js
 import React, {Component} from 'react'
 import ReactMarkdown from 'react-markdown'
-import TRIM from '../../utils'
+import CONSTANTS from '../../constants'
 
 // Components
 
@@ -38,14 +38,14 @@ export default class BlogPostPreviewLeft extends Component {
                                     <p className="date-event date-style-2 hide_on_mobile"> <span>{this.props.date}</span></p>
                                 </div>
 								<div className="content-story">
-                                <ReactMarkdown source={TRIM(this.props.content)} disallowedTypes={['Image']} escapeHtml={false}/>
+                                <ReactMarkdown source={CONSTANTS.TRIM(this.props.content)} disallowedTypes={['Image']} escapeHtml={false}/>
                                 </div>
 								<div className="read-more">{this.props.readMore}</div>
                             </div>
                             <div className="flat-divider d47px"></div>
                         </div>
                         <div className="col-md-6 hide_on_mobile">
-                            <img src={this.props.image + '?w=555&h=500'} alt={this.props.title} className="object-fit" />
+                            <img src={this.props.image + '?w=555&h=500'} alt={this.props.title} className="" />
                         </div>
 
                     </div>
