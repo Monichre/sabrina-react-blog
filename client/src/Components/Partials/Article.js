@@ -4,14 +4,34 @@ import ReactPlayer from 'react-player'
 import ReactMarkdown from 'react-markdown'
 import _ from 'lodash'
 import Masonry from 'react-masonry-component'
-
 import AppDispatcher from '../../Dispatcher/AppDispatcher'
 import AppStore from '../../Stores/AppStore'
-
+import CONSTANTS from '../../constants'
 const CommonMark = require('commonmark')
 const ReactRenderer = require('commonmark-react-renderer')
 const parser = new CommonMark.Parser()
 const renderer = new ReactRenderer()
+{/* <section className="flat-row products shop-1">
+<div className="container">
+	<Masonry className={"row"}>
+		{this.props.photos.map((photo) => {
+			return (
+				<div className="col-sm-3 col-xs-6">
+					<div className="product effect1">
+						<div className="box-wrap">
+							<div className="box-image">
+								<img src={photo.fields.file.url + '?f=face&fit=thumb'} alt="images" />
+							</div>
+						</div>
+					</div>
+				</div>
+			)
+		})}
+	</Masonry>
+</div>
+</section> */}
+
+
 
 export default class Article extends Component {
 	componentDidMount() {
@@ -72,7 +92,19 @@ export default class Article extends Component {
 					</div>
 				</section>
             )
-        }
+		}
+		let main_images
+		if(this.props.main_images){
+			if(this.props.main_images.length === 4) {
+				main_images = CONSTANTS.IMAGE_QUATRO()
+			} else if(this.props.main_images.length === 3) {
+				main_images = CONSTANTS.IMAGE_TRIO()
+			} else if (this.props.main_images.length === 2) {
+				main_images = CONSTANTS.IMAGE_DOUBLE()
+			} else {
+				main_images = CONSTANTS.IMAGE_SINGLE()
+			}
+		}
 		return (
 			<article className="post">
 				<div className="header-post">
@@ -83,7 +115,7 @@ export default class Article extends Component {
 					<p className="date-event date-style-2"> <span>{this.props.created}</span></p>
 				</div>
 				<div className="blog-post-single-image-container">
-					{this.props.image}
+					{main_images}
 				</div>
 				<h5 className="sub_title hide_on_mobile">{this.props.article.fields.subHeader}</h5>
 				<div className="content-post">
@@ -92,25 +124,6 @@ export default class Article extends Component {
 				
                 {videos}
 
-				<section className="flat-row products shop-1">
-					<div className="container">
-						<Masonry className={"row"}>
-							{this.props.photos.map((photo) => {
-								return (
-									<div className="col-sm-3 col-xs-6">
-										<div className="product effect1">
-											<div className="box-wrap">
-												<div className="box-image">
-													<img src={photo.fields.file.url + '?f=face&fit=thumb'} alt="images" />
-												</div>
-											</div>
-										</div>
-									</div>
-								)
-							})}
-						</Masonry>
-					</div>
-				</section>
 				<div className="direction clearfix">
 					<div className="social-links">
 						<div className="share-tag social-share-link">Share :</div>

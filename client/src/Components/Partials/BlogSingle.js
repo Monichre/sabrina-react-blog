@@ -75,38 +75,22 @@ export default class BlogSingle extends Component {
 			data.affiliate_entries.forEach(entry => entry.fields.affiliateItems.forEach(item => all_affiliate_items.push(item)))
 		}
 
-		const months = ["January", "February", "March", "April", "May", "June",
-			"July", "August", "September", "October", "November", "December"]
-		const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 		let date_obj = new Date(article.sys.createdAt)
-		let created = months[(date_obj.getMonth())] + ' ' + date_obj.getDate() + ', ' + date_obj.getFullYear()
+		let created = CONSTANTS.months[(date_obj.getMonth())] + ' ' + date_obj.getDate() + ', ' + date_obj.getFullYear()
 		let category = article.fields.category ? article.fields.category[0].fields.title.split(' ')[0].toLowerCase() : null
 		let readMore = <Link to={'/' + category + '/' + article.fields.title} onClick={this.scrollTop}>Read More</Link>
-
-		let image
-		let image_div = CONSTANTS.hasPhoto(article) ? article.fields.photos[0].fields.file.url : null
-		if (image_div != null) {
-			image = <img src={image_div} alt="image" />
-		}
+		let article_main_images = CONSTANTS.hasPhoto(article) ? article.fields.mainPhotos : null
 		let blog_post_single
 		let path = this.props.match.path.split('/')
-		const subTitle = Object.keys(article.fields).includes('subHeader') ? article.fields.subHeader : null
+		let subTitle = Object.keys(article.fields).includes('subHeader') ? article.fields.subHeader : null
 
 		
 		if (path.includes('videos')) {
 			blog_post_single = <Video video={article} />
 		}
 		else {
-			let photos
-			let videos
-			if (article.fields.photos.length > 0) {
-				photos = article.fields.photos
-			}
-			if (Object.keys(article.fields).includes('videos') && article.fields.videos.length > 0) {
-				videos = article.fields.videos
-			}
-
-			blog_post_single = <Article article={article} image={image} photos={photos} created={created}/>
+			let videos = (Object.keys(article.fields).includes('videos') && article.fields.videos.length > 0) ? article.fields.videos : null
+			blog_post_single = <Article article={article} main_images={article_main_images} created={created} videos={videos}/>
 		}
 
 		return (
@@ -116,7 +100,7 @@ export default class BlogSingle extends Component {
 					<meta property="og:type" content="website" />
 					<meta property="og:title" content="Theresa on the Town" />
 					<meta property="og:description" content={description} />
-					<meta property="og:image" content={CONSTANTS.hasFeaturedPhoto(article) ? article.fields.featuredPhoto.fields.file.url : null} />
+					<meta property="og:image" content={CONSTANTS.hasPhoto(article) ? article.fields.mainPhotos[0].fields.file.url : null} />
 				</Helmet>
 				<div className="page-title">
 					<div className="container">
@@ -210,11 +194,9 @@ export default class BlogSingle extends Component {
 												<h3 className="widget-title">Latest Video Posts</h3>
 												<ul className="recent-list inline-list list-inline">
 													{data.video_entries.map((entry) => {
-														let months = ["January", "February", "March", "April", "May", "June",
-															"July", "August", "September", "October", "November", "December"]
-														let days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+														
 														let date_obj = new Date(entry.sys.createdAt)
-														let created = months[(date_obj.getMonth() + 1)] + ' ' + date_obj.getDate() + ', ' + date_obj.getFullYear()
+														let created = CONSTANTS.months[(date_obj.getMonth() + 1)] + ' ' + date_obj.getDate() + ', ' + date_obj.getFullYear()
 
 														let readMore = <Link to={'/videos/' + entry.fields.title} onClick={this.handleLinkClick.bind('/videos/', article.fields.title)}>Check it out</Link>
 														return (

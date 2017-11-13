@@ -1,12 +1,6 @@
-// Work.js
 import React, {Component} from 'react'
 import ReactMarkdown from 'react-markdown'
 import CONSTANTS from '../../constants'
-
-// Components
-
-
-// Dispatcher
 import AppDispatcher from '../../Dispatcher/AppDispatcher'
 
 export default class BlogPostPreviewLeft extends Component {
@@ -24,32 +18,34 @@ export default class BlogPostPreviewLeft extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-6">
-                            <div className="flat-divider d47px"></div>
-                            <div className="wrap-content-story-left">
-                                <div className="title-section style2 ">
-                                    <h1 className="title">{this.props.title}</h1>
-                                    {subTitle}
-                                    <p className="date-event date-style-2 show_on_mobile"> <span>{this.props.date}</span></p>
-                                </div>
-                                <div className="entry-post">
-                                    <div className="show_on_mobile">
-                                    <img src={this.props.image + '?w=555&h=500'} alt={this.props.title} className="" />
+                            <div className="col-sm-12">
+                                <div className="flat-divider d47px"></div>
+                                <div>
+                                    <div className="title-section style2 ">
+                                        <h1 className="title">{this.props.title}</h1>
+                                        {subTitle}
+                                        <p className="date-event date-style-2 show_on_mobile"> <span>{this.props.date}</span></p>
                                     </div>
-                                    <p className="date-event date-style-2 hide_on_mobile"> <span>{this.props.date}</span></p>
+                                    <div className="entry-post">
+                                        <div className="show_on_mobile">
+                                            <img src={this.props.image} alt={this.props.title} className="object-fit" />
+                                        </div>
+                                        <p className="date-event date-style-2 hide_on_mobile"> <span>{this.props.date}</span></p>
+                                    </div>
+                                    <div className="content-story">
+                                        <ReactMarkdown source={CONSTANTS.TRIM(this.props.content)} disallowedTypes={['Image']} escapeHtml={false}/>
+                                    </div>
+                                    <div className="read-more">{this.props.readMore}</div>
                                 </div>
-								<div className="content-story">
-                                <ReactMarkdown source={CONSTANTS.TRIM(this.props.content)} disallowedTypes={['Image']} escapeHtml={false}/>
-                                </div>
-								<div className="read-more">{this.props.readMore}</div>
+                                <div className="flat-divider d47px"></div>
                             </div>
-                            <div className="flat-divider d47px"></div>
                         </div>
+
+
                         <div className="col-md-6 hide_on_mobile">
-                            <img src={this.props.image + '?w=555&h=500'} alt={this.props.title} className="" />
+                            <img src={this.props.image} alt={this.props.title} className="object-fit" />
                         </div>
-
                     </div>
-
                 </div>
             </section>
 			)

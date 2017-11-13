@@ -25,24 +25,16 @@ export function getStore(callback) {
             let affiliate_entries = _.filter(response_items, (item) => item.sys.contentType.sys.id === 'affiliatePost')
             let initial_articles =  _.filter(response_items, (item) => item.sys.contentType.sys.id === 'blogPost')
             let CTAs = _.filter(response_items, (item) => item.sys.contentType.sys.id === 'cta')
-     
             let footerCTA = _.find(CTAs, (item) => item.fields.section === 'Footer')
             let popUpCTA = _.find(CTAs, (item) => item.fields.section === 'Pop Up')
-
-          
-            const articles =  initial_articles.sort((a, b) => {
-                return moment.utc(a.sys.createdAt).diff(moment.utc(b.sys.createdAt))
-            }).reverse()
-            let sorted_videos = video_entries.sort((a, b) => {
-                return moment.utc(a.sys.createdAt).diff(moment.utc(b.sys.createdAt))
-            }).reverse()
-   
-            console.log(sorted_videos)
-            AppStore.data.featured = articles.slice(0, 3)
-            
+            let articles =  initial_articles.sort((a, b) => {return moment.utc(a.sys.createdAt).diff(moment.utc(b.sys.createdAt))}).reverse()
+            let sorted_videos = video_entries.sort((a, b) => {return moment.utc(a.sys.createdAt).diff(moment.utc(b.sys.createdAt))}).reverse()
             let nav_items = _.map(pages, (page) => page.fields.title)
             nav_items = nav_items.sort().reverse()
+            console.log(articles)
 
+
+            AppStore.data.featured = _.filter(articles, (article) => article.fields.featured === true)
             AppStore.data.fashion = _.filter(articles, (article) => article.fields.category[0].fields.title === 'Fashion Posts')
             AppStore.data.travel = _.filter(articles, (article) => article.fields.category[0].fields.title === 'Travel Posts')
             AppStore.data.health = _.filter(articles, (article) => article.fields.category[0].fields.title === 'Health Posts')

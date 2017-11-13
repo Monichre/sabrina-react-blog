@@ -422,7 +422,7 @@
 }
 
 .flat-divider.d47px {
-    height: 47px;
+    height: 200px;
 }
 
 
@@ -885,8 +885,6 @@ ul.recent-list li a:after, ul.recent-list li .text a:after {
     left: 0;
 }
 
-
-
 .social-links a i {
     font-size: 15px;
 }
@@ -903,10 +901,12 @@ ul.recent-list li a:after, ul.recent-list li .text a:after {
 }
 
 .object-fit {
-    height: 500px;
+    height: 786px;
     object-fit: cover;
-    object-position: top;
-    width: 100%;
+    object-position: center;
+    width: 525px;
+    display: block;
+    margin: auto;
 
 }
 .affiliate-object-fit {
@@ -915,96 +915,28 @@ ul.recent-list li a:after, ul.recent-list li .text a:after {
     width: 100%!important;
 }
 
-/*Flat event
------------------------------------------------------*/
-.flat-event h4.menu-event {
-    font-weight: 600;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-}
-
 .flat-event p {
     margin-bottom: 15px;
     letter-spacing: 0.3px;
     word-spacing: -1.45px;
 }
-
 .flat-event .date-event {
     color: #999999;
     margin-bottom: 34px;
     font-style: italic;
 }
-
-/*Flat countdown
--------------------------------------------*/
-.countdown {
-    display: flex;
-    margin-right: 24px;
-    margin-bottom: 45px;
-}
-
-
-.countdown .square {
-    font-size: 30px;
-    font-weight: 600;
-    color: #ba2424;
-    display: inline-block;
-    margin-right: 26px;
-    border-right: 3px solid #ebebeb;
-    border-bottom: 3px solid #ebebeb;
-    text-align: center;
-    padding-top: 22px;
-    padding-bottom: 4px;
-    min-width: 79px;
-}
-
-.countdown .square:last-child {
-    margin-right: 0;
-}
-
-.countdown .square.hours {
-    margin-right: 34px;
-}
-
-.countdown .square.mins {
-    margin-right: 31px;
-}
-
-.countdown .square .text {
-    font-size: 12px;
-    color: #565656;
-    text-transform: uppercase;
-    font-weight: 400;
-    letter-spacing: 0.2px;
-}
-
-/*Flat button
----------------------------------------------------------*/
 .read-more a {
     font-size: 13px;
     font-weight: 400;
     color: #333333;
     position: relative;
 }
-
-/*.read-more a:before,
-.read-more a:after {
-    font-family: 'FontAwesome';
-    content: "\f105";
-    position: absolute;
-    top: -2px;
-    right: -13px;
-    color: #333333;
-}*/
-
 .read-more a:before {
     right: -9px;
 }
-
 .read-more.view-all {
     text-align: center;
 }
-
 .read-more.view-all a {
     display: inline-block;
     color: #ffffff;
@@ -1023,13 +955,11 @@ ul.recent-list li a:after, ul.recent-list li .text a:after {
     position: relative;
     z-index: 1;
  }
-
 .read-more.view-all a:after {
     content: "";
     height: 0;
     width: 0;
 }
-
 .read-more.view-all a:before,
 .reservation-page-left .reservation-page-form #reservation-form .reservation-booking
 button:before {
@@ -1052,7 +982,6 @@ button:before {
     -webkit-transition-timing-function: ease-out;
     transition-timing-function: ease-out;
 }
-
 .read-more.view-all a:hover:before,
 .reservation-page-left .reservation-page-form #reservation-form .reservation-booking button:hover:before {
     -webkit-transform: scaleX(1);

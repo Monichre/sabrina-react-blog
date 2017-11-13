@@ -13,9 +13,7 @@ export default class Travel extends Component {
   }
 
   componentDidMount(){
-    const data = this.props.data
-	
-    
+    const data = this.props.data 
   }
 
   getPageData(){
