@@ -96,13 +96,13 @@ export default class Article extends Component {
 		let main_images
 		if(this.props.main_images){
 			if(this.props.main_images.length === 4) {
-				main_images = CONSTANTS.IMAGE_QUATRO()
+				main_images = CONSTANTS.IMAGE_QUATRO(this.props.main_images)
 			} else if(this.props.main_images.length === 3) {
-				main_images = CONSTANTS.IMAGE_TRIO()
+				main_images = CONSTANTS.IMAGE_TRIO(this.props.main_images)
 			} else if (this.props.main_images.length === 2) {
-				main_images = CONSTANTS.IMAGE_DOUBLE()
+				main_images = CONSTANTS.IMAGE_DOUBLE(this.props.main_images)
 			} else {
-				main_images = CONSTANTS.IMAGE_SINGLE()
+				main_images = CONSTANTS.IMAGE_SINGLE(this.props.main_images)
 			}
 		}
 		return (
