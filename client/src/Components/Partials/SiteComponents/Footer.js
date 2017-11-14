@@ -56,11 +56,12 @@ export default class Footer extends Component {
 	if (this.state.email_sent) {
 		
 		text = "Sent!"
-		placeholder = 'Email'
+		placeholder = 'Thank You!'
 		
 	} else {
 		text = "subscribe"
-		placeholder = 'Thank You!'
+		placeholder = 'Email'
+		
 	}
 
     return (
@@ -100,10 +101,10 @@ export default class Footer extends Component {
 					<div className="row">
 						<div className="col-xs-12">
 							<div className="footer-social-block">
-								<a href="https://www.instagram.com/theresaonthetown/"><i className="fa fa-lg fa-instagram w-inline-block social-wrap"></i></a>
-								<a href="https://www.youtube.com/channel/UCvZKd-eUuq8A66J-uLr4CZQ"><i className="fa fa-lg fa-youtube w-inline-block social-wrap"></i></a>
-								<a href="https://www.facebook.com/theresaonthetown/"><i className="fa fa-lg fa-facebook w-inline-block social-wrap"></i></a>
-								<a href="https://www.pinterest.com/theresaonthetwn/"><i className="fa fa-lg fa-pinterest w-inline-block social-wrap"></i></a>
+								<a href="https://www.instagram.com/theresaonthetown/" target="_blank" rel="noopener"><i className="fa fa-lg fa-instagram w-inline-block social-wrap"></i></a>
+								<a href="https://www.youtube.com/channel/UCvZKd-eUuq8A66J-uLr4CZQ" target="_blank" rel="noopener"><i className="fa fa-lg fa-youtube w-inline-block social-wrap"></i></a>
+								<a href="https://www.facebook.com/theresaonthetown/" target="_blank" rel="noopener"><i className="fa fa-lg fa-facebook w-inline-block social-wrap"></i></a>
+								<a href="https://www.pinterest.com/theresaonthetwn/" target="_blank" rel="noopener"><i className="fa fa-lg fa-pinterest w-inline-block social-wrap"></i></a>
 							</div>
 						</div>
 						<div className="col-sm-3">
@@ -116,7 +117,7 @@ export default class Footer extends Component {
 						</div>
 						<div className="col-sm-3">
 							<div id="loveCraft">
-								<span className="loveCraft"><span className="blue">Love</span><span className="red">Craft</span><span className="white">.io</span></span>
+								<a href="http://www.lovecraft.io/"><span className="loveCraft"><span className="blue">Love</span><span className="red">Craft</span><span className="white">.io</span></span></a>
 							</div>
 						</div>
 

@@ -497,6 +497,12 @@
     display: inline-block;
     text-transform: uppercase;
 }
+.title-section .title a {
+    color: inherit;
+}
+.blog-post-preview .title-section .title, .title-section.style2 .title {
+    font-size: 24px;
+}
 #affiliate-preview .title-section .title {
 	display: block;
 	text-align: right;
@@ -533,7 +539,17 @@ video {
     left: -40px;
     margin-top: -5px;
 }
-.blog-post-preview .title-section .title:before {
+.page-title .title-section .title:before, .affiliate-row .title-section .title:after {
+    position: absolute;
+    content: "";
+    width: 30px;
+    height: 6px;
+    background-color: #ba2424;
+    top: 50%;
+    right: -40px;
+    margin-top: -4px;
+}
+.blog-post-preview .title-section .title:before, .imgbox.style3 .title-section .title:before {
 	position: absolute;
     content: "";
     width: 30px;
@@ -3050,6 +3066,9 @@ iframe > * > * {
 	margin-left: 5px;
 	border-radius: 5px;
 }
+.subscribe-button, #send {
+    border-radius: 5px;
+}
 
 .footer-form form {
     color: #fff;
@@ -3898,7 +3917,8 @@ video {
 	width: 50%;
 }
 #form-second-half .top-section, #form-second-half .title {
-	color: #fff;
+    color: #fff;
+    text-transform: capitalize;
 }
 #form-second-half > * {
 	text-align: center;
@@ -4071,6 +4091,7 @@ video {
     .title-section .title, .title-section.style2 .title {
         margin: 0 auto 20px!important;
         text-align: center;
+        font-size: 24px;
     }
     .title-section.style2 .sub_title {
         margin: 0;

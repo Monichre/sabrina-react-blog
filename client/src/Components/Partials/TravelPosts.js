@@ -25,9 +25,9 @@ export default class TravelPosts extends Component {
 			let created = CONSTANTS.months[(date_obj.getMonth())] + ' ' + date_obj.getDate() + ', ' + date_obj.getFullYear()
 			let category = article.fields.category[0].fields.title.split(' ')[0].toLowerCase()
 			let readMore = <Link to={'/' + category + '/' + article.fields.title} onClick={this.scrollTop}>Read More</Link>
-			const subTitle = Object.keys(article.fields).includes('subHeader') ? article.fields.subHeader : null
+			let subTitle = Object.keys(article.fields).includes('subHeader') ? article.fields.subHeader : null
+			let article_link = '/' + category + '/' + article.fields.title
 			
-
 			if (articles.indexOf(article) % 2 === 0) {
 				return (
 					<BlogPostPreviewRight
@@ -38,6 +38,7 @@ export default class TravelPosts extends Component {
 						title={article.fields.title}
 						content={article.fields.content}
 						subTitle={subTitle}
+						article_link={article_link}
 					/>
 				)
 			} else {
@@ -50,6 +51,7 @@ export default class TravelPosts extends Component {
 						title={article.fields.title}
 						content={article.fields.content}
 						subTitle={subTitle}
+						article_link={article_link}
 					/>
 				)
 			}

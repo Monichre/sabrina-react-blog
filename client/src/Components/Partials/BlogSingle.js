@@ -128,24 +128,14 @@ export default class BlogSingle extends Component {
 								<div className="sidebars">
 									<div className="sidebars-wrap">
 										<div className="sidebar">
-
 											<div className="widget widget_categories">
-
 												<ul className="inline-list list-inline">
 													<li><h3 className="widget-title">Categories:</h3></li>
-													<li>
-														<a href="/health">Health & Wellness ({data.health.length})</a>
-													</li>
-													<li>
-														<a href="/travel">Travel ({data.travel.length})</a>
-													</li>
-													<li>
-														<a href="/fashion">Fashion & Style ({data.fashion.length})</a>
-													</li>
-
+													<li><a href="/health">Health & Wellness ({data.health.length})</a></li>
+													<li><a href="/travel">Travel ({data.travel.length})</a></li>
+													<li><a href="/fashion">Fashion & Style ({data.fashion.length})</a></li>
 												</ul>
 											</div>
-
 											<div className="widget widget_recent_entries clearfix">
 												<h3 className="widget-title">Keep Reading</h3>
 												<ul className="recent-list clearfix inline-list list-inline">
@@ -154,14 +144,8 @@ export default class BlogSingle extends Component {
 														let readMore = <Link to={'/' + category + '/' + article.fields.title} onClick={this.scrollTop}>Read More</Link>
 														return (
 															<li>
-																<div className="thumb">
-																	<img src={article.fields.photos ? article.fields.photos[0].fields.file.url + '?fit=thumb' : null} alt="image" />
-																</div>
-																<div className="text">
-
-																	<Link to={'/' + category + '/' + article.fields.title} onClick={this.handleLinkClick.bind(category, article.fields.title)}>Check it out</Link>
-
-																</div>
+																<div className="thumb"><img src={article.fields.photos ? article.fields.photos[0].fields.file.url + '?fit=thumb' : null} alt="image" /></div>
+																<div className="text"><Link to={'/' + category + '/' + article.fields.title} onClick={this.handleLinkClick.bind(category, article.fields.title)}>Check it out</Link></div>
 															</li>
 														)
 													}
@@ -178,9 +162,7 @@ export default class BlogSingle extends Component {
 														return (
 															<li>
 																<div className="thumb">
-																	<a href={entry.fields.link} target="_blank">
-																		<img src={(entry.fields.photos[0] && entry.fields.photos[0].fields !== undefined) ? entry.fields.photos[0].fields.file.url + '?fit=thumb' : null} alt="image" />
-																	</a>
+																	<a href={entry.fields.link} target="_blank" rel="noopener"><img src={(entry.fields.photos[0] && entry.fields.photos[0].fields !== undefined) ? entry.fields.photos[0].fields.file.url + '?fit=thumb' : null} alt="image" /></a>
 																</div>
 																<p>{entry.fields.title}</p>
 																<p><a href={entry.fields.link}>Shop Now</a></p>
@@ -194,10 +176,8 @@ export default class BlogSingle extends Component {
 												<h3 className="widget-title">Latest Video Posts</h3>
 												<ul className="recent-list inline-list list-inline">
 													{data.video_entries.map((entry) => {
-														
 														let date_obj = new Date(entry.sys.createdAt)
 														let created = CONSTANTS.months[(date_obj.getMonth() + 1)] + ' ' + date_obj.getDate() + ', ' + date_obj.getFullYear()
-
 														let readMore = <Link to={'/videos/' + entry.fields.title} onClick={this.handleLinkClick.bind('/videos/', article.fields.title)}>Check it out</Link>
 														return (
 															<li>

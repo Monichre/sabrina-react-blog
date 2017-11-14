@@ -16,7 +16,9 @@ export default class HealthPosts extends Component {
             let created = CONSTANTS.months[(date_obj.getMonth())] + ' ' + date_obj.getDate() + ', ' + date_obj.getFullYear()
             let category = article.fields.category[0].fields.title.split(' ')[0].toLowerCase()
             let readMore = <Link to={'/' + category + '/' + article.fields.title} onClick={this.scrollTop}>Read More</Link>
-            const subTitle = article.fields.subHeader === '' ? null : article.fields.subHeader
+            let subTitle = article.fields.subHeader === '' ? null : article.fields.subHeader
+            let article_link = '/' + category + '/' + article.fields.title
+            
 
 
             if (articles.indexOf(article) % 2 === 0) {
@@ -29,6 +31,7 @@ export default class HealthPosts extends Component {
                         title={article.fields.title}
                         content={article.fields.content}
                         subTitle={subTitle}
+                        article_link={article_link}
                     />
                 )
             } else {
@@ -41,6 +44,7 @@ export default class HealthPosts extends Component {
                         title={article.fields.title}
                         content={article.fields.content}
                         subTitle={subTitle}
+                        article_link={article_link}
                     />
                 )
             }

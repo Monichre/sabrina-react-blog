@@ -41,6 +41,7 @@ export default class BlogList extends Component {
 			let created = CONSTANTS.months[date_obj.getMonth()] + ' ' + date_obj.getDate() + ', ' + date_obj.getFullYear()
 			let category = article.fields.category[0].fields.title.split(' ')[0].toLowerCase()
 			let readMore = <Link to={'/' + category + '/' + article.fields.title}>Read More</Link>
+			let article_link = '/' + category + '/' + article.fields.title
 			const subTitle = Object.keys(article.fields).includes('subHeader') ? article.fields.subHeader : null
 			
 		 	if (articles.indexOf(article) % 2 === 0) {
@@ -53,6 +54,7 @@ export default class BlogList extends Component {
 						title={article.fields.title}
 						content={article.fields.content}
 						subTitle={subTitle}
+						article_link={article_link}
 					/>
 				)
 			} else {
@@ -65,6 +67,7 @@ export default class BlogList extends Component {
 						title={article.fields.title}
 						content={article.fields.content}
 						subTitle={subTitle}
+						article_link={article_link}
 					/>
 				)
 			}

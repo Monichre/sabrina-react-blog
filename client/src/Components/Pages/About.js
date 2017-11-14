@@ -143,7 +143,7 @@ export default class About extends Component {
                                 <div className="col-sm-12 contact-top">
                                     <address>
                                         <div className="section-headline">
-                                            <h3>Contact Me
+                                            <h3>Contact
                                             </h3>
                                         </div>
 										<span>

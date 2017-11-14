@@ -71,17 +71,14 @@ export default class VideoPosts extends Component {
                                 <div className="col-md-6">
                                     <div className="imgbox style3">
                                         <div className="">
-                                            <a className="popup-video">
-                                                <ReactPlayer onClick={this.handleMute.bind(this)} url={video.fields.videos ? video.fields.videos[0].fields.file.url : video.fields.link}  width='95%' playing={false} muted loop={false} controls={false}/>
-                                            </a>
-                                             
+                                            <a className="popup-video"><ReactPlayer onClick={this.handleMute.bind(this)} url={video.fields.videos ? video.fields.videos[0].fields.file.url : video.fields.link}  width='95%' playing={false} muted loop={false} controls={false}/></a>
                                         </div>
                                         <div className="align" style={content_style}>
-                                            <h3>{video.fields.title}</h3>
-                                            <div className="" dangerouslySetInnerHTML={{ __html: video.fields.subHeader }} />
-                                            <p>
-                                                <Link className="read-more" to={'/videos/' +  video.fields.title}>Read More</Link>
-                                            </p>
+                                            <div className="title-section style2 ">
+                                                <h1 className="title"><Link to={'/videos/' +  video.fields.title}>{video.fields.title}</Link></h1>
+                                                <div className="sub_title" dangerouslySetInnerHTML={{ __html: video.fields.subHeader }} />
+                                            </div>
+                                            <p><Link className="read-more" to={'/videos/' +  video.fields.title}>Read More</Link></p>
                                         </div>
                                     </div>
                                 </div>

@@ -3,6 +3,7 @@ import React, {Component} from 'react'
 import AppDispatcher from '../../Dispatcher/AppDispatcher'
 import ReactMarkdown from 'react-markdown'
 import CONSTANTS from '../../constants'
+import { Link } from 'react-router-dom'
 
 export default class BlogPostPreviewRight extends Component {
 	render(){
@@ -17,20 +18,20 @@ export default class BlogPostPreviewRight extends Component {
                 <div className="container">
                     <div className="row">
 						<div className="col-md-6 hide_on_mobile">
-                            <img src={this.props.image} alt={this.props.title} className="object-fit" />
+                            <Link to={this.props.article_link}><img src={this.props.image} alt={this.props.title} className="object-fit" /></Link>
                         </div>
                         <div className="col-md-6">
                             <div className="col-sm-12">
                                 <div className="flat-divider d47px"></div>
                                 <div>
                                     <div className="title-section style2 ">
-                                        <h1 className="title">{this.props.title}</h1>
-                                    {subTitle}
+                                        <h1 className="title"><Link to={this.props.article_link}>{this.props.title}</Link></h1>
+                                        {subTitle}
                                     <p className="date-event date-style-2 show_on_mobile"> <span>{this.props.date}</span></p>
                                     </div>
                                     <div className="entry-post">
                                         <div className="show_on_mobile">
-                                            <img src={this.props.image} alt={this.props.title} className="object-fit" />
+                                            <Link to={this.props.article_link}><img src={this.props.image} alt={this.props.title} className="object-fit" /></Link>
                                         </div>
                                         <p className="date-event date-style-2 hide_on_mobile"> <span>{this.props.date}</span></p>
                                     </div>
