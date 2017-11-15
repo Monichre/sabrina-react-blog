@@ -137,7 +137,7 @@ export default class BlogSingle extends Component {
 									<div className="sidebars-wrap">
 										<div className="sidebar">
 											<div className="widget widget_recent_entries clearfix">
-												<h3 className="widget-title">More for you</h3>
+												<h3 className="widget-title">More for you:</h3>
 												<ul className="recent-list clearfix inline-list list-inline">
 													{the_other_articles.splice(0, 3).map((article, i) => {
 														let category = article.fields.category ? article.fields.category[0].fields.title.split(' ')[0].toLowerCase() : null
@@ -153,7 +153,7 @@ export default class BlogSingle extends Component {
 											<br />
 											<br />
 											<div className="widget widget_latest_tweets">
-												<h3 className="widget-title">Latest Affiliate Items</h3>
+												<h3 className="widget-title">Latest Affiliate Items:</h3>
 												<ul className="recent-list inline-list list-inline">
 													{all_affiliate_items.splice(0,3).map((entry) => {
 														return (

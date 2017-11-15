@@ -65,7 +65,7 @@ export default class Video extends Component {
                 </div>
                 <div className="direction clearfix">
                     <div className="social-links">
-                        <div className="share-tag social-share-link">Share :</div>
+                    <div className="share-tag social-share-link">Share this post:</div>
                         <div className="social-share-link" data-href="https://www.theresaonthetown.com" data-layout="button_count" data-size="large" data-mobile-iframe="true">
                             <a className="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.theresaonthetown.com%2F&amp;src=sdkpreparse">
                                 <i className="fa fa-facebook"></i>
