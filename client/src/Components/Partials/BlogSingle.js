@@ -141,15 +141,12 @@ export default class BlogSingle extends Component {
 												<ul className="recent-list clearfix inline-list list-inline">
 													{the_other_articles.splice(0, 3).map((article, i) => {
 														let category = article.fields.category ? article.fields.category[0].fields.title.split(' ')[0].toLowerCase() : null
-														let readMore = <Link to={'/' + category + '/' + article.fields.title} onClick={this.scrollTop}>Read More</Link>
 														return (
 															<li>
-																<div className="thumb"><img src={article.fields.photos ? article.fields.photos[0].fields.file.url + '?fit=thumb' : null} alt="image" /></div>
-																<div className="text"><Link to={'/' + category + '/' + article.fields.title} onClick={this.handleLinkClick.bind(category, article.fields.title)}>Check it out</Link></div>
+																<div className="thumb"><img src={article.fields.photos ? article.fields.mainPhotos[0].fields.file.url + '?fit=thumb' : null} alt="image" /></div>
+																<p className="text"><Link to={'/' + category + '/' + article.fields.title} onClick={this.handleLinkClick.bind(category, article.fields.title)}>{article.fields.title}</Link></p>
 															</li>
-														)
-													}
-
+														)}
 													)}
 												</ul>
 											</div>
@@ -158,7 +155,7 @@ export default class BlogSingle extends Component {
 											<div className="widget widget_latest_tweets">
 												<h3 className="widget-title">Latest Affiliate Items</h3>
 												<ul className="recent-list inline-list list-inline">
-													{all_affiliate_items.map((entry) => {
+													{all_affiliate_items.splice(0,3).map((entry) => {
 														return (
 															<li>
 																<div className="thumb">
@@ -167,18 +164,17 @@ export default class BlogSingle extends Component {
 																<p>{entry.fields.title}</p>
 																<p><a href={entry.fields.link}>Shop Now</a></p>
 															</li>
-														)
-													})}
-
+														)}
+													)}
 												</ul>
 											</div>
 											<div className="widget widget_latest_tweets">
 												<h3 className="widget-title">Latest in Video</h3>
 												<ul className="recent-list inline-list list-inline">
-													{data.video_entries.map((entry) => {
+													{data.video_entries.splice(0,3).map((entry) => {
 														let date_obj = new Date(entry.sys.createdAt)
 														let created = CONSTANTS.months[(date_obj.getMonth() + 1)] + ' ' + date_obj.getDate() + ', ' + date_obj.getFullYear()
-														let readMore = <Link to={'/videos/' + entry.fields.title} onClick={this.handleLinkClick.bind('/videos/', article.fields.title)}>Check it out</Link>
+														let readMore = <Link to={'/videos/' + entry.fields.title} onClick={this.handleLinkClick.bind('/videos/', article.fields.title)}>{article.fields.title}</Link>
 														return (
 															<li>
 																<div className="thumb">
@@ -186,9 +182,8 @@ export default class BlogSingle extends Component {
 																</div>
 																<p>{readMore}</p>
 															</li>
-														)
-													})}
-
+														)}
+													)}
 												</ul>
 											</div>
 

@@ -897,6 +897,7 @@ ul.recent-list li .text {
 ul.recent-list li a, ul.recent-list li .text a {
     position: relative;
     padding-left: 10px;
+    color: #ba2424;
 }
 ul.recent-list li a:after, ul.recent-list li .text a:after {
     position: absolute;
