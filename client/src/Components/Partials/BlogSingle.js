@@ -90,7 +90,15 @@ export default class BlogSingle extends Component {
 		}
 		else {
 			let videos = (Object.keys(article.fields).includes('videos') && article.fields.videos.length > 0) ? article.fields.videos : null
-			blog_post_single = <Article article={article} main_images={article_main_images} created={created} videos={videos}/>
+			blog_post_single = <Article 
+									article={article} 
+									main_images={article_main_images} 
+									created={created} 
+									videos={videos} 
+									health_articles={data.health.length}
+									fashion_articles={data.fashion.length}
+									travel_articles={data.travel.length}
+									/>
 		}
 
 		return (
@@ -107,7 +115,7 @@ export default class BlogSingle extends Component {
 						<div className="row">
 							<div className="col-md-12">
 								<div className="title-section">
-								{blog_header}
+									{blog_header}
 								</div>
 							</div>
 						</div>
@@ -128,14 +136,6 @@ export default class BlogSingle extends Component {
 								<div className="sidebars">
 									<div className="sidebars-wrap">
 										<div className="sidebar">
-											<div className="widget widget_categories">
-												<ul className="inline-list list-inline">
-													<li><h3 className="widget-title">Categories:</h3></li>
-													<li><a href="/health">Health & Wellness ({data.health.length})</a></li>
-													<li><a href="/travel">Travel ({data.travel.length})</a></li>
-													<li><a href="/fashion">Fashion & Style ({data.fashion.length})</a></li>
-												</ul>
-											</div>
 											<div className="widget widget_recent_entries clearfix">
 												<h3 className="widget-title">Keep Reading</h3>
 												<ul className="recent-list clearfix inline-list list-inline">
