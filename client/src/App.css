@@ -346,9 +346,10 @@
 }
 
 .flat-row.flat-make-res {
-    padding-top: 124px;
-    padding-bottom: 125px;
+    padding-top: 50px;
+    padding-bottom: 50px;
     position: relative;
+    background: #e5e5e5;
 }
 
 .flat-row.flat-make-res.style1 {
@@ -365,6 +366,9 @@
 
 .flat-client .owl-item .item {
     text-align: center;
+}
+.book-now-btn {
+    border-radius: 5px;
 }
 
 .flat-row.flat-testimonial {
@@ -899,18 +903,27 @@ ul.recent-list li a:after, ul.recent-list li .text a:after {
     font-family: 'FontAwesome';
     content: "\f0da";
     left: 0;
+
+}
+ul.recent-list li a.affiliate_thumb {
+    padding-left: 0;
+}
+ul.recent-list li a.affiliate_thumb:after {
+    display: none;
 }
 
 .social-links a i {
     font-size: 15px;
 }
 .share-tag.social-share-link {
-    font-weight: 600;
+    font-weight: 500;
     color: #222222;
     font-size: 12px;
     text-transform: uppercase;
     margin-right: 12px;
+    font-family: 'Merriweather', sans-serif;
 }
+
 .social-share-link {
     display: inline-block;
     vertical-align: middle;
@@ -2512,7 +2525,7 @@ input[type="color"],
 .main-content.blog-single .post .direction {
 	border-top: 1px solid #e5e5e5;
 	padding-top: 44px;
-	padding-bottom: 50px;
+	/* padding-bottom: 50px; */
 }
 
 .main-content.blog-single .post .direction ul {
@@ -2857,9 +2870,9 @@ input[type="color"],
 }
 
 .widget .widget-title {
-	font-size: 16px;
+	font-size: 12px;
 	line-height: 30px;
-	font-weight: 600;
+	font-weight: 500;
     margin-bottom: 22px;
     margin-top: 0;
     padding: 0 15px 0 0;
@@ -4002,16 +4015,16 @@ video {
     margin: auto;
 }
 .main-content.blog-single .post .direction {
-    border-top: 1px solid #e5e5e5;
-    border-bottom: 1px solid #e5e5e5;
+    /* border-top: 1px solid #e5e5e5; */
+    /* border-bottom: 1px solid #e5e5e5; */
     padding-top: 44px;
-    padding-bottom: 50px;
+    /* padding-bottom: 50px; */
 }
 .main-content.blog-single .post .direction ul {
 	float: left;
 }
 .main-content.blog-single .post .direction .social-links {
-    float: right;
+    float: left;
 }
 .main-content.blog-single .post .content-post div p {
    

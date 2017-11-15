@@ -137,7 +137,7 @@ export default class BlogSingle extends Component {
 									<div className="sidebars-wrap">
 										<div className="sidebar">
 											<div className="widget widget_recent_entries clearfix">
-												<h3 className="widget-title">Keep Reading</h3>
+												<h3 className="widget-title">More for you</h3>
 												<ul className="recent-list clearfix inline-list list-inline">
 													{the_other_articles.splice(0, 3).map((article, i) => {
 														let category = article.fields.category ? article.fields.category[0].fields.title.split(' ')[0].toLowerCase() : null
@@ -162,7 +162,7 @@ export default class BlogSingle extends Component {
 														return (
 															<li>
 																<div className="thumb">
-																	<a href={entry.fields.link} target="_blank" rel="noopener"><img src={(entry.fields.photos[0] && entry.fields.photos[0].fields !== undefined) ? entry.fields.photos[0].fields.file.url + '?fit=thumb' : null} alt="image" /></a>
+																	<a href={entry.fields.link} target="_blank" rel="noopener" className="affiliate_thumb"><img src={(entry.fields.photos[0] && entry.fields.photos[0].fields !== undefined) ? entry.fields.photos[0].fields.file.url + '?fit=thumb' : null} alt="image" /></a>
 																</div>
 																<p>{entry.fields.title}</p>
 																<p><a href={entry.fields.link}>Shop Now</a></p>
@@ -173,7 +173,7 @@ export default class BlogSingle extends Component {
 												</ul>
 											</div>
 											<div className="widget widget_latest_tweets">
-												<h3 className="widget-title">Latest Video Posts</h3>
+												<h3 className="widget-title">Latest in Video</h3>
 												<ul className="recent-list inline-list list-inline">
 													{data.video_entries.map((entry) => {
 														let date_obj = new Date(entry.sys.createdAt)
@@ -198,6 +198,38 @@ export default class BlogSingle extends Component {
 							</div>
 
 						</div>
+						<section className="flat-row flat-make-res index-2">
+							<div className="container">
+								<div className="row">
+									<div className="col-sm-6 col-md-offset-3">
+										<div className="reservation-page-left">
+
+											<div className="reservation-page-form">
+
+												<div className="title-section">
+													<h1 className="title">Are You on the Mailing List?</h1>
+												</div>
+
+												<form id="reservation-form" action ="contact/contact-process.php">
+													<div className="reservation-page-input-box">
+														<label>Your name</label>
+														<input type="text" className="form-control" placeholder="Full name" name="name" id="form-name" data-error="Subject field is required" required=""/>
+													</div>
+														
+													<div className="reservation-page-input-box">
+														<label>Your Email</label>
+														<input type="text" className="form-control" placeholder="Email" name="Email" id="form-email" data-error="Subject field is required" required=""/>
+													</div>
+													<div className="reservation-booking">
+														<button type="submit" className="book-now-btn">Sign Up!</button>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
 					</div>
 				</div>
 			</div>
