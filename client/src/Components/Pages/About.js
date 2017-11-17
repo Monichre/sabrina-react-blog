@@ -142,18 +142,14 @@ export default class About extends Component {
 
                                 <div className="col-sm-12 contact-top">
                                     <address>
-                                        <div className="section-headline">
-                                            <h3>Contact
-                                            </h3>
-                                        </div>
-										<span>
-											Theresa on the Town
-                                            <br />
-                                                NYC
-										</span>
+										<div className="title-section">
+		                    				<h1 className="">Contact</h1>
+		                				</div>
+										<span>Theresa on the Town</span> <br/>
+										<span>NYC</span>
                                     </address>
                                 </div>
-								<br /><br />
+								<br/><br/>
 							</div>
                             <div className="col-sm-12">
                                 <Form />
@@ -164,16 +160,13 @@ export default class About extends Component {
 				<div id="form-second-half">
 					<div className="col-md-12">
 		                <div className="title-section">
-		                    
 		                    <h1 className="title">About Me</h1>
 		                </div>
 						<div className="blockquote-testimo">
 	                        <ReactMarkdown source={data.page.fields.content} />
 	                    </div>
-					
 		            </div>
 				</div>
-
 			</div>
 		)
 	}

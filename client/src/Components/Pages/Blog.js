@@ -52,6 +52,7 @@ export default class Blog extends Component {
         let main_content
 		main_content = <BlogList getMoreArticles={this.getMoreArticles} data={data} />
         const video_posts = <VideoPosts videos={data.video_entries} header={videoSectionHeader} subHeader={subHeader}/>
+        console.log(data.video_entries)
         let affiliate_entries_html
         if(data.affiliate_entries) {
             data.affiliate_entries

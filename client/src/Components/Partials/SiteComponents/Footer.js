@@ -28,14 +28,12 @@ export default class Footer extends Component {
             email_address: this.state.subscriptionEmail
         })
         .then(function(res) {
-			console.log(res)
-            
             if (res.status === 200) {
                 _this.setState({email_sent: true})
             }
         })
         .catch(function (error) {
-            console.log(error)
+            alert(error)
         })
 	}
 
@@ -61,7 +59,6 @@ export default class Footer extends Component {
 	} else {
 		text = "subscribe"
 		placeholder = 'Email'
-		
 	}
 
     return (
