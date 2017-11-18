@@ -10,6 +10,23 @@ import Helmet from 'react-helmet'
 import AppDispatcher from '../../Dispatcher/AppDispatcher'
 import AppStore from '../../Stores/AppStore'
 
+{/* <div className="widget widget_latest_tweets">
+<h3 className="widget-title">Latest Affiliate Items:</h3>
+<ul className="recent-list inline-list list-inline">
+	{all_affiliate_items.splice(0,3).map((entry) => {
+		return (
+			<li>
+				<div className="thumb">
+					<a href={entry.fields.link} target="_blank" rel="noopener" className="affiliate_thumb"><img src={(entry.fields.photos[0] && entry.fields.photos[0].fields !== undefined) ? entry.fields.photos[0].fields.file.url + '?fit=thumb' : null} alt="image" /></a>
+				</div>
+				<p>{entry.fields.title}</p>
+				<p><a href={entry.fields.link}>Shop Now</a></p>
+			</li>
+		)}
+	)}
+</ul>
+</div> */}
+
 export default class BlogSingle extends Component {
 
 	componentWillMount() {
@@ -152,33 +169,18 @@ export default class BlogSingle extends Component {
 											</div>
 											<br />
 											<br />
-											<div className="widget widget_latest_tweets">
-												<h3 className="widget-title">Latest Affiliate Items:</h3>
-												<ul className="recent-list inline-list list-inline">
-													{all_affiliate_items.splice(0,3).map((entry) => {
-														return (
-															<li>
-																<div className="thumb">
-																	<a href={entry.fields.link} target="_blank" rel="noopener" className="affiliate_thumb"><img src={(entry.fields.photos[0] && entry.fields.photos[0].fields !== undefined) ? entry.fields.photos[0].fields.file.url + '?fit=thumb' : null} alt="image" /></a>
-																</div>
-																<p>{entry.fields.title}</p>
-																<p><a href={entry.fields.link}>Shop Now</a></p>
-															</li>
-														)}
-													)}
-												</ul>
-											</div>
+										
 											<div className="widget widget_latest_tweets">
 												<h3 className="widget-title">Latest in Video</h3>
 												<ul className="recent-list inline-list list-inline">
-													{data.video_entries.splice(0,3).map((entry) => {
+													{data.video_entries.slice(0,2).map((entry) => {
 														let date_obj = new Date(entry.sys.createdAt)
 														let created = CONSTANTS.months[(date_obj.getMonth() + 1)] + ' ' + date_obj.getDate() + ', ' + date_obj.getFullYear()
 														let readMore = <Link to={'/videos/' + entry.fields.title} onClick={this.handleLinkClick.bind('/videos/', article.fields.title)}>{article.fields.title}</Link>
 														return (
 															<li>
 																<div className="thumb">
-																	<ReactPlayer url={entry.fields.videos ? entry.fields.videos[0].fields.file.url + '?fit=thumb' : entry.fields.link} height='100px' width='150px' />
+																	<ReactPlayer url={entry.fields.videos ? entry.fields.videos[0].fields.file.url + '?fit=thumb' : entry.fields.link + '?fit=thumb' } height='100px' width='150px' />
 																</div>
 																<p>{readMore}</p>
 															</li>
@@ -207,12 +209,12 @@ export default class BlogSingle extends Component {
 
 												<form id="reservation-form" action ="contact/contact-process.php">
 													<div className="reservation-page-input-box">
-														<label>Your name</label>
+														
 														<input type="text" className="form-control" placeholder="Full name" name="name" id="form-name" data-error="Subject field is required" required=""/>
 													</div>
 														
 													<div className="reservation-page-input-box">
-														<label>Your Email</label>
+														
 														<input type="text" className="form-control" placeholder="Email" name="Email" id="form-email" data-error="Subject field is required" required=""/>
 													</div>
 													<div className="reservation-booking">

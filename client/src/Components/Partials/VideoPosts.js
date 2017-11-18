@@ -3,11 +3,6 @@ import ReactPlayer from 'react-player'
 import { Link } from 'react-router-dom'
 
 export default class VideoPosts extends Component {
-    constructor(props){
-        super(props)
-        
-
-    }
     componentDidMount(){
 
         let all_videos = document.querySelectorAll('.popup-video video')
@@ -48,6 +43,7 @@ export default class VideoPosts extends Component {
             marginTop: '10px'
         }
         const videos = this.props.videos.slice(0, 2)
+        console.log(videos)
         
         return (
             <div id="VideoPosts" style={style}>
