@@ -74,7 +74,6 @@ export default class BlogSingle extends Component {
 		let headers = data.section_headers
 		let blog_header
 		const includesPageTag = (header) => (Object.keys(header.fields).includes('sectionReference') || header.fields.sectionReference)
-
 		headers.forEach(function (header) {
 			if (includesPageTag(header) && (header.fields.sectionReference === 'blog' || header.fields.sectionReference === 'Blog' )) {
 				blog_header = <div>
@@ -84,14 +83,13 @@ export default class BlogSingle extends Component {
 				}
 
 		})
-		
 		const the_other_articles = data.articles.filter(other_article => other_article != article)
-		let all_affiliate_items = []
-
 		if (data.affiliate_entries) {
-			data.affiliate_entries.forEach(entry => entry.fields.affiliateItems.forEach(item => all_affiliate_items.push(item)))
+			data.affiliate_entries.forEach(entry => the_other_articles.push(entry))	
 		}
-
+		if (data.video_entries) {
+			data.video_entries.forEach(entry => the_other_articles.push(entry))
+		}
 		let date_obj = new Date(article.sys.createdAt)
 		let created = CONSTANTS.months[(date_obj.getMonth())] + ' ' + date_obj.getDate() + ', ' + date_obj.getFullYear()
 		let category = article.fields.category ? article.fields.category[0].fields.title.split(' ')[0].toLowerCase() : null
@@ -101,7 +99,6 @@ export default class BlogSingle extends Component {
 		let path = this.props.match.path.split('/')
 		let subTitle = Object.keys(article.fields).includes('subHeader') ? article.fields.subHeader : null
 
-		
 		if (path.includes('videos')) {
 			blog_post_single = <Video video={article} />
 		}
@@ -114,8 +111,7 @@ export default class BlogSingle extends Component {
 									videos={videos} 
 									health_articles={data.health.length}
 									fashion_articles={data.fashion.length}
-									travel_articles={data.travel.length}
-									/>
+									travel_articles={data.travel.length}/>
 		}
 
 		return (
@@ -138,7 +134,6 @@ export default class BlogSingle extends Component {
 						</div>
 					</div>
 				</div>
-
 				<div className="main-content blog-single">
 					<div className="container">
 						<div className="row">
@@ -166,55 +161,26 @@ export default class BlogSingle extends Component {
 														)}
 													)}
 												</ul>
-											</div>
-											<br />
-											<br />
-										
-											<div className="widget widget_latest_tweets">
-												<h3 className="widget-title">Latest in Video:</h3>
-												<ul className="recent-list inline-list list-inline">
-													{data.video_entries.slice(0,2).map((entry) => {
-														let date_obj = new Date(entry.sys.createdAt)
-														let created = CONSTANTS.months[(date_obj.getMonth() + 1)] + ' ' + date_obj.getDate() + ', ' + date_obj.getFullYear()
-														let readMore = <Link to={'/videos/' + entry.fields.title} onClick={this.handleLinkClick.bind('/videos/', article.fields.title)}>{article.fields.title}</Link>
-														return (
-															<li>
-																<div className="thumb">
-																	<ReactPlayer url={entry.fields.videos ? entry.fields.videos[0].fields.file.url + '?fit=thumb' : entry.fields.link + '?fit=thumb' } height='100px' width='150px' />
-																</div>
-																<p>{readMore}</p>
-															</li>
-														)}
-													)}
-												</ul>
-											</div>
-
+											</div>	
 										</div>
 									</div>
 								</div>
 							</div>
-
 						</div>
 						<section className="flat-row flat-make-res index-2">
 							<div className="container">
 								<div className="row">
 									<div className="col-sm-6 col-md-offset-3">
 										<div className="reservation-page-left">
-
 											<div className="reservation-page-form">
-
 												<div className="title-section">
 													<h1 className="title">Are You on the Mailing List?</h1>
 												</div>
-
 												<form id="reservation-form" action ="contact/contact-process.php">
 													<div className="reservation-page-input-box">
-														
 														<input type="text" className="form-control" placeholder="Full name" name="name" id="form-name" data-error="Subject field is required" required=""/>
-													</div>
-														
+													</div>	
 													<div className="reservation-page-input-box">
-														
 														<input type="text" className="form-control" placeholder="Email" name="Email" id="form-email" data-error="Subject field is required" required=""/>
 													</div>
 													<div className="reservation-booking">

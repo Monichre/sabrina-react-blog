@@ -105,20 +105,16 @@ export default class Article extends Component {
 				main_images = CONSTANTS.IMAGE_SINGLE(this.props.main_images)
 			}
 		}
+		let category = this.props.article.fields.category[0].fields.title.split(' ')[0]
 		return (
 			<article className="post">
 				<div className="header-post">
-					<h2 className="title-post">
-						{this.props.article.fields.title}
-					</h2>
+					<h2 className="title-post">{this.props.article.fields.title}</h2>
 					<h5 className="sub_title show_on_mobile">{this.props.article.fields.subHeader}</h5>
 					<div className="widget widget_categories">
 						<ul className="inline-list list-inline">
-							<li><a href="/health">Health & Wellness ({this.props.health_articles})</a></li>
-							<li><a href="/travel">Travel ({this.props.travel_articles})</a></li>
-							<li><a href="/fashion">Fashion & Style ({this.props.fashion_articles})</a></li>
-						</ul>
-						
+							<li><a href={`/${category.toLowerCase()}`}>{category}</a></li>
+						</ul>	
 					</div>
 					<p className="date-event date-style-2"> <span>{this.props.created}</span></p>
 				</div>
@@ -129,23 +125,17 @@ export default class Article extends Component {
 				<div className="content-post">
 					<ReactMarkdown source={this.props.article.fields.content} />
 				</div>
-				
                 {videos}
-
 				<div className="direction clearfix">
-					
 					<div className="social-links">
-							<div className="share-tag social-share-link">Share this post:</div>
-							<div className="social-share-link" data-href="https://www.theresaonthetown.com" data-layout="button_count" data-size="large" data-mobile-iframe="true">
-								<a className="fb-xfbml-parse-ignore" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.theresaonthetown.com%2F&amp;src=sdkpreparse">
-									<i className="fa fa-facebook"></i>
-								</a>
-							</div>
-							<div className="social-share-link">
-								<a data-pin-do="buttonBookmark" data-pin-custom="true" target="_blank" rel="noopener" href="https://www.pinterest.com/theresaonthetwn"><i className="fa fa-pinterest"></i></a>
-							</div>
+						<div className="share-tag social-share-link">Share this post:</div>
+						<div className="social-share-link" data-href="https://www.theresaonthetown.com" data-layout="button_count" data-size="large" data-mobile-iframe="true">
+							<a className="fb-xfbml-parse-ignore" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.theresaonthetown.com%2F&amp;src=sdkpreparse"><i className="fa fa-facebook"></i></a>
 						</div>
-					
+						<div className="social-share-link">
+							<a data-pin-do="buttonBookmark" data-pin-custom="true" target="_blank" rel="noopener" href="https://www.pinterest.com/theresaonthetwn"><i className="fa fa-pinterest"></i></a>
+						</div>
+					</div>
 				</div>
 			</article>
 
