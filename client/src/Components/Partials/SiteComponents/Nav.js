@@ -132,6 +132,7 @@ class Modal extends Component {
                                             <a href="https://www.youtube.com/channel/UCvZKd-eUuq8A66J-uLr4CZQ"><i className="fa fa-lg fa-youtube w-inline-block social-wrap"></i></a>
                                             <a href="https://www.facebook.com/theresaonthetown/"><i className="fa fa-lg fa-facebook w-inline-block social-wrap"></i></a>
                                             <a href="https://www.pinterest.com/theresaonthetwn/"><i className="fa fa-lg fa-pinterest w-inline-block social-wrap"></i></a>
+                                            <a href="https://www.amazon.com/shop/theresaonthetown" target="_blank" rel="noopener"><i className="fa fa-amazon" aria-hidden="true"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -266,6 +267,7 @@ export default class Nav extends Component {
                     <a target="_blank" rel="noopener" data-href="https://www.theresaonthetown.com" data-layout="button_count" data-size="large" data-mobile-iframe="true" className="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.theresaonthetown.com%2F&amp;src=sdkpreparse"><i className="fa fa-facebook"></i></a>
                     <a target="_blank" rel="noopener" href="https://www.youtube.com/channel/UCvZKd-eUuq8A66J-uLr4CZQ"><i className="fa fa-youtube"></i></a>
                     <a target="_blank" rel="noopener" href="https://www.instagram.com/theresaonthetown/?ref=badge"><i className="fa fa-instagram"></i></a>
+                    <a href="https://www.amazon.com/shop/theresaonthetown" target="_blank" rel="noopener"><i className="fa fa-amazon"></i></a>
                     <span>FOLLOW ME</span>
                 </div>
                 <div className="flat-vertical reservation side_nav">

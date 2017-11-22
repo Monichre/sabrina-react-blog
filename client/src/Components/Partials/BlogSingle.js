@@ -171,7 +171,7 @@ export default class BlogSingle extends Component {
 											<br />
 										
 											<div className="widget widget_latest_tweets">
-												<h3 className="widget-title">Latest in Video</h3>
+												<h3 className="widget-title">Latest in Video:</h3>
 												<ul className="recent-list inline-list list-inline">
 													{data.video_entries.slice(0,2).map((entry) => {
 														let date_obj = new Date(entry.sys.createdAt)
