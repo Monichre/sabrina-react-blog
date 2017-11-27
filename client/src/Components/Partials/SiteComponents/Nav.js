@@ -132,7 +132,7 @@ class Modal extends Component {
                                             <a href="https://www.youtube.com/channel/UCvZKd-eUuq8A66J-uLr4CZQ"><i className="fa fa-lg fa-youtube w-inline-block social-wrap"></i></a>
                                             <a href="https://www.facebook.com/theresaonthetown/"><i className="fa fa-lg fa-facebook w-inline-block social-wrap"></i></a>
                                             <a href="https://www.pinterest.com/theresaonthetwn/"><i className="fa fa-lg fa-pinterest w-inline-block social-wrap"></i></a>
-                                            <a href="https://www.amazon.com/shop/theresaonthetown" target="_blank" rel="noopener"><i className="fa fa-amazon" aria-hidden="true"></i></a>
+                                            <a href="https://www.amazon.com/shop/theresaonthetown" target="_blank" rel="noopener"><i className="fa fa-amazon w-inline-block social-wrap" aria-hidden="true"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -216,7 +216,7 @@ export default class Nav extends Component {
             } else if (nav_item === 'Health & Wellness') {
                 menu_items[3] = <li key={'key-' + nav_item}><Link onClick={this.handleClick} to={'/' + this_route}>{nav_item}</Link></li>
                 mobile_menu_items[3] = <li className="mobile_menu_item" key={'key-' + nav_item}><Link to={'/' + this_route}>{nav_item}</Link></li>
-            } else if (nav_item === 'Contact') {
+            } else if (nav_item === 'Contact Me') {
                 menu_items[4] = <li key={'key-' + nav_item}><Link onClick={this.handleClick} to={'/' + this_route}>{nav_item}</Link></li>
                 mobile_menu_items[4] = <li className="mobile_menu_item" key={'key-' + nav_item}><Link to={'/' + this_route}>{nav_item}</Link></li>
             } else if (nav_item === 'About') {
