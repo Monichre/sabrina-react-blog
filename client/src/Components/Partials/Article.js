@@ -11,27 +11,6 @@ const CommonMark = require('commonmark')
 const ReactRenderer = require('commonmark-react-renderer')
 const parser = new CommonMark.Parser()
 const renderer = new ReactRenderer()
-{/* <section className="flat-row products shop-1">
-<div className="container">
-	<Masonry className={"row"}>
-		{this.props.photos.map((photo) => {
-			return (
-				<div className="col-sm-3 col-xs-6">
-					<div className="product effect1">
-						<div className="box-wrap">
-							<div className="box-image">
-								<img src={photo.fields.file.url + '?f=face&fit=thumb'} alt="images" />
-							</div>
-						</div>
-					</div>
-				</div>
-			)
-		})}
-	</Masonry>
-</div>
-</section> */}
-
-
 
 export default class Article extends Component {
 	componentDidMount() {
@@ -65,7 +44,6 @@ export default class Article extends Component {
 		let video_player = e.target
 		video_player.setAttribute('muted', false)
 	}
-	// <li><h3 className="widget-title">Categories:</h3></li>
 	render() {
 		console.log(this.props.article)
 		const hasVideo = article => (article.fields.videos || Object.values(article.fields).includes('videos') && article.fields.videos.length > 0)
@@ -124,6 +102,7 @@ export default class Article extends Component {
 				<h5 className="sub_title hide_on_mobile">{this.props.article.fields.subHeader}</h5>
 				<div className="content-post">
 					<ReactMarkdown source={this.props.article.fields.content} />
+					<div dangerouslySetInnerHTML={{__html: this.props.article.fields.shopsenseWidget}}/>
 				</div>
                 {videos}
 				<div className="direction clearfix">

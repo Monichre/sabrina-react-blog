@@ -10,23 +10,6 @@ import Helmet from 'react-helmet'
 import AppDispatcher from '../../Dispatcher/AppDispatcher'
 import AppStore from '../../Stores/AppStore'
 
-{/* <div className="widget widget_latest_tweets">
-<h3 className="widget-title">Latest Affiliate Items:</h3>
-<ul className="recent-list inline-list list-inline">
-	{all_affiliate_items.splice(0,3).map((entry) => {
-		return (
-			<li>
-				<div className="thumb">
-					<a href={entry.fields.link} target="_blank" rel="noopener" className="affiliate_thumb"><img src={(entry.fields.photos[0] && entry.fields.photos[0].fields !== undefined) ? entry.fields.photos[0].fields.file.url + '?fit=thumb' : null} alt="image" /></a>
-				</div>
-				<p>{entry.fields.title}</p>
-				<p><a href={entry.fields.link}>Shop Now</a></p>
-			</li>
-		)}
-	)}
-</ul>
-</div> */}
-
 export default class BlogSingle extends Component {
 
 	componentWillMount() {
