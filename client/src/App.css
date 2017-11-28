@@ -4074,7 +4074,7 @@ video {
 	top: 8px;
 	right: -43px;
 }
-.blog-post-preview iframe, .blog-post-preview video {
+.blog-post-preview iframe, .blog-post-preview video, .blog-post-preview .content-story div p img {
     display: none;
 }
 
