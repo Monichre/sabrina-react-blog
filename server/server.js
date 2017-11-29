@@ -71,13 +71,14 @@ app.post('/send-mail', (req, res) => {
 app.post('/subscribe', (req, res) => {
     
      const data = req.body
+     let name = (data.name || data.name !== null) ? data.name : 'No Name'
      
      const email_info = {
          from: `${data.email_address}`,
          to: 'sabrina@theresaonthetown.com', 
          subject: 'New Subscription to your Newsletter ✔', 
-         text: `${data.email_address}`,
-         html: `<b>${data.email_address}</b>`
+         text: `New Subscription from ${name}: ${data.email_address}`,
+         html: `New Subscription from ${name}: <b>${data.email_address}</b>`
      }
      let res_status
      transporter.sendMail(email_info, (error, info) => {

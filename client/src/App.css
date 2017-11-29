@@ -2116,7 +2116,8 @@ input[type="color"],
     margin-top: -4px;
 }
 #Blog .main-content.blog-single {
-    width: 1000px;
+    width: 100%;
+    max-width: 1000px;
     margin: auto;
     display: block;
 }
@@ -3025,14 +3026,23 @@ input[type="color"],
 
 /* Footer
 -------------------------------------------------------------- */
+.footer-section {
+    
+}
+.footer-widget-wrapper {
+    position: relative;
+    height: 400px;
+}
+.iframe-widget {
+    
+    
+}
+
 #main-footer {
 	background-color: #1a1a1a;
 }
 
-.iframe-widget {
-    position: relative;
-    height: 400px;
-}
+
 iframe html > body {
     margin: 0!important;
 }
@@ -3063,7 +3073,7 @@ iframe > * > * {
 
 .footer-form form input {
     background: #fff;
-    border-radius: 5px;
+    
     display: inline;
     width: 325px;
     margin-top: 30px;
@@ -4167,6 +4177,16 @@ video {
     #form-second-half {
         position: static!important;
     }
+    .flat-imagebox .item {    
+        padding: 15px;
+        width: 100%;
+    }
+    .footer-text {
+        text-align: center!important;
+    }
+    #loveCraft {
+        position: static!important;
+    }
 }
 @media only screen and (max-width: 480px) {
     .side_nav {
@@ -4230,9 +4250,15 @@ video {
     .blog-post-preview .read-more {
         padding-left: 10px;
     }
-    .iframe-widget {
+  
+    .footer-widget-wrapper {
         position: relative;
-        height: 150px;
+        height: 130px;
+    }
+    .book-now-btn {
+        border-radius: 0!important;
+        display: block;
+        margin: auto;
     }
 }
 .box-content p.content-story, .polaroid .caption p, .post > .content-post p, .affiliate-preview p {

@@ -9,6 +9,8 @@ import CONSTANTS from '../../constants'
 import Helmet from 'react-helmet'
 import AppDispatcher from '../../Dispatcher/AppDispatcher'
 import AppStore from '../../Stores/AppStore'
+import BlogSignUp from './SiteComponents/BlogSignUp'
+
 
 export default class BlogSingle extends Component {
 
@@ -151,30 +153,7 @@ export default class BlogSingle extends Component {
 							</div>
 						</div>
 						<section className="flat-row flat-make-res index-2">
-							<div className="container">
-								<div className="row">
-									<div className="col-sm-6 col-md-offset-3">
-										<div className="reservation-page-left">
-											<div className="reservation-page-form">
-												<div className="title-section">
-													<h1 className="title">Are You on the Mailing List?</h1>
-												</div>
-												<form id="reservation-form" action ="contact/contact-process.php">
-													<div className="reservation-page-input-box">
-														<input type="text" className="form-control" placeholder="Full name" name="name" id="form-name" data-error="Subject field is required" required=""/>
-													</div>	
-													<div className="reservation-page-input-box">
-														<input type="text" className="form-control" placeholder="Email" name="Email" id="form-email" data-error="Subject field is required" required=""/>
-													</div>
-													<div className="reservation-booking">
-														<button type="submit" className="book-now-btn">Sign Up!</button>
-													</div>
-												</form>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+							<BlogSignUp />							
 						</section>
 					</div>
 				</div>

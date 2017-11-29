@@ -14,8 +14,9 @@ export default class BlogList extends Component {
 	render() {
 
 		let data = this.props.data
+		let featured_posts = data.featured
 		let item_num = data.item_num
-		let articles = data.articles.slice(3, (data.articles.length - 1))
+		let articles = data.articles.filter(article => article.fields.featured !== true)
 
 		let load_more
 		let show_more_text = 'More Posts'
