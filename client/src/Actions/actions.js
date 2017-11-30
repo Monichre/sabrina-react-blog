@@ -19,6 +19,7 @@ export function getStore(callback) {
             let response_items = response.items
 
             let pages = _.filter(response_items, (item) => item.sys.contentType.sys.id === 'page')
+            console.log(pages)
             let section_headers = _.filter(response_items, (item) => item.sys.contentType.sys.id === 'sectionHeader')
             let polaroids = _.filter(response_items, (item) => item.sys.contentType.sys.id === 'polaroid')
             let video_entries = _.filter(response_items, (item) => item.sys.contentType.sys.id === 'videoPost')
@@ -33,8 +34,6 @@ export function getStore(callback) {
             nav_items = nav_items.sort().reverse()
             
             AppStore.data.featured = _.filter(articles, (article) => article.fields.featured === true)
-            console.log(articles)
-            console.log(AppStore.data.featured)
             AppStore.data.fashion = _.filter(articles, (article) => article.fields.category[0].fields.title === 'Fashion Posts')
             AppStore.data.travel = _.filter(articles, (article) => article.fields.category[0].fields.title === 'Travel Posts')
             AppStore.data.health = _.filter(articles, (article) => article.fields.category[0].fields.title === 'Health Posts')

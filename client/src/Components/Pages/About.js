@@ -117,6 +117,8 @@ export default class About extends Component {
 
     render() {
 		const data = this.props.data
+		const contactPage = data.pages.find(page => page.sys.id === "644zcWA1i0MkSss6u8EcYg")
+		console.log(contactPage)
 		const image_bg = data.page.fields.backgroundPhoto.fields.file.url
 		const about_styles = {
 			position: 'relative',
@@ -138,15 +140,14 @@ export default class About extends Component {
                     <div className="container-fluid">
                         <div className="row"></div>
                         <div className="row">
-                            <div className="col-sm-4">
+                            <div className="col-sm-5">
 
                                 <div className="col-sm-12 contact-top">
                                     <address>
 										<div className="title-section">
-		                    				<h1 className="">Contact</h1>
+		                    				<h1 className="">{contactPage.fields.title}</h1>
 		                				</div>
-										<span>Theresa on the Town</span> <br/>
-										<span>NYC</span>
+										<span>{contactPage.fields.content}</span> 
                                     </address>
                                 </div>
 								<br/><br/>
