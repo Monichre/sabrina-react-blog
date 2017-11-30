@@ -140,7 +140,7 @@ export default class BlogSingle extends Component {
 														let category = article.fields.category ? article.fields.category[0].fields.title.split(' ')[0].toLowerCase() : null
 														return (
 															<li>
-																<div className="thumb"><img src={article.fields.photos ? article.fields.mainPhotos[0].fields.file.url + '?fit=thumb' : null} alt="image" /></div>
+																<div className="thumb"><img src={article.fields.mainPhotos ? article.fields.mainPhotos[0].fields.file.url + '?fit=thumb' : null} alt="image" /></div>
 																<p className="text"><Link to={'/' + category + '/' + article.fields.title} onClick={this.handleLinkClick.bind(category, article.fields.title)}>{article.fields.title}</Link></p>
 															</li>
 														)}
