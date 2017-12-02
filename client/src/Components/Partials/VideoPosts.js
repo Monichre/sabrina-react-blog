@@ -67,7 +67,7 @@ export default class VideoPosts extends Component {
                                 <div className="col-md-6">
                                     <div className="imgbox style3">
                                         <div className="">
-                                            <a className="popup-video"><ReactPlayer onClick={this.handleMute.bind(this)} url={video.fields.videos ? video.fields.videos[0].fields.file.url : video.fields.link}  width='95%' playing={false} muted loop={false} controls={false}/></a>
+                                            <a className="popup-video"><ReactPlayer onClick={this.handleMute.bind(this)} url={(video.fields.videos && video.fields.videos[0].fields) ? video.fields.videos[0].fields.file.url : video.fields.link}  width='95%' playing={false} muted loop={false} controls={false}/></a>
                                         </div>
                                         <div className="align" style={content_style}>
                                             <div className="title-section style2 ">

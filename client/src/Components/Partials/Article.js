@@ -91,7 +91,7 @@ export default class Article extends Component {
 					<h5 className="sub_title show_on_mobile">{this.props.article.fields.subHeader}</h5>
 					<div className="widget widget_categories">
 						<ul className="inline-list list-inline">
-							<li><a href={`/${category.toLowerCase()}`}>{category}</a></li>
+							<li><a className="blog-single-category" href={`/${category.toLowerCase()}`}>{category}</a></li>
 						</ul>	
 					</div>
 					<p className="date-event date-style-2"> <span>{this.props.created}</span></p>

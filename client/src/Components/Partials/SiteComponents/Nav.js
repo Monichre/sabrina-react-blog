@@ -216,7 +216,7 @@ export default class Nav extends Component {
             } else if (nav_item === 'Health & Wellness') {
                 menu_items[3] = <li key={'key-' + nav_item}><Link onClick={this.handleClick} to={'/' + this_route}>{nav_item}</Link></li>
                 mobile_menu_items[3] = <li className="mobile_menu_item" key={'key-' + nav_item}><Link to={'/' + this_route}>{nav_item}</Link></li>
-            } else if (nav_item === 'Contact Me') {
+            } else if (nav_item === 'Contact') {
                 menu_items[4] = <li key={'key-' + nav_item}><Link onClick={this.handleClick} to={'/' + this_route}>{nav_item}</Link></li>
                 mobile_menu_items[4] = <li className="mobile_menu_item" key={'key-' + nav_item}><Link to={'/' + this_route}>{nav_item}</Link></li>
             } else if (nav_item === 'About') {

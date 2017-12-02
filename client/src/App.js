@@ -55,25 +55,7 @@ class App extends Component {
 		})
 	}
 	componentWillMount() {
-		
 		this.getStore()
-		// axios.get('https://api.instagram.com/oembed?url=http://www.instagr.am/theresaonthetown/',
-		// {
-		// 	headers: {
-		// 		"Access-Control-Allow-Origin": "*",
-		// 		'Access-Control-Allow-Methods': 'GET',
-		// 		'Access-Control-Allow-Headers': 'Content-Type, Content-Range, Content-Disposition, Content-Description',
-		// 		'Content-Type': 'jsonp'
-		// 	}
-		// })
-		// .then((result) => {
-		// 	console.log(result)
-		// }).catch((error) => {
-		// 	if(error){
-		// 		console.log(error)
-		// 	}
-		// })
-
 	}
 
 	_onChange() {

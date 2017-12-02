@@ -128,6 +128,10 @@ export default class About extends Component {
 			backgroundPosition: 'center',
 			backgroundImage: 'url(' + image_bg + ')'
 		}
+		const h1_style = {
+			marginTop: '10px',
+			textAlign: 'left'
+		}
 
         return (
             <div id="about" style={about_styles}>
@@ -145,7 +149,7 @@ export default class About extends Component {
                                 <div className="col-sm-12 contact-top">
                                     <address>
 										<div className="title-section">
-		                    				<h1 className="">{contactPage.fields.title}</h1>
+		                    				<h1 className="" style={h1_style}>{contactPage.fields.title}</h1>
 		                				</div>
 										<span>{contactPage.fields.content}</span> 
                                     </address>

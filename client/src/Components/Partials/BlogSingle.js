@@ -10,6 +10,17 @@ import Helmet from 'react-helmet'
 import AppDispatcher from '../../Dispatcher/AppDispatcher'
 import AppStore from '../../Stores/AppStore'
 import BlogSignUp from './SiteComponents/BlogSignUp'
+{/* <div className="page-title">
+					<div className="container">
+						<div className="row">
+							<div className="col-md-12">
+								<div className="title-section">
+									{blog_header}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div> */}
 
 
 export default class BlogSingle extends Component {
@@ -59,6 +70,7 @@ export default class BlogSingle extends Component {
 		let headers = data.section_headers
 		let blog_header
 		const includesPageTag = (header) => (Object.keys(header.fields).includes('sectionReference') || header.fields.sectionReference)
+
 		headers.forEach(function (header) {
 			if (includesPageTag(header) && (header.fields.sectionReference === 'blog' || header.fields.sectionReference === 'Blog' )) {
 				blog_header = <div>
@@ -71,10 +83,13 @@ export default class BlogSingle extends Component {
 		const the_other_articles = data.articles.filter(other_article => other_article != article)
 		if (data.affiliate_entries) {
 			data.affiliate_entries.forEach(entry => the_other_articles.push(entry))	
-		}
+		} 
+		let the_videos
 		if (data.video_entries) {
-			data.video_entries.forEach(entry => the_other_articles.push(entry))
+			the_videos = data.video_entries
 		}
+		console.log(the_videos)
+		
 		let date_obj = new Date(article.sys.createdAt)
 		let created = CONSTANTS.months[(date_obj.getMonth())] + ' ' + date_obj.getDate() + ', ' + date_obj.getFullYear()
 		let category = article.fields.category ? article.fields.category[0].fields.title.split(' ')[0].toLowerCase() : null
@@ -108,17 +123,7 @@ export default class BlogSingle extends Component {
 					<meta property="og:description" content={description} />
 					<meta property="og:image" content={CONSTANTS.hasPhoto(article) ? article.fields.mainPhotos[0].fields.file.url : null} />
 				</Helmet>
-				<div className="page-title">
-					<div className="container">
-						<div className="row">
-							<div className="col-md-12">
-								<div className="title-section">
-									{blog_header}
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+				
 				<div className="main-content blog-single">
 					<div className="container">
 						<div className="row">
@@ -135,16 +140,29 @@ export default class BlogSingle extends Component {
 										<div className="sidebar">
 											<div className="widget widget_recent_entries clearfix">
 												<h3 className="widget-title">More for you:</h3>
+												
 												<ul className="recent-list clearfix inline-list list-inline">
 													{the_other_articles.splice(0, 3).map((article, i) => {
 														let category = article.fields.category ? article.fields.category[0].fields.title.split(' ')[0].toLowerCase() : null
 														return (
 															<li>
 																<div className="thumb"><img src={article.fields.mainPhotos ? article.fields.mainPhotos[0].fields.file.url + '?fit=thumb' : null} alt="image" /></div>
-																<p className="text"><Link to={'/' + category + '/' + article.fields.title} onClick={this.handleLinkClick.bind(category, article.fields.title)}>{article.fields.title}</Link></p>
+																<p className="text"><Link to={'/' + category + '/' + article.fields.title} onClick={this.handleLinkClick.bind(category, article.fields.title)}>{CONSTANTS.trimLink(article.fields.title)}</Link></p>
 															</li>
 														)}
 													)}
+												</ul>
+												<ul className="recent-list clearfix inline-list list-inline">
+													{the_videos.splice(0, 3).map((video, i) => {
+															return (
+																<li>
+																	<div className="thumb">
+																		<ReactPlayer url={(video.fields.videos && video.fields.videos[0].fields) ? video.fields.videos[0].fields.file.url : video.fields.link}  width='95%'height="100%" playing={false} muted loop={false} controls={false}/>
+																	</div>
+																	<p className="text"><Link to={'/videos/' + video.fields.title} onClick={this.handleLinkClick.bind(video.fields.title)}>{video.fields.title}</Link></p>
+																</li>
+															)}
+														)}
 												</ul>
 											</div>	
 										</div>

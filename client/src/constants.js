@@ -10,6 +10,15 @@ const CONSTANTS = {
         }
         return str
     },
+    trimLink: (str) => {
+        if (str.length > 50) {
+            let array = str.split('')
+            str = array.splice(0, 35)
+            str.push('...')
+            str = str.join('')
+        }
+        return str
+    },
     hasPhoto: (article) => article.fields.mainPhotos || Object.values(article.fields).includes('mainPhotos'),
     hasFeaturedPhoto: (article) => article.fields.featuredPhoto || Object.values(article.fields).includes('featuredPhoto'),
     IMAGE_SINGLE: (images) => {

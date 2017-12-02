@@ -13,7 +13,7 @@ export default class PostsByCountry extends Component {
             return (
 				<Polaroid
 					key={'key-' + polaroid.sys.id}
-					image={hasPhoto(polaroid) ? polaroid.fields.photo.fields.file.url : null}
+					image={(hasPhoto(polaroid) && polaroid.fields.photo.fields) ? polaroid.fields.photo.fields.file.url : null}
                     title={polaroid.fields.title}
 					caption={polaroid.fields.description} />
 			)
