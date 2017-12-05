@@ -24,6 +24,7 @@ export function getStore(callback) {
             let polaroids = _.filter(response_items, (item) => item.sys.contentType.sys.id === 'polaroid')
             let video_entries = _.filter(response_items, (item) => item.sys.contentType.sys.id === 'videoPost')
             let affiliate_entries = _.filter(response_items, (item) => item.sys.contentType.sys.id === 'affiliatePost')
+            console.log(affiliate_entries)
             let initial_articles =  _.filter(response_items, (item) => item.sys.contentType.sys.id === 'blogPost')
             let CTAs = _.filter(response_items, (item) => item.sys.contentType.sys.id === 'cta')
             let footerCTA = _.find(CTAs, (item) => item.fields.section === 'Footer')

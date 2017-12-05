@@ -51,11 +51,11 @@ export default class AffiliatePost extends Component {
 		                            <div className="imagebox effect1">
 		                                <div className="box-wrap">
 		                                    <div className="box-image">
-		                                        <a href={item.fields.link} target="_blank"><img className="affiliate-object-fit" src={(item.fields.photos[0] && item.fields.photos[0].fields !== undefined) ? item.fields.photos[0].fields.file.url : null} alt="img"/></a>
+		                                        <a href={item.fields ? item.fields.link : null} target="_blank"><img className="affiliate-object-fit" src={(item.fields && item.fields.photos[0] && item.fields.photos[0].fields !== undefined) ? item.fields.photos[0].fields.file.url : null} alt="img"/></a>
 		                                    </div>
 		                                    <div className="box-content">
-		                                        <h5>{item.fields.title}</h5>
-												<p className="content-story" dangerouslySetInnerHTML={{ __html: item.fields.description}} />
+		                                        <h5>{item.fields ? item.fields.title : null}</h5>
+												<p className="content-story" dangerouslySetInnerHTML={{ __html: item.fields ? item.fields.description : null}} />
 		                                    </div>
 		                                </div>
 		                            </div>
