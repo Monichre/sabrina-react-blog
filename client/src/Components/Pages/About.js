@@ -118,7 +118,6 @@ export default class About extends Component {
     render() {
 		const data = this.props.data
 		const contactPage = data.pages.find(page => page.sys.id === "644zcWA1i0MkSss6u8EcYg")
-		console.log(contactPage)
 		const image_bg = data.page.fields.backgroundPhoto.fields.file.url
 		const about_styles = {
 			position: 'relative',
@@ -129,48 +128,43 @@ export default class About extends Component {
 			backgroundImage: 'url(' + image_bg + ')'
 		}
 		const h1_style = {
-			marginTop: '10px',
 			textAlign: 'left'
 		}
 
         return (
             <div id="about" style={about_styles}>
-                     <Helmet>
-                            <title>Theresa on the Town | {data.page.fields.title}</title>
-							<meta name="description" content={data.page.fields.metaDescription}/>
-							<meta name="keywords" content={data.page.fields.metaTags}/>
-                        </Helmet>
-                <section className="col-md-6" id="form-half">
-                    <div className="container-fluid">
-                        <div className="row"></div>
-                        <div className="row">
-                            <div className="col-sm-5">
-
-                                <div className="col-sm-12 contact-top">
-                                    <address>
+				<Helmet>
+					<title>Theresa on the Town | {data.page.fields.title}</title>
+					<meta name="description" content={data.page.fields.metaDescription}/>
+					<meta name="keywords" content={data.page.fields.metaTags}/>
+				</Helmet>
+			
+				<div id="form-half"></div>
+				
+				<div id="AboutContactTopLayer">
+					<section className="col-md-6">
+						<div className="row">
+							<div className="col-xs-12">
+								<div className="row">
+									<div className="col-xs-5 contact-me">
 										<div className="title-section">
-		                    				<h1 className="" style={h1_style}>{contactPage.fields.title}</h1>
-		                				</div>
-										<span>{contactPage.fields.content}</span> 
-                                    </address>
-                                </div>
-								<br/><br/>
+											<h1 className="contact-header" style={h1_style}>{contactPage.fields.title}</h1>
+										</div>
+										<p>{contactPage.fields.content}</p> 
+									</div>
+								</div>
+								<Form />
 							</div>
-                            <div className="col-sm-12">
-                                <Form />
-                            </div>
-                        </div>
-                    </div>
-                </section>
-				<div id="form-second-half">
-					<div className="col-md-12">
-		                <div className="title-section">
-		                    <h1 className="title">About Me</h1>
-		                </div>
+						</div>
+					</section>
+					<section className="col-md-6 about-me">
+						<div className="title-section">
+							<h1 className="title">About Me</h1>
+						</div>
 						<div className="blockquote-testimo">
-	                        <ReactMarkdown source={data.page.fields.content} />
-	                    </div>
-		            </div>
+							<ReactMarkdown source={data.page.fields.content} />
+						</div>
+					</section>
 				</div>
 			</div>
 		)

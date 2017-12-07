@@ -10,18 +10,6 @@ import Helmet from 'react-helmet'
 import AppDispatcher from '../../Dispatcher/AppDispatcher'
 import AppStore from '../../Stores/AppStore'
 import BlogSignUp from './SiteComponents/BlogSignUp'
-{/* <div className="page-title">
-					<div className="container">
-						<div className="row">
-							<div className="col-md-12">
-								<div className="title-section">
-									{blog_header}
-								</div>
-							</div>
-						</div>
-					</div>
-				</div> */}
-
 
 export default class BlogSingle extends Component {
 
@@ -64,27 +52,16 @@ export default class BlogSingle extends Component {
 
 		const data = this.props.data
 		const article = data.article
+		console.log(article)
 		const description = CONSTANTS.TRIM(article.fields.content)
 		const slug = this.props.match.url
-		console.log(article)
-		let headers = data.section_headers
-		let blog_header
-		const includesPageTag = (header) => (Object.keys(header.fields).includes('sectionReference') || header.fields.sectionReference)
-
-		headers.forEach(function (header) {
-			if (includesPageTag(header) && (header.fields.sectionReference === 'blog' || header.fields.sectionReference === 'Blog' )) {
-				blog_header = <div>
-								<h1 className="title">{header.fields.headerTitle}</h1>
-								<h5 className="title_section_subHeader">{header.fields.subHeader}</h5>
-							</div>
-				}
-
-		})
 		const the_other_articles = data.articles.filter(other_article => other_article != article)
+
 		if (data.affiliate_entries) {
 			data.affiliate_entries.forEach(entry => the_other_articles.push(entry))	
 		} 
 		let the_videos
+
 		if (data.video_entries) {
 			the_videos = 	<ul className="recent-list clearfix">
 								{data.video_entries.splice(0, 3).map((video, i) => (

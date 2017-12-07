@@ -61,7 +61,7 @@ export default class Video extends Component {
                 </div>
 
                 <div className="content-post">
-                    <p dangerouslySetInnerHTML={{ __html: this.props.video.fields.description }}></p>
+                    <p dangerouslySetInnerHTML={{ __html: this.props.video.fields.content }}></p>
                 </div>
                 <div className="direction clearfix">
                     <div className="social-links">

@@ -201,7 +201,7 @@
 /* Mobile Portrait Size */
 @media only screen and (max-width: 478px) {
 	.flat-tabs .content-tab ul li .media-body span,.main-content.blog-single .post .direction .social-links {
-		float: left;
+		
 	}
 	.box {
 		padding:0;
@@ -2562,7 +2562,7 @@ input[type="color"],
 	color: #ba2424;
 }
 .main-content.blog-single .post .direction .social-links {
-	float: right;
+	text-align: center;
     margin-top: 22px;
 }
 .widget.widget_categories .widget-title {
@@ -2878,6 +2878,7 @@ input[type="color"],
 }
 
 .widget .widget-title {
+    text-align: center;
 	font-size: 12px;
 	line-height: 30px;
 	font-weight: 500;
@@ -3918,10 +3919,15 @@ video {
 	background-position: top center;
 	background-repeat: no-repeat;
 }
+#AboutContactBottomLayer {
+
+}
+#AboutContactTopLayer {
+    padding-top: 200px;
+}
 
 #form-half {
-	padding-top: 200px;
-	padding-left: 50px;
+	
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -3934,36 +3940,27 @@ video {
 	background: rgba(255, 255, 255, 1);
 
 }
-#form-second-half {
-	padding-top: 225px;
-    padding-left: 50px;
-	position: absolute;
-	top: 0;
-	right: 0;
-	height: 100%;
-	width: 50%;
-}
-#form-second-half .top-section, #form-second-half .title {
+
+.about-me .top-section, .about-me .title, .about-me p {
     color: #fff;
     text-transform: capitalize;
 }
-#form-second-half > * {
+.about-me * {
 	text-align: center;
 	color: #fff;
 }
 
-.contact-top {
-	padding: 10px;
-	margin-left: 15px;
-	transition: all .4s;
+h1.contact-header {
+    margin: 0 0 0 20px!important;
+    line-height: 40px;
 }
-.contact-top address span {
+.contact-me p {
 	font-weight: 600;
     color: #333;
-    margin-left: 12px;
+    margin-left: 20px;
 }
 
-.contact-top address:after {
+.contact-me p:after {
 	content: ' ';
 	display: block;
 	width: 15px;
@@ -4071,11 +4068,11 @@ video {
 .main-content.blog-single .post .direction ul {
 	float: left;
 }
-.main-content.blog-single .post .direction .social-links {
-    float: left;
+.social-links {
+	text-align: center;
 }
 .main-content.blog-single .post .content-post div p {
-   text-align: center;
+   /* text-align: center; */
 }
 
 .main-content.blog-single .post .content-post div p img {
