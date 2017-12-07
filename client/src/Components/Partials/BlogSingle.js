@@ -86,9 +86,17 @@ export default class BlogSingle extends Component {
 		} 
 		let the_videos
 		if (data.video_entries) {
-			the_videos = data.video_entries
+			the_videos = 	<ul className="recent-list clearfix">
+								{data.video_entries.splice(0, 3).map((video, i) => (
+									<li>
+										<div className="thumb">
+											<ReactPlayer url={(video.fields.videos && video.fields.videos[0].fields) ? video.fields.videos[0].fields.file.url : video.fields.link}  width='95%'height="100%" playing={false} muted loop={false} controls={false}/>
+										</div>
+										<p className="text"><Link to={'/videos/' + video.fields.title} onClick={this.handleLinkClick.bind(video.fields.title)}>{video.fields.title}</Link></p>
+									</li>
+								))}
+							</ul>
 		}
-		console.log(the_videos)
 		
 		let date_obj = new Date(article.sys.createdAt)
 		let created = CONSTANTS.months[(date_obj.getMonth())] + ' ' + date_obj.getDate() + ', ' + date_obj.getFullYear()
@@ -134,14 +142,13 @@ export default class BlogSingle extends Component {
 							</div>
 						</div>
 						<div className="row">
-							<div className="col-md-12">
 								<div className="sidebars">
 									<div className="sidebars-wrap">
 										<div className="sidebar">
 											<div className="widget widget_recent_entries clearfix">
 												<h3 className="widget-title">More for you:</h3>
 												
-												<ul className="recent-list clearfix inline-list list-inline">
+												<ul className="recent-list clearfix">
 													{the_other_articles.splice(0, 3).map((article, i) => {
 														let category = article.fields.category ? article.fields.category[0].fields.title.split(' ')[0].toLowerCase() : null
 														return (
@@ -152,23 +159,12 @@ export default class BlogSingle extends Component {
 														)}
 													)}
 												</ul>
-												<ul className="recent-list clearfix inline-list list-inline">
-													{the_videos.splice(0, 3).map((video, i) => {
-															return (
-																<li>
-																	<div className="thumb">
-																		<ReactPlayer url={(video.fields.videos && video.fields.videos[0].fields) ? video.fields.videos[0].fields.file.url : video.fields.link}  width='95%'height="100%" playing={false} muted loop={false} controls={false}/>
-																	</div>
-																	<p className="text"><Link to={'/videos/' + video.fields.title} onClick={this.handleLinkClick.bind(video.fields.title)}>{video.fields.title}</Link></p>
-																</li>
-															)}
-														)}
-												</ul>
+												{the_videos}
 											</div>	
 										</div>
 									</div>
 								</div>
-							</div>
+							
 						</div>
 						<section className="flat-row flat-make-res index-2">
 							<BlogSignUp />							

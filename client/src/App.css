@@ -350,7 +350,7 @@
     padding-top: 50px;
     padding-bottom: 50px;
     position: relative;
-    width: 1000px;
+    width: 100%;
     background: #e5e5e5;
 }
 
@@ -879,7 +879,10 @@ video {
     right: -43px;
 }
 ul.recent-list {
-    width: 1000px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 ul.recent-list li {
     margin-top: 10px;
@@ -2866,7 +2869,8 @@ input[type="color"],
 /* Widget
 -------------------------------------------------------------- */
 .sidebars {
-	margin-top: -4px;
+    margin-top: -4px;
+    width: 100%;
 }
 
 .widget {
@@ -4256,6 +4260,11 @@ video {
         transition: none;
         line-height: 35px;
         
+    }
+    #MobileMenuContainer header h1 {
+        font-weight: 400;
+        margin-left: 30px;
+        font-size: 26px;
     }
     .blog-post-preview {
         border-bottom: 1px solid #eee;
