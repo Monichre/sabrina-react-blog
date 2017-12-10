@@ -481,7 +481,7 @@
 --------------------------------------------------------*/
 .title-section {
     text-align: center;
-    padding-right: 20px;
+    /* padding-right: 20px; */
 }
 
 .title-section .top-section {
@@ -4047,7 +4047,7 @@ h1.contact-header {
     display: block;
     font-family: "Poppins", sans-serif;
     font-size: 14px;
-    line-height: 75px;
+    /* line-height: 75px; */
     /* padding: 10px 15px 0; */
     color: #565656;
     text-decoration: none;

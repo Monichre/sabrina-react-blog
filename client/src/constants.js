@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 
 const CONSTANTS = {
     TRIM: (str) => {
-        if (str.length > 405) {
+        if (str.length > 600) {
             let array = str.split('')
-            str = array.splice(0, 200)
+            str = array.splice(0, 600)
             str.push('...')
             str = str.join('')
         }
