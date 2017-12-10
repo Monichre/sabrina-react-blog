@@ -2131,6 +2131,17 @@ input[type="color"],
     margin: auto;
     display: block;
 }
+.shopsense-widget {
+    width: 100%;
+    overflow: scroll;
+}
+.shopsense-widget iframe {
+    width: 100%!important;
+}
+.tools-container .widget-preview, .tools-container .widget-preview.no-wrap  {
+    width: 100%!important;
+    padding: 0!important;
+}
 
 .page-title .breadcrumbs ul li {
 	display: inline-block;
