@@ -36,7 +36,7 @@ export default class BlogPostPreviewRight extends Component {
                                         <p className="date-event date-style-2 hide_on_mobile"> <span>{this.props.date}</span></p>
                                     </div>
                                     <div className="content-story">
-                                        <ReactMarkdown source={CONSTANTS.TRIM(this.props.content)} />
+                                        <ReactMarkdown source={this.props.previewContent} />
                                     </div>
                                     <div className="read-more">{this.props.readMore}</div>
                                 </div>
