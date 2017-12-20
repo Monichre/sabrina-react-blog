@@ -2536,7 +2536,7 @@ input[type="color"],
 .main-content.blog-single .post .content-post p {
     margin: 15px auto;
     font-size: 18px;
-    text-align: justify;
+    text-align: left;
     font-weight: 300;
     position: relative;
 }
@@ -4032,6 +4032,14 @@ h1.contact-header {
 .blog-single .content-wrap .post ul {
     padding-left: 15px;
     list-style-type: unset;
+}
+.blog-single .content-wrap .post ul li {
+    text-align: left;
+    font-weight: 300;
+    position: relative;
+    font-family: Open Sans,sans-serif;
+    margin: 15px auto;
+
 }
 
 
