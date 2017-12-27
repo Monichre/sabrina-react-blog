@@ -92,7 +92,7 @@ export default class Footer extends Component {
 									<a href="https://www.youtube.com/channel/UCvZKd-eUuq8A66J-uLr4CZQ" target="_blank" rel="noopener"><i className="fa fa-lg fa-youtube w-inline-block social-wrap"></i></a>
 									<a href="https://www.facebook.com/theresaonthetown/" target="_blank" rel="noopener"><i className="fa fa-lg fa-facebook w-inline-block social-wrap"></i></a>
 									<a href="https://www.pinterest.com/theresaonthetwn/" target="_blank" rel="noopener"><i className="fa fa-lg fa-pinterest w-inline-block social-wrap"></i></a>
-									<a href="https://www.amazon.com/shop/theresaonthetown" target="_blank" rel="noopener"><i className="fa fa-amazon w-inline-block social-wrap" aria-hidden="true"></i></a>
+									<a href="https://www.amazon.com/shop/theresaonthetown" target="_blank" rel="noopener"><i className="fa fa-lg fa-amazon w-inline-block social-wrap" aria-hidden="true"></i></a>
 								</div>
 							</div>
 						</div>

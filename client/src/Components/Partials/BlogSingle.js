@@ -10,6 +10,7 @@ import Helmet from 'react-helmet'
 import AppDispatcher from '../../Dispatcher/AppDispatcher'
 import AppStore from '../../Stores/AppStore'
 import BlogSignUp from './SiteComponents/BlogSignUp'
+const moment = require('moment')
 
 export default class BlogSingle extends Component {
 
@@ -52,10 +53,29 @@ export default class BlogSingle extends Component {
 
 		const data = this.props.data
 		const article = data.article
-		console.log(article)
+		const the_other_articles = data.articles.filter(other_article => other_article != article)
 		const description = CONSTANTS.TRIM(article.fields.content)
 		const slug = this.props.match.url
-		const the_other_articles = data.articles.filter(other_article => other_article != article)
+		console.log(article)
+
+
+		let health_obj = {}
+		let travel_obj = {}
+		let fashion_obj = {}
+
+		health_obj.title = "Health & Wellness"
+		travel_obj.title = "Travel"
+		fashion_obj.title = "Fashion & Style"
+
+		fashion_obj.articles = _.filter(the_other_articles, (article) => article.sys.contentType.sys.id === 'blogPost' && article.fields.category[0].fields.title === 'Fashion Posts').sort((a, b) => {return moment.utc(a.sys.createdAt).diff(moment.utc(b.sys.createdAt))}).reverse()
+		health_obj.articles = _.filter(the_other_articles, (article) => article.sys.contentType.sys.id === 'blogPost' && article.fields.category[0].fields.title === 'Health Posts').sort((a, b) => {return moment.utc(a.sys.createdAt).diff(moment.utc(b.sys.createdAt))}).reverse()
+		travel_obj.articles = _.filter(the_other_articles, (article) => article.sys.contentType.sys.id === 'blogPost' && article.fields.category[0].fields.title === 'Travel Posts').sort((a, b) => {return moment.utc(a.sys.createdAt).diff(moment.utc(b.sys.createdAt))}).reverse()
+
+		console.log(fashion_obj)
+		console.log(health_obj)
+
+		const filtered_articles = [fashion_obj, travel_obj, health_obj]
+		console.log(filtered_articles)
 
 		if (data.affiliate_entries) {
 			data.affiliate_entries.forEach(entry => the_other_articles.push(entry))	
@@ -116,36 +136,47 @@ export default class BlogSingle extends Component {
 								<div className="content-wrap">
 									{blog_post_single}
 								</div>
-							</div>
-						</div>
-						<div className="row">
 								<div className="sidebars">
 									<div className="sidebars-wrap">
 										<div className="sidebar">
 											<div className="widget widget_recent_entries clearfix">
 												<h3 className="widget-title">More for you:</h3>
+
+													{filtered_articles.map((article_list) => {
+														if(article_list.articles.length > 0) {
+															return (
+																<div className="recent-list-container">
+																	<h5 className="widget-category-title">{article_list.title}:</h5>
+																	<ul className="recent-list clearfix">
+																			{article_list.articles.splice(0, 3).map((article, i) => {
+																				let category = article.fields.category ? article.fields.category[0].fields.title.split(' ')[0].toLowerCase() : null
+																				return (
+																					<li>
+																						<div className="thumb"><img src={(article.fields.mainPhotos && article.fields.mainPhotos[0].fields) ? article.fields.mainPhotos[0].fields.file.url + '?fit=thumb' : null} alt="image" /></div>
+																						<p className="text"><Link to={'/' + category + '/' + article.fields.title} onClick={this.handleLinkClick.bind(category, article.fields.title)}>{CONSTANTS.trimLink(article.fields.title)}</Link></p>
+																					</li>
+																				)}
+																			)}
+																		</ul>
+																</div>
+															)
+														}
+													})}
+													<div className="recent-list-container">
+														<h5 className="widget-category-title">Latest in Video:</h5>
+														{the_videos}
+													</div>
+
 												
-												<ul className="recent-list clearfix">
-													{the_other_articles.splice(0, 3).map((article, i) => {
-														let category = article.fields.category ? article.fields.category[0].fields.title.split(' ')[0].toLowerCase() : null
-														return (
-															<li>
-																<div className="thumb"><img src={article.fields.mainPhotos ? article.fields.mainPhotos[0].fields.file.url + '?fit=thumb' : null} alt="image" /></div>
-																<p className="text"><Link to={'/' + category + '/' + article.fields.title} onClick={this.handleLinkClick.bind(category, article.fields.title)}>{CONSTANTS.trimLink(article.fields.title)}</Link></p>
-															</li>
-														)}
-													)}
-												</ul>
-												{the_videos}
 											</div>	
 										</div>
 									</div>
 								</div>
-							
-						</div>
-						<section className="flat-row flat-make-res index-2">
-							<BlogSignUp />							
-						</section>
+								<section className="flat-row flat-make-res index-2">
+									<BlogSignUp />							
+								</section>
+							</div>
+						</div>	
 					</div>
 				</div>
 			</div>

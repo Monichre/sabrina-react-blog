@@ -32,7 +32,7 @@ export default class AffiliatePost extends Component {
 					</div>
 				</div>) : null
 			
-			
+			console.log(this.props.article)
 
         return (
             <div className="affiliate-preview">
