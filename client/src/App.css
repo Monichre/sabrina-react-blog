@@ -3999,6 +3999,13 @@ h1.contact-header {
 
 }
 
+.getMoreArticles {
+    margin: 10px auto 40px;
+}
+#close-search a {
+    color: white!important;
+    margin-left: 10px;
+}
 
 .owl-nav {
     width: 100%;
@@ -4105,14 +4112,9 @@ h1.contact-header {
    /* text-align: center; */
 }
 
-.main-content.blog-single .post .content-post div p img {
-    
-    /* max-width: 600px;
-    height: 100%;
-    object-fit: cover;
-    width: 100%;
-    object-position: center;
-    padding: 20px; */
+.main-content.blog-single .post .content-post div p img, .main-content.blog-single .post .content-post div div iframe {
+  display: block;
+  margin: auto;
 }
 .main-content.blog-single .post .content-post div p span img {
     height: auto;
@@ -4186,9 +4188,7 @@ h1.contact-header {
         text-align: center!important;
         margin: 0 auto 10px;
     }
-    .getMoreArticles {
-        margin-top: 10px;
-    }
+
     .blog-post-preview p {
         text-align: justify!important;
         margin-top: 20px;

@@ -150,9 +150,10 @@ export default class BlogSingle extends Component {
 																	<ul className="recent-list clearfix">
 																			{article_list.articles.splice(0, 3).map((article, i) => {
 																				let category = article.fields.category ? article.fields.category[0].fields.title.split(' ')[0].toLowerCase() : null
+																				
 																				return (
 																					<li>
-																						<div className="thumb"><img src={(article.fields.mainPhotos && article.fields.mainPhotos[0].fields) ? article.fields.mainPhotos[0].fields.file.url + '?fit=thumb' : null} alt="image" /></div>
+																						<div className="thumb"><img src={(article.fields.mainPhotos && article.fields.mainPhotos[0].fields) ? article.fields.mainPhotos[0].fields.file.url + '?w=315&h=315&fit=thumb' : null} alt="image" /></div>
 																						<p className="text"><Link to={'/' + category + '/' + article.fields.title} onClick={this.handleLinkClick.bind(category, article.fields.title)}>{CONSTANTS.trimLink(article.fields.title)}</Link></p>
 																					</li>
 																				)}

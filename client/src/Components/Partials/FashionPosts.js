@@ -27,10 +27,10 @@ export default class FashionPosts extends Component {
 					<BlogPostPreviewRight
 						key={'key-' + article.sys.id}
 						date={created}
-						image={CONSTANTS.hasPhoto(article) ? article.fields.mainPhotos[0].fields.file.url : null}
+						image={(CONSTANTS.hasPhoto(article) && article.fields.mainPhotos[0].fields) ? article.fields.mainPhotos[0].fields.file.url + '?w=800&h=1198&fit=fill' : null}
 						readMore={readMore}
 						title={article.fields.title}
-						content={article.fields.content}
+						previewContent={article.fields.previewContent}
 						subTitle={subTitle}
 						article_link={article_link}
 					/>
@@ -40,10 +40,10 @@ export default class FashionPosts extends Component {
 					<BlogPostPreviewLeft
 						key={'key-' + article.sys.id}
 						date={created}
-						image={CONSTANTS.hasPhoto(article) ? article.fields.mainPhotos[0].fields.file.url : null}
+						image={(CONSTANTS.hasPhoto(article) && article.fields.mainPhotos[0].fields) ? article.fields.mainPhotos[0].fields.file.url + '?w=800&h=1198&fit=fill' : null}
 						readMore={readMore}
 						title={article.fields.title}
-						content={article.fields.content}
+						previewContent={article.fields.previewContent}
 						subTitle={subTitle}
 						article_link={article_link}
 					/>

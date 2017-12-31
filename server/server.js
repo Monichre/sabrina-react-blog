@@ -6,6 +6,7 @@ const shrinkRay = require('shrink-ray')
 
 const config =  {
   email_info : {
+    // smtp.gmail.com
     host: 'box1052.bluehost.com',
 	  port: 465,
 	  secure: true,  // secure:true for port 465, secure:false for port 587

@@ -13,14 +13,14 @@
 	<meta name="description" content="">
 	<meta name="author" content="Liam Ellis, Lovecraft.io">
 	<title>Theresa on the Town</title>
-	
+
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet preload" as="style">
 	<link rel="stylesheet preload" as="style" type="text/css" href="/css/owl.carousel.css">
 	<link href="https://fonts.googleapis.com/css?family=Arsenal|Merriweather|Open+Sans" rel="stylesheet preload" as="style">
 	<link rel="stylesheet preload" as="style" type="text/css" href="/css/animate.css">
 	<script src="https://use.fontawesome.com/49b6ce3436.js"></script>
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-		crossorigin="anonymous" rel="preload" as="script"></script>
+	    crossorigin="anonymous" rel="preload" as="script"></script>
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
@@ -41,16 +41,30 @@
 			fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));
 	</script>
-	
+
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108552902-1"></script>
 	<script>
 		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
 		gtag('js', new Date());
 
 		gtag('config', 'UA-108552902-1');
 	</script>
-	
+
+	<script type="text/javascript">
+		(function (d) {
+			var f = d.getElementsByTagName('SCRIPT')[0],
+				p = d.createElement('SCRIPT');
+			p.type = 'text/javascript';
+			p.async = true;
+			p.src = '//assets.pinterest.com/js/pinit.js';
+			f.parentNode.insertBefore(p, f);
+		}(document));
+	</script>
+
 
 	<noscript>
 		You need to enable JavaScript to run this app.
@@ -126,30 +140,23 @@
 	<script rel="preload" as="script" src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
 
 	<script>
-		(function(w, d){
-		 var id='embedly-platform', n = 'script';
-		 if (!d.getElementById(id)){
-		   w.embedly = w.embedly || function() {(w.embedly.q = w.embedly.q || []).push(arguments);};
-		   var e = d.createElement(n); e.id = id; e.async=1;
-		   e.src = ('https:' === document.location.protocol ? 'https' : 'http') + '://cdn.embedly.com/widgets/platform.js';
-		   var s = d.getElementsByTagName(n)[0];
-		   s.parentNode.insertBefore(e, s);
-		 }
+		(function (w, d) {
+			var id = 'embedly-platform',
+				n = 'script';
+			if (!d.getElementById(id)) {
+				w.embedly = w.embedly || function () {
+					(w.embedly.q = w.embedly.q || []).push(arguments);
+				};
+				var e = d.createElement(n);
+				e.id = id;
+				e.async = 1;
+				e.src = ('https:' === document.location.protocol ? 'https' : 'http') + '://cdn.embedly.com/widgets/platform.js';
+				var s = d.getElementsByTagName(n)[0];
+				s.parentNode.insertBefore(e, s);
+			}
 		})(window, document);
-	  </script>
+	</script>
 
-	
-	
-	<!-- <script type="text/javascript">
-		(function(d){
-			var f = d.getElementsByTagName('SCRIPT')[0], p = d.createElement('SCRIPT');
-			p.type = 'text/javascript';
-			p.async = true;
-			p.src = '//assets.pinterest.com/js/pinit.js';
-			f.parentNode.insertBefore(p, f);
-		}(document));
-	</script> -->
-	
 	<script type="text/javascript" async defer data-pin-custom="true" src="//assets.pinterest.com/js/pinit.js"></script>
 </body>
 
