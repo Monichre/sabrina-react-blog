@@ -1359,10 +1359,6 @@ button.border {
 		display: block;
 	}
 
-	ol, ul {
-		list-style: none;
-	}
-
 	blockquote, q {
 		-webkit-hyphens: none;
 		  -moz-hyphens: none;
@@ -2939,7 +2935,9 @@ input[type="color"],
     /* padding: 16px 0 9px 15px; */
    	position: relative;
 }
-
+.blog-single-category-list {
+    padding-left: 0!important;
+}
 .widget.widget_categories ul li:first-child {
 	padding-top: 0;
     /* padding-bottom: 9px; */
@@ -4041,8 +4039,9 @@ h1.contact-header::before {
 }
 .blog-single .content-wrap .post ul {
     padding-left: 15px;
-    list-style-type: unset;
+    
 }
+
 .blog-single .content-wrap .post ul li {
     text-align: left;
     font-weight: 300;

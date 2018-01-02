@@ -83,7 +83,7 @@ export default class Article extends Component {
 					<h2 className="title-post">{this.props.article.fields.title}</h2>
 					<h5 className="sub_title show_on_mobile">{this.props.article.fields.subHeader}</h5>
 					<div className="widget widget_categories">
-						<ul className="inline-list list-inline">
+						<ul className="inline-list list-inline blog-single-category-list">
 							<li><a className="blog-single-category" href={`/${category.toLowerCase()}`}>{category}</a></li>
 						</ul>	
 					</div>
