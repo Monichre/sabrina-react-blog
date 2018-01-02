@@ -3543,6 +3543,7 @@ p.entry-content {
 }
 .pagination li {
     color: #333;
+    font-family: 'Open Sans',sans-serif!important;
 }
 
 .pagination li.previous a, .pagination li.next a {
@@ -3852,7 +3853,7 @@ video {
 
 .about-me .top-section, .about-me .title, .about-me p {
     color: #333;
-    text-transform: capitalize;
+    
 }
 .about-me * {
 	text-align: center;

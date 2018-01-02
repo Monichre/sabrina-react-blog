@@ -125,10 +125,10 @@ export default class BlogList extends Component {
 				<ReactPaginate
 					previousLabel={"previous"}
 					nextLabel={"next"}
-					breakLabel={<a href="">...</a>}
+					breakLabel={'...'}
 					breakClassName={"break-me"}
 					pageCount={this.state.page_count}
-					marginPagesDisplayed={2}
+					marginPagesDisplayed={10}
 					pageRangeDisplayed={this.state.page_count}
 					onPageChange={this.getMoreArticles.bind(this)}
 					containerClassName={"pagination"}

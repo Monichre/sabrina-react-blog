@@ -34,6 +34,15 @@ export default class BlogSingle extends Component {
 	}
 	componentDidMount() {
 		AppStore.addChangeListener(this._onChange.bind(this))
+
+		const all_links = document.querySelectorAll('.content-post a')
+		
+		all_links.forEach((link) => {
+			link.setAttribute('target', '_blank')
+			link.setAttribute('rel', 'noopenner noferrer')
+		})
+
+		console.log(all_links)
 	}
 	handleLinkClick(params) {
 		let data = this.props.data
