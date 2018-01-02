@@ -7,9 +7,194 @@ export const mapConfig = {
     "dataProvider": {
         "map": "worldLow",
         "areas": [
-            { "id": "AU", "color": "rgb(51, 174, 170)" },
-            { "id": "US", "color": "rgb(51, 174, 170)" },
-            { "id": "FR", "color": "rgb(51, 174, 170)" }
+            {
+                "id": "HR",
+                "showAsSelected": true
+            },
+            {
+                "id": "DK",
+                "showAsSelected": true
+            },
+            {
+                "id": "FR",
+                "showAsSelected": true
+            },
+            {
+                "id": "IS",
+                "showAsSelected": true
+            },
+            {
+                "id": "IT",
+                "showAsSelected": true
+            },
+            {
+                "id": "NL",
+                "showAsSelected": true
+            },
+            {
+                "id": "PT",
+                "showAsSelected": true
+            },
+            {
+                "id": "ES",
+                "showAsSelected": true
+            },
+            {
+                "id": "CH",
+                "showAsSelected": true
+            },
+            {
+                "id": "GB",
+                "showAsSelected": true
+            },
+            {
+                "id": "AW",
+                "showAsSelected": true
+            },
+            {
+                "id": "BS",
+                "showAsSelected": true
+            },
+            {
+                "id": "BZ",
+                "showAsSelected": true
+            },
+            {
+                "id": "BM",
+                "showAsSelected": true
+            },
+            {
+                "id": "BQ",
+                "showAsSelected": true
+            },
+            {
+                "id": "VG",
+                "showAsSelected": true
+            },
+            {
+                "id": "CA",
+                "showAsSelected": true
+            },
+            {
+                "id": "KY",
+                "showAsSelected": true
+            },
+            {
+                "id": "CR",
+                "showAsSelected": true
+            },
+            {
+                "id": "CU",
+                "showAsSelected": true
+            },
+            {
+                "id": "DM",
+                "showAsSelected": true
+            },
+            {
+                "id": "DO",
+                "showAsSelected": true
+            },
+            {
+                "id": "GD",
+                "showAsSelected": true
+            },
+            {
+                "id": "JM",
+                "showAsSelected": true
+            },
+            {
+                "id": "MX",
+                "showAsSelected": true
+            },
+            {
+                "id": "PA",
+                "showAsSelected": true
+            },
+            {
+                "id": "PR",
+                "showAsSelected": true
+            },
+            {
+                "id": "LC",
+                "showAsSelected": true
+            },
+            {
+                "id": "MF",
+                "showAsSelected": true
+            },
+            {
+                "id": "SX",
+                "showAsSelected": true
+            },
+            {
+                "id": "TT",
+                "showAsSelected": true
+            },
+            {
+                "id": "TC",
+                "showAsSelected": true
+            },
+            {
+                "id": "US",
+                "showAsSelected": true
+            },
+            {
+                "id": "VI",
+                "showAsSelected": true
+            },
+            {
+                "id": "AR",
+                "showAsSelected": true
+            },
+            {
+                "id": "BR",
+                "showAsSelected": true
+            },
+            {
+                "id": "CL",
+                "showAsSelected": true
+            },
+            {
+                "id": "MA",
+                "showAsSelected": true
+            },
+            {
+                "id": "ZA",
+                "showAsSelected": true
+            },
+            {
+                "id": "KH",
+                "showAsSelected": true
+            },
+            {
+                "id": "CN",
+                "showAsSelected": true
+            },
+            {
+                "id": "HK",
+                "showAsSelected": true
+            },
+            {
+                "id": "IL",
+                "showAsSelected": true
+            },
+            {
+                "id": "JP",
+                "showAsSelected": true
+            },
+            {
+                "id": "PH",
+                "showAsSelected": true
+            },
+            {
+                "id": "TH",
+                "showAsSelected": true
+            },
+            {
+                "id": "VN",
+                "showAsSelected": true
+            }
         ],
         "zoomLevel": 1
         // "zoomLongitude": -20.1341,
