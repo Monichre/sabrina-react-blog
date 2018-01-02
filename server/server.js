@@ -1,26 +1,28 @@
+
+require('dotenv').load();
 const express = require('express')
 const NodeMailer = require('nodemailer')
 const path = require('path')
 const bodyParser = require('body-parser')
 const shrinkRay = require('shrink-ray')
+const app = express()
 
 const config =  {
   email_info : {
-    // smtp.gmail.com
-    host: 'box1052.bluehost.com',
+    host: process.env.HOST,
 	  port: 465,
-	  secure: true,  // secure:true for port 465, secure:false for port 587
+	  secure: true,  
 	  auth: {
-          user: 'sabrina@theresaonthetown.com',
-          pass: 'Happysabby1984@'
+          user: process.env.EMAIL,
+          pass: process.env.PASSWORD
 	  }
   }
 }
-const app = express()
+
 const transporter = NodeMailer.createTransport({
     host: config.email_info.host,
     port: config.email_info.port,
-    secure: true, // secure:true for port 465, secure:false for port 587
+    secure: true, 
     auth: {
         user: config.email_info.auth.user,
         pass: config.email_info.auth.pass

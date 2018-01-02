@@ -27,6 +27,7 @@
     "react-markdown": "^2.5.0",
     "react-masonry-component": "^6.0.1",
     "react-owl-carousel2": "^0.2.1",
+    "react-paginate": "^5.0.0",
     "react-pinterest": "^1.2.0",
     "react-player": "^0.24.2",
     "react-router": "^4.1.2",

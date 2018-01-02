@@ -6,48 +6,70 @@ import BlogSingle from './BlogSingle'
 import CONSTANTS from '../../constants'
 import AppDispatcher from '../../Dispatcher/AppDispatcher'
 import _ from 'lodash'
+import ReactPaginate from 'react-paginate'
 
 export default class TravelPosts extends Component {
+	constructor(props) {
+		super(props)
 
-	getMoreArticles() {
-		AppDispatcher.dispatch({action: 'get-more-items'})
+		this.state = {
+			page_count: 0,
+			item_num: 0,
+			counter: 0
+		}
 	}
+
+
+	getMoreArticles(data) {
+
+		const mapHeight = document.querySelector('.map-container').clientHeight
+		let selected = data.selected
+		
+		this.setState({
+			counter: selected
+		})
+
+		document.body.scrollTop = mapHeight + 200
+		document.documentElement.scrollTop = mapHeight + 200
+		
+	}
+	componentWillMount() {
+
+		let item_num = this.props.data.item_num
+		let total_articles = this.props.data.travel.length
+		let page_count = Math.ceil(total_articles / item_num)
+		
+		this.setState({
+			page_count: page_count,
+			item_num: item_num
+		})
+	}
+
 	render() {
 
-		let data = this.props.data
-        let articles = data.travel
-		let load_more
-		let item_num = data.item_num
-		let show_more_text = 'More Posts'
-
-		if (data.loading) {
-			show_more_text = 'Loading...'
-		}
-
-		if (articles && item_num <= articles.length) {
-			load_more = (
-				<div className="getMoreArticles">
-					<button className="btn btn-default center-block" onClick={this.getMoreArticles.bind(this)}>
-						{show_more_text}
-					</button>
-				</div>
-			)
-		}
-		articles = _.take(articles, item_num)
 		const SubRoutes = () => (
 			<Switch>
 				<Route path='/travel/:slug' component={BlogSingle} />
 			</Switch>
 		)
-		let articles_html = articles.map((article) => {
+
+		let data = this.props.data
+		let articles = data.travel
+		let item_num = data.item_num
+		let counter = this.state.counter
+
+		articles = _.chunk(articles, 5)
+		
+		let articles_subSection = articles[counter]
+		let articles_html = articles_subSection.map((article) => {
 			let date_obj = new Date(article.sys.createdAt)
 			let created = CONSTANTS.months[(date_obj.getMonth())] + ' ' + date_obj.getDate() + ', ' + date_obj.getFullYear()
 			let category = article.fields.category[0].fields.title.split(' ')[0].toLowerCase()
 			let readMore = <Link to={'/' + category + '/' + article.fields.title} onClick={this.scrollTop}>Read More</Link>
 			let subTitle = Object.keys(article.fields).includes('subHeader') ? article.fields.subHeader : null
 			let article_link = '/' + category + '/' + article.fields.title
-			
-			if (articles.indexOf(article) % 2 === 0) {
+
+			if (articles_subSection.indexOf(article) % 2 === 0) {
 				return (
 					<BlogPostPreviewRight
 						key={'key-' + article.sys.id}
@@ -75,10 +97,23 @@ export default class TravelPosts extends Component {
 				)
 			}
 		})
+
 		return (
 			<div className="category-blog-post-previews">
 				{articles_html}
-				{load_more}
+
+				<ReactPaginate
+					previousLabel={"previous"}
+					nextLabel={"next"}
+					breakLabel={<a href="">...</a>}
+					breakClassName={"break-me"}
+					pageCount={this.state.page_count}
+					marginPagesDisplayed={2}
+					pageRangeDisplayed={this.state.page_count}
+					onPageChange={this.getMoreArticles.bind(this)}
+					containerClassName={"pagination"}
+					subContainerClassName={"pages pagination"}
+					activeClassName={"active"} />
 			</div>
 		)
 	}

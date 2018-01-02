@@ -4016,6 +4016,10 @@ h1.contact-header::before {
 .getMoreArticles {
     margin: 10px auto 40px;
 }
+.pagination {
+    transform: translateX(40%);
+    width: 100%;
+}
 #close-search a {
     color: white!important;
     margin-left: 10px;

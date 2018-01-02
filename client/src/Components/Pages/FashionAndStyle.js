@@ -1,11 +1,6 @@
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
-
-
-// Components
 import FashionPosts from '../Partials/FashionPosts'
-
-// Dispatcher
 import AppDispatcher from '../../Dispatcher/AppDispatcher'
 
 
