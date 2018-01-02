@@ -3645,7 +3645,23 @@ p.entry-content {
     border-radius: 4px;
     width: 100%;
 }
+.pagination li {
+    color: #333;
+}
 
+.pagination li.previous a, .pagination li.next a {
+    background-color: #1a1a1a;
+    color: white;
+}
+.pagination li.active a {
+    background-color: #ba2424!important;
+    color: white;
+    border: none;
+}
+.pagination li a {
+    color: inherit;
+    border: none;
+}
 
 
 
