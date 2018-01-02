@@ -1,13 +1,10 @@
-
-
 export const mapConfig = {
     "type": "map",
     "theme": "black",
 
     "dataProvider": {
         "map": "worldLow",
-        "areas": [
-            {
+        "areas": [{
                 "id": "HR",
                 "showAsSelected": true
             },
@@ -201,14 +198,14 @@ export const mapConfig = {
         // "zoomLatitude": 49.1712
     },
 
-    "areasSettings": {
-        "selectedColor": "rgb(51, 174, 170)",
-        "unlistedAreasColor": "#eee",
-        "rollOverOutlineColor": "#889ca4",
-        "autoZoom": "true",
-
-        "outlineColor": "#BFDBE3"
-            // "unlistedAreasAlpha": 0.9
+    'areasSettings': {
+        'autoZoom': true,
+        'color': "#B4B4B7",
+        'colorSolid': "#84ADE9",
+        'selectedColor': "#84ADE9",
+        'outlineColor': "#666666",
+        'rollOverColor': "#9EC2F7",
+        'rollOverOutlineColor': "#000000"
     },
 
     "imagesSettings": {
