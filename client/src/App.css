@@ -3640,30 +3640,16 @@ p.entry-content {
 }
 
 .pagination {
-    margin: 0;
+    display: flex!important;
+    padding-left: 0;
+    justify-content: center!important;
+    margin: 20px 0;
+    border-radius: 4px;
+    width: 100%;
 }
 
-.pagination a,.pagination span, .pagination i {
-	font-size: 12px;
-}
 
-.pager .pagination i {
-	margin-right: -2px;
-    padding-left: 3px;
-}
 
-.pager .pagination {
-	width: 100%;
-    letter-spacing: 0.3px;
-}
-
-.pagination .paging-next {
-	float: right;
-}
-
-.pagination a:hover {
-	color: #ba2424;
-}
 
 .flat-row.shop-2 {
 	padding-top: 99px;
@@ -4016,10 +4002,7 @@ h1.contact-header::before {
 .getMoreArticles {
     margin: 10px auto 40px;
 }
-.pagination {
-    transform: translateX(40%);
-    width: 100%;
-}
+
 #close-search a {
     color: white!important;
     margin-left: 10px;
