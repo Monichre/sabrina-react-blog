@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@amcharts/amcharts3-react": "^2.0.0",
+    "@mars/heroku-js-runtime-env": "^3.0.2",
     "axios": "^0.16.2",
     "body-parser": "^1.18.0",
     "commonmark": "^0.28.1",
