@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Switch, Link, Route, Redirect } from 'react-router-dom'
 import ReactPlayer from 'react-player'
 import _ from 'lodash'
-import Masonry from 'react-masonry-component'
 import Article from './Article'
 import Video from './Video'
 import CONSTANTS from '../../constants'
@@ -56,9 +55,7 @@ export default class BlogSingle extends Component {
 		const the_other_articles = data.articles.filter(other_article => other_article != article)
 		const description = CONSTANTS.TRIM(article.fields.content)
 		const slug = this.props.match.url
-		console.log(article)
-
-
+		
 		let health_obj = {}
 		let travel_obj = {}
 		let fashion_obj = {}
@@ -71,11 +68,8 @@ export default class BlogSingle extends Component {
 		health_obj.articles = _.filter(the_other_articles, (article) => article.sys.contentType.sys.id === 'blogPost' && article.fields.category[0].fields.title === 'Health Posts').sort((a, b) => {return moment.utc(a.sys.createdAt).diff(moment.utc(b.sys.createdAt))}).reverse()
 		travel_obj.articles = _.filter(the_other_articles, (article) => article.sys.contentType.sys.id === 'blogPost' && article.fields.category[0].fields.title === 'Travel Posts').sort((a, b) => {return moment.utc(a.sys.createdAt).diff(moment.utc(b.sys.createdAt))}).reverse()
 
-		console.log(fashion_obj)
-		console.log(health_obj)
-
 		const filtered_articles = [fashion_obj, travel_obj, health_obj]
-		console.log(filtered_articles)
+		
 
 		if (data.affiliate_entries) {
 			data.affiliate_entries.forEach(entry => the_other_articles.push(entry))	
@@ -167,8 +161,6 @@ export default class BlogSingle extends Component {
 														<h5 className="widget-category-title">Latest in Video:</h5>
 														{the_videos}
 													</div>
-
-												
 											</div>	
 										</div>
 									</div>

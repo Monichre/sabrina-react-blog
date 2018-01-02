@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
-import FashionPosts from '../Partials/FashionPosts'
 import AppDispatcher from '../../Dispatcher/AppDispatcher'
+import BlogList from '../Partials/BlogList'
 
 
 export default class FashionAndStyle extends Component {
@@ -35,9 +35,9 @@ export default class FashionAndStyle extends Component {
 						</div>
 					</div>
 				</div>
-				<FashionPosts data={data} />
+				<BlogList data={data} />
 			</div>
 
-					)
+		)
     }
 }

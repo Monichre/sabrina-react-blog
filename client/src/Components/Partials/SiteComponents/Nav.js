@@ -94,7 +94,7 @@ class Modal extends Component {
             : hide
 
         return (
-            <div style={modal_style} id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div style={modal_style} id="myModal">
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
@@ -185,8 +185,11 @@ export default class Nav extends Component {
         const data = this.props.data
         const nav_items = data.nav_items
         const popUpText = data.popUpCTA
-        
-
+        const modalToggle = this.state.showModal
+        const search_trigger = <li style={search_menu_item_style}><a className="search-trigger" href="" onClick={this.searchClick.bind(this)}><i className="fa fa-search"></i></a></li>
+        const mobile_search_trigger = <li className="mobile_menu_item"><a className="search-trigger" href="" onClick={this.searchClick.bind(this)}><i className="fa fa-search"></i></a></li>
+        const menu_items = []
+        const mobile_menu_items = []
         const search_menu_item_style = {
             position: 'absolute',
             right: '7px'
@@ -198,10 +201,9 @@ export default class Nav extends Component {
                     to={'/'}>Theresa on the Town</Link>
             </li>
         )
-        const search_trigger = <li style={search_menu_item_style}><a className="search-trigger" href="" onClick={this.searchClick.bind(this)}><i className="fa fa-search"></i></a></li>
-        const mobile_search_trigger = <li className="mobile_menu_item"><a className="search-trigger" href="" onClick={this.searchClick.bind(this)}><i className="fa fa-search"></i></a></li>
-        const menu_items = []
-        const mobile_menu_items = []
+       
+
+
         nav_items.forEach((nav_item) => {
             let this_route = nav_item.split(' ')[0].toLowerCase()
 
@@ -227,19 +229,17 @@ export default class Nav extends Component {
         
         menu_items.push(search_trigger)
         mobile_menu_items.push(mobile_search_trigger)
+
         let i = menu_items.length/2
         menu_items.splice(i, 0, SiteTitle)
 
-
-        const modalToggle = this.state.showModal
+        
 		let navClassForSearch
 		if (this.state.searchOpen){
 			navClassForSearch = "search-visible"
 		} else {
 			navClassForSearch = ""
         }
-        
-
         return (
             <div id="Nav" className={navClassForSearch}>
                 <Modal showModal={this.state.showModal} closeModal={this.modalTriggerClick.bind(this)} popUpText={popUpText}/>
@@ -257,11 +257,10 @@ export default class Nav extends Component {
                         </div>
                     </div>
                 </header>
-                <MobileMenu menuItems={mobile_menu_items}/>
 
-				<Search onCloseSearchClick={this.handleCloseClick.bind(this)} />
+                <MobileMenu menuItems={mobile_menu_items}/>
+				<Search onCloseSearchClick={this.handleCloseClick.bind(this)} />             
                 
-                                         
                 <div className="flat-vertical social-links side_nav">
                     <a target="_blank" rel="noopener" data-pin-do="buttonFollow" data-pin-custom="true" href="https://www.pinterest.com/theresaonthetwn"><i className="fa fa-pinterest"></i></a>
                     <a target="_blank" rel="noopener" data-href="https://www.theresaonthetown.com" data-layout="button_count" data-size="large" data-mobile-iframe="true" className="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.theresaonthetown.com%2F&amp;src=sdkpreparse"><i className="fa fa-facebook"></i></a>

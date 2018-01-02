@@ -35,9 +35,21 @@ export default class BlogList extends Component {
 	}
 	componentWillMount() {
 
-		let item_num = this.props.data.item_num
-		let total_articles = this.props.data.travel.length
-		console.log(total_articles)
+		let data = this.props.data
+		let page = data.page.fields.title
+		let item_num = data.item_num
+		let total_articles 
+
+		if(page === 'Fashion & Style') {
+			total_articles = data.fashion.length
+		} else if (page === 'Travel') {
+			total_articles = data.travel.length 
+		} else if (page === 'Health & Wellness') {
+			total_articles = data.health.length
+		} else {
+			total_articles = this.props.data.articles.length
+		}
+
 		let page_count = Math.ceil(total_articles / item_num)
 		
 		this.setState({
@@ -49,16 +61,26 @@ export default class BlogList extends Component {
 
 	render() {
 
+		
 		let data = this.props.data
+		let page = data.page.fields.title
 		let featured_posts = data.featured
 		let item_num = data.item_num
 		let articles = data.articles.filter(article => article.fields.featured !== true)
 		let counter = this.state.counter
 
-		articles = _.chunk(articles, 5)
-		
-		let articles_subSection = articles[counter]
 
+		if(page === 'Fashion & Style') {
+			articles = data.fashion
+		} else if (page === 'Travel') {
+			articles = data.travel 
+		} else if (page === 'Health & Wellness') {
+			articles = data.health
+		}
+		
+	
+		articles = _.chunk(articles, 5)
+		let articles_subSection = articles[counter]
 		let articles_html = articles_subSection.map((article) => {
 			let date_obj = new Date(article.sys.createdAt)
 			let created = CONSTANTS.months[date_obj.getMonth()] + ' ' + date_obj.getDate() + ', ' + date_obj.getFullYear()

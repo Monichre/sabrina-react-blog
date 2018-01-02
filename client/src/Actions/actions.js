@@ -46,13 +46,14 @@ export function getStore(callback) {
             AppStore.data.affiliate_entries = affiliate_entries
             AppStore.data.pages = pages    
             AppStore.data.ready = true
+
+
             AppStore.emitChange()
             
             if (callback) {
                 callback(false, AppStore)
             }
         })
-
 }
 
 export function getPageData(page_slug, post_slug) {

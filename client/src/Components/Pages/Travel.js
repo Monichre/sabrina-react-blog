@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
-import TravelPosts from '../Partials/TravelPosts'
+import BlogList from '../Partials/BlogList'
 import PostsByCountry from '../Partials/PostsByCountry'
 import AmCharts from '@amcharts/amcharts3-react'
 import AppDispatcher from '../../Dispatcher/AppDispatcher'
@@ -11,11 +11,6 @@ export default class Travel extends Component {
   componentWillMount(){
     this.getPageData()
   }
-
-  componentDidMount(){
-    
-  }
-
   getPageData(){
     AppDispatcher.dispatch({
       action: 'get-page-data',
@@ -25,21 +20,14 @@ export default class Travel extends Component {
 
   render(){
 
+
+    const includesPageTag = (header) => (Object.keys(header.fields).includes('sectionReference') ||  header.fields.sectionReference)
     const data = this.props.data
     const polaroids = data.polaroids
     const page = data.page
     const pageTitle = page.fields.title
     const headers = data.section_headers
-    let polaroid_header
-
-    const includesPageTag = (header) => (Object.keys(header.fields).includes('sectionReference') ||  header.fields.sectionReference)
-    headers.forEach(function(header) {
-        if (includesPageTag(header) && (header.fields.sectionReference === 'Polaroid') || header.fields.sectionReference === 'polaroid') {
-            polaroid_header = header
-        }
-        
-    })
-	const travel_style = {
+    const travel_style = {
 		backgroundColor: '#f5f5f5',
 		marginTop: 0
     }
@@ -47,6 +35,16 @@ export default class Travel extends Component {
         paddingTop: '50px'
     }
 
+    let polaroid_header
+
+    
+    headers.forEach(function(header) {
+        if (includesPageTag(header) && (header.fields.sectionReference === 'Polaroid') || header.fields.sectionReference === 'polaroid') {
+            polaroid_header = header
+        }
+        
+    })
+	
     return (
       <div id="travel">
           <Helmet>
@@ -86,7 +84,7 @@ export default class Travel extends Component {
                 </div>
             </div>
         </div>
-		  <TravelPosts data = {data} />
+		  <BlogList data = {data} />
 		  <div className="page-title" style={travel_style}>
             <div className="container">
                 <div className="row">

@@ -26,6 +26,7 @@ export default class Blog extends Component {
 
     render() {
 
+        
         const data = this.props.data
         const featured_posts = data.featured
 		const videoSectionHeader = data.page.fields.pageSectionHeaders[0].fields.headerTitle
@@ -52,9 +53,8 @@ export default class Blog extends Component {
         let main_content
         let video_posts
         let affiliate_entries_html
-
         
-		main_content = <BlogList getMoreArticles={this.getMoreArticles} data={data} />
+		main_content = <BlogList data={data} />
 
         if(data.video_entries.length > 0) {
             video_posts = <VideoPosts videos={data.video_entries} header={videoSectionHeader} subHeader={subHeader}/>

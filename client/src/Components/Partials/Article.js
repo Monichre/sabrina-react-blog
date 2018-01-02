@@ -2,15 +2,9 @@ import React, { Component } from 'react'
 import { Switch, Link, Route, Redirect } from 'react-router-dom'
 import ReactPlayer from 'react-player'
 import ReactMarkdown from 'react-markdown'
-import _ from 'lodash'
-import Masonry from 'react-masonry-component'
 import AppDispatcher from '../../Dispatcher/AppDispatcher'
 import AppStore from '../../Stores/AppStore'
 import CONSTANTS from '../../constants'
-const CommonMark = require('commonmark')
-const ReactRenderer = require('commonmark-react-renderer')
-const parser = new CommonMark.Parser()
-const renderer = new ReactRenderer()
 
 export default class Article extends Component {
 	componentDidMount() {
@@ -45,7 +39,6 @@ export default class Article extends Component {
 		video_player.setAttribute('muted', false)
 	}
 	render() {
-		console.log(this.props.article)
 		const hasVideo = article => (article.fields.videos || Object.values(article.fields).includes('videos') && article.fields.videos.length > 0)
 		let videos
 		

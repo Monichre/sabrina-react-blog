@@ -1,6 +1,4 @@
-// BlogList.js
 import React, { Component } from 'react'
-import _ from 'lodash'
 import { Link } from 'react-router-dom'
 import FuzzySearch from 'fuzzy-search'
 import AppStore from '../../../Stores/AppStore'
@@ -39,17 +37,15 @@ export default class Search extends Component {
 		this.setState({closeTheSearch: true})
 		this.props.onCloseSearchClick(this.state.closeTheSearch)
 	}
-	handleSearchSubmit(event){
-		event.preventDefault()
+	handleSearchSubmit(e){
+		e.preventDefault()
 		const articles = AppStore.data.articles
-		console.log(articles);
 		const searcher = new FuzzySearch(articles, ['fields.title'], {
 			caseSensitive: false,
 			sort: true
 		})
-		console.log(this.state.searchTerm)
 		const results = searcher.search(this.state.searchTerm)
-		console.log(results)
+		
 		if (results.length > 0){
 			this.setState({searchSuccess: true})
 			let _this = this
@@ -59,7 +55,6 @@ export default class Search extends Component {
 		}
 	}
 	appendSearchItems(searchItem){
-		let media
 		return (
 			<searchItemToAppend image={searchItem.fields.photos ? searchItem.fields.photos[0].fields.files.url : null} />
 		)
@@ -81,7 +76,7 @@ export default class Search extends Component {
 				<form role="search" className="search-form" onSubmit={this.handleSearchSubmit}>
 					<label>
 						<span className="hide-content">Search for:</span>
-						<input type="search" className="search-field" placeholder="Type Your Keywords" value={this.state.searchTerm.value} onChange={this.handleSearchInput} name="searchTerm" title="Search for:" autocomplete="off" />
+						<input type="search" className="search-field" placeholder="Type Your Keywords" value={this.state.searchTerm.value} onChange={this.handleSearchInput} name="searchTerm" title="Search for:" autoComplete="off" />
 					</label>
 					<input type="submit" className="search-submit" value="Submit"/>
 				</form>
