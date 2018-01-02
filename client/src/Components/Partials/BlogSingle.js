@@ -166,7 +166,7 @@ export default class BlogSingle extends Component {
 									</div>
 								</div>
 								<section className="flat-row flat-make-res index-2">
-									<BlogSignUp />							
+									<BlogSignUp cta={data.mailingListCTA}/>							
 								</section>
 							</div>
 						</div>	

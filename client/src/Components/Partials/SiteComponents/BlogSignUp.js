@@ -18,11 +18,9 @@ export default class BlogSignUp extends Component {
             this.sendTheEmail()
         }
         handleFormEmail(event) {
-            console.log(event.target.value)
             this.setState({email: event.target.value})
         }
         handleFormName(event) {
-            console.log(event.target.value)
             this.setState({name: event.target.value})
         }
         sendTheEmail(){
@@ -32,7 +30,6 @@ export default class BlogSignUp extends Component {
                 email_address: this.state.email
             })
             .then(function(res) {
-                
                 if (res.status === 200) {
                     _this.setState({
                         email_sent: true,
@@ -52,7 +49,6 @@ export default class BlogSignUp extends Component {
             } else {
                 text = "Sign Up!"
             }
-    
             return (
                 <div className="container">
                     <div className="row">
@@ -60,8 +56,10 @@ export default class BlogSignUp extends Component {
                             <div className="reservation-page-left">
                                 <div className="reservation-page-form">
                                     <div className="title-section">
-                                        <h1 className="title">Are You on the Mailing List?</h1>
+                                        <h1 className="title">{this.props.cta.fields.header}</h1>
                                     </div>
+                                    <br />
+                                    <p className="content-story" style={{textAlign: 'center'}}>{this.props.cta.fields.subHeader}</p>
                                     <form id="reservation-form" onSubmit={this.handleSubmit.bind(this)}>
                                         <div className="reservation-page-input-box">
                                             <input type="text" className="form-control" placeholder="Name" value={this.state.name} name="name" id="blogPost-form-name" data-error="Subject field is required" required="" onChange={this.handleFormName.bind(this)}/>

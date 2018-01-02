@@ -887,6 +887,7 @@ ul.recent-list {
     /* display: flex;
     justify-content: flex-start;
     flex-wrap: wrap; */
+    list-style: none;
     clear: both;
 }
 ul.recent-list li {

@@ -27,10 +27,12 @@ export function getStore(callback) {
             let CTAs = _.filter(response_items, (item) => item.sys.contentType.sys.id === 'cta')
             let footerCTA = _.find(CTAs, (item) => item.fields.section === 'Footer')
             let popUpCTA = _.find(CTAs, (item) => item.fields.section === 'Pop Up')
+            let mailingListCTA = _.find(CTAs, (item) => item.fields.section === 'Mailing List')
             let articles =  initial_articles.sort((a, b) => {return moment.utc(a.sys.createdAt).diff(moment.utc(b.sys.createdAt))}).reverse()
             let sorted_videos = video_entries.sort((a, b) => {return moment.utc(a.sys.createdAt).diff(moment.utc(b.sys.createdAt))}).reverse()
             let nav_items = _.map(pages, (page) => page.fields.title)
             nav_items = nav_items.sort().reverse()
+
             
             AppStore.data.featured = _.filter(articles, (article) => article.fields.featured === true)
             AppStore.data.fashion = _.filter(articles, (article) => article.fields.category[0].fields.title === 'Fashion Posts')
@@ -38,6 +40,7 @@ export function getStore(callback) {
             AppStore.data.health = _.filter(articles, (article) => article.fields.category[0].fields.title === 'Health Posts')
             AppStore.data.footerCTA = footerCTA
             AppStore.data.popUpCTA = popUpCTA
+            AppStore.data.mailingListCTA = mailingListCTA
             AppStore.data.polaroids = polaroids
             AppStore.data.section_headers = section_headers
             AppStore.data.articles = articles
