@@ -4,22 +4,41 @@ import BlogPostPreviewLeft from './BlogPostPreviewLeft'
 import BlogPostPreviewRight from './BlogPostPreviewRight'
 import BlogSingle from './BlogSingle'
 import CONSTANTS from '../../constants'
+import AppDispatcher from '../../Dispatcher/AppDispatcher'
+import _ from 'lodash'
 
 export default class TravelPosts extends Component {
 
-
+	getMoreArticles() {
+		AppDispatcher.dispatch({action: 'get-more-items'})
+	}
 	render() {
 
-		let articles = this.props.data
+		let data = this.props.data
+        let articles = data.travel
 		let load_more
-		let show_more_text = 'Show More Articles'
+		let item_num = data.item_num
+		let show_more_text = 'More Posts'
 
+		if (data.loading) {
+			show_more_text = 'Loading...'
+		}
+
+		if (articles && item_num <= articles.length) {
+			load_more = (
+				<div className="getMoreArticles">
+					<button className="btn btn-default center-block" onClick={this.getMoreArticles.bind(this)}>
+						{show_more_text}
+					</button>
+				</div>
+			)
+		}
+		articles = _.take(articles, item_num)
 		const SubRoutes = () => (
 			<Switch>
 				<Route path='/travel/:slug' component={BlogSingle} />
 			</Switch>
 		)
-
 		let articles_html = articles.map((article) => {
 			let date_obj = new Date(article.sys.createdAt)
 			let created = CONSTANTS.months[(date_obj.getMonth())] + ' ' + date_obj.getDate() + ', ' + date_obj.getFullYear()
@@ -59,6 +78,7 @@ export default class TravelPosts extends Component {
 		return (
 			<div className="category-blog-post-previews">
 				{articles_html}
+				{load_more}
 			</div>
 		)
 	}

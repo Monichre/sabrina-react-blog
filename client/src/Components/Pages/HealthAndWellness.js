@@ -10,18 +10,11 @@ export default class HealthAndWellness extends Component {
 	componentWillMount() {
         this.getPageData()
     }
-
-    componentDidMount() {
-        
-    }
-
     getPageData() {
         AppDispatcher.dispatch({action: 'get-page-data', page_slug: 'Health & Wellness'})
     }
-
-
     render() {
-        const data = this.props.data.health
+        const data = this.props.data
         const page = this.props.data.page
 		const pageTitle = page.fields.title
 
@@ -43,7 +36,7 @@ export default class HealthAndWellness extends Component {
 	                  </div>
 	              </div>
 	          </div>
-                <HealthPosts data = {data} />
+                <HealthPosts data={data} />
             </div>
         )
     }

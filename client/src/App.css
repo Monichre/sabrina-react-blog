@@ -3936,7 +3936,7 @@ video {
 
 }
 #AboutContactTopLayer {
-    padding-top: 200px;
+    padding-top: 100px;
 }
 
 #form-half {
@@ -3955,32 +3955,46 @@ video {
 }
 
 .about-me .top-section, .about-me .title, .about-me p {
-    color: #fff;
+    color: #333;
     text-transform: capitalize;
 }
 .about-me * {
 	text-align: center;
-	color: #fff;
+	color: #333;
 }
 
 h1.contact-header {
-    margin: 0 0 0 20px!important;
+    
     line-height: 40px;
-}
-.contact-me p {
-	font-weight: 600;
-    color: #333;
-    margin-left: 20px;
+    text-align: center;
+    position: relative;
 }
 
-.contact-me p:after {
+h1.contact-header::before {
+    content: ' ';
+    display: block;
+    margin: 20px auto;
+	width: 15px;
+	height: 2px;
+	background-color: #ba2424;
+}
+
+.contact-me p {
+    text-align: center;
+	font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* .contact-me p:after {
 	content: ' ';
 	display: block;
 	width: 15px;
 	height: 1px;
 	background-color: #ba2424;
-	margin: 15px 0;
-}
+    margin: 15px 0;
+    left: 50%;
+} */
 
 .contact-top, #react-form input, #react-form textarea {
 

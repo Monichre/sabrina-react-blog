@@ -19,7 +19,7 @@ export default class FashionAndStyle extends Component {
 	}
 
 	render() {
-		const data = this.props.data.fashion
+		const data = this.props.data
 		const page = this.props.data.page
 		const pageTitle = page.fields.title
 		return (

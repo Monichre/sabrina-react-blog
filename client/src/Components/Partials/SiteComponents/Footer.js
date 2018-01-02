@@ -105,7 +105,7 @@ export default class Footer extends Component {
 							<div className="col-sm-6 hide_on_mobile"></div>
 							<div className="col-sm-3 col-xs-12">
 								<div id="loveCraft" className="footer-text">
-									<a href="http://www.lovecraft.io/"><span className="loveCraft"><span className="blue">Love</span><span className="red">Craft</span><span className="white">.io</span></span></a>
+									<a target="_blank" rel="noopener" href="http://www.lovecraft.io/"><span className="loveCraft"><span className="blue">Love</span><span className="red">Craft</span><span className="white">.io</span></span></a>
 								</div>
 							</div>
 						</div>

@@ -13,7 +13,7 @@ export default class Travel extends Component {
   }
 
   componentDidMount(){
-    const data = this.props.data 
+    
   }
 
   getPageData(){
@@ -25,12 +25,11 @@ export default class Travel extends Component {
 
   render(){
 
-    const data = this.props.data.travel
-    const polaroids = this.props.data.polaroids
-    const page = this.props.data.page
+    const data = this.props.data
+    const polaroids = data.polaroids
+    const page = data.page
     const pageTitle = page.fields.title
-    const headers = this.props.data.section_headers
-    console.log(headers)
+    const headers = data.section_headers
     let polaroid_header
 
     const includesPageTag = (header) => (Object.keys(header.fields).includes('sectionReference') ||  header.fields.sectionReference)
