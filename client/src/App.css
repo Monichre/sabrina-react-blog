@@ -1908,6 +1908,7 @@ input[type="color"],
 #mainnav > ul > li {
    display: inline-block;
    padding: 10px;
+   margin: 0 10px;
 }
 
 #mainnav > ul > li > a {
@@ -1944,115 +1945,9 @@ input[type="color"],
 }
 #mainnav ul.menu {
     display: flex;
-    justify-content: space-between;
-}
-/* submenu */
-#mainnav ul.submenu {
-	text-align: left;
-	position: absolute;
-	left: 27px;
-	top: 150%;
-	width: 275px;
-	background-color: #202020;
-	z-index: 9999;
-	z-indexms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-	  filter: alpha(opacity=0);
-	opacity: 0;
-	visibility: hidden;
-	-webkit-transition: all 0.3s ease-in-out;
-	-moz-transition: all 0.3s ease-in-out;
-	-ms-transition: all 0.3s ease-in-out;
-	 -o-transition: all 0.3s ease-in-out;
-	    transition: all 0.3s ease-in-out;
+    justify-content: center;
 }
 
-/* Right sub-menu */
-#mainnav ul.right-sub-menu {
-	/*left: auto;*/
-	right: 0;
-}
-
-#mainnav ul li:hover > ul.submenu {
-	top: 100%;
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-	   filter: alpha(opacity=100);
-	  opacity: 1;
-	visibility: visible;
-}
-
-#mainnav ul li ul li {
-	margin-left: 0;
-}
-
-#mainnav ul.submenu li ul {
-	position: absolute;
-	left: 300px;
-	top: 0 !important;
-}
-
-#mainnav ul.submenu > li.sub-parent:after {
-	content: "\f105";
-	font-family: "FontAwesome";
-	font-size: 14px;
-	position: absolute;
-	right: 25px;
-	top: 11px;
-	color: #ffffff;
--webkit-transition: all 0.3s ease-in-out;
-   -moz-transition: all 0.3s ease-in-out;
-    -ms-transition: all 0.3s ease-in-out;
-     -o-transition: all 0.3s ease-in-out;
-        transition: all 0.3s ease-in-out;
-
-}
-
-#mainnav ul.submenu li:first-child {
-	border-top: none;
-}
-
-#mainnav ul.submenu > li > a {
-	display: block;
-	letter-spacing: 1px;
-	font-size: 13px;
-	color: #fff;
-	text-transform: none;
-	text-decoration: none;
-	padding: 7px 0 7px 26px;
-	line-height: 40px;
--webkit-transition: all 0.3s ease-in-out;
-   -moz-transition: all 0.3s ease-in-out;
-	-ms-transition: all 0.3s ease-in-out;
-	 -o-transition: all 0.3s ease-in-out;
-	    transition: all 0.3s ease-in-out;
-}
-
-#mainnav ul.submenu > li > a:hover {
-	background-color: #ba2424;
-	color: #fff;
-}
-
-#mainnav ul.submenu > li > a {
-	font-family: 'Montserrat', sans-serif;
-	font-weight: 400;
-	font-size: 14px;
-}
-
-#mainnav ul.submenu > li.sub-parent:hover::after {
-	right: 18px;
-}
-
-#mainnav > ul > li > a:hover {
-	color: #ba2424 ;
-	position: relative;
-}
-
-#mainnav-mobi > ul > li > ul > li:first-child a {
-    border-top: none;
-}
-
-#mainnav-mobi ul.submenu > li {
-	padding: 0 30px;
-}
 
 /* Home
 -------------------------------------------------------------- */

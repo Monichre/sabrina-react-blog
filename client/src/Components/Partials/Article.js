@@ -102,10 +102,10 @@ export default class Article extends Component {
 					<div className="social-links">
 						<div className="share-tag social-share-link">Share this post:</div>
 						<div className="social-share-link" data-href="https://www.theresaonthetown.com" data-layout="button_count" data-size="large" data-mobile-iframe="true">
-							<a className="fb-xfbml-parse-ignore" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.theresaonthetown.com%2F&amp;src=sdkpreparse"><i className="fa fa-facebook"></i></a>
+							<a className="fb-xfbml-parse-ignore" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.theresaonthetown.com%2F&amp;src=sdkpreparse"><i className="fa fa-facebook"></i></a>
 						</div>
 						<div className="social-share-link">
-							<a data-pin-do="buttonBookmark" data-pin-custom="true" target="_blank" rel="noopener" href="https://www.pinterest.com/theresaonthetwn"><i className="fa fa-pinterest"></i></a>
+							<a data-pin-do="buttonBookmark" data-pin-custom="true" target="_blank" rel="noopener noreferrer" href="https://www.pinterest.com/theresaonthetwn"><i className="fa fa-pinterest"></i></a>
 						</div>
 					</div>
 				</div>

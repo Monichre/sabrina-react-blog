@@ -128,11 +128,11 @@ class Modal extends Component {
                                     
                                     <div className="col-xs-12">
                                         <div className="footer-social-block">
-                                            <a target="_blank" rel="noopener" href="https://www.instagram.com/theresaonthetown/"><i className="fa fa-lg fa-instagram w-inline-block social-wrap"></i></a>
-                                            <a target="_blank" rel="noopener" href="https://www.youtube.com/channel/UCvZKd-eUuq8A66J-uLr4CZQ"><i className="fa fa-lg fa-youtube w-inline-block social-wrap"></i></a>
-                                            <a target="_blank" rel="noopener" href="https://www.facebook.com/theresaonthetown/"><i className="fa fa-lg fa-facebook w-inline-block social-wrap"></i></a>
-                                            <a target="_blank" rel="noopener" href="https://www.pinterest.com/theresaonthetwn/"><i className="fa fa-lg fa-pinterest w-inline-block social-wrap"></i></a>
-                                            <a target="_blank" rel="noopener" href="https://www.amazon.com/shop/theresaonthetown" target="_blank" rel="noopener"><i className="fa fa-amazon w-inline-block social-wrap" aria-hidden="true"></i></a>
+                                            <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/theresaonthetown/"><i className="fa fa-lg fa-instagram w-inline-block social-wrap"></i></a>
+                                            <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/channel/UCvZKd-eUuq8A66J-uLr4CZQ"><i className="fa fa-lg fa-youtube w-inline-block social-wrap"></i></a>
+                                            <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/theresaonthetown/"><i className="fa fa-lg fa-facebook w-inline-block social-wrap"></i></a>
+                                            <a target="_blank" rel="noopener noreferrer" href="https://www.pinterest.com/theresaonthetwn/"><i className="fa fa-lg fa-pinterest w-inline-block social-wrap"></i></a>
+                                            <a target="_blank" rel="noopener noreferrer" href="https://www.amazon.com/shop/theresaonthetown" target="_blank" rel="noopener noreferrer"><i className="fa fa-amazon w-inline-block social-wrap" aria-hidden="true"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -186,14 +186,14 @@ export default class Nav extends Component {
         const nav_items = data.nav_items
         const popUpText = data.popUpCTA
         const modalToggle = this.state.showModal
-        const search_trigger = <li style={search_menu_item_style}><a className="search-trigger" href="" onClick={this.searchClick.bind(this)}><i className="fa fa-search"></i></a></li>
         const mobile_search_trigger = <li className="mobile_menu_item"><a className="search-trigger" href="" onClick={this.searchClick.bind(this)}><i className="fa fa-search"></i></a></li>
         const menu_items = []
         const mobile_menu_items = []
         const search_menu_item_style = {
             position: 'absolute',
-            right: '7px'
+            right: '0'
         }
+        const search_trigger = <li style={search_menu_item_style}><a className="search-trigger" href="" onClick={this.searchClick.bind(this)}><i className="fa fa-search"></i></a></li>
         const SiteTitle = (
             <li className="site-title">
                 <Link 
@@ -262,11 +262,11 @@ export default class Nav extends Component {
 				<Search onCloseSearchClick={this.handleCloseClick.bind(this)} />             
                 
                 <div className="flat-vertical social-links side_nav">
-                    <a target="_blank" rel="noopener" data-pin-do="buttonFollow" data-pin-custom="true" href="https://www.pinterest.com/theresaonthetwn"><i className="fa fa-pinterest"></i></a>
-                    <a target="_blank" rel="noopener" data-href="https://www.theresaonthetown.com" data-layout="button_count" data-size="large" data-mobile-iframe="true" className="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.theresaonthetown.com%2F&amp;src=sdkpreparse"><i className="fa fa-facebook"></i></a>
-                    <a target="_blank" rel="noopener" href="https://www.youtube.com/channel/UCvZKd-eUuq8A66J-uLr4CZQ"><i className="fa fa-youtube"></i></a>
-                    <a target="_blank" rel="noopener" href="https://www.instagram.com/theresaonthetown/?ref=badge"><i className="fa fa-instagram"></i></a>
-                    <a href="https://www.amazon.com/shop/theresaonthetown" target="_blank" rel="noopener"><i className="fa fa-amazon"></i></a>
+                    <a target="_blank" rel="noopener noreferrer" data-pin-do="buttonFollow" data-pin-custom="true" href="https://www.pinterest.com/theresaonthetwn"><i className="fa fa-pinterest"></i></a>
+                    <a target="_blank" rel="noopener noreferrer" data-href="https://www.theresaonthetown.com" data-layout="button_count" data-size="large" data-mobile-iframe="true" className="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.theresaonthetown.com%2F&amp;src=sdkpreparse"><i className="fa fa-facebook"></i></a>
+                    <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/channel/UCvZKd-eUuq8A66J-uLr4CZQ"><i className="fa fa-youtube"></i></a>
+                    <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/theresaonthetown/?ref=badge"><i className="fa fa-instagram"></i></a>
+                    <a href="https://www.amazon.com/shop/theresaonthetown" target="_blank" rel="noopener noreferrer"><i className="fa fa-amazon"></i></a>
                     <span>FOLLOW ME</span>
                 </div>
                 <div className="flat-vertical reservation side_nav">

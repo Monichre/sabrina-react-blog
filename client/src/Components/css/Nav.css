@@ -138,6 +138,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     height: 100%;
+    list-style: none;
 }
 #mobile_social_menu {
     padding-top: 10px;

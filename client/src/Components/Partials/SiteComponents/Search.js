@@ -9,7 +9,7 @@ const SearchResultsList = (props) => (
 	<div className='search-result'>
 		<h5 className="search-result-item-title">
 			<div className="search-result-thumbnail">
-				<img src={props.result.fields.photos ? props.result.fields.photos[0].fields.file.url : null} />
+				<img src={props.result.fields.mainPhotos ? props.result.fields.mainPhotos[0].fields.file.url : null} />
 			</div>
 			<Link to={'/' + props.result.fields.category[0].fields.title.split(' ')[0].toLowerCase() + '/' + props.result.fields.title} onClick={props.onClick.bind(this)}>{props.result.fields.title}</Link> 
 		</h5>
@@ -53,11 +53,6 @@ export default class Search extends Component {
 				_this.state.searchResults.push(result)
 			})
 		}
-	}
-	appendSearchItems(searchItem){
-		return (
-			<searchItemToAppend image={searchItem.fields.photos ? searchItem.fields.photos[0].fields.files.url : null} />
-		)
 	}
 	handleSearchItemClick(){
 		document.getElementById('Nav').classList.remove('search-visible')

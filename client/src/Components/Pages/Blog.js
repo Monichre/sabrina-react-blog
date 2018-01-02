@@ -14,23 +14,17 @@ export default class Blog extends Component {
         this.getPageData()
     }
 
-    componentDidMount() {}
-
     getPageData() {
         AppDispatcher.dispatch({action: 'get-page-data', page_slug: 'Home'})
     }
 
-    getMoreArticles() {
-        AppDispatcher.dispatch({action: 'get-more-items'})
-    }
-
     render() {
 
-        
         const data = this.props.data
         const featured_posts = data.featured
 		const videoSectionHeader = data.page.fields.pageSectionHeaders[0].fields.headerTitle
         const subHeader = data.page.fields.pageSectionHeaders[0].fields.subHeader
+        const main_content = <BlogList data={data} />
         const options = {
             items: 1,
             nav: true,
@@ -40,22 +34,10 @@ export default class Blog extends Component {
             lazyLoad: true,
             autoplay: true
         }
-
-        const events = {
-            onDragged: function(event) {
-                
-            },
-            onChanged: function(event) {
-                
-            }
-        }
-
-        let main_content
+        
         let video_posts
         let affiliate_entries_html
         
-		main_content = <BlogList data={data} />
-
         if(data.video_entries.length > 0) {
             video_posts = <VideoPosts videos={data.video_entries} header={videoSectionHeader} subHeader={subHeader}/>
         }
@@ -67,8 +49,6 @@ export default class Blog extends Component {
                 )
             })
         }
-
-
         return (
                 <div>
                      <Helmet>
@@ -76,26 +56,25 @@ export default class Blog extends Component {
                             <meta name="description" content={data.page.fields.metaDescription}/>
                             <meta name="keywords" content={data.page.fields.metaTags}/>
                         </Helmet>
-					<OwlCarousel id="featured_posts" ref="owl" options={options} events={events}>
-						{featured_posts.map(post =>
-								<div className="featured_post">
-                                    <img className="featured_post_img" src={CONSTANTS.hasFeaturedPhoto(post) ? post.fields.featuredPhoto.fields.file.url :  null} rel="preload" as="image" alt="featured post photo" />
-									
-									<div className="featured_post_content">
-										<section>
-											<div className="title">
-                                            <Link to={'/' + post.fields.category[0].fields.title.split(' ')[0].toLowerCase() + '/' + post.fields.title}>{post.fields.title}</Link>
-                                            </div>
-											<div className="caption">{post.fields.category[0].fields.title.split(' ')[0]}</div>
-										</section>
-									</div>
-								</div>
-						)}
-					</OwlCarousel>
+                        <OwlCarousel id="featured_posts" ref="owl" options={options}>
+                            {featured_posts.map(post =>
+                                    <div className="featured_post">
+                                        <img className="featured_post_img" src={CONSTANTS.hasFeaturedPhoto(post) ? post.fields.featuredPhoto.fields.file.url :  null} rel="preload" as="image" alt="featured post photo" />
+                                        <div className="featured_post_content">
+                                            <section>
+                                                <div className="title">
+                                                <Link to={'/' + post.fields.category[0].fields.title.split(' ')[0].toLowerCase() + '/' + post.fields.title}>{post.fields.title}</Link>
+                                                </div>
+                                                <div className="caption">{post.fields.category[0].fields.title.split(' ')[0]}</div>
+                                            </section>
+                                        </div>
+                                    </div>
+                            )}
+                        </OwlCarousel>
 
-                {main_content}
-                {video_posts}
-                {affiliate_entries_html}
+                        {main_content}
+                        {video_posts}
+                        {affiliate_entries_html}
             </div>
 		)
 	}
