@@ -1,16 +1,20 @@
 import * as Contentful from 'contentful'
 import _ from 'lodash'
 import AppStore from '../Stores/AppStore'
-const moment = require('moment')
+import runtimeEnv from '@mars/heroku-js-runtime-env'
 
-var config = require('../config').config
+const moment = require('moment')
+const env = runtimeEnv()
+
+const react_space = env.REACT_APP_SPACE
+const token = env.REACT_APP_ACCESS_TOKEN
+
 
 export function getStore(callback) {
-
     
     const cms_client = Contentful.createClient({
-        space: config.auth.space,
-        accessToken: config.auth.accessToken
+        space: react_space,
+        accessToken: token
     })
 
     cms_client.getEntries()
