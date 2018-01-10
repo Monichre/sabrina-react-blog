@@ -44,6 +44,11 @@ app.use(shrinkRay({
         }
     }))
 app.use(express.static(path.resolve(__dirname, '../client/build')));
+
+app.get('/.well-known/acme-challenge/:content', function(req, res) {
+    res.send('kfFYCD2MguOCYgQlPH0CaFO61U07XkWKIVyY2w7SjC8.TbaxDD8rgOSAQLlIdr1uMS9Bd6rrA1T22vwML_nue7w')
+  })
+
 app.get('*', function(request, response) {
   response.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
 })
