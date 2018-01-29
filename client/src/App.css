@@ -3875,6 +3875,9 @@ h1.contact-header::before {
 	height: 2px;
 	background-color: #ba2424;
 }
+#AboutContactTopLayer .title-section .contact-header {
+    text-transform: uppercase;
+}
 
 .contact-me p {
     text-align: center;
