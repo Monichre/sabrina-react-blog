@@ -62,7 +62,7 @@ export default class BlogSingle extends Component {
 		const data = this.props.data
 		const article = data.article
 		const the_other_articles = data.articles.filter(other_article => other_article != article)
-		const description = CONSTANTS.TRIM(article.fields.content)
+		const description = article.fields.title
 		const slug = this.props.match.url
 		
 		let health_obj = {}

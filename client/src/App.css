@@ -4021,8 +4021,9 @@ h1.contact-header::before {
 	float: left;
 }
 
-.main-content.blog-single .post .content-post div p {
-   /* text-align: center; */
+.main-content.blog-single .post .content-post > ul, .main-content.blog-single .post .content-post div ul, .main-content.blog-single .post .content-post div p ul li, .main-content.blog-single .post .content-post > ul li, .main-content.blog-single .post .content-post div ul li, .main-content.blog-single .post .content-post div p ul {
+    line-height: normal!important;
+    margin: 0!important;
 }
 
 .main-content.blog-single .post .content-post div p img, .main-content.blog-single .post .content-post div div iframe {
