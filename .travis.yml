@@ -4,11 +4,10 @@ node_js:
 cache:
   directories:
   - node_modules
-# script:
-# - CI=false npm run build
 deploy:
   provider: heroku
   app:
     master: theresa-on-the-town
     staging: theresa-staging
-  
+  api_key:
+    secure: HIPU0VNkA30lqWQUHeODqENJG8MbsmYxh010MgiizKXHpUEBMjRyW1lcIQ6rL/zaN/X2i92uE057HNBNf1GKRu+uDCNypYH02nF7NWONfvSJV01KCJrp2ycI3Zq5TLCPQLv57Kk1c1Kc5Q+MzFPADDREEcSp9viChVmrT2+fPP2V1HwgfwcaIMQDBSV3JIbWYbLDkIMx9k+LUeMy0N1HavTfo6knxKP7c5F/qnK70uyX0ntRSQzzH2btKgnUesaS7Y32g5Gxvzvhm6vFAFUdDih3fteRrVzryGilNE0cv1PPAk85mTkChrD/TTN6T/ekCctxDNyQmGjAYB71lgyHOVSRxJnCnaRcdTCbYOf36kcyVjTFX0dTVMuqZbxoc6GC2jdOKUFAIAiBcYD791ItcUmPjl9kYOfe28dD+uoDmv0rf/1fjBXEw5Y08Ny6fMpBw/+5blKboEiWL4fZvydpiYw7crqwLMUvOiuEI7YPg61MVwIDGxFV+XZrmrFRwoFBsG2mtFVtYsL+I3Vt+CMTuzXkrnMwyqvrdGtCn2RhuCPose1ar9KLHgHcOkdHOhoQpcduYK6RJd+3Wku0347hee+e+OI9uv1WXgy/v0zqwvHKOdi/amVoqAEnWKjh4J7baBs3b03JRCxYRw2rSbZQ8caIyl357g5pN+uAzR+nO48=
