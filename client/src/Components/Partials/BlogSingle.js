@@ -15,7 +15,6 @@ export default class BlogSingle extends Component {
 
 	componentWillMount() {
 		this.getPageData()
-		console.log(this.props)
 		document.body.scrollTop = 0
 		document.documentElement.scrollTop = 0
 	}
@@ -34,7 +33,6 @@ export default class BlogSingle extends Component {
 	}
 	componentDidMount() {
 		AppStore.addChangeListener(this._onChange.bind(this))
-
 		const all_links = document.querySelectorAll('.content-post a')
 		
 		all_links.forEach((link) => {
@@ -42,7 +40,6 @@ export default class BlogSingle extends Component {
 			link.setAttribute('rel', 'noopenner noferrer')
 		})
 
-		console.log(all_links)
 	}
 	handleLinkClick(params) {
 		let data = this.props.data
@@ -59,8 +56,8 @@ export default class BlogSingle extends Component {
 
 	render() {
 
-		const data = this.props.data
-		const article = data.article
+		const {data} = this.props
+		const {article} = data
 		const the_other_articles = data.articles.filter(other_article => other_article != article)
 		const description = article.fields.title
 		const slug = this.props.match.url
@@ -76,19 +73,20 @@ export default class BlogSingle extends Component {
 		fashion_obj.articles = _.filter(the_other_articles, (article) => article.sys.contentType.sys.id === 'blogPost' && article.fields.category[0].fields.title === 'Fashion Posts').sort((a, b) => {return moment.utc(a.sys.createdAt).diff(moment.utc(b.sys.createdAt))}).reverse()
 		health_obj.articles = _.filter(the_other_articles, (article) => article.sys.contentType.sys.id === 'blogPost' && article.fields.category[0].fields.title === 'Health Posts').sort((a, b) => {return moment.utc(a.sys.createdAt).diff(moment.utc(b.sys.createdAt))}).reverse()
 		travel_obj.articles = _.filter(the_other_articles, (article) => article.sys.contentType.sys.id === 'blogPost' && article.fields.category[0].fields.title === 'Travel Posts').sort((a, b) => {return moment.utc(a.sys.createdAt).diff(moment.utc(b.sys.createdAt))}).reverse()
-
 		const filtered_articles = [fashion_obj, travel_obj, health_obj]
 		
-
 		if (data.affiliate_entries) {
 			data.affiliate_entries.forEach(entry => the_other_articles.push(entry))	
 		} 
-		let the_videos
+		const cachedVids = JSON.parse(localStorage.getItem('video_entries'))
+		const contentfulVids = data.video_entries
+		const allVideos = cachedVids.length > 0 ? cachedVids : contentfulVids
 
-		if (data.video_entries) {
-			the_videos = 	<ul className="recent-list clearfix">
-								{data.video_entries.splice(0, 3).map((video, i) => (
-									<li>
+		let videosHTML
+		if (allVideos.length > 0) {
+			videosHTML = 	<ul className="recent-list clearfix">
+								{allVideos.splice(0, 3).map((video, i) => (
+									<li key={'vidThumb-' + i}>
 										<div className="thumb">
 											<ReactPlayer url={(video.fields.videos && video.fields.videos[0].fields) ? video.fields.videos[0].fields.file.url : video.fields.link}  width='95%'height="100%" playing={false} muted loop={false} controls={false}/>
 										</div>
@@ -168,7 +166,7 @@ export default class BlogSingle extends Component {
 													})}
 													<div className="recent-list-container">
 														<h5 className="widget-category-title">Latest in Video:</h5>
-														{the_videos}
+															{videosHTML}
 													</div>
 											</div>	
 										</div>

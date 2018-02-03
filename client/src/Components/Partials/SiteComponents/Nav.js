@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom'
 import Axios from 'axios'
 import Search from './Search'
 import MobileMenu from './MobileMenu'
-import { PinItButton, PinterestFollowButton } from 'react-pinterest'
 import '../../css/Nav.css'
 import SubscriptionStatus from './SubscriptionStatus'
 
@@ -185,7 +184,6 @@ export default class Nav extends Component {
         const data = this.props.data
         const nav_items = data.nav_items
         const popUpText = data.popUpCTA
-        const modalToggle = this.state.showModal
         const mobile_search_trigger = <li className="mobile_menu_item"><a className="search-trigger" href="" onClick={this.searchClick.bind(this)}><i className="fa fa-search"></i></a></li>
         const menu_items = []
         const mobile_menu_items = []
@@ -202,8 +200,6 @@ export default class Nav extends Component {
             </li>
         )
        
-
-
         nav_items.forEach((nav_item) => {
             let this_route = nav_item.split(' ')[0].toLowerCase()
 

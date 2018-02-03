@@ -47,15 +47,14 @@ export default class Article extends Component {
                 <section className="promo-video space">
 					<div className="container">
 						<div className="row">
-							{this.props.article.fields.videos.map(video =>
-								<div className="col-md-6">
+							{this.props.article.fields.videos.map((video, i) =>
+								<div className="col-md-6" key={'articleVid-' + i}>
 									<div className="imgbox style3">
 										<div className="">
 											<a className="popup-video">
 												<ReactPlayer onClick={this.handleMute.bind(this)} url={video.fields.file.url} width='95%' playing={false} muted loop={false} controls={false} />
 											</a>
 										</div>
-
 									</div>
 								</div>
 							)}

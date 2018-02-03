@@ -3886,33 +3886,6 @@ h1.contact-header::before {
     margin-bottom: 15px;
 }
 
-/* .contact-me p:after {
-	content: ' ';
-	display: block;
-	width: 15px;
-	height: 1px;
-	background-color: #ba2424;
-    margin: 15px 0;
-    left: 50%;
-} */
-
-.contact-top, #react-form input, #react-form textarea {
-
-}
-
-#form-half:hover .contact-top {
-	/*box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);*/
-
-}
-#form-half:hover #react-form input {
-	/*box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);*/
-
-}
-#form-half:hover #react-form textarea {
-	/*box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);*/
-
-}
-
 .getMoreArticles {
     margin: 10px auto 40px;
 }

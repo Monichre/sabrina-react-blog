@@ -43,8 +43,6 @@ export default class VideoPosts extends Component {
             marginTop: '10px'
         }
         const videos = this.props.videos.slice(0, 2)
-        console.log(videos)
-        
         return (
             <div id="VideoPosts" style={style}>
                 <div className="page-title">
@@ -59,7 +57,6 @@ export default class VideoPosts extends Component {
                         </div>
                     </div>
                 </div>
-                
                 <section className="promo-video space">
                     <div className="container">
                         <div className="row">

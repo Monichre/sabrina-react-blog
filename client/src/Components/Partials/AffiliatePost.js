@@ -2,11 +2,7 @@ import React, { Component } from 'react'
 import _ from 'lodash'
 import ReactMarkdown from 'react-markdown'
 
-
-
-
 export default class AffiliatePost extends Component {
-
 
     render() {
 			const header_style = {
@@ -31,8 +27,6 @@ export default class AffiliatePost extends Component {
 						<ReactMarkdown source={this.props.article.fields.content} />
 					</div>
 				</div>) : null
-			
-			console.log(this.props.article)
 
         return (
             <div className="affiliate-preview">

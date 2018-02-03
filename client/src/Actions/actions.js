@@ -32,7 +32,7 @@ export function getStore(callback) {
             let sorted_videos = video_entries.sort((a, b) => {return moment.utc(a.sys.createdAt).diff(moment.utc(b.sys.createdAt))}).reverse()
             let nav_items = _.map(pages, (page) => page.fields.title)
             nav_items = nav_items.sort().reverse()
-
+			localStorage.setItem('video_entries', JSON.stringify(sorted_videos))
             
             AppStore.data.featured = _.filter(articles, (article) => article.fields.featured === true)
             AppStore.data.fashion = _.filter(articles, (article) => article.fields.category[0].fields.title === 'Fashion Posts')
@@ -49,7 +49,6 @@ export function getStore(callback) {
             AppStore.data.affiliate_entries = affiliate_entries
             AppStore.data.pages = pages    
             AppStore.data.ready = true
-
 
             AppStore.emitChange()
             

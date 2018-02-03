@@ -21,17 +21,15 @@ export default class BlogList extends Component {
 		}
 	}
 	getMoreArticles(data) {
-
+		console.log(data)
 		let scrollDistance = document.querySelector('.category-blog-post-previews').offsetTop	
 		let selected = data.selected
-		
+
 		this.setState({
 			counter: selected
 		})
-
 		document.body.scrollTop = scrollDistance
 		document.documentElement.scrollTop = scrollDistance
-
 	}
 	componentWillMount() {
 
@@ -50,7 +48,8 @@ export default class BlogList extends Component {
 			total_articles = this.props.data.articles.length
 		}
 
-		let page_count = Math.ceil(total_articles / item_num)
+		let page_count = Math.floor(total_articles / item_num)
+		console.log(page_count)
 		
 		this.setState({
 			page_count: page_count,
@@ -58,16 +57,14 @@ export default class BlogList extends Component {
 		})
 	}
 
-
-	render() {
-
-		
+	render() {		
 		let data = this.props.data
 		let page = data.page.fields.title
 		let featured_posts = data.featured
 		let item_num = data.item_num
 		let articles = data.articles.filter(article => article.fields.featured !== true)
-		let counter = this.state.counter
+		let {counter} = this.state
+		console.log(counter)
 
 
 		if(page === 'Fashion & Style') {
@@ -78,13 +75,14 @@ export default class BlogList extends Component {
 			articles = data.health
 		}
 		
-	
 		articles = _.chunk(articles, 5)
+		console.log(articles)
 		let articles_subSection = articles[counter]
+		console.log(articles_subSection)
 		let articles_html = articles_subSection.map((article) => {
 			let date_obj = new Date(article.sys.createdAt)
 			let created = CONSTANTS.months[date_obj.getMonth()] + ' ' + date_obj.getDate() + ', ' + date_obj.getFullYear()
-			let category = article.fields.category[0].fields.title.split(' ')[0].toLowerCase()
+			let category = article.fields.category ? article.fields.category[0].fields.title.split(' ')[0].toLowerCase() : null
 			let readMore = <Link to={'/' + category + '/' + article.fields.title}>Read More</Link>
 			let article_link = '/' + category + '/' + article.fields.title
 			const subTitle = Object.keys(article.fields).includes('subHeader') ? article.fields.subHeader : null
