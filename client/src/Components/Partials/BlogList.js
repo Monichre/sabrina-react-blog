@@ -1,4 +1,3 @@
-// BlogList.js
 import React, { Component } from 'react'
 import _ from 'lodash'
 import { Link } from 'react-router-dom'
@@ -8,7 +7,6 @@ import BlogPostPreview_Right from './BlogPostPreviewRight'
 import AffiliatePost from './AffiliatePost'
 import CONSTANTS from '../../constants'
 import ReactPaginate from 'react-paginate'
-
 
 export default class BlogList extends Component {
 	constructor(props) {
@@ -21,7 +19,6 @@ export default class BlogList extends Component {
 		}
 	}
 	getMoreArticles(data) {
-		console.log(data)
 		let scrollDistance = document.querySelector('.category-blog-post-previews').offsetTop	
 		let selected = data.selected
 
@@ -49,8 +46,6 @@ export default class BlogList extends Component {
 		}
 
 		let page_count = Math.floor(total_articles / item_num)
-		console.log(page_count)
-		
 		this.setState({
 			page_count: page_count,
 			item_num: item_num
@@ -64,9 +59,7 @@ export default class BlogList extends Component {
 		let item_num = data.item_num
 		let articles = data.articles.filter(article => article.fields.featured !== true)
 		let {counter} = this.state
-		console.log(counter)
-
-
+		
 		if(page === 'Fashion & Style') {
 			articles = data.fashion
 		} else if (page === 'Travel') {
@@ -76,9 +69,7 @@ export default class BlogList extends Component {
 		}
 		
 		articles = _.chunk(articles, 5)
-		console.log(articles)
 		let articles_subSection = articles[counter]
-		console.log(articles_subSection)
 		let articles_html = articles_subSection.map((article) => {
 			let date_obj = new Date(article.sys.createdAt)
 			let created = CONSTANTS.months[date_obj.getMonth()] + ' ' + date_obj.getDate() + ', ' + date_obj.getFullYear()
