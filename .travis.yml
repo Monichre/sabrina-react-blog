@@ -6,9 +6,9 @@ cache:
   - node_modules
 # script:
 # - CI=false npm run build
-# deploy:
-#   provider: heroku
-#   app:
-#     master: theresa-on-the-town
-#     staging: theresa-staging
+deploy:
+  provider: heroku
+  app:
+    master: theresa-on-the-town
+    staging: theresa-staging
   
