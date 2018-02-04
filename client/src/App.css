@@ -3998,7 +3998,7 @@ h1.contact-header::before {
 }
 
 .main-content.blog-single .post .content-post > ul, .main-content.blog-single .post .content-post div ul, .main-content.blog-single .post .content-post div p ul li, .main-content.blog-single .post .content-post > ul li, .main-content.blog-single .post .content-post div ul li, .main-content.blog-single .post .content-post div p ul {
-    line-height: normal!important;
+    line-height: 22px!important;
     margin: 0!important;
 }
 
