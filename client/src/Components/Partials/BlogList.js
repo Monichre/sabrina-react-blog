@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import _ from 'lodash'
-import { Link } from 'react-router-dom'
+import { Link, HashRouter } from 'react-router-dom'
+import { withRouter } from 'react-router'
 import BlogSingle from './BlogSingle'
 import BlogPostPreview_Left from './BlogPostPreviewLeft'
 import BlogPostPreview_Right from './BlogPostPreviewRight'
@@ -8,37 +9,47 @@ import AffiliatePost from './AffiliatePost'
 import CONSTANTS from '../../constants'
 import ReactPaginate from 'react-paginate'
 
-export default class BlogList extends Component {
+class BlogList extends Component {
 	constructor(props) {
 		super(props)
 
 		this.state = {
 			page_count: 0,
 			item_num: 0,
-			counter: 0
+			counter: (this.props.history.location.hash && this.props.history.location.hash.replace('#', '') - 1 >= 0) ? (this.props.history.location.hash.replace('#', '') - 1) : 0
 		}
 	}
+	
 	getMoreArticles(data) {
-		let scrollDistance = document.querySelector('.category-blog-post-previews').offsetTop	
+		const { history } = this.props
+		let scrollDistance = document.querySelector('.category-blog-post-previews').offsetTop
 		let selected = data.selected
-
+		const hash = `#${selected + 1}`
+		
 		this.setState({
 			counter: selected
 		})
+		history.push({ hash: hash })
 		document.body.scrollTop = scrollDistance
 		document.documentElement.scrollTop = scrollDistance
 	}
 	componentWillMount() {
-
-		let data = this.props.data
+		let {data, history} = this.props
+		let counter = (history.location.hash && history.location.hash.replace('#', '') - 1 >= 0) ? (history.location.hash.replace('#', '') - 1) : 0
+		if (counter) {
+			this.setState({
+				counter: counter
+			})
+		}
+		
 		let page = data.page.fields.title
 		let item_num = data.item_num
-		let total_articles 
+		let total_articles
 
-		if(page === 'Fashion & Style') {
+		if (page === 'Fashion & Style') {
 			total_articles = data.fashion.length
 		} else if (page === 'Travel') {
-			total_articles = data.travel.length 
+			total_articles = data.travel.length
 		} else if (page === 'Health & Wellness') {
 			total_articles = data.health.length
 		} else {
@@ -52,22 +63,24 @@ export default class BlogList extends Component {
 		})
 	}
 
-	render() {		
+
+	render() {
+		
 		let data = this.props.data
 		let page = data.page.fields.title
 		let featured_posts = data.featured
 		let item_num = data.item_num
 		let articles = data.articles.filter(article => article.fields.featured !== true)
-		let {counter} = this.state
-		
-		if(page === 'Fashion & Style') {
+		let { counter } = this.state
+
+		if (page === 'Fashion & Style') {
 			articles = data.fashion
 		} else if (page === 'Travel') {
-			articles = data.travel 
+			articles = data.travel
 		} else if (page === 'Health & Wellness') {
 			articles = data.health
 		}
-		
+
 		articles = _.chunk(articles, 5)
 		let articles_subSection = articles[counter]
 		let articles_html = articles_subSection.map((article) => {
@@ -109,22 +122,22 @@ export default class BlogList extends Component {
 
 		return (
 			<div>
-				<div className="category-blog-post-previews">{articles_html}</div>
-
-				<ReactPaginate
-					previousLabel={"previous"}
-					nextLabel={"next"}
-					breakLabel={'...'}
-					breakClassName={"break-me"}
-					pageCount={this.state.page_count}
-					marginPagesDisplayed={10}
-					pageRangeDisplayed={this.state.page_count}
-					onPageChange={this.getMoreArticles.bind(this)}
-					containerClassName={"pagination"}
-					subContainerClassName={"pages pagination"}
-					activeClassName={"active"} />
-				
-			</div>
+					<div className="category-blog-post-previews">{articles_html}</div>
+					<ReactPaginate
+						initialPage={this.state.counter}
+						previousLabel={"previous"}
+						nextLabel={"next"}
+						breakLabel={'...'}
+						breakClassName={"break-me"}
+						pageCount={this.state.page_count}
+						marginPagesDisplayed={10}
+						pageRangeDisplayed={this.state.page_count}
+						onPageChange={this.getMoreArticles.bind(this)}
+						containerClassName={"pagination"}
+						subContainerClassName={"pages pagination"}
+						activeClassName={"active"} />
+				</div>
 		)
 	}
 }
+export default withRouter(BlogList)

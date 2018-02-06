@@ -24,6 +24,7 @@ export default class Blog extends Component {
         const featured_posts = data.featured
 		const videoSectionHeader = data.page.fields.pageSectionHeaders[0].fields.headerTitle
         const subHeader = data.page.fields.pageSectionHeaders[0].fields.subHeader
+        
         const main_content = <BlogList data={data} />
         const options = {
             items: 1,
