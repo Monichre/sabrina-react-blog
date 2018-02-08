@@ -63,21 +63,12 @@ export function getPageData(page_slug, post_slug) {
     if (!page_slug || page_slug === 'blog'){
         page_slug = 'Home'
     }
-        
     const data = AppStore.data
     const pages = data.pages
     const page = _.find(pages, (page) => page.fields.title === page_slug)
- 
-	let article
     const articles = data.articles
-    if (data.video_entries){
-        data.video_entries.forEach(entry => articles.push(entry))
-    }
-    if (data.affiliate_entries){
-        data.affiliate_entries.forEach(entry => articles.push(entry))
-    }
+    let article
     if (post_slug) {
-		
         article = _.find(articles, (article) => article.fields.title === post_slug)
 		AppStore.data.article = article
     }

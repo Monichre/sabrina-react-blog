@@ -22,9 +22,9 @@ export default class Travel extends Component {
 
 
     const includesPageTag = (header) => (Object.keys(header.fields).includes('sectionReference') ||  header.fields.sectionReference)
-    const data = this.props.data
-    const polaroids = data.polaroids
-    const page = data.page
+    const {data} = this.props
+    const {polaroids} = data
+    const {page} = data
     const pageTitle = page.fields.title
     const headers = data.section_headers
     const travel_style = {

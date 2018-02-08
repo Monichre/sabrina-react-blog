@@ -25,7 +25,7 @@ class BlogList extends Component {
 		let scrollDistance = document.querySelector('.category-blog-post-previews').offsetTop
 		let selected = data.selected
 		const hash = `#${selected + 1}`
-		
+
 		this.setState({
 			counter: selected
 		})
@@ -41,9 +41,8 @@ class BlogList extends Component {
 				counter: counter
 			})
 		}
-		
 		let page = data.page.fields.title
-		let item_num = data.item_num
+		let {item_num} = data
 		let total_articles
 
 		if (page === 'Fashion & Style') {
@@ -53,12 +52,10 @@ class BlogList extends Component {
 		} else if (page === 'Health & Wellness') {
 			total_articles = data.health.length
 		} else {
-			total_articles = this.props.data.articles.length
+			total_articles = data.articles.length
 		}
 
-		let page_count = Math.floor(total_articles / item_num)
 		this.setState({
-			page_count: page_count,
 			item_num: item_num
 		})
 	}
@@ -66,10 +63,10 @@ class BlogList extends Component {
 
 	render() {
 		
-		let data = this.props.data
+		let {data} = this.props
 		let page = data.page.fields.title
 		let featured_posts = data.featured
-		let item_num = data.item_num
+		let {item_num} = data
 		let articles = data.articles.filter(article => article.fields.featured !== true)
 		let { counter } = this.state
 
@@ -80,7 +77,7 @@ class BlogList extends Component {
 		} else if (page === 'Health & Wellness') {
 			articles = data.health
 		}
-
+		
 		articles = _.chunk(articles, 5)
 		let articles_subSection = articles[counter]
 		let articles_html = articles_subSection.map((article) => {
@@ -129,9 +126,9 @@ class BlogList extends Component {
 						nextLabel={"next"}
 						breakLabel={'...'}
 						breakClassName={"break-me"}
-						pageCount={this.state.page_count}
+						pageCount={articles.length}
 						marginPagesDisplayed={10}
-						pageRangeDisplayed={this.state.page_count}
+						pageRangeDisplayed={articles.length}
 						onPageChange={this.getMoreArticles.bind(this)}
 						containerClassName={"pagination"}
 						subContainerClassName={"pages pagination"}
