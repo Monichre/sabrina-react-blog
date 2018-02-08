@@ -66,6 +66,7 @@ class BlogList extends Component {
 		let {data} = this.props
 		let page = data.page.fields.title
 		let featured_posts = data.featured
+		let currentPage = (this.props.history.location.hash && this.props.history.location.hash.replace('#', '') - 1 )  ? this.props.history.location.hash.replace('#', '') - 1 : 0
 		let {item_num} = data
 		let articles = data.articles.filter(article => article.fields.featured !== true)
 		let { counter } = this.state
@@ -121,7 +122,7 @@ class BlogList extends Component {
 			<div>
 					<div className="category-blog-post-previews">{articles_html}</div>
 					<ReactPaginate
-						initialPage={this.state.counter}
+						forcePage={currentPage}
 						previousLabel={"previous"}
 						nextLabel={"next"}
 						breakLabel={'...'}
