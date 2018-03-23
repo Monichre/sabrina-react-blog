@@ -63,7 +63,7 @@ export default class MobileMenu extends Component {
                 </header>
                 <div id="MobileMenu">
                     <ul id="mobile_menu_items">
-                        <li><h1 style={mobile_nav_h1}>Theresa on the Town</h1></li>
+                        <li><h1 style={mobile_nav_h1}><Link to='/'>Theresa on the Town</Link></h1></li>
                         {this.state.menu}
                     </ul>
                 </div>

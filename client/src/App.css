@@ -4229,6 +4229,9 @@ h1.contact-header::before {
     #MobileMenuContainer header h1 a {
         color: #333!important;
     }
+    #mobile_menu_items li h1, #mobile_menu_items li h1 a {
+        color: white;
+    }
     .blog-post-preview {
         border-bottom: 1px solid #eee;
     }
