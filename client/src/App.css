@@ -1547,6 +1547,9 @@ h1, h2, h3, h4, h5, h6 { color: #333333; }
 button {
 	border: none;
 }
+header a {
+    color: inherit;
+}
 
 button,
 input[type="button"],
@@ -4071,7 +4074,7 @@ h1.contact-header::before {
         font-size: 24px;
     }
     .title-section.style2 .sub_title {
-        margin: 0;
+        margin: 10px 0 0;
         font-weight: 400;
     }
     p.date-event.date-style-2 {
@@ -4084,7 +4087,44 @@ h1.contact-header::before {
         margin-top: 20px;
         padding: 0 10px;
     }
-   
+    .blog-post-preview .title-section .title:before, .imgbox.style3 .title-section .title:before, .post .sub_title.show_on_mobile:before {
+        /* display: none; */
+        position: absolute;
+        content: "";
+        width: 15px;
+        height: 5px;
+        background-color: #ba2424;
+        bottom: -15px;
+        left: 48.5%;
+        margin-top: 5px;
+    }
+    .post .sub_title.show_on_mobile:before {
+        
+    }
+    .post .sub_title.show_on_mobile {
+        text-align: center;
+    }
+    ul.recent-list li {
+        padding: 3px;    
+    }
+    .recent-list li p.text a {
+        max-width: auto;
+    }
+    ul.recent-list li a:after, ul.recent-list li .text a:after {
+        display: none;
+    }
+    .recent-list .thumb {
+        height: auto;
+        width: auto;
+        margin: auto;
+    }
+    
+    .recent-list .thumb img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
     .flat-divider.d47px {
         display: none;
     }
@@ -4111,9 +4151,12 @@ h1.contact-header::before {
         flex-direction: column-reverse;
         justify-content: space-evenly;
     }
+    #AboutContactTopLayer {
+        padding: 0;
+    }
     #form-half {
         
-        position: static!important;
+        /* position: static!important; */
         /* top: 50%;
         left: 0;
         width: 100%; */
@@ -4182,6 +4225,9 @@ h1.contact-header::before {
         font-weight: 400;
         margin-left: 30px;
         font-size: 26px;
+    }
+    #MobileMenuContainer header h1 a {
+        color: #333!important;
     }
     .blog-post-preview {
         border-bottom: 1px solid #eee;

@@ -1,11 +1,11 @@
 import React, {Component} from 'react'
+import {Link} from 'react-router-dom'
 import '../../css/Nav.css'
 
 
 export default class MobileMenu extends Component {
     constructor(props){
         super(props)
-
         this.state = {
             mobileMenuOpen: false,
             menu:[]
@@ -21,12 +21,7 @@ export default class MobileMenu extends Component {
             document.getElementById('MobileMenu').classList.add('mobile_menu_active')
         }
     }
-    handleMobileLinkClick() {
-        
-        
-        
 
-    }
     componentDidMount() {
         let menu = document.querySelectorAll('.mobile_menu_item')
         let _self = this
@@ -64,7 +59,7 @@ export default class MobileMenu extends Component {
             <div id="MobileMenuContainer">
                 <header>
                     <div className="btn-menu" onClick={this.showMobileMenu.bind(this)}><span></span></div>
-                    <h1>Theresa on the Town</h1>
+                    <h1><Link to='/'>Theresa on the Town</Link></h1>
                 </header>
                 <div id="MobileMenu">
                     <ul id="mobile_menu_items">
