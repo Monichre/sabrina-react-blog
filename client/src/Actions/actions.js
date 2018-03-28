@@ -108,7 +108,7 @@ export function getPageData(page_slug, post_slug) {
   const { articles, video_entries } = data
   let article
   if (post_slug) {
-    article = _.find(articles, article => article.fields.title === post_slug)
+    article = _.find(articles, article => (article.fields.title === post_slug || article.fields.title.includes(post_slug)))
     if (!article) {
       article = _.find(video_entries, entry => entry.fields.title === post_slug)
     }
