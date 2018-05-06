@@ -145,7 +145,7 @@ export default class About extends Component {
 								<div className="row">
 									<section className="about-me">
 										<div className="title-section">
-											<h1 className="title">About Me</h1>
+											<h1 className="about-header">About Me</h1>
 										</div>
 										<div className="blockquote-testimo">
 											<ReactMarkdown source={data.page.fields.content} />

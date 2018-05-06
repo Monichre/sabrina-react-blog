@@ -1,4 +1,9 @@
-/* RESPONSIVE CSS */
+html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
 
 /* Media Queries
 -------------------------------------------------------------- */
@@ -908,18 +913,23 @@ ul.recent-list li a {
 }
 ul.recent-list li .text {
     margin-top: 10px;
+    margin-left: 10px;
 }
 ul.recent-list li a, ul.recent-list li .text a {
     position: relative;
-    padding-left: 10px;
+    padding: 0;
     color: #ba2424;
 }
 ul.recent-list li a:after, ul.recent-list li .text a:after {
     position: absolute;
     font-family: 'FontAwesome';
     content: "\f0da";
-    left: 0;
+    left: -10px;
+    top: -2px;
 
+}
+.recent-list .thumb div:first-of-type {
+    width: 100%!important;
 }
 ul.recent-list li a.affiliate_thumb img, ul.recent-list li a.affiliate_thumb div video {
     margin: auto;
@@ -1949,6 +1959,7 @@ input[type="color"],
 #mainnav ul.menu {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 
@@ -3381,48 +3392,6 @@ a.social-wrap i {
 	padding-top: 97px;
 }
 
-/* menu single
------------------------------------------------------ */
-.woocommerce-page .entry-summary {
-	float: right;
-	max-width: 532px;
-}
-
-.woocommerce-page .product_title {
-	margin-top: -5px;
-	margin-bottom: 7px;
-}
-
-.woocommerce-page .favorite li i {
-	margin-right: 2px;
-}
-
-.woocommerce-page .entry-summary .price {
-	margin-top: 20px;
-	margin-bottom: 15px;
-	font-size: 26px;
-	font-weight: 700;
-	color: #ba2424;
-}
-
-.woocommerce-page .entry-summary .iconlist {
-	margin-bottom: 40px;
-}
-
-.woocommerce-page .description {
-	margin-bottom: 33px;
-}
-
-.woocommerce-page .cart input[type=number] {
-	max-width: 373px;
-	margin-bottom: 13px;
-}
-
-.woocommerce-page .cart button {
-	min-width: 180px;
-	margin-right: 8px;
-    padding: 14.5px 22px 14.5px 30px;
-}
 
 .quantity input[type="number"] {
 	color: #565656;
@@ -3863,11 +3832,11 @@ video {
 	color: #333;
 }
 
-h1.contact-header {
-    
+h1.contact-header, .about-header {
     line-height: 40px;
     text-align: center;
     position: relative;
+    text-transform: uppercase;
 }
 
 h1.contact-header::before {
@@ -3878,9 +3847,7 @@ h1.contact-header::before {
 	height: 2px;
 	background-color: #ba2424;
 }
-#AboutContactTopLayer .title-section .contact-header {
-    text-transform: uppercase;
-}
+
 
 .contact-me p {
     text-align: center;
@@ -3988,13 +3955,14 @@ h1.contact-header::before {
     max-width: 180px;
 }
 .recent-list .thumb {
-    height: 315px;
-    width: 315px;
+    /* height: 315px;
+    width: 315px; */
     margin: auto;
 }
-.recent-list .thumb img {
+.recent-list .thumb img, .recent-list .thumb div div iframe {
     height: 100%;
     width: 100%;
+    padding: 2.5px;
 }
 .main-content.blog-single .post .direction ul {
 	float: left;
@@ -4060,6 +4028,11 @@ h1.contact-header::before {
 .hide_on_mobile {
     display: block;
 }
+@media only screen and (max-width: 1024px) {
+    ul.recent-list li {
+       padding: 3px;
+    }
+}
 @media only screen and (max-width: 786px) {
    
     .title-section {
@@ -4109,6 +4082,9 @@ h1.contact-header::before {
     }
     .recent-list li p.text a {
         max-width: auto;
+    }
+    ul.recent-list li a, ul.recent-list li .text a {
+        padding: 0!important;
     }
     ul.recent-list li a:after, ul.recent-list li .text a:after {
         display: none;
@@ -4187,6 +4163,16 @@ h1.contact-header::before {
     }
 }
 @media only screen and (max-width: 480px) {
+    .pagination>li>a, .pagination>li>span {
+        padding: 6px 6px;
+    }
+    ul.recent-list li a, ul.recent-list li .text a {
+        padding: 0!important;
+    }
+    ul.recent-list li p {
+        line-height: normal;
+        font-size: 11px;
+    }
     .side_nav {
         display: none;
     }
