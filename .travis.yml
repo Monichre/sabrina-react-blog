@@ -1,9 +1,9 @@
 language: node_js
 node_js:
 - "node"
-cache: yarn
-script: yarn run deploy
-after_script: yarn run alias
+cache: npm
+script: npm run deploy
+after_script: npm run alias
 env:
   global:
     secure: ebdasFE9tAvVVsI2Y6lBpP9Yei26UY1nxXa06i/V9Fr2YfqJwMB5puUiBIbNIXIRBpCoaPDANCtjnd5ihm8GsLkDL2dIYDRInnGuErRLzGLoyE1n9gYSAvsKHW0rl3/HXX4ipIeUmz8dGJCW/J2pa9Zs5gFTfgMMTtdK0Mb9C+fu/UkBsNT9YMywfatNmOdp9GdYfHB4JQvDm3BHJuR3m6qRmIHCUTuUXm4Ewsa0+DveyCgdwCkjmCJ/OIy3dDC4CenG7DfR/f+Iu0CS0wcJFg9vzRuVTYBeTlh8lNeezD0bX904/kVwBdU6pSvRVTmOGxbI5BsrfItDVjuexWck1hRM9Rq/MRlDcJkeKjyy0oTCSR0x9ZefBy0WO2X1s3jby/1jZRPbpMJ9REQL5Kr9gQ2TqMu0/yf8Gv8wMBZ+/h8ap+eHPbtvyUhm3660Wlt54treugwXjNmV0xZO0DiVqnmDZnyETQMIZJWij3nL2AU7aTFd8Jv06otNRniUAeE1F106vy2hMY/zF3laoq9hrarFvDtgEd9vuaM8xsgIJaG8N8fDuehqoTaTuet+XJEwCc+Thd88Ky9j5wlauQobNTl6ZgVIeBsV8SR8xxdrsXAjwR+77hgqeaUFKIcnOca5RwbthH3SvhTM5oNC2CIn2d4XZlf3ZeEypQVKAJA/bZQ=
