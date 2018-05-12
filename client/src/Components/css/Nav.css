@@ -67,6 +67,34 @@
 	        transform-origin: 50% 50%;
 }
 
+
+#MobileMenuContainer header .btn-menu.opened:after {
+	content: "";
+	position: absolute;
+	top: 0;
+	height: 2px;
+	width: 100%;
+	left: 0;
+	top: 50%;
+	-webkit-transform-origin: 50% 50%;
+	    -ms-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+    transform: rotate(60deg);
+}
+#MobileMenuContainer header .btn-menu.opened:before {
+    content: "";
+	position: absolute;
+	top: 0;
+	height: 2px;
+	width: 100%;
+	left: 0;
+	top: 50%;
+	-webkit-transform-origin: 50% 50%;
+	    -ms-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+    transform: rotate(-60deg);
+}
+
 #MobileMenuContainer header .btn-menu span {
 	position: absolute;
 	width: 100%;

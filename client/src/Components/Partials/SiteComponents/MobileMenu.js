@@ -58,7 +58,7 @@ export default class MobileMenu extends Component {
         return (
             <div id="MobileMenuContainer">
                 <header>
-                    <div className="btn-menu" onClick={this.showMobileMenu.bind(this)}><span></span></div>
+                    <div className={`btn-menu ${this.state.mobileMenuOpen ? `opened` : ``}`} onClick={this.showMobileMenu.bind(this)}><span></span></div>
                     <h1><Link to='/'>Theresa on the Town</Link></h1>
                 </header>
                 <div id="MobileMenu">
