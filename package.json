@@ -6,8 +6,14 @@
   "scripts": {
     "start": "node server/server.js",
     "heroku-postbuild": "cd client/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
-    "build": "cd client/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+    "build": "cd client/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
+    "deploy": "cd client/ && yarn install && yarn install --only=dev --no-shrinkwrap && yarn build && now -e NODE_ENV=production --token $NOW_TOKEN --yarn",
+    "alias": "now alias --token=$NOW_TOKEN"
   },
+  "now": {
+    "name": "Theresa on the Town",
+    "alias": "theresaonthetown.com"
+    },
   "author": "",
   "license": "ISC",
   "dependencies": {
