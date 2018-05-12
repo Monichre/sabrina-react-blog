@@ -7,7 +7,7 @@
     "start": "node server/server.js",
     "heroku-postbuild": "cd client/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
     "build": "cd client/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
-    "deploy": "cd client/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build && now -e NODE_ENV=production --token $NOW_TOKEN --npm",
+    "deploy": "now -e NODE_ENV=production --token $NOW_TOKEN --npm",
     "alias": "now alias --token=$NOW_TOKEN"
   },
   "now": {
